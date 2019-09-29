@@ -1,0 +1,196 @@
+\chapter{Appendix 1}
+\label{Appendix}
+In this appendix we report the detailed error analysis of each configuration benchmark of section \ref{sec4}.
+\begin{figure}[!ht]
+\begin{tabular}{c c}
+   \centering
+     \subfloat[\label{fig.21a}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/ER1}
+     } &
+     \subfloat[\label{fig.21b}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/EM1}
+     }
+     \\
+     \subfloat[\label{fig.21c}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/Ec1}
+     } &
+     \subfloat[\label{fig.21d}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/Ed1}
+     }\\
+     \subfloat[\label{fig.21e}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/Esig1}
+     } &
+     \subfloat[\label{fig.21f}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/Eu1}
+     }\\
+     \subfloat[\label{fig.21g}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/ES1}
+     } &
+     \subfloat[\label{fig.21h}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/time1}
+     }
+     \end{tabular}
+   \caption{\label{fig.21} Benchmark results in configuration (1) impact of $n$ over:
+   (a) $E_R$, the Resultant Force relative error,
+   (b) $E_M$, the moment relative error,
+   (c) $E_c$, the interface compliance relative error,
+   (d) $E_d$, the displacement discontinuity relative error,
+   (e) $E_{\sigma}$, the maximum of Von Mises stress relative error,
+   (f) $E_U$, interface displacement field relative error,
+   (g) $E_S$, average Von Mises stress relative error,
+   (h) CPU time (s).}
+   \end{figure}
+   \clearpage
+   \begin{figure}[!ht]
+\begin{tabular}{c c}
+   \centering
+     \subfloat[\label{fig.22a}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/ER2}
+     } &
+     \subfloat[\label{fig.22b}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/EM2}
+     }
+     \\
+     \subfloat[\label{fig.22c}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/EC2}
+     } &
+     \subfloat[\label{fig.22d}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/Ed2}
+     }\\
+     \subfloat[\label{fig.22e}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/Esig2}
+     } &
+     \subfloat[\label{fig.22f}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/EU2}
+     }\\
+     \subfloat[\label{fig.22g}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/ES2}
+     } &
+     \subfloat[\label{fig.22h}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/time2}
+     }
+     \end{tabular}
+   \caption{\label{fig.22} Benchmark results in configuration (2)impact of $m$ over:
+      (a) $E_R$, the Resultant Force relative error,
+      (b) $E_M$, the moment relative error,
+      (c) $E_c$, the interface compliance relative error,
+      (d) $E_d$, the displacement discontinuity relative error,
+      (e) $E_{\sigma}$, the maximum of Von Mises stress relative error,
+      (f) $E_U$, interface displacement field relative error,
+      (g) $E_S$, average Von Mises stress relative error,
+      (h) CPU time (s).}
+   \end{figure}
+    \clearpage
+ \begin{comment}
+In subsection \ref{ssec37} we introduced a procedure in order to correct the projection operator to satisfy the balance of moments at the interface. Here we repeat the same experiences that were conducted for configuration (1) and (2) this time employing the \textit{apriori} moment correction. The results of these numerical experiences are presented in figures \ref{fig.24} and \ref{fig.25}. It is clear that the proposed moments correction significantly improves all error measures considered for all the test cases considered. On the other the computational cost of this procedure is only about 25\% higher and could possibly be further reduced by improved coding.
+
+  
+   
+  
+\begin{figure}[!ht]
+\begin{tabular}{c c}
+   \centering
+     \subfloat[(a): RL-RBF  \label{fig.23a}]{%
+     \adjincludegraphics[width=0.35\textwidth]{stress2_M0}
+     } &
+     \subfloat[(b): Internodes  \label{fig.23b}]{%
+     \adjincludegraphics[width=0.35\textwidth]{stress2_M1}
+     }
+     \\
+     \subfloat[(c): WRM/Mortar  \label{fig.23c}]{%
+     \adjincludegraphics[width=0.35\textwidth]{stress2_M10}
+     } &
+     \subfloat[(d): WACA  \label{fig.23d}]{%
+     \adjincludegraphics[width=0.35\textwidth]{stress2_M1}
+     }
+     \end{tabular}
+      \caption{\label{fig.23} Example of Von Mises stress plot in configuration (1) under bending-traction load case, when $\Gamma_1$ is master and $n=4$ }
+     \end{figure}
+      \end{comment}
+      \clearpage
+     \begin{figure}[!ht]
+\begin{tabular}{c c}
+   \centering
+     \subfloat[\label{fig.24a}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/ER1c}
+     } &
+     \subfloat[\label{fig.24b}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/EM1c}
+     }
+     \\
+     \subfloat[\label{fig.24c}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/Ec1c}
+     } &
+     \subfloat[ \label{fig.24d}]{%
+     \adjincludegraphics[width=0.4\textwidth]{images/Ch1/Ed1c}
+     }\\
+     \subfloat[\label{fig.24e}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/Esig1c}
+     } &
+     \subfloat[\label{fig.24f}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/EU1c}
+     }\\
+     \subfloat[ \label{fig.24g}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/ES1c}
+     } &
+     \subfloat[ \label{fig.24h}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/time1c}
+     }
+     \end{tabular}
+   \caption{\label{fig.24} Benchmark results in configuration (1) after moments balance correction. Impact of $n$ over:
+      (a) $E_R$, the Resultant Force relative error,
+      (b) $E_M$, the moment relative error,
+      (c) $E_c$, the interface compliance relative error,
+      (d) $E_d$, the displacement discontinuity relative error,
+      (e) $E_{\sigma}$, the maximum of Von Mises stress relative error,
+      (f) $E_U$, interface displacement field relative error,
+      (g) $E_S$, average Von Mises stress relative error,
+      (h) CPU time (s).}
+   \end{figure}
+    \clearpage
+   \begin{figure}[!ht]
+\begin{tabular}{c c}
+   \centering
+     \subfloat[\label{fig.25a}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/ER2c}
+     } &
+     \subfloat[\label{fig.25b}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/EM2c}
+     }
+     \\
+     \subfloat[\label{fig.25c}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/EC2c}
+     } &
+     \subfloat[\label{fig.25d}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/Ed2c}
+     }\\
+     \subfloat[\label{fig.25e}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/Esig2c}
+     } &
+     \subfloat[\label{fig.25f}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/EU2c}
+     }\\
+     \subfloat[\label{fig.25g}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/ES2c}
+     } &
+     \subfloat[\label{fig.25h}]{%
+     \adjincludegraphics[width=0.45\textwidth]{images/Ch1/time2c}
+     }
+     \end{tabular}
+   \caption{\label{fig.25} Benchmark results in configuration (2) after moments balance correction. Impact of $m$ over:
+      (a) $E_R$, the Resultant Force relative error,
+      (b) $E_M$, the moment relative error,
+      (c) $E_c$, the interface compliance relative error,
+      (d) $E_d$, the displacement discontinuity relative error,
+      (e) $E_{\sigma}$, the maximum of Von Mises stress relative error,
+      (f) $E_U$, interface displacement field relative error,
+      (g) $E_S$, average Von Mises stress relative error,
+      (h) CPU time (s).}
+   \end{figure}
+    \clearpage
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../phdthesis"
+%%% End: 

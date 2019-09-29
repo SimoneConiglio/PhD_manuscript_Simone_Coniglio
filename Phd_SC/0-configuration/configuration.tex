@@ -1,0 +1,176 @@
+% Encoding and internationalization
+\usepackage[T1]{fontenc}
+\usepackage{aecompl}
+%\usepackage[french]{babel} % Comment this line if the document is written in english
+\usepackage[english]{babel} % Comment this line if the document is written in english
+\usepackage{csquotes}
+\usepackage{marginnote}
+\usepackage{verbatim}
+% Title page from the University of Toulouse (see doc for further explanations)
+\usepackage[ED=MITT-STICRT, Ets=ISAE]{templates/tlsflyleaf}
+%\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\title{Propulsion Airframe Topology Optimization including engine performance and stress criteria}
+\author{Simone CONIGLIO	}
+\defencedate{Date de défense (JJ/MM/AAAA)}
+\lab{Nom du laboratoire (UMR)}
+%\cotutelle{Institut de cotutelle}
+
+%% Directeur(s) de thèse
+\nboss{2}                                    % Nombre de directeur(s) de thèse
+\makesomeone{boss}{2}{Second DIRECTEUR}{}{}  % Sera affiché en second
+\makesomeone{boss}{1}{Premier DIRECTEUR}{}{} % Sera affiché en premier
+%% Referee
+\nreferee{2}
+\makesomeone{referee}{1}{Premier RAPPORTEUR}{}{}
+\makesomeone{referee}{2}{Second RAPPORTEUR}{}{}
+%% Jury
+\njudge{3}
+\makesomeone{judge}{1}{Premier MEMBRE}{Professeur d'Université}{Président du Jury}
+\makesomeone{judge}{2}{Second MEMBRE}{Astronome Adjoint}{Membre du Jury}
+\makesomeone{judge}{3}{Troisième MEMBRE}{Chargé de Recherche}{Membre du Jury}
+
+% Math packages
+\usepackage{amsmath,amssymb}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+\usepackage{a4wide}
+\usepackage[framemethod=default]{mdframed}
+\renewcommand{\baselinestretch}{1.05}
+
+% Graphics and hyperlinks
+\usepackage[linesnumbered,lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{algpseudocode} 
+\usepackage[hyperindex=true]{hyperref}
+\graphicspath{{.}{images/}}
+\usepackage{eso-pic}
+\usepackage{rotating}
+\usepackage[font=normalsize]{subfig}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{plot coordinates/math parser=false}
+\newlength\figureheight
+\newlength\figurewidth
+\usepackage{cite}
+
+%\pgfkeys{/pgf/number format/.cd,
+%set decimal separator={,\!},
+%1000 sep={\,},
+%} % Comment this line if the document is written in english
+
+\usetikzlibrary{plotmarks}
+\usepackage{pdfpages}
+
+\usepackage[strict]{changepage}
+\newcommand\BackgroundPic{
+\put(0,0){
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=0.9\paperwidth,height=1\paperheight,keepaspectratio]{images/background-eps-converted-to}%
+\vfill
+}}}
+
+\usepackage{color}
+\definecolor{linkcol}{rgb}{0,0,0} 
+\definecolor{citecol}{rgb}{0,0,0}
+
+\hypersetup
+{
+bookmarksopen=true,
+pdftitle={Mon sujet de thèse complet},
+pdfauthor={Prénom NOM},
+pdfsubject={Rapport de thèse},
+pdfmenubar=true,
+pdfhighlight=/O,
+colorlinks=true,
+pdfpagelayout=SinglePage,
+pdffitwindow=true,
+linkcolor=black,
+citecolor=blue,
+urlcolor=blue
+}
+
+
+
+% Headers and footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[RE]{\bfseries\nouppercase{\leftmark}}
+\fancyhead[LO]{\bfseries\nouppercase{\rightmark}}
+
+\let\headruleORIG\headrule
+\renewcommand{\headrule}{\color{black} \headruleORIG}
+\renewcommand{\headrulewidth}{1.0pt}
+\usepackage{colortbl}
+\arrayrulecolor{black}
+\usepackage{epstopdf}
+\fancypagestyle{plain}{
+  \fancyhead{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+\usepackage[footnote]{acronym}
+
+% Mini table of content and acronyms
+\usepackage[nottoc, notlof, notlot]{tocbibind}
+\usepackage[english]{minitoc}
+\setcounter{minitocdepth}{2}
+\mtcindent=15pt
+\setlength{\parskip}{10pt}
+
+\let\minitocORIG\minitoc
+\renewcommand{\minitoc}{\minitocORIG \vspace{1.5em}}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+\usepackage{silence}
+
+\WarningFilter{minitoc(hints)}{W0023}
+\WarningFilter{minitoc(hints)}{W0024}
+\WarningFilter{minitoc(hints)}{W0028}
+\WarningFilter{minitoc(hints)}{W0030}
+
+% References formatting
+% Bibtex
+% \renewcommand*{\backref}[1]{}
+% \renewcommand*{\backrefalt}[4]{
+% \ifcase #1 
+% (Non cité.)
+% \or
+% (Cité en page~#2.)
+% \else
+% (Cité en pages~#2.)
+% \fi}
+%\renewcommand*{\backrefsep}{, }
+%\renewcommand*{\backreftwosep}{ et~}
+%\renewcommand*{\backreflastsep}{ et~}
+
+% BibLatex
+%\usepackage[style=alphabetic-verb,backend=bibtex,isbn=false,doi=false,backref=true,url=false]{biblatex}
+%\addbibresource{mybib.bib}
+%\inputencoding{utf8}
+
+% Pages succession
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else%
+  \hbox{}%
+  \thispagestyle{empty}%
+  \newpage%
+  \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+
+\newenvironment{vcenterpage}
+{\newpage\vspace*{\fill}\thispagestyle{empty}\renewcommand{\headrulewidth}{0pt}}
+{\vspace*{\fill}}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../phdthesis"
+%%% End: 

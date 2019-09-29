@@ -1,0 +1,55 @@
+%\begin{vcenterpage}
+%\noindent\rule[2pt]{\textwidth}{0.5pt}
+%\begin{center}
+%{\large\textbf{Title in english\\}}
+%\end{center}
+{\large\textbf{Abstract ---}}
+The integration of high bypass ratio engines currently represents a huge challenge for aircraft manufacturers. In fact, structural issues are caused by their geometric characteristics: increased fan diameter and decreased core diameter. The engine deformations induced by maneuver loads must be controlled to avoid excessive variations of the clearances between rotating blade tips and the fixed engine casing. These clearances are known as "tip-clearance" and if not controlled can increase the engine specific fuel consumption, reduce operability and increase maintenance costs.  The structures integrating the engine under the wing, i.e. pylon, engine mounts and nacelle, impact the way in which the engine deforms under maneuver loads. Therefore these structures can be designed to reduce tip clearances (and consequently specific fuel consumption) variations.  An aircraft manufacturer, has very limited control on engine design, but has main control over the integration of the engine to the rest of the aircraft and seeks novel architectures for this integration. \\
+Given this context, the main goal of this PhD consists in developing numerical tools for exploring novel architectures for engine to wing integration by controlling engine deformations and thus fuel consumption variations. Topology optimization was chosen as a framework for the exploration of such novel designs.
+Topology optimization is a mathematical method that optimizes material layout within a given design space, for a set of loads, boundary conditions and constraints, with the goal of maximizing the performance of the system.
+In our context, this technique can also help recognizing integration key design choices affecting tip-clearance variations.\\
+To use such an approach, a structural model of both engine and design space are required. The engine model can be considered as an input to the aircraft manufacturer. Usually it is delivered by the engine manufacturer as a finite element model in a commercial software such as Nastran or Abaqus. The engine model was integrated in the developed framework by the use of a superelement strategy that avoids implementation complexity and discrepancies in finite element responses. \\
+The topology optimization of the design space between the engine and the wing was considered, including stress constraints and performance criteria (fuel consumption variations). The proposed approach allows the control of both fuel consumption variations and sizing when architecture choices are made. In this thesis we make the distinction between Eulerian and Lagrangian approaches to topology optimization. On one hand, in Eulerian approaches the solution is described by a density field that identifies material and void regions in the design space. On the other hand Lagrangian approaches solutions are described as assemblies of simple geometric primitives that can be combined to achieve complex designs. In this thesis both are investigated as they can contribute with complementary solutions.\\
+To avoid Eulerian approaches inherent issues, density filtering was considered in this PhD and, to reduce the computational burden required to build the filtering matrix, a multigrid strategy was proposed. The Unified Aggregation Relaxation approach was considered to make singular optima accessible and efficiently deal with a large number of stress constraints. Finally, to efficiently apply constraints in the optimization problem the adjoint evaluation of gradients of stress and performance constraints was derived.
+\\
+In the context of Lagrangian topology optimization, we proposed a method generalizing existing techniques (Geometry Projection, Moving Morphable Components and Moving Node Approach). This approach was validated on classic 2D numerical examples (Short cantilever beam and L-shape). It was then extended to the optimization of the engine to wing attachment.\\
+The results obtained with both Eulerian and Lagrangian approaches on a generic engine integration design usecase are consistent with modeling hypothesis and illustrate novel opportunities for original designs of engine to wing attachments. The developed framework thus provides innovative tools for exploring new designs for improving the engine-to-aircraft integration.\\
+
+{\large\textbf{Keywords:}}
+    Topology Optimization, Finite Element Analysis, Mesh tying, Geometric Multigrid, Geometry Projection, Moving Morphable Componets (MMC), Moving Nodes Approaches (MNA).
+\\
+\noindent\rule[2pt]{\textwidth}{0.5pt}
+
+\pagebreak
+
+%\noindent\rule[2pt]{\textwidth}{0.5pt}
+
+{\large\textbf{Résumé ---}}
+L'intégration de moteurs turbofan caractérisés par un très grand taux de dilution représente aujourd'hui un énorme défi technique pour les fabricants d'avion. En effet, des problèmes structuraux sont causés par leur caractéristiques géométriques, c.à.d. un diamètre de la soufflante élargi et un diamètre de la turbine proprement dite réduite. Les déformations du moteur induites par les charges en manœuvres de l'avion doivent être contrôlées pour éviter de trop grandes variations des jeux entre les parties tournantes et parties fixes du moteur appelées "tip clearance".  Ces jeux, s'ils ne sont pas contrôlés, peuvent engendrer une surconsommation du moteur, limiter son opérabilité, ou augmenter les couts de maintenance.\\
+Les structures qui intègrent le moteur sous la voilure,  c.à.d. le mât, les attaches moteur et la nacelle, peuvent impacter la façon dont le moteur se déforme sous l'action des charges dû aux manœuvres de l'avion. Pour cette raison ces structures peuvent être conçues pour réduire les variations de "tip clearance" et par conséquent les variations de consommation du moteur. Le constructeur d'avions, a une influence limitée sur la conception du moteur, mais a le contrôle sur l'intégration du moteur au reste de l'avion et cherche des nouvelles architectures pour cette intégration.
+Dans ce contexte, l'objectif principal de la thèse est de développer des outils numériques pour l'exploration de nouvelles architectures pour l'intégration du moteur à la voilure tout en gardant sous contrôle les déformations du moteurs et donc la variation de consommation de carburant.  L'optimisation topologique a été sélectionnée comme outil principal d'exploration pour des tels conceptions innovants. \\
+Par définition, l’optimisation topologique est une méthode mathématique qui  cherche à trouver le meilleur arrangement de matière dans un espace de conception donné pour des chargements, des conditions limites, des contraintes et des objectifs donnés. Dans notre contexte, cette technique permet de reconnaitre quels sont les choix architecturaux qui impactent le plus les variations de "tip-clearance".
+Pour utiliser une telle approche un modèle structure à la fois du moteur et de l'espace de conception sont nécessaires.
+Le modèle moteur peut être considéré comme un input pour le fabricant d'avions. En effet, celui-ci est souvent livré par le motoriste comme un modèle élément finis dans des logiciels commerciaux comme Nastran ou Abaqus. Pour considérer ce modèle dans notre environnement de développement nous avons utilisé des superelements. Cela évite une très grande complexité d'implémentation et des différences dans les réponses d'intérêt. 
+L'optimisation topologique de l'espace de conception entre le moteur et la voilure a été considérée, en incluant des contraintes de stress admissible et critères de performances (variations de consommation de carburant). L'approche qu'on propose permet de contrôler la variation de consommation et le dimensionnement des structures pour une architecture donnée. 
+Dans ce manuscrit, nous mettons en avant deux formalismes : l’approche Eulérienne et l’approche Lagrangienne. Dans la première famille, le concept est décrit à l'aide d'un champ de densité qui identifie les zones pleines et vides dans la région de conception. Les approches Lagrangiennes décrivent, elles, le concept comme un assemblage de composants caractérisés par une géométrie simple.
+Nos développements méthodologiques s'appuient sur ces deux formalismes pour résoudre le problème industriel de conception d'architecture du système propulsif (ensemble mat réacteur et attaches moteur), étant donnée la complémentarité des solutions proposées par ces approches. 
+Pour éviter problèmes numériques associés avec les approches Eulériennes, le filtre de densité a été considéré dans ce travail et pour réduire le nombre d'opérations associé avec la construction de la matrice de filtrage, une stratégie multi-maillage a été proposée.
+Optimiser des structures composées de millions d’éléments présente aussi un défi important dans le traitement des contraintes en stress. Celui a été résolu en utilisant une stratégie unifiée d'agrégation et de relaxation. Les dérivées de chaque réponse considérée dans le problème d'optimisation topologique ont été calculées analytiquement avec la méthode adjointe. 
+Nous avons aussi proposé, dans le cadre de l’optimisation topologique Lagrangienne, une méthode généralisant les techniques existantes (Projection Géométrique, MMC, MNA). Cette approche a été validée sur des exemples académiques classiques de la littérature (Poutre encastrée 2D, Poutre en L 2D). Enfin, l'environnement d’optimisation topologique développé a été testé sur un exemple de conception d'intégration  de moteur. La méthodologie développée fourni ainsi des outils innovants pour l'exploration de nouveaux conceptions et pour améliorer l'intégration du moteur à l'avion.
+
+{\large\textbf{Mots clés :}}
+    Optimisation topologique, Éléments finis, Interface de maillage, méthode multi-grille, projection géométrique  MMC (Moving Morphable Components), MNA (Moving Nodes Approach).
+\\
+\noindent\rule[2pt]{\textwidth}{0.5pt}
+
+%\begin{center}
+%  Institut Cl\'ement Ader, 3 Rue Caroline Aigle\\
+%  Toulouse, France
+%\end{center}
+%\end{vcenterpage}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../phdthesis"
+%%% End:

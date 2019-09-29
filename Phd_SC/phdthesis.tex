@@ -1,0 +1,104 @@
+% A LaTeX template fitted for a Phd thesis report
+% Copyright (C) 2013 Damien Roque
+
+% This program is free software; you can redistribute it and/or
+% modify it under the terms of the GNU General Public License
+% as published by the Free Software Foundation; either version 2
+% of the License, or (at your option) any later version.
+
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+
+% You should have received a copy of the GNU General Public License
+% along with this program; if not, write to the Free Software
+% Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+% Author : Damien Roque <damien.roque_AT_isae-supaero.fr>
+
+\documentclass[a4paper,11pt,twoside]{templates/roque-phdthesis-template}
+
+% Include configuration (loading packages, defining the style of the document...)
+\usepackage[utf8]{inputenc}
+\include{0-configuration/configuration}
+% Include user's macros
+\include{0-configuration/macros}
+
+% Build only the following parts of the document (recommended for large documents)
+% \include{2-chapters/2-1-introduction}
+% \include{2-chapters/2-2-first-chapter}
+% \include{2-chapters/2-3-another-chapter}
+% \include{2-chapters/2-7-conclusion}
+
+\begin{document}
+% Include the title pages
+% (the first is made mandatory by UDG and the second is more traditional)
+%\include{1-opening/titlepage}
+\includepdf[pages={1}]{1-opening/first_page_Simone_Coniglio.pdf}
+% Build a per-chapter table of content
+\dominitoc
+
+% Use roman page numbering for non-significant pages
+\pagenumbering{roman}
+\frontmatter
+
+% Include the acknowledgements page
+\cleardoublepage
+\include{1-opening/acknowledgements}
+\include{1-opening/abstract}
+% Build the general table of contents
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+% Build the list of figures
+\listoffigures
+
+% Build the list of tables
+\listoftables
+
+% Include the acronym list
+\cleardoublepage
+\include{1-opening/acronyms}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Chapters are included here %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Use arabic page numbering for significant pages
+\mainmatter
+\pagestyle{fancy}
+
+% Include the chapters
+\include{2-chapters/2-1-introduction}
+\include{2-chapters/2-2-first-chapter}
+\include{2-chapters/2-3-second-chapter}
+\include{2-chapters/2-4-third-chapter}
+%\include{2-chapters/2-3-another-chapter}
+\include{2-chapters/2-7-conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Appendices are included here %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\include{3-appendices/3-1-first-appendix}
+\include{3-appendices/3-2-second-appendix}
+\include{3-appendices/3-3-third-appendix}
+% Build the references list
+% Bibtex
+%\bibliographystyle{alpha}
+%\bibliography{mybib.bib}
+\bibliography{mybib}
+\bibliographystyle{apalike}      % mathematics and physical sciences
+% BibLatex
+%\printbibliography
+%\addstarredchapter{References}
+%\markboth{References}{Bibliographie}
+
+% Include the abstract
+\cleardoublepage
+\input{4-closing/abstract}
+
+\end{document}
+
+

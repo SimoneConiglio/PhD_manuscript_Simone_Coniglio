@@ -1,0 +1,1536 @@
+\begin{thebibliography}{}
+
+\bibitem[Aage et~al., 2017]{aage2017giga}
+Aage, N., Andreassen, E., Lazarov, B.~S., and Sigmund, O. (2017).
+\newblock Giga-voxel computational morphogenesis for structural design.
+\newblock {\em Nature}, 550(7674):84.
+
+\bibitem[Alexandrov et~al., 1998]{alexandrov1998trust}
+Alexandrov, N.~M., Dennis, J., Lewis, R.~M., and Torczon, V. (1998).
+\newblock A trust-region framework for managing the use of approximation models
+  in optimization.
+\newblock {\em Structural optimization}, 15(1):16--23.
+
+\bibitem[Allaire and Francfort, 1993]{allaire1993numerical}
+Allaire, G. and Francfort, G. (1993).
+\newblock A numerical algorithm for topology and shape optimization.
+\newblock In {\em Topology design of structures}, pages 239--248. Springer.
+
+\bibitem[Allaire et~al., 2004]{allaire2004structural}
+Allaire, G., Jouve, F., and Toader, A.-M. (2004).
+\newblock Structural optimization using sensitivity analysis and a level-set
+  method.
+\newblock {\em Journal of computational physics}, 194(1):363--393.
+
+\bibitem[Allaire and Kohn, 1993]{allaire1993topology}
+Allaire, G. and Kohn, R. (1993).
+\newblock Topology optimization and optimal shape design using homogenization.
+\newblock In {\em Topology design of structures}, pages 207--218. Springer.
+
+\bibitem[Altman, 1992]{altman1992introduction}
+Altman, N.~S. (1992).
+\newblock An introduction to kernel and nearest-neighbor nonparametric
+  regression.
+\newblock {\em The American Statistician}, 46(3):175--185.
+
+\bibitem[Ambrosio and Buttazzo, 1993]{ambrosio1993optimal}
+Ambrosio, L. and Buttazzo, G. (1993).
+\newblock An optimal design problem with perimeter penalization.
+\newblock {\em Calculus of Variations and Partial Differential Equations},
+  1(1):55--69.
+
+\bibitem[Aminpour et~al., 1995]{aminpour1995coupled}
+Aminpour, M.~A., Ransom, J.~B., and McCleary, S.~L. (1995).
+\newblock A coupled analysis method for structures with independently modelled
+  finite element subdomains.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  38(21):3695--3718.
+
+\bibitem[Amir et~al., 2014]{amir2014multigrid}
+Amir, O., Aage, N., and Lazarov, B.~S. (2014).
+\newblock On multigrid-cg for efficient topology optimization.
+\newblock {\em Structural and Multidisciplinary Optimization}, 49(5):815--829.
+
+\bibitem[Andreassen et~al., 2011]{andreassen2011efficient}
+Andreassen, E., Clausen, A., Schevenels, M., Lazarov, B.~S., and Sigmund, O.
+  (2011).
+\newblock Efficient topology optimization in matlab using 88 lines of code.
+\newblock {\em Structural and Multidisciplinary Optimization}, 43(1):1--16.
+
+\bibitem[Ashby and Falgout, 1996]{ashby1996parallel}
+Ashby, S.~F. and Falgout, R.~D. (1996).
+\newblock A parallel multigrid preconditioned conjugate gradient algorithm for
+  groundwater flow simulations.
+\newblock {\em Nuclear Science and Engineering}, 124(1):145--159.
+
+\bibitem[Babu{\v{s}}ka, 1973]{babuvska1973finite}
+Babu{\v{s}}ka, I. (1973).
+\newblock The finite element method with lagrangian multipliers.
+\newblock {\em Numerische Mathematik}, 20(3):179--192.
+
+\bibitem[Babu{\v{s}}ka and Narasimhan, 1997]{babuvska1997babuvska}
+Babu{\v{s}}ka, I. and Narasimhan, R. (1997).
+\newblock The babu{\v{s}}ka-brezzi condition and the patch test: an example.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  140(1-2):183--199.
+
+\bibitem[Barlow, 1982]{barlow1982constraint}
+Barlow, J. (1982).
+\newblock Constraint relationships in linear and nonlinear finite element
+  analyses.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  18(4):521--533.
+
+\bibitem[Becker et~al., 2003]{becker2003finite}
+Becker, R., Hansbo, P., and Stenberg, R. (2003).
+\newblock A finite element method for domain decomposition with non-matching
+  grids.
+\newblock {\em ESAIM: Mathematical Modelling and Numerical Analysis},
+  37(2):209--225.
+
+\bibitem[Beckert and Wendland, 2001]{beckert2001multivariate}
+Beckert, A. and Wendland, H. (2001).
+\newblock Multivariate interpolation for fluid-structure-interaction problems
+  using radial basis functions.
+\newblock {\em Aerospace Science and Technology}, 5(2):125--134.
+
+\bibitem[Bell et~al., 2012]{bell2012geometry}
+Bell, B., Norato, J., and Tortorelli, D. (2012).
+\newblock A geometry projection method for continuum-based topology
+  optimization of structures.
+\newblock In {\em 12th AIAA Aviation Technology, Integration, and Operations
+  (ATIO) Conference and 14th AIAA/ISSMO Multidisciplinary Analysis and
+  Optimization Conference}, volume 5485.
+
+\bibitem[Bends{\o}e and Sigmund, 2003]{bendsoe2003theory}
+Bends{\o}e, M. and Sigmund, O. (2003).
+\newblock Theory, methods and applications.
+\newblock {\em Topology optimization. Springer, Berlin}.
+
+\bibitem[Bends{\o}e, 1989]{bendsoe1989optimal}
+Bends{\o}e, M.~P. (1989).
+\newblock Optimal shape design as a material distribution problem.
+\newblock {\em Structural optimization}, 1(4):193--202.
+
+\bibitem[Bends{\o}e et~al., 1993]{bendsoe1993topology}
+Bends{\o}e, M.~P., D{\'\i}az, A., and Kikuchi, N. (1993).
+\newblock Topology and generalized layout optimization of elastic structures.
+\newblock In {\em Topology design of structures}, pages 159--205. Springer.
+
+\bibitem[Bends{\o}e and Kikuchi, 1988]{bendsoe1988generating}
+Bends{\o}e, M.~P. and Kikuchi, N. (1988).
+\newblock Generating optimal topologies in structural design using a
+  homogenization method.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  71(2):197--224.
+
+\bibitem[Bends{\o}e and Sigmund, 1995]{bendsoe1995optimization}
+Bends{\o}e, M.~P. and Sigmund, O. (1995).
+\newblock {\em Optimization of structural topology, shape, and material},
+  volume 414.
+\newblock Springer.
+
+\bibitem[Benito et~al., 2008]{benito20083d}
+Benito, D., Dixon, J., and Metherell, P. (2008).
+\newblock 3d thermomechanical modelling method to predict compressor local tip
+  running clearances.
+\newblock In {\em Proc. ASME Turbo Expo}, pages 1--10.
+
+\bibitem[Bernardi, 1989]{bernardi1989new}
+Bernardi, C. (1989).
+\newblock A new nonconforming approach to domain decomposition: the mortar
+  element method.
+\newblock {\em Nonlinear partial equations and their applications}.
+
+\bibitem[Bernardi et~al., 1993]{bernardi1993domain}
+Bernardi, C., Maday, Y., and Patera, A.~T. (1993).
+\newblock Domain decomposition by the mortar element method.
+\newblock {\em Asymptotic and numerical methods for partial differential
+  equations with critical parameters}, 384:269--286.
+
+\bibitem[Bertsekas, 2014]{bertsekas2014constrained}
+Bertsekas, D.~P. (2014).
+\newblock {\em Constrained optimization and Lagrange multiplier methods}.
+\newblock Academic press.
+
+\bibitem[Bettebghor et~al., 2013]{bettebghor2013bi}
+Bettebghor, D., Blondeau, C., Toal, D., and Eres, H. (2013).
+\newblock Bi-objective optimization of pylon-engine-nacelle assembly: weight
+  vs. tip clearance criterion.
+\newblock {\em Structural and Multidisciplinary Optimization}, 48(3):637--652.
+
+\bibitem[Bhat et~al., 2019]{vilas2019Une}
+Bhat, V.~K., Coniglio, S., Morlier, J., and Charlotte, M. (2019).
+\newblock Une approche par projection pour l’optimisation topologique de
+  structures imprimées par fabrication additive.
+\newblock In {\em CSMA 2019}.
+
+\bibitem[Bin~Zubair, 2009]{bin2009efficient}
+Bin~Zubair, H. (2009).
+\newblock Efficient multigrid methods based on improved coarse grid correction
+  techniques.
+
+\bibitem[Bin~Zubair et~al., 2010]{bin2010geometric}
+Bin~Zubair, H., MacLachlan, S.~P., and Oosterlee, C.~W. (2010).
+\newblock A geometric multigrid method based on l-shaped coarsening for pdes on
+  stretched grids.
+\newblock {\em Numerical Linear Algebra with Applications}, 17(6):871--894.
+
+\bibitem[Bitencourt et~al., 2015]{bitencourt2015coupling}
+Bitencourt, L.~A., Manzoli, O.~L., Prazeres, P.~G., Rodrigues, E.~A., and
+  Bittencourt, T.~N. (2015).
+\newblock A coupling technique for non-matching finite element meshes.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  290:19--44.
+
+\bibitem[Bochev and Day, 2007]{bochev2007least}
+Bochev, P. and Day, D. (2007).
+\newblock A least-squares method for consistent mesh tying.
+\newblock {\em Int. J. Num. Anal. and Modeling}, 4:342--352.
+
+\bibitem[Borrvall, 2001]{borrvall2001topology}
+Borrvall, T. (2001).
+\newblock Topology optimization of elastic continua using restriction.
+\newblock {\em Archives of Computational Methods in Engineering},
+  8(4):351--385.
+
+\bibitem[Borrvall and Petersson, 2001]{borrvall2001large}
+Borrvall, T. and Petersson, J. (2001).
+\newblock Large-scale topology optimization in 3d using parallel computing.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  190(46-47):6201--6229.
+
+\bibitem[Bouhlel et~al., 2018]{bouhlel2018efficient}
+Bouhlel, M.~A., Bartoli, N., Regis, R., Otsmane, A., and Morlier, J. (2018).
+\newblock Efficient global optimization for high-dimensional constrained
+  problems by using the kriging models combined with the partial least squares
+  method.
+\newblock {\em Engineering Optimization}, 0.
+
+\bibitem[Bourdin, 2001]{bourdin2001filters}
+Bourdin, B. (2001).
+\newblock Filters in topology optimization.
+\newblock {\em International journal for numerical methods in engineering},
+  50(9):2143--2158.
+
+\bibitem[Brandt, 2002]{brandt2002multiscale}
+Brandt, A. (2002).
+\newblock Multiscale scientific computation: Review 2001.
+\newblock pages 3--95.
+
+\bibitem[Bruggi, 2008]{bruggi2008alternative}
+Bruggi, M. (2008).
+\newblock On an alternative approach to stress constraints relaxation in
+  topology optimization.
+\newblock {\em Structural and multidisciplinary optimization}, 36(2):125--141.
+
+\bibitem[Bruns and Tortorelli, 2001]{bruns2001topology}
+Bruns, T.~E. and Tortorelli, D.~A. (2001).
+\newblock Topology optimization of non-linear elastic structures and compliant
+  mechanisms.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  190(26-27):3443--3459.
+
+\bibitem[Bruyneel et~al., 2002]{bruyneel2002family}
+Bruyneel, M., Duysinx, P., and Fleury, C. (2002).
+\newblock A family of mma approximations for structural optimization.
+\newblock {\em Structural and Multidisciplinary Optimization}, 24(4):263--276.
+
+\bibitem[Buhmann, 2003]{buhmann2003radial}
+Buhmann, M.~D. (2003).
+\newblock {\em Radial basis functions: theory and implementations}, volume~12.
+\newblock Cambridge university press.
+
+\bibitem[Buleev, 1960]{buleev1960numerical}
+Buleev, N. (1960).
+\newblock Numerical method for solving two-and three-dimensional diffusion
+  equations.
+\newblock {\em Matematicheskii Sbornik}, 93(2):227--238.
+
+\bibitem[Cafiero et~al., 2016]{cafiero2016domain}
+Cafiero, M., Lloberas-Valls, O., Cante, J., and Oliver, J. (2016).
+\newblock The domain interface method: a general-purpose non-intrusive
+  technique for non-conforming domain decomposition problems.
+\newblock {\em Computational mechanics}, 57:555.
+
+\bibitem[Cai et~al., 2014]{cai2014stress}
+Cai, S., Zhang, W., Zhu, J., and Gao, T. (2014).
+\newblock Stress constrained shape and topology optimization with fixed mesh: A
+  b-spline finite cell method combined with level set function.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  278:361--387.
+
+\bibitem[Capasso et~al., 2019]{capasso2019optimisation}
+Capasso, G., Coniglio, S., Morlier, J., and Charlotte, M. (2019).
+\newblock Optimisation topologique de structures adaptatives (bi-stables) en
+  mécanique non-linéaire.
+\newblock In {\em CSMA 2019}.
+
+\bibitem[Cebral{\=I} and L{\v{C}}ohner{\=e}, 1997]{cebrali1997conservative}
+Cebral{\=I}, J.~R. and L{\v{C}}ohner{\=e}, R. (1997).
+\newblock Conservative load projection and tracking for fluid-structure
+  problems.
+\newblock {\em AIAA journal}, 35(4).
+
+\bibitem[Change et~al., 2007]{change2007physical}
+Change, I.~C. et~al. (2007).
+\newblock The physical science basis. contribution of working group i to the
+  fourth assessment report of the intergovernmental panel on climate change.
+\newblock {\em Manning, M., Chen, Z., Marquis, M., Averyt, KB, Tignor, M., and
+  Miller, HL, Cambridge University Press, Cambridge, UK and New York, NY, USA},
+  996:2007.
+
+\bibitem[Chen et~al., 2007]{chen2007shape}
+Chen, J., Shapiro, V., Suresh, K., and Tsukanov, I. (2007).
+\newblock Shape optimization with topological changes and parametric control.
+\newblock {\em International journal for numerical methods in engineering},
+  71(3):313--346.
+
+\bibitem[Chen et~al., 2008]{chen2008shape}
+Chen, S., Wang, M.~Y., and Liu, A.~Q. (2008).
+\newblock Shape feature control in structural topology optimization.
+\newblock {\em Computer-Aided Design}, 40(9):951--962.
+
+\bibitem[Cheng and Guo, 1997]{cheng1997varepsilon}
+Cheng, G. and Guo, X. (1997).
+\newblock $\varepsilon$-relaxed approach in structural topology optimization.
+\newblock {\em Structural optimization}, 13(4):258--266.
+
+\bibitem[Cheng et~al., 2006]{cheng2006feature}
+Cheng, G., Mei, Y., and Wang, X. (2006).
+\newblock A feature-based structural topology optimization method.
+\newblock In {\em IUTAM Symposium on Topological Design Optimization of
+  Structures, Machines and Materials}, pages 505--514. Springer.
+
+\bibitem[Cho and Im, 2006a]{cho2006mls}
+Cho, Y.-S. and Im, S. (2006a).
+\newblock Mls-based variable-node elements compatible with quadratic
+  interpolation. part i: formulation and application for non-matching meshes.
+\newblock {\em International journal for numerical methods in engineering},
+  65(4):494--516.
+
+\bibitem[Cho and Im, 2006b]{cho2006mlsII}
+Cho, Y.-S. and Im, S. (2006b).
+\newblock Mls-based variable-node elements compatible with quadratic
+  interpolation. part ii: application for finite crack element.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  65(4):517--547.
+
+\bibitem[Cho et~al., 2005]{cho2005improved}
+Cho, Y.-S., Jun, S., Im, S., and Kim, H.-G. (2005).
+\newblock An improved interface element with variable nodes for non-matching
+  finite element meshes.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  194(27):3022--3046.
+
+\bibitem[Christensen et~al., 1998]{christensen1998formulation}
+Christensen, P., Klarbring, A., Pang, J.-S., and Str{\"o}mberg, N. (1998).
+\newblock Formulation and comparison of algorithms for frictional contact
+  problems.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  42(1):145--173.
+
+\bibitem[Coniglio et~al., 2019]{coniglio2019enginepylon}
+Coniglio, S., Gogu, C., Amargier, R., and Morlier, J. (2019).
+\newblock Engine pylon topology optimization framework based on performance and
+  stress criteria.
+\newblock {\em AIAA Journal}, 0(0):1--13.
+
+\bibitem[Coniglio et~al., 2018]{coniglio2018weighted}
+Coniglio, S., Gogu, C., and Morlier, J. (2018).
+\newblock Weighted average continuity approach and moment correction: New
+  strategies for non-consistent mesh projection in structural mechanics.
+\newblock {\em Archives of Computational Methods in Engineering}, pages 1--29.
+
+\bibitem[Cros, 2013]{ASDM}
+Cros, C. (2013).
+\newblock Airframe stress \& design manual.
+\newblock Airbus internal document.
+
+\bibitem[D and Van, 1996]{foley1996computer}
+D, F.~J. and Van, D.~A. (1996).
+\newblock Computer graphics principles \& practice second edition in c.
+
+\bibitem[Davidon, 1959]{davidon1959aec}
+Davidon, W. (1959).
+\newblock Aec research and development report.
+\newblock {\em ANL-5990}.
+
+\bibitem[Davis, 2006]{davis2006direct}
+Davis, T.~A. (2006).
+\newblock {\em Direct methods for sparse linear systems}, volume~2.
+\newblock Siam.
+
+\bibitem[De~Boer et~al., 2007]{de2007review}
+De~Boer, A., Van~Zuijlen, A., and Bijl, H. (2007).
+\newblock Review of coupling methods for non-matching meshes.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  196(8):1515--1525.
+
+\bibitem[de~Boer et~al., 2008]{de2008comparison}
+de~Boer, A., van Zuijlen, A.~H., and Bijl, H. (2008).
+\newblock Comparison of conservative and consistent approaches for the coupling
+  of non-matching meshes.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  197(49):4284--4297.
+
+\bibitem[Deaton and Grandhi, 2014]{deaton2014survey}
+Deaton, J.~D. and Grandhi, R.~V. (2014).
+\newblock A survey of structural and multidisciplinary continuum topology
+  optimization: post 2000.
+\newblock {\em Structural and Multidisciplinary Optimization}, 49(1):1--38.
+
+\bibitem[Deng and Chen, 2016]{deng2016design}
+Deng, J. and Chen, W. (2016).
+\newblock Design for structural flexibility using connected morphable
+  components based topology optimization.
+\newblock {\em Science China Technological Sciences}, 59(6):839--851.
+
+\bibitem[Dennis and Mor{\'e}, 1977]{dennis1977quasi}
+Dennis, Jr, J.~E. and Mor{\'e}, J.~J. (1977).
+\newblock Quasi-newton methods, motivation and theory.
+\newblock {\em SIAM review}, 19(1):46--89.
+
+\bibitem[Dennis~Jr and Schnabel, 1996]{dennis1996numerical}
+Dennis~Jr, J.~E. and Schnabel, R.~B. (1996).
+\newblock Numerical methods for unconstrained optimization and nonlinear
+  equations.
+
+\bibitem[Deparis et~al., 2016]{deparis2016internodes}
+Deparis, S., Forti, D., Gervasio, P., and Quarteroni, A. (2016).
+\newblock Internodes: an accurate interpolation-based method for coupling the
+  galerkin solutions of pdes on subdomains featuring non-conforming interfaces.
+\newblock {\em Computers \& Fluids}, 141:22--41.
+
+\bibitem[Deparis et~al., 2014]{deparis2014rescaled}
+Deparis, S., Forti, D., and Quarteroni, A. (2014).
+\newblock A rescaled localized radial basis function interpolation on
+  non-cartesian and nonconforming grids.
+\newblock {\em SIAM Journal on Scientific Computing}, 36(6):A2745--A2762.
+
+\bibitem[Dhia et~al., 2008]{dhia2008multimodeling}
+Dhia, H.~B., Elkhodja, N., and Roux, F.-X. (2008).
+\newblock Multimodeling of multi-alterated structures in the arlequin
+  framework: Solution with a domain-decomposition solver.
+\newblock {\em European Journal of Computational Mechanics/Revue Europ{\'e}enne
+  de M{\'e}canique Num{\'e}rique}, 17(5-7):969--980.
+
+\bibitem[Dhia and Rateau, 2005]{dhia2005arlequin}
+Dhia, H.~B. and Rateau, G. (2005).
+\newblock The arlequin method as a flexible engineering design tool.
+\newblock {\em International journal for numerical methods in engineering},
+  62(11):1442--1462.
+
+\bibitem[Diaz and Sigmund, 1995]{diaz1995checkerboard}
+Diaz, A. and Sigmund, O. (1995).
+\newblock Checkerboard patterns in layout optimization.
+\newblock {\em Structural optimization}, 10(1):40--45.
+
+\bibitem[Dixon and Szeg{\"o}, 1975]{dixon1975towards}
+Dixon, L. C.~W. and Szeg{\"o}, G.~P. (1975).
+\newblock {\em Towards global optimisation: proceedings of a workshop at the
+  University of Cagliari, Italy, October 1974}, volume~1.
+\newblock North Holland.
+
+\bibitem[Dohrmann et~al., 2000a]{dohrmann2000method}
+Dohrmann, C., Key, S., and Heinstein, M. (2000a).
+\newblock A method for connecting dissimilar finite element meshes in two
+  dimensions.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  48(5):655--678.
+
+\bibitem[Dohrmann et~al., 2000b]{dohrmann2000methods}
+Dohrmann, C., Key, S., and Heinstein, M. (2000b).
+\newblock Methods for connecting dissimilar three-dimensional finite element
+  meshes.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  47(5):1057--1080.
+
+\bibitem[Duarte and Kim, 2008]{duarte2008analysis}
+Duarte, C.~A. and Kim, D.-J. (2008).
+\newblock Analysis and applications of a generalized finite element method with
+  global--local enrichment functions.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  197(6):487--504.
+
+\bibitem[Duchon, 1977]{duchon1977splines}
+Duchon, J. (1977).
+\newblock Splines minimizing rotation-invariant semi-norms in sobolev spaces.
+\newblock {\em Constructive theory of functions of several variables}, pages
+  85--100.
+
+\bibitem[Duval et~al., 2016]{duval2016non}
+Duval, M., Passieux, J.-C., Sala{\"u}n, M., and Guinard, S. (2016).
+\newblock Non-intrusive coupling: recent advances and scalable nonlinear domain
+  decomposition.
+\newblock {\em Archives of Computational Methods in Engineering}, 23(1):17.
+
+\bibitem[Duysinx et~al., 2009]{duysinx2009solution}
+Duysinx, P., Bruyneel, M., and Fleury, C. (2009).
+\newblock Solution of large scale optimization problems with sequential convex
+  programming.
+
+\bibitem[Duysinx and Sigmund, 1998]{duysinx1998new}
+Duysinx, P. and Sigmund, O. (1998).
+\newblock New developments in handling stress constraints in optimal material
+  distribution.
+\newblock In {\em 7th AIAA/USAF/NASA/ISSMO symposium on multidisciplinary
+  analysis and optimization}, page 4906.
+
+\bibitem[Epstein and O’Flarity, 2019]{epstein2019considerations}
+Epstein, A.~H. and O’Flarity, S.~M. (2019).
+\newblock Considerations for reducing aviation’s co 2 with aircraft electric
+  propulsion.
+\newblock {\em Journal of Propulsion and Power}, 35(3):572--582.
+
+\bibitem[Eschenauer et~al., 1994]{eschenauer1994bubble}
+Eschenauer, H.~A., Kobelev, V.~V., and Schumacher, A. (1994).
+\newblock Bubble method for topology and shape optimization of structures.
+\newblock {\em Structural optimization}, 8(1):42--51.
+
+\bibitem[Etman et~al., 2012]{etman2012first}
+Etman, L., Groenwold, A.~A., and Rooda, J. (2012).
+\newblock First-order sequential convex programming using approximate diagonal
+  qp subproblems.
+\newblock {\em Structural and Multidisciplinary Optimization}, 45(4):479--488.
+
+\bibitem[Eves et~al., 2009]{eves2009topology}
+Eves, J., Toropov, V., Thompson, H., Gaskell, P., Doherty, J., and Harris, J.
+  (2009).
+\newblock Topology optimization of aircraft with non-conventional
+  configurations.
+
+\bibitem[Falk, 1967]{falk1967lagrange}
+Falk, J.~E. (1967).
+\newblock Lagrange multipliers and nonlinear programming.
+\newblock {\em Journal of Mathematical Analysis and Applications},
+  19(1):141--159.
+
+\bibitem[Farhat et~al., 1998]{farhat1998load}
+Farhat, C., Lesoinne, M., and Le~Tallec, P. (1998).
+\newblock Load and motion transfer algorithms for fluid/structure interaction
+  problems with non-matching discrete interfaces: Momentum and energy
+  conservation, optimal discretization and application to aeroelasticity.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  157(1-2):95--114.
+
+\bibitem[Farhat and Roux, 1991]{farhat1991method}
+Farhat, C. and Roux, F.-X. (1991).
+\newblock A method of finite element tearing and interconnecting and its
+  parallel solution algorithm.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  32(6):1205--1227.
+
+\bibitem[Feyel and Chaboche, 2000]{feyel2000fe}
+Feyel, F. and Chaboche, J.-L. (2000).
+\newblock Fe 2 multiscale approach for modelling the elastoviscoplastic
+  behaviour of long fibre sic/ti composite materials.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  183(3):309--330.
+
+\bibitem[Fish et~al., 1995]{fish1995iterative}
+Fish, J., Belsky, V., and Pandheeradi, M. (1995).
+\newblock Iterative and direct solvers for interface problems with lagrange
+  multipliers.
+\newblock {\em Computing Systems in Engineering}, 6(3):261--273.
+
+\bibitem[Flemisch et~al., 2012]{flemisch2012non}
+Flemisch, B., Kaltenbacher, M., Triebenbacher, S., and Wohlmuth, B. (2012).
+\newblock Non-matching grids for a flexible discretization in computational
+  acoustics.
+\newblock {\em Communications in Computational Physics}, 11(2):472--488.
+
+\bibitem[Fletcher and Powell, 1963]{fletcher1963rapidly}
+Fletcher, R. and Powell, M.~J. (1963).
+\newblock A rapidly convergent descent method for minimization.
+\newblock {\em The computer journal}, 6(2):163--168.
+
+\bibitem[Fleury, 1979]{fleury1979structural}
+Fleury, C. (1979).
+\newblock Structural weight optimization by dual methods of convex programming.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  14(12):1761--1783.
+
+\bibitem[Fleury, 1993]{fleury1993mathematical}
+Fleury, C. (1993).
+\newblock Mathematical programming methods for constrained optimization: dual
+  methods.
+\newblock {\em Structural optimization: status and promise, progress in
+  Astronautics and Aeronautics}.
+
+\bibitem[Fleury and Braibant, 1986]{fleury1986structural}
+Fleury, C. and Braibant, V. (1986).
+\newblock Structural optimization: a new dual method using mixed variables.
+\newblock {\em International journal for numerical methods in engineering},
+  23(3):409--428.
+
+\bibitem[Forrester et~al., 2008]{forrester2008engineering}
+Forrester, A., Sobester, A., and Keane, A. (2008).
+\newblock {\em Engineering design via surrogate modelling: a practical guide}.
+\newblock John Wiley \& Sons.
+
+\bibitem[Gander and Japhet, 2013]{gander2013algorithm}
+Gander, M.~J. and Japhet, C. (2013).
+\newblock Algorithm 932: Pang: software for nonmatching grid projections in 2d
+  and 3d with linear complexity.
+\newblock {\em ACM Transactions on Mathematical Software (TOMS)}, 40(1):6.
+
+\bibitem[Gendre et~al., 2009]{Gendre2009}
+Gendre, L., Allix, O., Gosselet, P., and Comte, F. (2009).
+\newblock Non-intrusive and exact global/local techniques for structural
+  problems with local plasticity.
+\newblock {\em Computational Mechanics}, 44(2):233--245.
+
+\bibitem[Gervasio and Quarteroni, 2016]{gervasio2016analysis}
+Gervasio, P. and Quarteroni, A. (2016).
+\newblock Analysis of the internodes method for non-conforming discretizations
+  of elliptic equations.
+
+\bibitem[Griewank, 2000]{griewank2000evaluating}
+Griewank, A. (2000).
+\newblock Evaluating derivatives: Principles and techniques of algorithmic
+  differentiation, no. 19 in frontiers in appl.
+\newblock {\em Math., SIAM, Philadelphia}.
+
+\bibitem[Groenwold and Etman, 2010]{groenwold2010conditional}
+Groenwold, A.~A. and Etman, L. (2010).
+\newblock On the conditional acceptance of iterates in sao algorithms based on
+  convex separable approximations.
+\newblock {\em Structural and Multidisciplinary Optimization}, 42(2):165--178.
+
+\bibitem[Groenwold et~al., 2010]{groenwold2010approximated}
+Groenwold, A.~A., Etman, L., and Wood, D.~W. (2010).
+\newblock Approximated approximations for sao.
+\newblock {\em Structural and Multidisciplinary Optimization}, 41(1):39--56.
+
+\bibitem[Guedes and Taylor, 1997]{guedes1997prediction}
+Guedes, J. and Taylor, J. (1997).
+\newblock On the prediction of material properties and topology for optimal
+  continuum structures.
+\newblock {\em Structural optimization}, 14(2-3):193--199.
+
+\bibitem[Guo et~al., 2005]{guo2005new}
+Guo, H., Zhao, K., and Wang, M.~Y. (2005).
+\newblock A new approach for simultaneous shape and topology optimization based
+  on dynamic implicit surface function.
+\newblock {\em Control and Cybernetics}, 34:255--282.
+
+\bibitem[Guo et~al., 2016]{guo2016explicit}
+Guo, X., Zhang, W., Zhang, J., and Yuan, J. (2016).
+\newblock Explicit structural topology optimization based on moving morphable
+  components (mmc) with curved skeletons.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  310:711--748.
+
+\bibitem[Guo et~al., 2014]{guo2014doing}
+Guo, X., Zhang, W., and Zhong, W. (2014).
+\newblock Doing topology optimization explicitly and geometrically—a new
+  moving morphable components based framework.
+\newblock {\em Journal of Applied Mechanics}, 81(8):081009.
+
+\bibitem[Guo et~al., 2017]{guo2017self}
+Guo, X., Zhou, J., Zhang, W., Du, Z., Liu, C., and Liu, Y. (2017).
+\newblock Self-supporting structure design in additive manufacturing through
+  explicit topology optimization.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  323:27--63.
+
+\bibitem[Haber et~al., 1996]{haber1996new}
+Haber, R., Jog, C., and Bends{\o}e, M.~P. (1996).
+\newblock A new approach to variable-topology shape design using a constraint
+  on perimeter.
+\newblock {\em Structural Optimization}, 11(1-2):1--12.
+
+\bibitem[Hartmann et~al., 2009]{hartmann2009contact}
+Hartmann, S., Oliver, J., Weyler, R., Cante, J., and Hern{\'a}ndez, J. (2009).
+\newblock A contact domain method for large deformation frictional contact
+  problems. part 2: Numerical aspects.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  198(33):2607--2631.
+
+\bibitem[Heintz and Hansbo, 2006]{heintz2006stabilized}
+Heintz, P. and Hansbo, P. (2006).
+\newblock Stabilized lagrange multiplier methods for bilateral elastic contact
+  with friction.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  195(33):4323--4333.
+
+\bibitem[Hestenes and Stiefel, 1952]{hestenes1952methods}
+Hestenes, M.~R. and Stiefel, E. (1952).
+\newblock {\em Methods of conjugate gradients for solving linear systems},
+  volume~49.
+\newblock NBS Washington, DC.
+
+\bibitem[Hinton and Campbell, 1974]{hinton1974local}
+Hinton, E. and Campbell, J. (1974).
+\newblock Local and global smoothing of discontinuous finite element functions
+  using a least squares method.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  8(3):461--480.
+
+\bibitem[Hoang and Jang, 2017]{hoang2017topology}
+Hoang, V.-N. and Jang, G.-W. (2017).
+\newblock Topology optimization using moving morphable bars for versatile
+  thickness control.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  317:153--173.
+
+\bibitem[Hou et~al., 2012]{hou2012numerical}
+Hou, G., Wang, J., and Layton, A. (2012).
+\newblock Numerical methods for fluid-structure interaction - a review.
+\newblock {\em Communications in Computational Physics}, 12(2):337--377.
+
+\bibitem[Hou et~al., 2017]{hou2017explicit}
+Hou, W., Gai, Y., Zhu, X., Wang, X., Zhao, C., Xu, L., Jiang, K., and Hu, P.
+  (2017).
+\newblock Explicit isogeometric topology optimization using moving morphable
+  components.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  326:694--712.
+
+\bibitem[ICAO, 2016]{icao2016environmental}
+ICAO, I. (2016).
+\newblock Environmental report 2016.
+\newblock {\em Aviation and climate change}, 2016.
+
+\bibitem[Il'in~Valery, 1992]{il1992iterative}
+Il'in~Valery, P. (1992).
+\newblock {\em Iterative incomplete factorization methods}, volume~4.
+\newblock World Scientific.
+
+\bibitem[Jacobi, 1845]{jacobi1845ueber}
+Jacobi, C.~G. (1845).
+\newblock Ueber eine neue aufl{\"o}sungsart der bei der methode der kleinsten
+  quadrate vorkommenden line{\"a}ren gleichungen.
+\newblock {\em Astronomische Nachrichten}, 22(20):297--306.
+
+\bibitem[Jeong et~al., 2017]{jeong2017element}
+Jeong, G.-E., Youn, S.-K., and Park, K. (2017).
+\newblock Element-independent implementation for method of lagrange
+  multipliers.
+\newblock {\em World Academy of Science, Engineering and Technology,
+  International Journal of Mechanical, Aerospace, Industrial, Mechatronic and
+  Manufacturing Engineering}, 11(2):343--347.
+
+\bibitem[Jog and Haber, 1996]{jog1996stability}
+Jog, C.~S. and Haber, R.~B. (1996).
+\newblock Stability of finite element models for distributed-parameter
+  optimization and topology design.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  130(3-4):203--226.
+
+\bibitem[Kazemi et~al., 2018]{kazemi2018topology}
+Kazemi, H., Vaziri, A., and Norato, J.~A. (2018).
+\newblock Topology optimization of structures made of discrete geometric
+  components with different materials.
+\newblock {\em Journal of Mechanical Design}, 140(11):111401.
+
+\bibitem[Kennedy and Hicken, 2015]{kennedy2015improved}
+Kennedy, G.~J. and Hicken, J.~E. (2015).
+\newblock Improved constraint-aggregation methods.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  289:332--354.
+
+\bibitem[Kershaw, 1978]{kershaw1978incomplete}
+Kershaw, D.~S. (1978).
+\newblock The incomplete cholesky—conjugate gradient method for the iterative
+  solution of systems of linear equations.
+\newblock {\em Journal of computational physics}, 26(1):43--65.
+
+\bibitem[Kim, 2003]{kim2003interface}
+Kim, H.-G. (2003).
+\newblock Interface element method: Treatment of non-matching nodes at the ends
+  of interfaces between partitioned domains.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  192(15):1841--1858.
+
+\bibitem[Kobayashi, 2010]{kobayashi2010biologically}
+Kobayashi, M.~H. (2010).
+\newblock On a biologically inspired topology optimization method.
+\newblock {\em Communications in Nonlinear Science and Numerical Simulation},
+  15(3):787--802.
+
+\bibitem[Kreisselmeier and Steinhauser, 1980]{kreisselmeier1980systematic}
+Kreisselmeier, G. and Steinhauser, R. (1980).
+\newblock Systematic control design by optimizing a vector performance index.
+\newblock In {\em Computer aided design of control systems}, pages 113--117.
+  Elsevier.
+
+\bibitem[Kreissl and Maute, 2012]{kreissl2012levelset}
+Kreissl, S. and Maute, K. (2012).
+\newblock Levelset based fluid topology optimization using the extended finite
+  element method.
+\newblock {\em Structural and Multidisciplinary Optimization}, 46(3):311--326.
+
+\bibitem[Krog et~al., 2004]{krog2004topology}
+Krog, L., Tucker, A., Kemp, M., and Boyd, R. (2004).
+\newblock Topology optimisation of aircraft wing box ribs.
+\newblock In {\em 10th AIAA/ISSMO multidisciplinary analysis and optimization
+  conference}, page 4481.
+
+\bibitem[Lattime and Steinetz, 2002]{lattime2002turbine}
+Lattime, S. and Steinetz, B. (2002).
+\newblock Turbine engine clearance control systems: current practices and
+  future directions.
+\newblock In {\em 38th AIAA/ASME/SAE/ASEE Joint Propulsion Conference \&
+  Exhibit}, page 3790.
+
+\bibitem[Lazarov and Sigmund, 2011]{lazarov2011filters}
+Lazarov, B.~S. and Sigmund, O. (2011).
+\newblock Filters in topology optimization based on helmholtz-type differential
+  equations.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  86(6):765--781.
+
+\bibitem[Le et~al., 2010]{le2010stress}
+Le, C., Norato, J., Bruns, T., Ha, C., and Tortorelli, D. (2010).
+\newblock Stress-based topology optimization for continua.
+\newblock {\em Structural and Multidisciplinary Optimization}, 41(4):605--620.
+
+\bibitem[Lei et~al., 2019]{lei2019machine}
+Lei, X., Liu, C., Du, Z., Zhang, W., and Guo, X. (2019).
+\newblock Machine learning-driven real-time topology optimization under moving
+  morphable component-based framework.
+\newblock {\em Journal of Applied Mechanics}, 86(1):011004.
+
+\bibitem[Lian et~al., 2017]{lian2017combined}
+Lian, H., Christiansen, A.~N., Tortorelli, D.~A., Sigmund, O., and Aage, N.
+  (2017).
+\newblock Combined shape and topology optimization for minimization of maximal
+  von mises stress.
+\newblock {\em Structural and Multidisciplinary Optimization},
+  55(5):1541--1557.
+
+\bibitem[Lim et~al., 2007a]{lim2007mls}
+Lim, J.~H., Im, S., and Cho, Y.-S. (2007a).
+\newblock Mls (moving least square)-based finite elements for three-dimensional
+  nonmatching meshes and adaptive mesh refinement.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  196(17):2216--2228.
+
+\bibitem[Lim et~al., 2007b]{lim2007variable}
+Lim, J.~H., Im, S., and Cho, Y.-S. (2007b).
+\newblock Variable-node elements for non-matching meshes by means of mls
+  (moving least-square) scheme.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  72(7):835--857.
+
+\bibitem[Lin et~al., 2015]{lin2015isocomp}
+Lin, H.-Y., Rayasam, M., and Subbarayan, G. (2015).
+\newblock Isocomp: Unified geometric and material composition for optimal
+  topology design.
+\newblock {\em Structural and Multidisciplinary Optimization}, 51(3):687--703.
+
+\bibitem[Liu et~al., 2017]{liu2017additive}
+Liu, C., Du, Z., Zhang, W., Zhu, Y., and Guo, X. (2017).
+\newblock Additive manufacturing-oriented design of graded lattice structures
+  through explicit topology optimization.
+\newblock {\em Journal of Applied Mechanics}, 84(8):081008.
+
+\bibitem[Liu et~al., 2018a]{liu2018efficient}
+Liu, C., Zhu, Y., Sun, Z., Li, D., Du, Z., Zhang, W., and Guo, X. (2018a).
+\newblock An efficient moving morphable component (mmc)-based approach for
+  multi-resolution topology optimization.
+\newblock {\em arXiv preprint arXiv:1805.02008}.
+
+\bibitem[Liu et~al., 2018b]{liu_current_2018}
+Liu, J., Gaynor, A.~T., Chen, S., Kang, Z., Suresh, K., Takezawa, A., Li, L.,
+  Kato, J., Tang, J., and Wang, C.~C. (2018b).
+\newblock Current and future trends in topology optimization for additive
+  manufacturing.
+\newblock {\em Structural and Multidisciplinary Optimization}, pages 1--27.
+
+\bibitem[Liu and Ma, 2016]{liu2016survey}
+Liu, J. and Ma, Y. (2016).
+\newblock A survey of manufacturing oriented topology optimization methods.
+\newblock {\em Advances in Engineering Software}, 100:161--175.
+
+\bibitem[Liu et~al., 2014]{liu2014level}
+Liu, T., Wang, S., Li, B., and Gao, L. (2014).
+\newblock A level-set-based topology and shape optimization method for
+  continuum structure under geometric constraints.
+\newblock {\em Structural and Multidisciplinary Optimization}, 50(2):253--273.
+
+\bibitem[Lloberas-Valls et~al., 2017]{lloberas2017domain}
+Lloberas-Valls, O., Cafiero, M., Cante, J., Ferrer, A., and Oliver, J. (2017).
+\newblock The domain interface method in non-conforming domain decomposition
+  multifield problems.
+\newblock {\em Computational Mechanics}, 59(4):579--610.
+
+\bibitem[Lloberas-Valls et~al., 2012a]{lloberas2012multiscale}
+Lloberas-Valls, O., Rixen, D., Simone, A., and Sluys, L. (2012a).
+\newblock Multiscale domain decomposition analysis of quasi-brittle
+  heterogeneous materials.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  89(11):1337--1366.
+
+\bibitem[Lloberas-Valls et~al., 2012b]{lloberas2012micro}
+Lloberas-Valls, O., Rixen, D., Simone, A., and Sluys, L. (2012b).
+\newblock On micro-to-macro connections in domain decomposition multiscale
+  methods.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  225:177--196.
+
+\bibitem[L{\"o}hner et~al., 1998]{lohner1998fluid}
+L{\"o}hner, R., Yang, C., Cebral, J., Baum, J.~D., Luo, H., Pelessone, D., and
+  Charman, C. (1998).
+\newblock Fluid-structure-thermal interaction using a loose coupling algorithm
+  and adaptive unstructured grids.
+\newblock In {\em Proc., 29th AIAA Fluid Dynamics Conference}.
+
+\bibitem[Lyness and Moler, 1967]{lyness1967numerical}
+Lyness, J.~N. and Moler, C.~B. (1967).
+\newblock Numerical differentiation of analytic functions.
+\newblock {\em SIAM Journal on Numerical Analysis}, 4(2):202--210.
+
+\bibitem[Mandel, 1993]{mandel1993balancing}
+Mandel, J. (1993).
+\newblock Balancing domain decomposition.
+\newblock {\em International Journal for Numerical Methods in Biomedical
+  Engineering}, 9(3):233--241.
+
+\bibitem[Marler and Arora, 2004]{marler2004survey}
+Marler, R.~T. and Arora, J.~S. (2004).
+\newblock Survey of multi-objective optimization methods for engineering.
+\newblock {\em Structural and multidisciplinary optimization}, 26(6):369--395.
+
+\bibitem[Martins, 2012]{martins2012short}
+Martins, J. (2012).
+\newblock A short course on multidisciplinary design optimization.
+\newblock {\em Class Notes for AEROSP}, 588.
+
+\bibitem[McGee and Seshaiyer, 2005]{mcgee2005non}
+McGee, W. and Seshaiyer, P. (2005).
+\newblock Non-conforming finite element methods for nonmatching grids in three
+  dimensions.
+\newblock {\em Domain decomposition methods in science and engineering}, pages
+  327--334.
+
+\bibitem[Meijerink and Van Der~Vorst, 1977]{meijerink1977iterative}
+Meijerink, J.~A. and Van Der~Vorst, H.~A. (1977).
+\newblock An iterative solution method for linear systems of which the
+  coefficient matrix is a symmetric m-matrix.
+\newblock {\em Mathematics of computation}, 31(137):148--162.
+
+\bibitem[Nastran, 2013]{nastran2013superelements}
+Nastran, M. (2013).
+\newblock Superelements user’s guide.
+\newblock {\em Moscow, MSC Publ}.
+
+\bibitem[National Academies~of Sciences et~al., 2016]{national2016commercial}
+National Academies~of Sciences, E., Medicine, et~al. (2016).
+\newblock {\em Commercial aircraft propulsion and energy systems research:
+  reducing global carbon emissions}.
+\newblock National Academies Press.
+
+\bibitem[Naumann, 2012]{naumann2012art}
+Naumann, U. (2012).
+\newblock {\em The art of differentiating computer programs: an introduction to
+  algorithmic differentiation}, volume~24.
+\newblock Siam.
+
+\bibitem[Nguyen et~al., 2008]{nguyen2008meshless}
+Nguyen, V.~P., Rabczuk, T., Bordas, S., and Duflot, M. (2008).
+\newblock Meshless methods: a review and computer implementation aspects.
+\newblock {\em Mathematics and computers in simulation}, 79(3):763--813.
+
+\bibitem[Niemann et~al., 2013]{niemann2013use}
+Niemann, S., Kolesnikov, B., Lohse-Busch, H., H{\"u}hne, C., Querin, O.,
+  Toropov, V.~V., and Liu, D. (2013).
+\newblock The use of topology optimisation in the conceptual design of next
+  generation lattice composite aircraft fuselage structures.
+\newblock {\em The Aeronautical Journal}, 117(1197):1139--1154.
+
+\bibitem[Niordson, 1983]{niordson1983optimal}
+Niordson, F. (1983).
+\newblock Optimal design of elastic plates with a constraint on the slope of
+  the thickness function.
+\newblock {\em International Journal of Solids and Structures}, 19(2):141--151.
+
+\bibitem[Nitsche, 1971]{nitsche1971variationsprinzip}
+Nitsche, J. (1971).
+\newblock {\"U}ber ein variationsprinzip zur l{\"o}sung von dirichlet-problemen
+  bei verwendung von teilr{\"a}umen, die keinen randbedingungen unterworfen
+  sind.
+\newblock 36(1):9--15.
+
+\bibitem[Nocedal and Wright, 2006]{nocedal2006sequential}
+Nocedal, J. and Wright, S.~J. (2006).
+\newblock Sequential quadratic programming.
+\newblock {\em Numerical optimization}, pages 529--562.
+
+\bibitem[Norato et~al., 2015]{norato2015geometryde}
+Norato, J., Bell, B., and Tortorelli, D. (2015).
+\newblock A geometry projection method for continuum-based topology
+  optimization with discrete elements.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  293:306--327.
+
+\bibitem[Norato et~al., 2004]{norato2004geometry}
+Norato, J., Haber, R., Tortorelli, D., and Bends{\o}e, M.~P. (2004).
+\newblock A geometry projection method for shape optimization.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  60(14):2289--2312.
+
+\bibitem[Norato, 2015]{norato2015geometry}
+Norato, J.~A. (2015).
+\newblock A geometry projection method for the optimal distribution of short
+  fiber reinforcements.
+\newblock In {\em ASME 2015 International Design Engineering Technical
+  Conferences and Computers and Information in Engineering Conference}, pages
+  V02BT03A010--V02BT03A010. American Society of Mechanical Engineers.
+
+\bibitem[Norato, 2018]{norato2018topology}
+Norato, J.~A. (2018).
+\newblock Topology optimization with supershapes.
+\newblock {\em Structural and Multidisciplinary Optimization}, 58(2):415--434.
+
+\bibitem[Oliver et~al., 2009]{oliver2009contact}
+Oliver, J., Hartmann, S., Cante, J., Weyler, R., and Hern{\'a}ndez, J. (2009).
+\newblock A contact domain method for large deformation frictional contact
+  problems. part 1: theoretical basis.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  198(33):2591--2606.
+
+\bibitem[Overvelde, 2012]{overvelde2012moving}
+Overvelde, J.~T. (2012).
+\newblock The moving node approach in topology optimization.
+\newblock Master's thesis, TU Delft, Delft University of Technology.
+
+\bibitem[Papalambros and Wilde, 2000]{papalambros2000principles}
+Papalambros, P.~Y. and Wilde, D.~J. (2000).
+\newblock {\em Principles of optimal design: modeling and computation}.
+\newblock Cambridge university press.
+
+\bibitem[Park et~al., 2002]{park2002simpl}
+Park, K., Felippa, C., and Rebel, G. (2002).
+\newblock A simple algorithm for localized construction of non-matching
+  structural interfaces.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  53(9):2117--2142.
+
+\bibitem[Puso, 2004]{puso20043d}
+Puso, M.~A. (2004).
+\newblock A 3d mortar method for solid mechanics.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  59(3):315--336.
+
+\bibitem[Puso and Laursen, 2004]{puso2004mortar}
+Puso, M.~A. and Laursen, T.~A. (2004).
+\newblock A mortar segment-to-segment contact method for large deformation
+  solid mechanics.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  193(6):601--629.
+
+\bibitem[Qian and Ananthasuresh, 2004]{qian2004optimal}
+Qian, Z. and Ananthasuresh, G. (2004).
+\newblock Optimal embedding of rigid objects in the topology design of
+  structures.
+\newblock {\em Mechanics Based Design of Structures and Machines},
+  32(2):165--193.
+
+\bibitem[Quiroz and Beckers, 1995]{quiroz1995non}
+Quiroz, L. and Beckers, P. (1995).
+\newblock Non-conforming mesh gluing in the finite elements method.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  38(13):2165--2184.
+
+\bibitem[Remouchamps et~al., 2011]{remouchamps2011application}
+Remouchamps, A., Bruyneel, M., Fleury, C., and Grihon, S. (2011).
+\newblock Application of a bi-level scheme including topology optimization to
+  the design of an aircraft pylon.
+\newblock {\em Structural and Multidisciplinary Optimization}, 44(6):739--750.
+
+\bibitem[Rixen, 1997]{rixen1997substructuring}
+Rixen, D.~J. (1997).
+\newblock {\em Substructuring and dual methods in structural analysis}.
+\newblock PhD thesis.
+
+\bibitem[Rozvany, 2001]{rozvany2001design}
+Rozvany, G. (2001).
+\newblock On design-dependent constraints and singular topologies.
+\newblock {\em Structural and Multidisciplinary Optimization}, 21(2):164--172.
+
+\bibitem[Saad, 2003]{saad2003iterative}
+Saad, Y. (2003).
+\newblock {\em Iterative methods for sparse linear systems}, volume~82.
+\newblock siam.
+
+\bibitem[Saxena, 2011]{saxena2011circular}
+Saxena, A. (2011).
+\newblock Are circular shaped masks adequate in adaptive mask overlay topology
+  synthesis method?
+\newblock {\em Journal of Mechanical Design}, 133(1):011001.
+
+\bibitem[Seo et~al., 2010]{seo2010isogeometric}
+Seo, Y.-D., Kim, H.-J., and Youn, S.-K. (2010).
+\newblock Isogeometric topology optimization using trimmed spline surfaces.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  199(49-52):3270--3296.
+
+\bibitem[Shi, 1987]{shi1987fem}
+Shi, Z.~C. (1987).
+\newblock The fem test for convergence of nonconforming finite elements.
+\newblock {\em Mathematics of computation}, 49(180):391--405.
+
+\bibitem[Shillor et~al., 2004]{shillor20047}
+Shillor, M., Sofonea, M., and Telega, J.~J. (2004).
+\newblock 7 elastic contact.
+\newblock In {\em Models and Analysis of Quasistatic Contact}, pages 101--115.
+  Springer.
+
+\bibitem[Sigmund, 1994]{sigmund1994design}
+Sigmund, O. (1994).
+\newblock {\em Design of Materials Structures Using Topology Optimization}.
+\newblock PhD thesis, Department of Solid Mechanics, Technical University of
+  Denmark.
+
+\bibitem[Sigmund, 1997]{sigmund1997design}
+Sigmund, O. (1997).
+\newblock On the design of compliant mechanisms using topology optimization.
+\newblock {\em Journal of Structural Mechanics}, 25(4):493--524.
+
+\bibitem[Sigmund, 2007]{sigmund2007morphology}
+Sigmund, O. (2007).
+\newblock Morphology-based black and white filters for topology optimization.
+\newblock {\em Structural and Multidisciplinary Optimization},
+  33(4-5):401--424.
+
+\bibitem[Sigmund and Petersson, 1998]{sigmund1998numerical}
+Sigmund, O. and Petersson, J. (1998).
+\newblock Numerical instabilities in topology optimization: a survey on
+  procedures dealing with checkerboards, mesh-dependencies and local minima.
+\newblock {\em Structural optimization}, 16(1):68--75.
+
+\bibitem[Sigmund and Torquato, 1997]{sigmund1997designb}
+Sigmund, O. and Torquato, S. (1997).
+\newblock Design of materials with extreme thermal expansion using a
+  three-phase topology optimization method.
+\newblock {\em Journal of the Mechanics and Physics of Solids},
+  45(6):1037--1067.
+
+\bibitem[Simon, 2013]{simon2013evolutionary}
+Simon, D. (2013).
+\newblock {\em Evolutionary optimization algorithms}.
+\newblock John Wiley \& Sons.
+
+\bibitem[Singh et~al., 2016]{singh2016topology}
+Singh, G., Toropov, V., and Eves, J. (2016).
+\newblock Topology optimization of a blended-wing-body aircraft structure.
+\newblock In {\em 17th AIAA/ISSMO Multidisciplinary Analysis and Optimization
+  Conference}, page 3364.
+
+\bibitem[Smith et~al., 2000]{smith2000evaluation}
+Smith, M.~J., Cesnik, C.~E., and Hodges, D.~H. (2000).
+\newblock Evaluation of some data transfer algorithms for noncontiguous meshes.
+\newblock {\em Journal of Aerospace Engineering}, 13(2):52--58.
+
+\bibitem[Smola and Sch{\"o}lkopf, 2004]{smola2004tutorial}
+Smola, A.~J. and Sch{\"o}lkopf, B. (2004).
+\newblock A tutorial on support vector regression.
+\newblock {\em Statistics and computing}, 14(3):199--222.
+
+\bibitem[Sofonea et~al., 2005]{sofonea2005analysis}
+Sofonea, M., Han, W., and Shillor, M. (2005).
+\newblock {\em Analysis and approximation of contact problems with adhesion or
+  damage}.
+\newblock CRC Press.
+
+\bibitem[Song et~al., 2017]{song2017virtual}
+Song, Y.-U., Youn, S.-K., and Park, K. (2017).
+\newblock Virtual gap element approach for the treatment of non-matching
+  interface using three-dimensional solid elements.
+\newblock {\em Computational Mechanics}, pages 1--10.
+
+\bibitem[St{\"u}ben, 2001]{stuben2001review}
+St{\"u}ben, K. (2001).
+\newblock A review of algebraic multigrid.
+\newblock In {\em Numerical Analysis: Historical Developments in the 20th
+  Century}, pages 331--359. Elsevier.
+
+\bibitem[Stummel, 1979]{stummel1979generalized}
+Stummel, F. (1979).
+\newblock The generalized patch test.
+\newblock {\em SIAM Journal on Numerical Analysis}, 16(3):449--471.
+
+\bibitem[Stummel, 1980]{stummel1980limitations}
+Stummel, F. (1980).
+\newblock The limitations of the patch test.
+\newblock {\em International journal for numerical methods in engineering},
+  15(2):177--188.
+
+\bibitem[Sun et~al., 2018]{sun2018topology}
+Sun, J., Tian, Q., and Hu, H. (2018).
+\newblock Topology optimization of a three-dimensional flexible multibody
+  system via moving morphable components.
+\newblock {\em Journal of Computational and Nonlinear Dynamics}, 13(2):021010.
+
+\bibitem[Svanberg, 1987]{svanberg1987method}
+Svanberg, K. (1987).
+\newblock The method of moving asymptotes—a new method for structural
+  optimization.
+\newblock {\em International journal for numerical methods in engineering},
+  24(2):359--373.
+
+\bibitem[Svanberg, 2002]{svanberg2002class}
+Svanberg, K. (2002).
+\newblock A class of globally convergent optimization methods based on
+  conservative convex separable approximations.
+\newblock {\em SIAM journal on optimization}, 12(2):555--573.
+
+\bibitem[Svanberg, 2004]{svanberg2004some}
+Svanberg, K. (2004).
+\newblock Some modelling aspects for the matlab implementation of mma.
+\newblock {\em KTH Royal Institute of Technology, Stockholm}.
+
+\bibitem[Svanberg, 2007]{svanberg2007mma}
+Svanberg, K. (2007).
+\newblock Mma and gcmma, versions september 2007.
+\newblock {\em Optimization and Systems Theory}, 104.
+
+\bibitem[Takalloozadeh and Yoon, 2017]{takalloozadeh2017implementation}
+Takalloozadeh, M. and Yoon, G.~H. (2017).
+\newblock Implementation of topological derivative in the moving morphable
+  components approach.
+\newblock {\em Finite Elements in Analysis and Design}, 134:16--26.
+
+\bibitem[Talischi et~al., 2012]{talischi2012polytop}
+Talischi, C., Paulino, G.~H., Pereira, A., and Menezes, I.~F. (2012).
+\newblock Polytop: a matlab implementation of a general topology optimization
+  framework using unstructured polygonal finite element meshes.
+\newblock {\em Structural and Multidisciplinary Optimization}, 45(3):329--357.
+
+\bibitem[Tatebe and Oyanagi, 1994]{tatebe1994efficient}
+Tatebe, O. and Oyanagi, Y. (1994).
+\newblock Efficient implementation of the multigrid preconditioned conjugate
+  gradient method on distributed memory machines.
+\newblock In {\em Proceedings of the 1994 ACM/IEEE conference on
+  Supercomputing}, pages 194--203. IEEE Computer Society Press.
+
+\bibitem[Terrenoire et~al., 2019]{terrenoire2019contribution}
+Terrenoire, E., Hauglustaine, D., Gasser, T., and Penanhoat, O. (2019).
+\newblock The contribution of carbon dioxide emissions from the aviation sector
+  to future climate change.
+\newblock {\em Environmental Research Letters}, 14(8):084019.
+
+\bibitem[Th{\'e}venaz et~al., 2000]{thevenaz2000interpolation}
+Th{\'e}venaz, P., Blu, T., and Unser, M. (2000).
+\newblock Interpolation revisited [medical images application].
+\newblock {\em IEEE Transactions on medical imaging}, 19(7):739--758.
+
+\bibitem[Tian and Yagawa, 2007]{tian2007non}
+Tian, R. and Yagawa, G. (2007).
+\newblock Non-matching mesh gluing by meshless interpolation—an alternative
+  to lagrange multipliers.
+\newblock {\em International journal for numerical methods in engineering},
+  71(4):473--503.
+
+\bibitem[Trottenberg et~al., 2001]{trottenberg2001multigrid}
+Trottenberg, U., Oosterlee, C., and Sch{\"u}ller, A. (2001).
+\newblock Multigrid academic press.
+\newblock {\em New York}.
+
+\bibitem[Van~Keulen et~al., 2005]{van2005review}
+Van~Keulen, F., Haftka, R., and Kim, N. (2005).
+\newblock Review of options for structural design sensitivity analysis. part 1:
+  Linear systems.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  194(30-33):3213--3243.
+
+\bibitem[Van~Miegroet and Duysinx, 2007]{van2007stress}
+Van~Miegroet, L. and Duysinx, P. (2007).
+\newblock Stress concentration minimization of 2d filets using x-fem and level
+  set description.
+\newblock {\em Structural and Multidisciplinary Optimization},
+  33(4-5):425--438.
+
+\bibitem[Varga, 1960]{varga1960boundary}
+Varga, R. (1960).
+\newblock Boundary problems in differential equations.
+\newblock {\em Factorization and normalized iterative methods. The University
+  of Wisconsin Press, Madison}.
+
+\bibitem[Verbart et~al., 2017]{verbart2017unified}
+Verbart, A., Langelaar, M., and Van~Keulen, F. (2017).
+\newblock A unified aggregation and relaxation approach for stress-constrained
+  topology optimization.
+\newblock {\em Structural and Multidisciplinary Optimization}, 55(2):663--679.
+
+\bibitem[Wadbro and Berggren, 2009]{wadbro2009megapixel}
+Wadbro, E. and Berggren, M. (2009).
+\newblock Megapixel topology optimization on a graphics processing unit.
+\newblock {\em SIAM review}, 51(4):707--721.
+
+\bibitem[Wang et~al., 2012]{wang2012high}
+Wang, F., Jensen, J.~S., and Sigmund, O. (2012).
+\newblock High-performance slow light photonic crystal waveguides with topology
+  optimized or circular-hole based material layouts.
+\newblock {\em Photonics and Nanostructures-Fundamentals and Applications},
+  10(4):378--388.
+
+\bibitem[Wang et~al., 2003]{wang2003level}
+Wang, M.~Y., Wang, X., and Guo, D. (2003).
+\newblock A level set method for structural topology optimization.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  192(1):227--246.
+
+\bibitem[Wang et~al., 2018]{wang2018explicit}
+Wang, X., Long, K., Hoang, V.-N., and Hu, P. (2018).
+\newblock An explicit optimization model for integrated layout design of planar
+  multi-component systems using moving morphable bars.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  342:46--70.
+
+\bibitem[Wang et~al., 2017]{wang2017variationally}
+Wang, X., Prakash, A., Chen, J.-S., and Taciroglu, E. (2017).
+\newblock Variationally consistent coupling of non-matching discretizations for
+  large deformation problems.
+\newblock {\em Computational Mechanics}.
+
+\bibitem[Watts and Tortorelli, 2017]{watts2017geometric}
+Watts, S. and Tortorelli, D.~A. (2017).
+\newblock A geometric projection method for designing three-dimensional open
+  lattices with inverse homogenization.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  112(11):1564--1588.
+
+\bibitem[Wei et~al., 2010]{wei2010study}
+Wei, P., Wang, M.~Y., and Xing, X. (2010).
+\newblock A study on x-fem in continuum structural optimization using a level
+  set model.
+\newblock {\em Computer-Aided Design}, 42(8):708--719.
+
+\bibitem[Wendland, 1995]{wendland1995piecewise}
+Wendland, H. (1995).
+\newblock Piecewise polynomial, positive definite and compactly supported
+  radial functions of minimal degree.
+\newblock {\em Advances in computational Mathematics}, 4(1):389--396.
+
+\bibitem[Wriggers, 1995]{wriggers1995finite}
+Wriggers, P. (1995).
+\newblock Finite element algorithms for contact problems.
+\newblock {\em Archives of Computational Methods in Engineering}, 2(4):1--49.
+
+\bibitem[Xia et~al., 2018]{xia2018bi}
+Xia, L., Xia, Q., Huang, X., and Xie, Y.~M. (2018).
+\newblock Bi-directional evolutionary structural optimization on advanced
+  structures and materials: a comprehensive review.
+\newblock {\em Archives of Computational Methods in Engineering},
+  25(2):437--478.
+
+\bibitem[Xia et~al., 2012]{xia2012sensitivity}
+Xia, L., Zhu, J., and Zhang, W. (2012).
+\newblock Sensitivity analysis with the modified heaviside function for the
+  optimal layout design of multi-component systems.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  241:142--154.
+
+\bibitem[Xie and Steven, 1993]{xie1993simple}
+Xie, Y. and Steven, G.~P. (1993).
+\newblock A simple evolutionary procedure for structural optimization.
+\newblock {\em Computers \& structures}, 49(5):885--896.
+
+\bibitem[Xue et~al., 2012]{xue2012structural}
+Xue, C.-J., Xu, F.-J., Xu, Y., and Tan, W. (2012).
+\newblock Structural topology optimization of a pylon's mount using ant colony
+  algorithms.
+\newblock {\em Journal of Aircraft}, 49(3):724--734.
+
+\bibitem[Xue et~al., 2019]{xue2019explicit}
+Xue, R., Liu, C., Zhang, W., Zhu, Y., Tang, S., Du, Z., and Guo, X. (2019).
+\newblock Explicit structural topology optimization under finite deformation
+  via moving morphable void (mmv) approach.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  344:798--818.
+
+\bibitem[Yang and Chen, 1996]{yang1996stress}
+Yang, R. and Chen, C. (1996).
+\newblock Stress-based topology optimization.
+\newblock {\em Structural optimization}, 12(2-3):98--105.
+
+\bibitem[Yutko, 2011]{yutko2011approaches}
+Yutko, B.~M. (2011).
+\newblock {\em Approaches to representing aircraft fuel efficiency performance
+  for the purpose of a commercial aircraft certification standard}.
+\newblock PhD thesis, Massachusetts Institute of Technology.
+
+\bibitem[Zhang et~al., 2017a]{zhang2017stress}
+Zhang, S., Gain, A.~L., and Norato, J.~A. (2017a).
+\newblock Stress-based topology optimization with discrete geometric
+  components.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  325:1--21.
+
+\bibitem[Zhang et~al., 2017b]{ZHANG20171}
+Zhang, S., Gain, A.~L., and Norato, J.~A. (2017b).
+\newblock Stress-based topology optimization with discrete geometric
+  components.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering}, 325:1 --
+  21.
+
+\bibitem[Zhang et~al., 2018a]{zhang2018geometry}
+Zhang, S., Gain, A.~L., and Norato, J.~A. (2018a).
+\newblock A geometry projection method for the topology optimization of curved
+  plate structures with placement bounds.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  114(2):128--146.
+
+\bibitem[Zhang and Norato, 2017]{zhang2017optimal}
+Zhang, S. and Norato, J.~A. (2017).
+\newblock Optimal design of panel reinforcements with ribs made of plates.
+\newblock {\em Journal of Mechanical Design}, 139(8):081403.
+
+\bibitem[Zhang and Norato, 2018]{zhang2018finding}
+Zhang, S. and Norato, J.~A. (2018).
+\newblock Finding better local optima in topology optimization via tunneling.
+\newblock In {\em ASME 2018 International Design Engineering Technical
+  Conferences and Computers and Information in Engineering Conference}, pages
+  V02BT03A014--V02BT03A014. American Society of Mechanical Engineers.
+
+\bibitem[Zhang et~al., 2016a]{zhang2016geometry}
+Zhang, S., Norato, J.~A., Gain, A.~L., and Lyu, N. (2016a).
+\newblock A geometry projection method for the topology optimization of plate
+  structures.
+\newblock {\em Structural and Multidisciplinary Optimization},
+  54(5):1173--1190.
+
+\bibitem[Zhang et~al., 2017c]{zhang2017explicit}
+Zhang, W., Chen, J., Zhu, X., Zhou, J., Xue, D., Lei, X., and Guo, X. (2017c).
+\newblock Explicit three dimensional topology optimization via moving morphable
+  void (mmv) approach.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  322:590--614.
+
+\bibitem[Zhang et~al., 2017d]{zhang2017new}
+Zhang, W., Li, D., Yuan, J., Song, J., and Guo, X. (2017d).
+\newblock A new three-dimensional topology optimization method based on moving
+  morphable components (mmcs).
+\newblock {\em Computational Mechanics}, 59(4):647--665.
+
+\bibitem[Zhang et~al., 2016b]{zhang2016minimum}
+Zhang, W., Li, D., Zhang, J., and Guo, X. (2016b).
+\newblock Minimum length scale control in structural topology optimization
+  based on the moving morphable components (mmc) approach.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  311:327--355.
+
+\bibitem[Zhang et~al., 2018b]{zhang2018moving}
+Zhang, W., Li, D., Zhou, J., Du, Z., Li, B., and Guo, X. (2018b).
+\newblock A moving morphable void (mmv)-based explicit approach for topology
+  optimization considering stress constraints.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  334:381--413.
+
+\bibitem[Zhang et~al., 2018c]{zhang2018movings}
+Zhang, W., Liu, Y., Du, Z., Zhu, Y., and Guo, X. (2018c).
+\newblock A moving morphable component based topology optimization approach for
+  rib-stiffened structures considering buckling constraints.
+\newblock {\em Journal of Mechanical Design}, 140(11):111404.
+
+\bibitem[Zhang et~al., 2018d]{zhang2018topology}
+Zhang, W., Song, J., Zhou, J., Du, Z., Zhu, Y., Sun, Z., and Guo, X. (2018d).
+\newblock Topology optimization with multiple materials via moving morphable
+  component (mmc) method.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+  113(11):1653--1675.
+
+\bibitem[Zhang et~al., 2011]{zhang2011some}
+Zhang, W., Xia, L., Zhu, J., and Zhang, Q. (2011).
+\newblock Some recent advances in the integrated layout design of
+  multicomponent systems.
+\newblock {\em Journal of Mechanical Design}, 133(10):104503.
+
+\bibitem[Zhang et~al., 2017e]{zhang2017structuralo}
+Zhang, W., Yang, W., Zhou, J., Li, D., and Guo, X. (2017e).
+\newblock Structural topology optimization through explicit boundary evolution.
+\newblock {\em Journal of Applied Mechanics}, 84(1):011011.
+
+\bibitem[Zhang et~al., 2016c]{zhang2016new}
+Zhang, W., Yuan, J., Zhang, J., and Guo, X. (2016c).
+\newblock A new topology optimization approach based on moving morphable
+  components (mmc) and the ersatz material model.
+\newblock {\em Structural and Multidisciplinary Optimization},
+  53(6):1243--1260.
+
+\bibitem[Zhang et~al., 2016d]{zhang2016lagrangian}
+Zhang, W., Zhang, J., and Guo, X. (2016d).
+\newblock Lagrangian description based topology optimization—a revival of
+  shape optimization.
+\newblock {\em Journal of Applied Mechanics}, 83(4):041010.
+
+\bibitem[Zhang et~al., 2015]{zhang2015explicit}
+Zhang, W., Zhong, W., and Guo, X. (2015).
+\newblock Explicit layout control in optimal design of structural systems with
+  multiple embedding components.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  290:290--313.
+
+\bibitem[Zhang et~al., 2017f]{zhang2017structural}
+Zhang, W., Zhou, J., Zhu, Y., and Guo, X. (2017f).
+\newblock Structural complexity control in topology optimization via moving
+  morphable component (mmc) approach.
+\newblock {\em Structural and Multidisciplinary Optimization}, 56(3):535--552.
+
+\bibitem[Zhang et~al., 2017g]{zhang2017comprehensive}
+Zhang, W., Zhou, Y., and Zhu, J. (2017g).
+\newblock A comprehensive study of feature definitions with solids and voids
+  for topology optimization.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  325:289--313.
+
+\bibitem[Zhang and Naga, 2006]{zhang2006natural}
+Zhang, Z.-m. and Naga, A. (2006).
+\newblock Natural superconvergent points of equilateral triangular finite
+  elements-a numerical example.
+\newblock {\em Journal of Computational Mathematics}, pages 19--24.
+
+\bibitem[Zhou and Rozvany, 1991]{zhou1991coc}
+Zhou, M. and Rozvany, G. (1991).
+\newblock The coc algorithm, part ii: topological, geometrical and generalized
+  shape optimization.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  89(1-3):309--336.
+
+\bibitem[Zhou and Wang, 2013]{zhou2013engineering}
+Zhou, M. and Wang, M.~Y. (2013).
+\newblock Engineering feature design for level set based structural
+  optimization.
+\newblock {\em Computer-Aided Design}, 45(12):1524--1537.
+
+\bibitem[Zhou et~al., 2016]{zhou2016feature}
+Zhou, Y., Zhang, W., Zhu, J., and Xu, Z. (2016).
+\newblock Feature-driven topology optimization method with signed distance
+  function.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  310:1--32.
+
+\bibitem[Zhu et~al., 2018]{zhu2018structural}
+Zhu, B., Chen, Q., Wang, R., and Zhang, X. (2018).
+\newblock Structural topology optimization using a moving morphable
+  component-based method considering geometrical nonlinearity.
+\newblock {\em Journal of Mechanical Design}, 140(8):081403.
+
+\bibitem[Zhu et~al., 2008]{zhu2008simultaneous}
+Zhu, J., Zhang, W., Beckers, P., Chen, Y., and Guo, Z. (2008).
+\newblock Simultaneous design of components layout and supporting structures
+  using coupled shape and topology optimization technique.
+\newblock {\em Structural and Multidisciplinary Optimization}, 36(1):29--41.
+
+\bibitem[Zhu et~al., 2016]{zhu2016topology}
+Zhu, J.-H., Zhang, W.-H., and Xia, L. (2016).
+\newblock Topology optimization in aircraft and aerospace structures design.
+\newblock {\em Archives of Computational Methods in Engineering},
+  23(4):595--622.
+
+\bibitem[Zillober et~al., 2004]{zillober2004very}
+Zillober, C., Schittkowski, K., and Moritzen, K. (2004).
+\newblock Very large scale optimization by sequential convex programming.
+\newblock {\em Optimization Methods and Software}, 19(1):103--120.
+
+\bibitem[Zl{\'a}mal, 1978]{zlamal1978superconvergence}
+Zl{\'a}mal, M. (1978).
+\newblock Superconvergence and reduced integration in the finite element
+  method.
+\newblock {\em Mathematics of computation}, 32(143):663--685.
+
+\end{thebibliography}

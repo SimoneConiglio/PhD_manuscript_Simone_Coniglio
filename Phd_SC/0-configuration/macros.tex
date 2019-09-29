@@ -1,0 +1,103 @@
+% Math macros
+\newcommand*{\SET}[1]  {\ensuremath{\mathrm{\mathbf{#1}}}}
+\newcommand*{\VEC}[1]  {\ensuremath{\boldsymbol{#1}}}
+\newcommand*{\MAT}[1]  {\ensuremath{\boldsymbol{#1}}}
+\newcommand*{\OP}[1]  {\ensuremath{\boldsymbol{\mathcal{#1}}}}
+\newcommand*{\ESP}[1]  {\ensuremath{ \mathbb{E} \left \{#1 \right \}}}
+\newcommand*{\ESPENS}[2]  {\ensuremath{ \mathbb{E}_{#1} \left \{#2 \right \}}}
+\newcommand*{\NORM}[1]  {\ensuremath{\left\|#1\right\|}}
+\newcommand*{\DPR}[2]  {\ensuremath{\left \langle #1,#2 \right \rangle}}
+\newcommand*{\FOURIER}[1]  {\ensuremath{\widehat{#1}}}
+\newcommand{\eqdef}{\stackrel{\mathrm{def}}{=}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\ud}{\, \mathrm{d}}
+\newcommand{\vect}{\mathrm{Vect}}
+\newcommand{\sinc}{\mathrm{sinc}}
+\newcommand{\esp}{\ensuremath{\mathrm{E}}} % Problème pour les short captions
+\newcommand{\hilbert}{\ensuremath{\mathcal{H}}}
+\newcommand{\supps}{\ensuremath{\tilde{\mathrm{supp}}}}
+\newcommand{\supp}{\ensuremath{\mathrm{supp}}}
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\intTT}{\int_{-T}^{T}}
+\newcommand{\intT}{\int_{-\frac{T}{2}}^{\frac{T}{2}}}
+\newcommand{\intinf}{\int_{-\infty}^{+\infty}}
+\newcommand{\iintinf}{\iint_{-\infty}^{+\infty}}
+\newcommand{\iintrr}{\iint\limits_{\SET{R}^2}}
+\newcommand{\intr}{\int\limits_{\R}}
+\newcommand{\Sh}{\ensuremath{\boldsymbol{U}}}
+\newcommand{\C}{\ensuremath{\mathbf{C}}}
+\newcommand{\R}{\ensuremath{\mathbf{R}}}
+\newcommand{\Z}{\ensuremath{\mathbf{Z}}}
+\newcommand{\N}{\ensuremath{\mathbf{N}}}
+\newcommand{\K}{\ensuremath{\mathbf{K}}}
+\newcommand{\reel}{\mathcal{R}}
+\newcommand{\imag}{\mathcal{I}}
+\newcommand{\cmnr}{c_{m,n}^\reel}
+\newcommand{\cmni}{c_{m,n}^\imag}
+\newcommand{\cnr}{c_{n}^\reel}
+\newcommand{\cni}{c_{n}^\imag}
+\newcommand{\tproto}{g}
+\newcommand{\rproto}{\check{g}}
+\newcommand{\Tproto}{G}
+\newcommand{\Rproto}{\check{G}}
+\newcommand{\Tpoly}{F}
+\newcommand{\Rpoly}{\check{F}}
+\newcommand{\estim}{\tilde{c}}
+\newcommand{\egal}{\bar{c}}
+\newcommand{\bb}{b}
+\newcommand{\bbf}{z}
+\newcommand{\bbr}{\zeta}
+\newcommand{\LR}{\mathcal{L}_2(\R)}
+\newcommand{\LRR}{\mathcal{L}_2(\R^2)}
+\newcommand{\LZ}{\ell_2(\Z)}
+\newcommand{\LZZ}{\ell_2(\Z^2)}
+\newcommand{\peigne}{\ensuremath{\Psi}}
+\newcommand{\avec}{\qquad \text{avec} \qquad}
+\newcommand{\determinant}[1]{\ensuremath\left|{#1}\right|}%
+\newcommand{\MatrixVar}[1]{\ensuremath\left[{#1}\right]}%
+\newcommand{\VectorVar}[1]{\ensuremath\left\lbrace{#1}\right
+\rbrace}%
+\newcommand{\vecvar}[1]{\left\{{#1}\right\}}
+\newcommand{\matv}[1]{\left[{#1}\right]}
+% Theorems definition
+\newtheoremstyle{break}
+  {11pt}{11pt}%
+  {\itshape}{}%
+  {\bfseries}{}%
+  {\newline}{}%
+\theoremstyle{break}
+
+\newtheorem{definition}{Définition}[chapter]
+\newtheorem{theoreme}{Théorème}[chapter]
+\newtheorem{remarque}{Remarque}[chapter]
+\newtheorem{propriete}{Propriété}[chapter]
+\newtheorem{exemple}{Exemple}[chapter]
+
+% Example of background tag
+% \AddToShipoutPicture{%
+% \begin{tikzpicture}[remember picture,overlay]
+%   \node [rotate=60,scale=10,text opacity=0.1] at (current page.center) {Brouillon};
+% \end{tikzpicture}}
+
+% Example of header tag
+% \AddToShipoutPicture{%
+% \tikzstyle{block} = [draw, thick, color=blue, scale=1.5,rectangle, minimum height=3em, minimum width=6em]
+% \begin{tikzpicture}[remember picture,overlay]
+%   \node [coordinate] at (current page.north) (accroche) {};
+%   \node [block, below of=accroche] {Diffusion restreinte};
+% \end{tikzpicture}}
+
+% Another example of header tag
+% \AddToShipoutPicture{%
+% \tikzstyle{block} = [draw, thick, color=red, scale=1.5,rectangle, minimum height=3em, minimum width=6em]
+% \begin{tikzpicture}[remember picture,overlay]
+%   \node [coordinate] at (current page.north) (accroche) {};
+%   \node [block, below of=accroche] {Confidentiel Défense};
+% \end{tikzpicture}}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../phdthesis"
+%%% End: 
