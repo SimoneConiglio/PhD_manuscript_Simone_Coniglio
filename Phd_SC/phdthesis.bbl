@@ -330,14 +330,21 @@ Christensen, P., Klarbring, A., Pang, J.-S., and Str{\"o}mberg, N. (1998).
 \newblock {\em International Journal for Numerical Methods in Engineering},
   42(1):145--173.
 
+\bibitem[Coniglio et~al., 2017]{coniglio2017pylon}
+Coniglio, S., Gogu, C., Amargier, R., and Morlier, J. (2017).
+\newblock Pylon and engine mounts performance driven structural topology
+  optimization.
+\newblock In {\em World Congress of Structural and Multidisciplinary
+  Optimisation}, pages 1349--1363. Springer.
+
 \bibitem[Coniglio et~al., 2019a]{coniglio2019enginepylon}
 Coniglio, S., Gogu, C., Amargier, R., and Morlier, J. (2019a).
 \newblock Engine pylon topology optimization framework based on performance and
   stress criteria.
 \newblock {\em AIAA Journal}, 0(0):1--13.
 
-\bibitem[Coniglio et~al., 2018]{coniglio2018weighted}
-Coniglio, S., Gogu, C., and Morlier, J. (2018).
+\bibitem[Coniglio et~al., 2018a]{coniglio2018weighted}
+Coniglio, S., Gogu, C., and Morlier, J. (2018a).
 \newblock Weighted average continuity approach and moment correction: New
   strategies for non-consistent mesh projection in structural mechanics.
 \newblock {\em Archives of Computational Methods in Engineering}, pages 1--29.
@@ -347,6 +354,13 @@ Coniglio, S., Gogu, C., Morlier, J., and Amargier, R. (2019b).
 \newblock Generalized geometry projection - a unified approach for geometric
   feature based topology optimization.
 \newblock {\em Archives of Computational Methods in Engineering}, pages 1--38.
+
+\bibitem[Coniglio et~al., 2018b]{coniglio2018original}
+Coniglio, S., Morlier, J., Gogu, C., and Amargier, R. (2018b).
+\newblock Original pylon architecture design using 3d hpc topology
+  optimization.
+\newblock In {\em 2018 AIAA/ASCE/AHS/ASC Structures, Structural Dynamics, and
+  Materials Conference}, page 1388.
 
 \bibitem[Cros, 2013]{ASDM}
 Cros, C. (2013).
