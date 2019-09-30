@@ -1,0 +1,38 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: phdthesis.aux
+A level-1 auxiliary file: 1-opening/acknowledgements.aux
+A level-1 auxiliary file: 1-opening/abstract.aux
+A level-1 auxiliary file: 1-opening/acronyms.aux
+A level-1 auxiliary file: 2-chapters/2-1-introduction.aux
+A level-1 auxiliary file: 2-chapters/2-2-first-chapter.aux
+A level-1 auxiliary file: 2-chapters/2-3-second-chapter.aux
+A level-1 auxiliary file: 2-chapters/2-4-third-chapter.aux
+A level-1 auxiliary file: 2-chapters/2-7-conclusion.aux
+A level-1 auxiliary file: 3-appendices/3-1-first-appendix.aux
+A level-1 auxiliary file: 3-appendices/3-2-second-appendix.aux
+A level-1 auxiliary file: 3-appendices/3-3-third-appendix.aux
+The style file: apalike.bst
+Database file #1: mybib.bib
+Repeated entry---line 1341 of file mybib.bib
+ : @article{svanberg2004some
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2542 of file mybib.bib
+ : @article{buleev1960numerical
+ :                             ,
+I'm skipping whatever remains of this entry
+Name 1 in "National Academies of Sciences, Engineering, and Medicine and others" has a comma at the end for entry national2016commercial
+while executing---line 1023 of file apalike.bst
+Name 1 in "National Academies of Sciences, Engineering, and Medicine and others" has a comma at the end for entry national2016commercial
+while executing---line 1023 of file apalike.bst
+Warning--empty journal in bin2009efficient
+Warning--empty journal in brandt2002multiscale
+Warning--empty journal in dennis1996numerical
+Warning--empty journal in duysinx2009solution
+Warning--empty journal in eves2009topology
+Warning--empty journal in gervasio2016analysis
+Warning--can't use both volume and number fields in hestenes1952methods
+Name 1 in "National Academies of Sciences, Engineering, and Medicine and others" has a comma at the end for entry national2016commercial
+while executing---line 1098 of file apalike.bst
+Warning--empty journal in nitsche1971variationsprinzip
+Warning--empty school in rixen1997substructuring
+(There were 5 error messages)

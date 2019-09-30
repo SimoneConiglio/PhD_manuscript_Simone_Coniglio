@@ -330,8 +330,8 @@ Christensen, P., Klarbring, A., Pang, J.-S., and Str{\"o}mberg, N. (1998).
 \newblock {\em International Journal for Numerical Methods in Engineering},
   42(1):145--173.
 
-\bibitem[Coniglio et~al., 2019]{coniglio2019enginepylon}
-Coniglio, S., Gogu, C., Amargier, R., and Morlier, J. (2019).
+\bibitem[Coniglio et~al., 2019a]{coniglio2019enginepylon}
+Coniglio, S., Gogu, C., Amargier, R., and Morlier, J. (2019a).
 \newblock Engine pylon topology optimization framework based on performance and
   stress criteria.
 \newblock {\em AIAA Journal}, 0(0):1--13.
@@ -341,6 +341,12 @@ Coniglio, S., Gogu, C., and Morlier, J. (2018).
 \newblock Weighted average continuity approach and moment correction: New
   strategies for non-consistent mesh projection in structural mechanics.
 \newblock {\em Archives of Computational Methods in Engineering}, pages 1--29.
+
+\bibitem[Coniglio et~al., 2019b]{coniglio2019generalized}
+Coniglio, S., Gogu, C., Morlier, J., and Amargier, R. (2019b).
+\newblock Generalized geometry projection - a unified approach for geometric
+  feature based topology optimization.
+\newblock {\em Archives of Computational Methods in Engineering}, pages 1--38.
 
 \bibitem[Cros, 2013]{ASDM}
 Cros, C. (2013).
