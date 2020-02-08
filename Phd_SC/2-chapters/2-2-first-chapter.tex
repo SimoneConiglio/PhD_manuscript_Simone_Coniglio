@@ -8,10 +8,10 @@ Dans le chapitre d'introduction nous avons relevé un besoins et un cahier des c
 \begin{itemize}
 \item Les déformations d'un moteur intégré soumis à des chargements.
 \item L'impact de ces déformations sur les "tip-clearance".
-\item L'impact des variation de "tip-clearance" sur la consommation du moteur.
+\item L'impact des variations de "tip-clearance" sur la consommation du moteur.
 \end{itemize}
-Dans un premier temps nous rappelons le bases de théorie de la mécanique des solides déformables. En suite la méthode des éléments fini est introduite comme moyen de construction de modèle. Un maquette éléments finis de moteur est introduite pour la prédictions des variation de "tip-clearance" et de performance moteur. Pour pouvoir traiter la communication entre maillage incohérent, une étude bibliographique est d'abord présentée et deux nouvelles contributions sont introduites. L'approche WACA essaye de fournir un bon compromis entre précisions, complexité et cout computationnel. L'approche de correction de moments fournie une technique d'amélioration de toutes les techniques existantes en imposant "apriori" la conservation du bilan des moments mécaniques à l'interface entre maillages. Ces techniques ont été implémentées et comparées avec différentes approches disponibles dans la littérature.
-Étant le modèle de moteur intégré utilisé dans les prochains chapitres pour faire de l'optimisation topologique, son cout d'évaluation doit être contenu le plus possible. Une première approche proposée pour réduire le temps de calcul et pour gérer des modèles moteurs complexes consiste à utiliser de super-éléments. Cela nécessite l'utilisation de matrice fournies par logiciels commerciaux. Pour cela nous faisons un rappel sur les étapes nécessaires à leur exploitation. En suite la méthode itérative du gradient conjugué avec preconditionneur multigrid géométrique est aussi implémentée et testés avec différents smoothers pour réduire les temps de calcul de l'analyse élément finis du problème en étude. 
+Dans un premier temps nous rappelons le bases de théorie de la mécanique des solides déformables. Ensuite la méthode des éléments fini est introduite comme moyen de construction de modèle. Une maquette éléments finis de moteur est introduite pour la prédictions des variations de "tip-clearance" et de performance moteur. Pour pouvoir traiter la communication entre maillage incohérent, une étude bibliographique est d'abord présentée et deux nouvelles contributions sont introduites. L'approche WACA essaye de fournir un bon compromis entre précisions, complexité et cout computationnel. L'approche de correction de moments fournie une technique d'amélioration de toutes les techniques existantes en imposant "apriori" la conservation du bilan des moments mécaniques à l'interface entre maillages. Ces techniques ont été implémentées et comparées avec différentes approches disponibles dans la littérature.
+Étant le modèle de moteur intégré utilisé dans les prochains chapitres pour faire de l'optimisation topologique, son cout d'évaluation doit être contenu le plus possible. Une première approche proposée pour réduire le temps de calcul et pour gérer des modèles moteurs complexes consiste à utiliser des super-éléments. Cela nécessite l'utilisation de matrices fournies par les logiciels commerciaux. Pour cela nous faisons un rappel sur les étapes nécessaires à leur exploitation. Ensuite la méthode itérative du gradient conjugué avec preconditionneur multigrid géométrique est aussi implémentée et testés avec différents smoothers pour réduire les temps de calcul de l'analyse éléments finis du problème en étude. 
 \end{mdframed}
 \section{Finite elements method in structural analysis }
 \label{sec:1.1}
@@ -31,7 +31,7 @@ FEMs can in fact provide:
 \item Models for the quantification of electromagnetic phenomena. 
 \item Models that account for coupled multi-physics phenomena.
 \end{itemize}
-The main goal of the beginning of this chapter is to introduce notations associated with the finite element formulation for the linear elasto-static problem, notations which will be used throughout the rest of the thesis. The optimization responses needed in chapter \ref{chap:2} need the evaluation of both a mechanical finite element model (c.f. subsection \ref{ssec1.2.1}) and an engine performance index model (c.f. subsection \ref{ssec1.2.1}). The rest of the chapter provide details about the techniques required to consider inconsistent meshes, superelements and efficient iterative solvers that are required to speed-up the overall optimization elapsed time.
+The main goal of the beginning of this chapter is to introduce notations associated with the finite element formulation for the linear elasto-static problem, notations which will be used throughout the rest of the thesis. The optimization responses needed in chapter \ref{chap:2} need the evaluation of both a mechanical finite element model (c.f. subsection \ref{ssec1.2.1}) and an engine performance index model (c.f. subsection \ref{ssec1.2.1}). The rest of the chapter provides details about the techniques required to consider inconsistent meshes, superelements and efficient iterative solvers that are required to speed-up the overall optimization elapsed time.
 
 \subsection{Elastostatics equations - strong and weak form}\label{subsec:1.1.1}
 We consider an elastic body described by a 3D domain $\Omega$ (cf. figure \ref{fig.1}). We denote its boundary, $\partial \Omega$ and the outward normal vector $\VectorVar{\hat{n}}$.
@@ -54,10 +54,10 @@ In elastostatics problems one seeks the displacement field $\VectorVar{u} \in H^
 \label{eq.1.4}
 \MatrixVar{\sigma}=\MatrixVar{\MatrixVar{E}}:\MatrixVar{ 	\varepsilon} & & \forall \VectorVar{x} \in \Omega
 \end{eqnarray}
-Where $\VectorVar{b}$ are the body force vector, $\MatrixVar{\sigma}$ is the stress tensor and $\nabla \cdot (\bullet)$ indicates the divergence operator, $\VectorVar{\bar{u}}$ and $\VectorVar{\bar{t}}$ are respectively the prescribed displacements field and surface force field defined on the boundary $ \partial \Omega_{\sigma}$ and $ \partial \Omega_{u}$, $\MatrixVar{\MatrixVar{E}}$ is the fourth order elastic tensor, $\MatrixVar{\varepsilon} = \VectorVar{\MatrixVar{D}} \cdot\VectorVar{u} $ is the infinitesimal strain tensor ($\VectorVar{\MatrixVar{D}}$ denotes the symmetric gradient operator), $\cdot$ stands for the scalar product and $:$ represent the double index contraction. \footnote{In this text we denote vectors quantity in braces, Matrix in brackets and third or fourth order arrays as Vectors of Matrices and as Matrices of Matrices, i.e. using nested braces and brackets.}\\
+Where $\VectorVar{b}$ are the body force vector, $\MatrixVar{\sigma}$ is the stress tensor and $\nabla \cdot (\bullet)$ indicates the divergence operator, $\VectorVar{\bar{u}}$ and $\VectorVar{\bar{t}}$ are respectively the prescribed displacements field and surface force field defined on the boundary $ \partial \Omega_{\sigma}$ and $ \partial \Omega_{u}$, $\MatrixVar{\MatrixVar{E}}$ is the fourth order elastic tensor, $\MatrixVar{\varepsilon} = \VectorVar{\MatrixVar{D}} \cdot\VectorVar{u} $ is the infinitesimal strain tensor ($\VectorVar{\MatrixVar{D}}$ denotes the symmetric gradient operator), $\cdot$ stands for the scalar product and $:$ represents the double index contraction. \footnote{In this text we denote vectors quantity in braces, Matrix in brackets and third or fourth order arrays as Vectors of Matrices and as Matrices of Matrices, i.e. using nested braces and brackets.}\\
 
-In order to use a finite element approach to discretize the elastostatics equations, a weak form of equation (\ref{eq.1.1}) is introduced.
-By evaluating the scalar product of equation (\ref{eq.1.1}) with a compatible virtual displacement $ \VectorVar{v} \in \mathbb{V}$ and integrating it over the domain $\Omega$, the weak or integral formulation is obtained:
+In order to use a finite element approach to discretize the elastostatics equations, a weak form of equation \eqref{eq.1.1} is introduced.
+By evaluating the scalar product of equation \eqref{eq.1.1} with a compatible virtual displacement $ \VectorVar{v} \in \mathbb{V}$ and integrating it over the domain $\Omega$, the weak or integral formulation is obtained:
 \begin{eqnarray}
 \label{eq.1.6}
 \int_{\Omega}{\VectorVar{v} \cdot (\nabla \cdot \MatrixVar{\sigma} + \VectorVar{b}) d\Omega}=\VectorVar{0} \quad \forall \VectorVar{v} \in \mathbb{V} 
@@ -67,7 +67,7 @@ Using the following identity, valuable for any differentiable field $\VectorVar{
 \label{eq.1.7}
 \nabla \cdot (\VectorVar{\alpha} \cdot \MatrixVar{\beta})=\nabla \VectorVar{\alpha} : \MatrixVar{\beta}+\VectorVar{\alpha}\cdot(\nabla \cdot \MatrixVar{\beta})
 \end{equation}
-Equation (\ref{eq.1.6})  becomes:
+Equation \eqref{eq.1.6}  becomes:
 \begin{eqnarray}
 \label{eq.1.8}
 \int_{\Omega}{(\nabla \cdot (\VectorVar{v} \cdot \MatrixVar{\sigma}) - \nabla \VectorVar{v} :\MatrixVar{\sigma}  + \VectorVar{v} \cdot \VectorVar{b}) d\Omega}=\VectorVar{0} \quad \forall \VectorVar{v} \in \mathbb{V} 
@@ -77,12 +77,12 @@ Using the divergence theorem and taking the tensor product term to the right han
 \label{eq.1.9}
 \int_{\partial \Omega}{(\VectorVar{v} \cdot \MatrixVar{\sigma}\cdot\VectorVar{\hat{n}} )d\partial \Omega}+\int_{\Omega}{(\VectorVar{v} \cdot \VectorVar{b}) d\Omega}=\int_{\Omega}{(\nabla \VectorVar{v} :\MatrixVar{\sigma}) d\Omega} \quad \forall \VectorVar{v} \in \mathbb{V} 
 \end{eqnarray}
-Finally using equations (\ref{eq.1.2}) to (\ref{eq.1.4}).
+Finally using equations \eqref{eq.1.2} to \eqref{eq.1.4}.
 \begin{eqnarray}
 \label{eq.1.10}
 \int_{\partial \Omega_{\sigma}}{\VectorVar{v} \cdot \VectorVar{\bar{t}} d\partial \Omega}+\int_{\Omega}{\VectorVar{v} \cdot \VectorVar{b} d\Omega}=\int_{\Omega}{\VectorVar{\MatrixVar{D}}\cdot \VectorVar{v} :\MatrixVar{\MatrixVar{E}}:\VectorVar{\MatrixVar{D}}\cdot \VectorVar{u}  d\Omega} \quad \forall \VectorVar{v} \in \mathbb{V}
 \end{eqnarray}
-Being both $\MatrixVar{\sigma}$ and $\MatrixVar{ 	\varepsilon}$ symmetric, the right hand side of equation \ref{eq.1.10} can be simplified with the help of the following vectors:
+Being both $\MatrixVar{\sigma}$ and $\MatrixVar{ 	\varepsilon}$ symmetric, the right hand side of equation \eqref{eq.1.10} can be simplified with the help of the following vectors:
 \begin{eqnarray}
 \VectorVar{\varepsilon}=\left\lbrace \begin{array}{c}
 \varepsilon_{xx}\\ \varepsilon_{yy}\\ \varepsilon_{zz}\\ \gamma_{xy} \\ \gamma_{xz}\\ \gamma_{yz}
@@ -92,7 +92,7 @@ Being both $\MatrixVar{\sigma}$ and $\MatrixVar{ 	\varepsilon}$ symmetric, the r
 \sigma_{xx}\\ \sigma_{yy}\\ \sigma_{zz}\\ \tau_{xy} \\ \tau_{xz}\\ \tau_{yz}
 \end{array} \right \rbrace
 \end{eqnarray}
-The generalized Hook's law equation \ref{eq.1.4} can then be written for isotropic materials as:
+The generalized Hook's law equation \eqref{eq.1.4} can then be written for isotropic materials as:
 \begin{equation}
 \VectorVar{\sigma}=E \MatrixVar{\begin{array}{cccccc}
 	C_1 & C_2 & C_2 & 0 & 0 & 0\\
@@ -107,7 +107,7 @@ Where:
 \begin{eqnarray}
 C_1=\frac{1-\upsilon}{(1+\upsilon)(1-2\upsilon)}; \quad C_2=\frac{\upsilon}{(1+\upsilon)(1-2\upsilon)}; \quad C_3=\frac{1}{2(1+\upsilon)}
 \end{eqnarray}
-$E$ and $\upsilon$ are the material's Young modulus and Poisson ratio respectively. Then equation \ref{eq.1.10} can be written as :
+$E$ and $\upsilon$ are the material's Young modulus and Poisson ratio respectively. Then equation \eqref{eq.1.10} can be written as :
 \begin{eqnarray}
 \label{eq.1.11b}
 \int_{\partial \Omega_{\sigma}}{\VectorVar{v}^T \VectorVar{\bar{t}} d\partial \Omega}+\int_{\Omega}{\VectorVar{v}^T \VectorVar{b} d\Omega}=\int_{\Omega}{\left(\nabla_{sym}\VectorVar{v}\right)^T E\MatrixVar{D} \nabla_{sym}\VectorVar{u} d\Omega}\quad \forall \VectorVar{v} \in \mathbb{V}
@@ -146,7 +146,7 @@ x\\y\\z
 \end{array}}=\MatrixVar{\begin{array}{c}\VectorVar{x_n}^T\\\VectorVar{y_n}^T\\\VectorVar{z_n}^T\end{array}}\VectorVar{N_n(\xi,\eta,\zeta)}
 \end{equation}
 Where  $\VectorVar{x_n},\VectorVar{y_n},\VectorVar{z_n}$ are the column vectors containing the $x,y$ and $z$ coordinates of element nodes, and  $\VectorVar{N_n(\xi,\eta,\zeta)}$ is the column vector containing the value of shape functions relative to element nodes. 
-To determine the form of the shape functions one can observe that putting in input the element node reference coordinates $\xi_i,\eta_i,\zeta_i$, for $i=1,2,...,N$, back  into equation \ref{eq.1.16} one should find the corresponding nodal coordinates $x_i,y_i,z_i$. This means that all shape functions have to satisfy $N$ different interpolation conditions. For this reason, in the case of 8 node hexahedral elements, each shape function is chosen to have the following form:
+To determine the form of the shape functions one can observe that putting in input the element node reference coordinates $\xi_i,\eta_i,\zeta_i$, for $i=1,2,...,N$, back  into equation \eqref{eq.1.16} one should find the corresponding nodal coordinates $x_i,y_i,z_i$. This means that all shape functions have to satisfy $N$ different interpolation conditions. For this reason, in the case of 8 node hexahedral elements, each shape function is chosen to have the following form:
 \begin{equation}
 N_i(\xi,\eta,\zeta)=\VectorVar{\begin{array}{cccccccc}
 1&\xi&\eta&\zeta&\xi\eta&\xi\zeta&\eta\zeta&\xi\eta\zeta
@@ -180,13 +180,13 @@ Where $\xi_i,\eta_i,\zeta_i$ are nodal reference coordinates and can be obtained
 		-1\\-1\\-1\\-1\\1\\1\\1\\1
 		\end{array}}
 \end{eqnarray}
-To satisfy equation \ref{eq1.19} one must have:
+To satisfy equation \eqref{eq1.19} one must have:
 \begin{equation}
 \MatrixVar{A}=\MatrixVar{\begin{array}{cccc}
 \VectorVar{p(\xi_1,\eta_1,\zeta_1)}&\VectorVar{p(\xi_2,\eta_2,\zeta_2)}&\cdots&\VectorVar{p(\xi_8,\eta_8,\zeta_8)}
 \end{array}}^{-1}
 \end{equation}
-Using the discretization of equation (\ref{eq.1.11}), the problem of equation (\ref{eq.1.10}) can be written as the well-known system of equation:
+Using the discretization of equation \eqref{eq.1.11}, the problem of equation \eqref{eq.1.10} can be written as the well-known system of equation:
 \begin{equation}
 \label{eq.1.13}
 \MatrixVar{K}^{(h)}\VectorVar{u}^{(h)}=\VectorVar{f}^{(h)}
@@ -198,26 +198,26 @@ Typically $\MatrixVar{K}^{(h)}$ and $\VectorVar{f}^{(h)}$ are called \textit{sti
 \label{eq.1.15}
 {f}_{i}^{(h)}=\int_{\partial \Omega_{\sigma}}{(\MatrixVar{N_i}^{(h)} \cdot \VectorVar{\bar{t}} )d\partial \Omega}+\int_{\Omega}{(\MatrixVar{N_i}^{(h)}\cdot \VectorVar{b}) d\Omega}
 \end{eqnarray}
-Here the column vector $\MatrixVar{N_i}^{(h)}$ and $\MatrixVar{N_j}^{(h)}$ are respectively the i-th and j-th column of $\MatrixVar{N}^{(h)}$.
-The integrals of equations (\ref{eq.1.14}) and (\ref{eq.1.15}) can be decomposed as the sum of the integrals computed on each finite element: 
+Here the column vectors $\MatrixVar{N_i}^{(h)}$ and $\MatrixVar{N_j}^{(h)}$ are respectively the i-th and j-th column of $\MatrixVar{N}^{(h)}$.
+The integrals of equations \eqref{eq.1.14} and \eqref{eq.1.15} can be decomposed as the sum of the integrals computed on each finite element: 
 \begin{eqnarray}
 {K}_{i,j}^{(h)}=\sum_{el=1}^{n_{el}}E_{el}\int_{\Omega_{el}}{\left(\MatrixVar{\nabla_{sym}N_i}^{(h)}\right)^T \MatrixVar{D}\MatrixVar{\nabla_{sym}N_j}^{(h)}   d\Omega_{el}}\\
 {f}_{i}^{(h)}=\sum_{el=1}^{n_{el}}\int_{\partial \Omega_{\sigma}\cap\partial \Omega_{el} }{(\MatrixVar{N_i}^{(h)} \cdot \VectorVar{\bar{t}} )d\partial \Omega_{el}}+\int_{\Omega_{el}}{(\MatrixVar{N_i}^{(h)}\cdot \VectorVar{b}) d\Omega_{el}}
 \end{eqnarray}
 Where the Young's modulus was supposed to be uniform over each finite element.
  These integrals are usually evaluated by Gauss quadrature over each element.
-The mapping of equation \ref{eq.1.16} can then be employed:
+The mapping of equation \eqref{eq.1.16} can then be employed:
  \begin{eqnarray}
  {K}_{i,j}^{(h)}=\sum_{el=1}^{n_{el}}E_{el}\sum_{k=1}^{N_{GP}}{\left(\MatrixVar{\nabla_{sym}N_{ik}}^{(h)}\right)^T \MatrixVar{D}\MatrixVar{\nabla_{sym}N_{jk}}^{(h)}\determinant{\MatrixVar{J_k}}\omega_k}\\
  {f}_{i}^{(h)}=\sum_{el=1}^{n_{el}}\sum_{l=1}^{n_{GP}} {(\MatrixVar{N_{il}}^{(h)} \cdot \VectorVar{\bar{t_l}} )\determinant{\MatrixVar{J_l}}\omega_l}+\sum_{k=1}^{N_{GP}}{(\MatrixVar{N_{ik}}^{(h)}\cdot \VectorVar{b_k}) \determinant{\MatrixVar{J_k}}\omega_k}
  \end{eqnarray}
-Where the notation $\MatrixVar{\nabla_{sym}N_{ik}}$ means that the i-th column of the matrix containing $\MatrixVar{\nabla_{sym}N_{i}}$ is computed on the k-th Gauss point of the el-th element, $\omega_k$ refer to the integration weights of the Gauss-Legendre integration rule chosen to compute each integral. Moreover due to the variable change, the Jacobian determinant of the geometrical mapping $\determinant{\MatrixVar{J_k}}$ has to be computed in each Gauss point of each element in the FEM.
+Where the notation $\MatrixVar{\nabla_{sym}N_{ik}}$ means that the i-th column of the matrix containing $\MatrixVar{\nabla_{sym}N_{i}}$ is computed on the k-th Gauss point of the el-th element, $\omega_k$ refers to the integration weights of the Gauss-Legendre integration rule chosen to compute each integral. Moreover due to the variable change, the Jacobian determinant of the geometrical mapping $\determinant{\MatrixVar{J_k}}$ has to be computed in each Gauss point of each element in the FEM.
 Jacobian determinant can be computed as:
 \begin{equation}
 \determinant{\MatrixVar{J}} =\determinant{\MatrixVar{\frac{\partial \VectorVar{X_g}}{\partial \xi},\frac{\partial \VectorVar{X_g}}{\partial \eta},\frac{\partial \VectorVar{X_g}}{\partial \zeta}}}=\determinant{\MatrixVar{\begin{array}{c}\VectorVar{x_n}^T\\\VectorVar{y_n}^T\\\VectorVar{z_n}^T\end{array}} \MatrixVar{A}\MatrixVar{\frac{\partial \VectorVar{p}}{\partial \xi},\frac{\partial \VectorVar{p}}{\partial \eta},\frac{\partial \VectorVar{p}}{\partial \zeta}}} 
 \end{equation}
 In this expression one can observe that both $\MatrixVar{A}$, and $\MatrixVar{\frac{\partial \VectorVar{p}}{\partial \xi},\frac{\partial \VectorVar{p}}{\partial \eta},\frac{\partial \VectorVar{p}}{\partial \zeta}} $ only depend on the reference element nodal coordinates and on the Gauss point position in the reference space and not on the nodal coordinates of the finite element.
-For the expression of $\MatrixVar{\nabla_{sym}N_i}^{(h)}$ one can apply the definition of $\nabla_{sym}$ operator in equation \ref{eq.1.10} to the i-th column of $\MatrixVar{N}^{(h)}$:
+For the expression of $\MatrixVar{\nabla_{sym}N_i}^{(h)}$ one can apply the definition of $\nabla_{sym}$ operator in equation \eqref{eq.1.10} to the i-th column of $\MatrixVar{N}^{(h)}$:
 \begin{equation}
 	\MatrixVar{\nabla_{sym}N_i}^{(h)}=\VectorVar{\begin{array}{c}
 		\frac{\partial N_{1i}}{\partial x}\\\frac{\partial N_{2i}}{\partial y}\\\frac{\partial N_{3i}}{\partial z}\\
@@ -225,13 +225,13 @@ For the expression of $\MatrixVar{\nabla_{sym}N_i}^{(h)}$ one can apply the defi
 		\end{array}}
 \end{equation}
 Where $N_{1i},N_{2i},N_{3i}$ indicate the first, the second and the third component of the i-th column of  $\MatrixVar{N}^{(h)}$.
-Computing $\MatrixVar{\nabla_{sym}N_i}^{(h)}$ is a non-trivial operation since shape functions are expressed in terms of reference variables $(\xi,\eta,\zeta)$, that map through equation \ref{eq.1.16} the $(x,y,z)$ space. So the inverse mapping between reference and geometric space is an implicit set of functions that often cannot be reversed explicitly. To compute the shape function derivatives with respect to space variable one can use Jacobian matrix definition \footnote{Jacobian matrix of the geometric mapping is nonsingular when finite elements are not twisted and have all distinct nodes}:
+Computing $\MatrixVar{\nabla_{sym}N_i}^{(h)}$ is a non-trivial operation since shape functions are expressed in terms of reference variables $(\xi,\eta,\zeta)$, that map through equation \eqref{eq.1.16} the $(x,y,z)$ space. So the inverse mapping between reference and geometric space is an implicit set of functions that often cannot be reversed explicitly. To compute the shape function derivatives with respect to space variable one can use Jacobian matrix definition \footnote{Jacobian matrix of the geometric mapping is nonsingular when finite elements are not twisted and have all distinct nodes}:
 \begin{equation}
 \MatrixVar{\frac{\partial N_{li}}{\partial x},\frac{\partial N_{li}}{\partial y},\frac{\partial N_{li}}{\partial z}}= 
 \MatrixVar{J}^{-1}\VectorVar{\begin{array}{c}
 	\frac{\partial N_{li}}{\partial \xi}\\\frac{\partial N_{li}}{\partial \eta}\\\frac{\partial N_{li}}{\partial \zeta}\end{array}} 
 \end{equation}
-Thanks to these relationships, the system of balance equation can be expressed in terms of a linear system of equations. This system is actually singular, in fact as a last step one needs to apply the boundary conditions (equation \ref{eq.1.2}). For brevity we will here after refer to stiffness matrix as $\MatrixVar{\mathbf{K_{tot}}}$, to the load vector as $\VectorVar{f_{tot}}$ and to the displacement vector as  $\VectorVar{u}$:
+Thanks to these relationships, the system of balance equation can be expressed in terms of a linear system of equations. This system is actually singular, in fact as a last step one needs to apply the boundary conditions (equation \eqref{eq.1.2}). For brevity we will here after refer to stiffness matrix as $\MatrixVar{\mathbf{K_{tot}}}$, to the load vector as $\VectorVar{f_{tot}}$ and to the displacement vector as  $\VectorVar{u}$:
 \begin{equation}
 \label{eq.1.32}
 \MatrixVar{\mathbf{K_{tot}}}\VectorVar{u_{tot}}=\VectorVar{f_{tot}}
@@ -240,7 +240,7 @@ Thanks to these relationships, the system of balance equation can be expressed i
 \VectorVar{f_{tot}}=\VectorVar{F}+\VectorVar{R}
 \end{equation}
 To apply the boundary conditions it is useful to adopt a partition of degrees of freedoms in two sets:
-the set of constrained DOFs $\VectorVar{u_b}$ and the set of free DOFs $\VectorVar{u_f}$. According to this partition equation \ref{eq.1.13} becomes:
+the set of constrained DOFs $\VectorVar{u_b}$ and the set of free DOFs $\VectorVar{u_f}$. According to this partition equation \eqref{eq.1.13} becomes:
 \begin{eqnarray}
 \label{eq.1.17}
 \MatrixVar{\mathbf{K_{bb}}}\VectorVar{u_b}+\MatrixVar{\mathbf{K_{bf}}}\VectorVar{u_f}=\VectorVar{R_b}+\VectorVar{F_b}\\
@@ -248,7 +248,7 @@ the set of constrained DOFs $\VectorVar{u_b}$ and the set of free DOFs $\VectorV
 \MatrixVar{\mathbf{K_{fb}}}\VectorVar{u_b}+\MatrixVar{\mathbf{K_{ff}}}\VectorVar{u_f}=\VectorVar{R_f}+\VectorVar{F_f}
 \end{eqnarray}
 The reaction force is applied only on constrained DOFs so that $\VectorVar{R_f}=\VectorVar{0}$. If all rigid modes are constrained by the boundary conditions, then $\MatrixVar{\mathbf{K_{ff}}}$ is non-singular.
- In this case, the system of equations \ref{eq.1.17}-\ref{eq.1.18} can be solved with respect to the unknowns $\VectorVar{u_f},\VectorVar{R_b}$:
+ In this case, the system of equations \eqref{eq.1.17}-\eqref{eq.1.18} can be solved with respect to the unknowns $\VectorVar{u_f},\VectorVar{R_b}$:
 \begin{eqnarray}
 \label{eq.1.19}
 \VectorVar{u_f}=\MatrixVar{\mathbf{K_{ff}}}^{-1}\left(-\MatrixVar{\mathbf{K_{fb}}}\VectorVar{u_b}+\VectorVar{F_f}\right)\\
@@ -265,7 +265,7 @@ To keep stiffness matrix symmetry for non-homogeneous Boundary Conditions, the t
 \end{eqnarray}
 Note that for simple clamping conditions $\MatrixVar{\mathbf{A_{bb}}}$ is the identity matrix and $\VectorVar{b_b}=0$  so that also $\MatrixVar{\mathbf{K_{fb}}}\VectorVar{u_b}$ is zero.
 The advantage of this alternative formulation is that the kinematic constraints are directly included in the global stiffness matrix, making it easier to make the transfer among discretization levels for multigrid solvers, as it will be discussed later in this chapter.
-In most of commercial software a post processing can be applied to compute both the deformation field and the stress field on each finite element of the FEM. To do that one needs to apply equation \ref{eq.1.10} and \ref{eq.1.11}. As the shape functions are $C^0$ function, their derivatives are actually discontinuous passing from a finite element to the other. Moreover it has been shown that stress and deformations computed through the FEA are the most accurate when computed at the Gauss Points \cite{zlamal1978superconvergence,zhang2006natural}. For this reason in the preprocessing phase, when the stiffness matrix and the load vector are assembled, the following matrixes are commonly stored to be reused in the post processing phase:
+In most of commercial software a post processing can be applied to compute both the deformation field and the stress field on each finite element of the FEM. To do that one needs to apply equation \eqref{eq.1.10} and \eqref{eq.1.11}. As the shape functions are $C^0$ function, their derivatives are actually discontinuous passing from a finite element to the other. Moreover it has been shown that stress and deformations computed through the FEA are the most accurate when computed at the Gauss Points \cite{zlamal1978superconvergence,zhang2006natural}. For this reason in the preprocessing phase, when the stiffness matrix and the load vector are assembled, the following matrixes are commonly stored to be reused in the post processing phase:
 \begin{eqnarray}
 \label{eq.1.40}
 	\VectorVar{\varepsilon}=\MatrixVar{B_{gp}}\VectorVar{u_{el}} \quad
@@ -283,7 +283,7 @@ The mechanical behavior of both engine and PPS structure is usually studied usin
 \includegraphics[width=1\textwidth]{images/Ch1/enginegeometry}
 \caption{Proposed Whole Engine Model (WEM). Colors identify zone with different properties. The connection between rotor and stator is represented by rigid connections at bearing locations.\label{enginewem}}
 \end{figure}
-This model is a simplification of an industrial engine model that in general can have a fan casing structure, a core casing structure and multiple shafts for rotors. The following assumptions are made regarding the model's mechanical behavior. Rotor shafts are modeled using just one beam model. Both fan casing and core casing are represented using shell models. Different properties are employed for each engine module casing. The connection between rotor and stator is made through four rigid connections that represent stator vane and bearing housing in the engine. Outlet guide vanes which connect the core casing to the fan casing are represented with radial beam model tied to each interface of the engine. The thermal and centrifugal expansion of rotor blades are not considered in our analysis and nonlinearities are neglected. Only aerodynamic loads linked with the aircraft maneuvers are considered for simplicity. These loads are applied statically. A general 3D solid design zone is integrated between the wing and the engine (see gray elements in figure \ref{f.1}). This is the zone where the topology optimization will need to find the optimal material placement. For simplicity and since this does not have a significant effect on optimization, we did not consider the air inlet and the nacelle structure.  The engine core casing and the design zone meshes are tied at specific region of compressor and turbine casing. For this reason the solution of the topology optimization problem will be connected to the engine at these same regions. This will avoid solutions connected on prohibited region such as the combustion chamber casing. The techniques employed for the connection between engine casing and design zone mesh will be detailed in section \ref{sec1.3}
+This model is a simplification of an industrial engine model that in general can have a fan casing structure, a core casing structure and multiple shafts for rotors. The following assumptions are made regarding the model's mechanical behavior. Rotor shafts are modeled using just one beam model. Both fan casing and core casing are represented using shell models. Different properties are employed for each engine module casing. The connection between rotor and stator is made through four rigid connections that represent stator vane and bearing housing in the engine. Outlet guide vanes which connect the core casing to the fan casing are represented with radial beam model tied to each interface of the engine. The thermal and centrifugal expansion of rotor blades are not considered in our analysis and nonlinearities are neglected. Only aerodynamic loads linked with the aircraft maneuvers are considered for simplicity. These loads are applied statically. A general 3D solid design zone is integrated between the wing and the engine (see gray elements in figure \ref{f.1}). This is the zone where the topology optimization will need to find the optimal material placement. For simplicity and since this does not have a significant effect on optimization, we did not consider the air inlet and the nacelle structure.  The engine core casing and the design zone meshes are tied at specific region of compressor and turbine casing. For this reason the solution of the topology optimization problem will be connected to the engine at these same regions. This will avoid solutions connected on prohibited region such as the combustion chamber casing. The techniques employed for the connection between engine casing and design zone mesh will be detailed in section \ref{sec1.3}.
 \begin{figure}[hbt!]
 \centering
 \includegraphics[width=1\textwidth]{images/Ch1/FEM_intro.eps}
@@ -294,7 +294,7 @@ The commercial software Abaqus 13.2 was employed for mesh generation and load ca
 \subsection{Performance Model}
 \label{ssec1.2.2}
 The performance function that we considered in this work is a simplification of the real Thrust Specific Fuel Consumption (TSFC) variation induced by the considered loading conditions. Engine fuel consumption could be impacted in different ways by the pylon and casing design. Here we only considered the effect of closures variations.
-The tip clearance variation is described in Fig. \ref{f.2}, and defined in equation \ref{eq.1}.
+The tip clearance variation is described in figure \ref{f.2}, and defined in equation \eqref{eq.1}.
   \\
   \begin{figure}[hbt!]
   \centering
@@ -412,7 +412,7 @@ An important issue that needs to be addressed is the mesh inconsistency between 
  \int_{\Gamma_2}{(\VectorVar{v} \cdot \VectorVar{t}_{12} )d\Gamma_2}+\int_{\partial \Omega_{\sigma_2}}{(\VectorVar{v} \cdot \VectorVar{\bar{t}} )d\partial \Omega}+\int_{ \Omega_2}{(\VectorVar{v} \cdot \VectorVar{b}) d\Omega}=\\\int_{ \Omega_2}{(\VectorVar{\MatrixVar{D}} \VectorVar{v} :\MatrixVar{\MatrixVar{E}}:\VectorVar{\MatrixVar{D}} \VectorVar{u}  )d\Omega}
  \end{split}
  \end{equation}
- That may be combined with equation (\ref{eq.14}) to get equation (\ref{eq.1.11b}).
+ That may be combined with equation \eqref{eq.14} to get equation \eqref{eq.1.11b}.
  As expected the virtual partition into subdomain is a choice that does not affect the solution of the elastostatics problem.   
  \\
  \subsection{Domain decomposition with consistent discretization}\label{ssec31}
@@ -426,7 +426,7 @@ An important issue that needs to be addressed is the mesh inconsistency between 
  \end{figure}
  \\
  In this case the domain decomposition is not a concrete issue. In fact the communication between the degrees of freedom (DOFs) of the two discretizations is straightforward. We can nevertheless introduce a partition of the DOFs that will be used for each of the latter approaches discussed in this work.
- We will call $\VectorVar{u}_1^{(h)},\VectorVar{u}_2^{(h)},\VectorVar{u}_{\Gamma_1}^{(h)},\VectorVar{u}_{\Gamma_2}^{(h)}$ respectively the DOFs of nodes inside $\Omega_1$ but not on the interface $\Gamma_1$, the DOFs of nodes inside $\Omega_2$ but not on the interface $\Gamma_2$, the DOFs of the nodes of the interface $\Gamma_1$ and the DOFs of the nodes on the interface $\Gamma_2$ respectively. The discretized form of equations (\ref{eq.15})-(\ref{eq.16}) is then: 
+ We will call $\VectorVar{u}_1^{(h)},\VectorVar{u}_2^{(h)},\VectorVar{u}_{\Gamma_1}^{(h)},\VectorVar{u}_{\Gamma_2}^{(h)}$ respectively the DOFs of nodes inside $\Omega_1$ but not on the interface $\Gamma_1$, the DOFs of nodes inside $\Omega_2$ but not on the interface $\Gamma_2$, the DOFs of the nodes of the interface $\Gamma_1$ and the DOFs of the nodes on the interface $\Gamma_2$ respectively. The discretized form of equations \eqref{eq.15}-\eqref{eq.16} is then: 
  \begin{equation}
  \label{eq.23}
      \left[ \begin{array}{cccc} 
@@ -436,7 +436,7 @@ An important issue that needs to be addressed is the mesh inconsistency between 
      \end{array}\right\rbrace= \left\lbrace\begin{array}{c} \VectorVar{f}_1\\\VectorVar{f}_{\Gamma_1}+\VectorVar{r}_{\Gamma_1}\\\VectorVar{f}_{\Gamma_2}+\VectorVar{r}_{\Gamma_2}\\\VectorVar{f}_2
      \end{array}\right\rbrace
  \end{equation}
- The residuals $\VectorVar{r}_{\Gamma_1}$ and $\VectorVar{r}_{\Gamma_2}$ are the expression of the internal forces acting on the interface DOFs of each surface. Equations (\ref{eq.13}) and (\ref{eq.14}) are easily interpreted in this case, since the node in the same position belonging to both meshes will merge and have the same DOFs.
+ The residuals $\VectorVar{r}_{\Gamma_1}$ and $\VectorVar{r}_{\Gamma_2}$ are the expression of the internal forces acting on the interface DOFs of each surface. Equations \eqref{eq.13} and \eqref{eq.14} are easily interpreted in this case, since the node in the same position belonging to both meshes will merge and have the same DOFs.
  This can be expressed as:
  \begin{eqnarray}
  \label{eq.24}
@@ -444,7 +444,7 @@ An important issue that needs to be addressed is the mesh inconsistency between 
  \label{eq.25}
  \VectorVar{r}_{\Gamma_2}=-\VectorVar{r}_{\Gamma_1}
  \end{eqnarray}
- where it is assumed that the interface DOFs have been sorted giving the same index to corresponding DOFs of corresponding nodes. Substituting equations (\ref{eq.24}) back into equation (\ref{eq.23}) and eliminating the residuals one can get:
+ where it is assumed that the interface DOFs have been sorted giving the same index to corresponding DOFs of corresponding nodes. Substituting equations \eqref{eq.24} back into equation \eqref{eq.23} and eliminating the residuals one can get:
  \begin{equation}
  \label{eq.26}
      \left[ \begin{array}{ccc} 
@@ -454,7 +454,7 @@ An important issue that needs to be addressed is the mesh inconsistency between 
      \end{array}\right\rbrace= \left\lbrace\begin{array}{c} \VectorVar{f}_1\\\VectorVar{f}_{\Gamma_1}+\VectorVar{f}_{\Gamma_2}\\\VectorVar{f}_2
      \end{array}\right\rbrace
  \end{equation}
- Obviously, in the case of a conforming interface equation (\ref{eq.26}) could also be obtained using the conforming discretization of equation (\ref{eq.1.11b}). Indeed equations (\ref{eq.1.32}) and (\ref{eq.26}) are equivalent.
+ Obviously, in the case of a conforming interface equation \eqref{eq.26} could also be obtained using the conforming discretization of equation \eqref{eq.1.11b}. Indeed equations \eqref{eq.1.32} and \eqref{eq.26} are equivalent.
  \subsection{Domain decomposition with non-consistent discretization}\label{ssec32}
  Cafiero et al.  \cite{cafiero2016domain} shows different cases in which the non-conforming discretization can increase the challenge associated with a "transfer" of displacement field and stress tensor between meshes.
  In the following section the different scenarios are reviewed.
@@ -495,7 +495,7 @@ An important issue that needs to be addressed is the mesh inconsistency between 
  Also in this case the normal and the geometry of the interpolated interfaces are not  coincident, and special methods are needed to deal with this case \cite{wang2017variationally}.The most general scenario could be the combination of one or more of these scenarios, as it will be discussed later.
  
   \subsection{Elimination methods - Master/Slave  approaches}\label{ssec33}
-  This is a family of approaches that we can find described in Barlow et al. \cite{barlow1982constraint} and in the review paper of De Boer et al \cite{de2007review} that we briefly summarize and enrich in this section. The main idea consists in the reformulation of equations (\ref{eq.13}) and (\ref{eq.14}) as linear relationships between the interfaces of the sub-domains. Then, one of the surfaces is chosen as slave ($\Gamma_2$), its DOFs will be explicitly given as function of the DOFs of the master surface ($\Gamma_1$).  
+  This is a family of approaches that we can find described in Barlow et al. \cite{barlow1982constraint} and in the review paper of De Boer et al \cite{de2007review} that we briefly summarize and enrich in this section. The main idea consists in the reformulation of equations \eqref{eq.13} and \eqref{eq.14} as linear relationships between the interfaces of the sub-domains. Then, one of the surfaces is chosen as slave ($\Gamma_2$), its DOFs will be explicitly given as function of the DOFs of the master surface ($\Gamma_1$).  
   \begin{equation}
   \label{eq.28}
   \VectorVar{u}_{\Gamma_2}=\MatrixVar{\Pi}_{21}\VectorVar{u}_{\Gamma_1}
@@ -508,14 +508,14 @@ An important issue that needs to be addressed is the mesh inconsistency between 
   \MatrixVar{1}_{\Gamma_1}^T\VectorVar{r}_{\Gamma_1}+\MatrixVar{1}_{\Gamma_2}^T\VectorVar{r}_{\Gamma_2}=\VectorVar{0}
   \end{eqnarray}
   In which $\MatrixVar{1}_{\Gamma_1}$ and $\MatrixVar{1}_{\Gamma_2}$ are matrices with the number of lines equal to the number of DOFs of interface ${\Gamma_1}$ and ${\Gamma_2}$ and 3 columns (one per each component). For 3D solid elements they are Boolean matrices that have 1 on the component whose line corresponds to the direction given by the index of their column and 0 otherwise. 
-   Equations (\ref{eq.29}) and (\ref{eq.30}) combined with equation (\ref{eq.28}) give:
+   Equations \eqref{eq.29} and \eqref{eq.30} combined with equation \eqref{eq.28} give:
   \begin{eqnarray}
   \label{eq.31}
   \VectorVar{r}_{\Gamma_1}=-\MatrixVar{\Pi}_{21}^T\VectorVar{r}_{\Gamma_2}\\
   \label{eq32}
   \MatrixVar{\Pi}_{21}\MatrixVar{1}_{\Gamma_1}=\MatrixVar{1}_{\Gamma_2}
   \end{eqnarray}
-  Equation (\ref{eq32}) is a necessary condition that must be satisfied by the projection operator $\MatrixVar{\Pi}_{21}$ defined in equation (\ref{eq.28}). On the other hand, equation (\ref{eq.31}) is used with equations (\ref{eq.23}) and (\ref{eq.24}) to finally get the reduced system of equations:
+  Equation \eqref{eq32} is a necessary condition that must be satisfied by the projection operator $\MatrixVar{\Pi}_{21}$ defined in equation \eqref{eq.28}. On the other hand, equation \eqref{eq.31} is used with equations \eqref{eq.23} and \eqref{eq.24} to finally get the reduced system of equations:
   \begin{equation}
   \label{eq.33}
   \begin{aligned}
@@ -527,7 +527,7 @@ An important issue that needs to be addressed is the mesh inconsistency between 
       \end{array}\right\rbrace
   \end{aligned}
   \end{equation}
-  This is a linear system of equations with a positive semi-definite symmetric matrix like the stiffness matrix of equation (\ref{eq.1.32}). 
+  This is a linear system of equations with a positive semi-definite symmetric matrix like the stiffness matrix of equation \eqref{eq.1.32}. 
   The projection operator $\MatrixVar{\Pi}_{21}$ can be defined using two different approaches that in the contact community are known as node to segment and segment to segment approaches. In the former the relation between the DOFs is given directly by a geometric interpolation. De Boer et al. \cite{de2007review} show two examples of these methods: the Nearest neighbor interpolation (NN) \cite{thevenaz2000interpolation} and the Radial Basis Functions (RBF) \cite{beckert2001multivariate}, \cite{smith2000evaluation}. Another option consists in using of the trace of element shape function on the interface to interpolate the displacement field. In this work we will refer to these methods as Element Shape Function interpolation (ESF).
   The main drawback of these methods is their strong dependence on the slave and master surface choice. In fact for domains meshed with different mesh sizes, choosing the most refined mesh as master surface will not ensure the continuity of the displacement field for all the master nodes that do not belong to elements that contain a slave node projection. Moreover these methods don't satisfy simple patch tests even if the interface is not curved, and finally as it was shown by Bernardi et al. \cite{bernardi1989new} they are sub-optimal in term of mesh convergence.
   The segment to segment approaches even if much more complex to set up can show better accuracy. Finally we present another elimination method based on a weak form of the continuity equation: the Weighted Residual Methods (WRM).
@@ -552,7 +552,7 @@ An important issue that needs to be addressed is the mesh inconsistency between 
     \end{array}\right\rbrace
     \end{equation} 
     Where $o$ is the index of design zone DOFs not lying on the interface.
-    Using these techniques the engine retained nodes stiffness matrix and load vector can be integrated to the design zone. Note that in equation \ref{eq.32} the only engine interface DOFs are considered (c). Subsection \ref{subsection1.4.1} explains the meaning of this choice and of $\left[ \mathbf{\tilde{K}_{cc}} \right]$ and $\lbrace \tilde{F}_c\rbrace$.
+    Using these techniques the engine retained nodes stiffness matrix and load vector can be integrated to the design zone. Note that in equation \eqref{eq.32} the only engine interface DOFs are considered (c). Subsection \ref{subsection1.4.1} explains the meaning of this choice and of $\left[ \mathbf{\tilde{K}_{cc}} \right]$ and $\lbrace \tilde{F}_c\rbrace$.
      \end{comment}
      \subsubsection{Radial Basis Function interpolation (RBF)}\label{sssec332}
      For more general applications, the RBF represent a practical and easy to implement solution. In this approach the displacement field at the interface  is supposed to be a linear combination of radial basis functions defined per each node of the master surface:
@@ -560,7 +560,7 @@ An important issue that needs to be addressed is the mesh inconsistency between 
      \label{eq.35}
      \VectorVar{u}_{\Gamma_1}(\VectorVar{x})=\sum_{s=1}^{N_{\Gamma_1}}\alpha_s\phi_s(\|\VectorVar{x}-\VectorVar{x}^{\Gamma_1}_s\|,r_s)+p(\VectorVar{x})
      \end{equation}
-     Here $\VectorVar{u}_{\Gamma_1}$ is the displacement field on surface $\Gamma_1$. $\alpha_s$ is the weight relative to the s-th radial basis function $\phi_s$, $\|\VectorVar{x}-\VectorVar{x}^{\Gamma_1}_s\| $ is the Euclidean distance of point $\VectorVar{x}$ from the s-th node of the master surface $\Gamma_1$, $r_s \in \mathbb{R} $ is the shape factor of the s-th radial basis function $\phi_s$ , $N_{\Gamma_1}$ is the number of nodes of $\Gamma_1$ and $p(\VectorVar{x})$ is a polynomial function of $\VectorVar{x}$. In this work $p(\VectorVar{x})$ is not considered, for a more general discussion of RBF the reader is referred to \cite{de2007review} , \cite{beckert2001multivariate} and \cite{smith2000evaluation}. The weights $\alpha_s$ of equation (\ref{eq.35}) can be found using the interpolation conditions:
+     Here $\VectorVar{u}_{\Gamma_1}$ is the displacement field on surface $\Gamma_1$. $\alpha_s$ is the weight relative to the s-th radial basis function $\phi_s$, $\|\VectorVar{x}-\VectorVar{x}^{\Gamma_1}_s\| $ is the Euclidean distance of point $\VectorVar{x}$ from the s-th node of the master surface $\Gamma_1$, $r_s \in \mathbb{R} $ is the shape factor of the s-th radial basis function $\phi_s$ , $N_{\Gamma_1}$ is the number of nodes of $\Gamma_1$ and $p(\VectorVar{x})$ is a polynomial function of $\VectorVar{x}$. In this work $p(\VectorVar{x})$ is not considered, for a more general discussion of RBF the reader is referred to \cite{de2007review} , \cite{beckert2001multivariate} and \cite{smith2000evaluation}. The weights $\alpha_s$ of equation \eqref{eq.35} can be found using the interpolation conditions:
      \begin{eqnarray}
      \label{eq.36}
      \VectorVar{u}_{\Gamma_1}(\VectorVar{x}_i^{\Gamma_1})=u_{\Gamma_1 i} & \forall i=1,\dots,N_{\Gamma_1} 
@@ -575,7 +575,7 @@ An important issue that needs to be addressed is the mesh inconsistency between 
      \label{eq.38}
      \Phi_{i,j}=\phi_i(\|\VectorVar{x}^{\Gamma_1}_j-\VectorVar{x}^{\Gamma_1}_i\|,r_s)
      \end{equation}
-     Finally to impose the continuity of displacements at the interface (equation (\ref{eq.24})) one can use the interpolation given by the RBF that takes the form:
+     Finally to impose the continuity of displacements at the interface (equation \eqref{eq.24}) one can use the interpolation given by the RBF that takes the form:
      \begin{equation}
      \label{eq.39}
      \VectorVar{u}_{\Gamma_2}=\MatrixVar{\Psi}^T\cdot\MatrixVar{A}=\MatrixVar{\Psi}^T\cdot\MatrixVar{\Phi}^{-1}\VectorVar{u}_{\Gamma_1}=\MatrixVar{\Pi}_{21}\VectorVar{u}_{\Gamma_1}
@@ -590,7 +590,7 @@ An important issue that needs to be addressed is the mesh inconsistency between 
      \label{eq.41}
      \phi(\|\VectorVar{x}\|,r_s)=\left(1-\frac{\|\VectorVar{x}\|}{r_s}\right)^4_+\left(1+4\frac{\|\VectorVar{x}\|}{r_s}\right)
      \end{equation}
-     A benchmark of the most popular RBF for nodal interpolation can be found in Deparis et al. \cite{deparis2014rescaled}. The latter deals with the choice of the shape factor $r_s$ in a local manner in order to find a good compromise between precision and evaluation cost ($\MatrixVar{\Phi}$ band width). In the same work the RBFs are rescaled in order to avoid spurious oscillations due to interpolation so that they satisfy the condition given by equation (\ref{eq32}). 
+     A benchmark of the most popular RBF for nodal interpolation can be found in Deparis et al. \cite{deparis2014rescaled}. The latter deals with the choice of the shape factor $r_s$ in a local manner in order to find a good compromise between precision and evaluation cost ($\MatrixVar{\Phi}$ band width). In the same work the RBFs are rescaled in order to avoid spurious oscillations due to interpolation so that they satisfy the condition given by equation \eqref{eq32}. 
      \subsubsection{Element Shape Function interpolation (ESF)}\label{sssec333}
      A natural, but more complex, approach consists in the projection of slave surface nodes on master surface  elements, so that :
      \begin{equation}
@@ -598,7 +598,7 @@ An important issue that needs to be addressed is the mesh inconsistency between 
          \Pi_{21i,j}=\MatrixVar{N}_{j}^{\Gamma_1}(\VectorVar{x}_i^{\Gamma_2})
      \end{equation}
      
-     Where $\MatrixVar{N}_{j}^{\Gamma_1}$ is the j-th column of the $\MatrixVar{N}^{(h)}(\VectorVar{x})$ matrix of equation (\ref{eq.1.12}) for ${\Gamma_1}$ interface elements. This projection is quite simple for planar interfaces but for general curved interfaces the projection may be more complicated. An elegant solution is presented in Puso et al. \cite{puso20043d} who considered the normal vector in the center of master elements to rapidly evaluate the projection. For nearly planar surfaces this can be a reasonable approximation, on the other hand, for double curved surfaces this approximation may not be justified.
+     Where $\MatrixVar{N}_{j}^{\Gamma_1}$ is the j-th column of the $\MatrixVar{N}^{(h)}(\VectorVar{x})$ matrix of equation \eqref{eq.1.12} for ${\Gamma_1}$ interface elements. This projection is quite simple for planar interfaces but for general curved interfaces the projection may be more complicated. An elegant solution is presented in Puso et al. \cite{puso20043d} who considered the normal vector in the center of master elements to rapidly evaluate the projection. For nearly planar surfaces this can be a reasonable approximation, on the other hand, for double curved surfaces this approximation may not be justified.
      For each node $(i)$ of $\Gamma_1$ and for each element $(j)$ of $\Gamma_2$ we want to find the local coordinates $(\xi_{ij},\eta_{ij})$ that describe the position of the node $(i)$ on the surface $\Gamma_j$ described by the element $(j)$. In the case of geometrical inconsistency (figure \ref{fig.6}) the node $(i)$ may not lie on the surface $\Gamma_j$, in that case we want to find the local coordinates of the point of $(i^*) \in \Gamma_j$ ( as in figure \ref{fig.8}) that is the closest to $(i)$ i.e.
      \begin{equation}
      \label{eq.43}
@@ -624,7 +624,7 @@ An important issue that needs to be addressed is the mesh inconsistency between 
           \caption{Node to element projection}
           \label{fig.8}
         \end{figure}
-     When this procedure is used, for convex interface meshes there may be nodes that are far from the element $(j)$ but  that have their corresponding point $(i^*)$ inside the element $(j)$. The shape function of equation \ref{eq.42} should take in account the minimal distance $d_{ij}\left(\xi^*_j,\eta^*_j \right)$: all the DOFs of the node $(i)$ at a distance superior to a given tolerance $t$ to its projection  $ (i^*) $ on $ \Gamma_j $ , should not be considered dependent on the $ (j) $ elements DOFs i.e.:
+     When this procedure is used, for convex interface meshes there may be nodes that are far from the element $(j)$ but  that have their corresponding point $(i^*)$ inside the element $(j)$. The shape function of equation \eqref{eq.42} should take in account the minimal distance $d_{ij}\left(\xi^*_j,\eta^*_j \right)$: all the DOFs of the node $(i)$ at a distance superior to a given tolerance $t$ to its projection  $ (i^*) $ on $ \Gamma_j $ , should not be considered dependent on the $ (j) $ elements DOFs i.e.:
      \begin{equation}
      \label{eq.46}
      \Pi_{21i,j}=\begin{cases}\MatrixVar{N}_{j}^{\Gamma_1}\left(\xi^*,\eta^* \right) & d_{ij}\left(\xi^*_j,\eta^*_j \right)\leq t\\
@@ -632,14 +632,14 @@ An important issue that needs to be addressed is the mesh inconsistency between 
      \end{cases}
      \end{equation}
 \subsubsection{Weighted Residual Methods (WRM)}\label{sssec334}
-The methods described until now are based on a strong formulation of the continuity on the interface of the displacement field (equation \ref{eq.28}). On the other hand, segment to segment methods try to impose the continuity of displacements at the interface by the use of a weak form. One such method is the Weighted residual methods described in De Boer et al. \cite{de2007review}, Cebral{\=I} et al \cite{cebrali1997conservative} and  L{\"o}hner et al. \cite{lohner1998fluid} for the fluid-structure interaction problem.\footnote{These approaches do not make the use of Lagrange multipliers like in the Mortar methods (\cite{bernardi1989new},\cite{bernardi1993domain}); anyway when the shape functions of Lagrange multipliers are the same of the displacement field of the slave surface, the consequent equations are the same as it is also shown in Jeon et al. \cite{jeong2017element}} In this approach the jump of the displacement field across the interface has to be orthogonal in the $\mathbb{L}_2$ sense to the trace on $\Gamma_2$ of the kinematic admissible virtual displacement $\VectorVar{v} \in \mathbb{V}$:
+The methods described until now are based on a strong formulation of the continuity on the interface of the displacement field (equation \eqref{eq.28}). On the other hand, segment to segment methods try to impose the continuity of displacements at the interface by the use of a weak form. One such method is the Weighted residual methods described in De Boer et al. \cite{de2007review}, Cebral{\=I} et al \cite{cebrali1997conservative} and  L{\"o}hner et al. \cite{lohner1998fluid} for the fluid-structure interaction problem.\footnote{These approaches do not make the use of Lagrange multipliers like in the Mortar methods (\cite{bernardi1989new},\cite{bernardi1993domain}); anyway when the shape functions of Lagrange multipliers are the same of the displacement field of the slave surface, the consequent equations are the same as it is also shown in Jeon et al. \cite{jeong2017element}} In this approach the jump of the displacement field across the interface has to be orthogonal in the $\mathbb{L}_2$ sense to the trace on $\Gamma_2$ of the kinematic admissible virtual displacement $\VectorVar{v} \in \mathbb{V}$:
 \begin{equation}
 \label{eq.47}
 \begin{array}{cc}
   \int_{\Gamma}{\VectorVar{v}(\VectorVar{x})\cdot\left(\VectorVar{u}_{\Gamma_2}(\VectorVar{x})-\VectorVar{u}_{\Gamma_1}(\VectorVar{x}) \right)d\Gamma}=0 & \forall \VectorVar{v} \in \mathbb{V}    
 \end{array}
 \end{equation}
-Discretizing $\VectorVar{v}(\VectorVar{x})$ using the shape functions of $\Gamma_2$  and using equation (\ref{eq.1.11}) for each sub-domains and writing one equation for each shape function of the discretized space $\mathbb{V}^h_{\Gamma_2}$ equation (\ref{eq.47}) becomes :
+Discretizing $\VectorVar{v}(\VectorVar{x})$ using the shape functions of $\Gamma_2$  and using equation \eqref{eq.1.11} for each sub-domains and writing one equation for each shape function of the discretized space $\mathbb{V}^h_{\Gamma_2}$ equation \eqref{eq.47} becomes :
 \begin{equation}
 \label{eq.48}
 \MatrixVar{M}_2\VectorVar{u}_{\Gamma_2}-\MatrixVar{M}_{21}\VectorVar{u}_{\Gamma_1}=\VectorVar{0}
@@ -656,8 +656,8 @@ We can finally explicit the slave DOFs as a function of the master DOFs as:
 \label{eq.51}
 \VectorVar{u}_{\Gamma_2}=\MatrixVar{M}_2^{-1}\MatrixVar{M}_{21}\VectorVar{u}_{\Gamma_1}=\MatrixVar{\Pi}_{21}\VectorVar{u}_{\Gamma_1}
 \end{equation}
-It is shown in De Boer et al. \cite{de2007review}  that this method respects the condition of equation (\ref{eq32}), therefore the force resultant is conserved at the interface.
-In order to evaluate the integral from equation (\ref{eq.49}) and (\ref{eq.50}) the support of the integral has to be chosen.
+It is shown in De Boer et al. \cite{de2007review}  that this method respects the condition of equation \eqref{eq32}, therefore the force resultant is conserved at the interface.
+In order to evaluate the integral from equation \eqref{eq.49} and \eqref{eq.50} the support of the integral has to be chosen.
 
  \begin{figure}[!ht]
  \centering
@@ -669,10 +669,10 @@ In order to evaluate the integral from equation (\ref{eq.49}) and (\ref{eq.50}) 
      }
  
   
-  \caption{Element to element projection examples. The master element surface $\Gamma_{j1}$ has been projected on the slave element surface $\Gamma_{k2}$ using the same procedure shown in figure (\ref{fig.8}) for each node of the element $j1$ ($1,2,3,4$). In this way it is possible to obtain the projected slave surface $\Gamma_{j1}^*$ ($1^*,2^*,3^*,4^*$). The union of the projection of all the elements of $\Gamma_1$ on $\Gamma_2$ is then indicated as $\Gamma_1^*$. After this projection, a change in local variables $(\xi_{k2},\eta_{k2})$ of the element $k2$ can be employed for the evaluation of Mass matrices (equations (\ref{eq.49}) and (\ref{eq.50}))}
+  \caption{Element to element projection examples. The master element surface $\Gamma_{j1}$ has been projected on the slave element surface $\Gamma_{k2}$ using the same procedure shown in figure (\ref{fig.8}) for each node of the element $j1$ ($1,2,3,4$). In this way it is possible to obtain the projected slave surface $\Gamma_{j1}^*$ ($1^*,2^*,3^*,4^*$). The union of the projection of all the elements of $\Gamma_1$ on $\Gamma_2$ is then indicated as $\Gamma_1^*$. After this projection, a change in local variables $(\xi_{k2},\eta_{k2})$ of the element $k2$ can be employed for the evaluation of Mass matrices (equations \eqref{eq.49} and \eqref{eq.50})}
   \label{fig.9}
 \end{figure}
-In fact in the most general case the surfaces described by the meshes will not be coincident and a projection will be needed (cf. figure (\ref{fig.9})) \footnote{Note that $\Gamma_{j1}^*$ sides are generally curved, in this work they are considered to be straight; this approximation will affect the accuracy of the evaluation of $ \mathbf{M_{21}}$ in equation (\ref{eq.50}). Nevertheless the error induced by this approximation can be considered negligible.}
+In fact in the most general case the surfaces described by the meshes will not be coincident and a projection will be needed (cf. figure (\ref{fig.9})) \footnote{Note that $\Gamma_{j1}^*$ sides are generally curved, in this work they are considered to be straight; this approximation will affect the accuracy of the evaluation of $ \mathbf{M_{21}}$ in equation \eqref{eq.50}. Nevertheless the error induced by this approximation can be considered negligible.}
 \begin{figure}[!ht]
 \centering
      \subfloat[ $N_{3^*}(\xi_{k2},\eta_{k2})$\label{fig.10a}]{%
@@ -684,7 +684,7 @@ In fact in the most general case the surfaces described by the meshes will not b
      \subfloat[ $N_{3^*}(\xi_{k2},\eta_{k2})\cdot N_{5}(\xi_{k2},\eta_{k2})$\label{fig.10c}]{%
        \includegraphics[width=0.3\textwidth]{images/Ch1/N3sN5}
      }
-     \caption{Shape function of node $3^*$ of $j1$, of node $5$ of $k2$ for the example of figure \ref{fig.9} and their product that has to be integrated in equation  (\ref{eq.50}), are represented.}
+     \caption{Shape function of node $3^*$ of $j1$, of node $5$ of $k2$ for the example of figure \ref{fig.9} and their product that has to be integrated in equation  \eqref{eq.50}, are represented.}
      \label{fig.10}
    \end{figure}
    \\
@@ -708,12 +708,12 @@ Thirdly the intersection points $(s3)$ of all the sides of $\Gamma_{k2}$ with th
      \caption{Procedure for the determination of  $\Gamma_{j1^*k2}$ vertices and consequent numerical integration }
      \label{fig.11}
    \end{figure}
-A triangulation of this polygon is obtained connecting all the sides with the polygon center. Finally, 3 Gauss points per triangle have to be used for the numerical integration of equation (\ref{eq.49}) and (\ref{eq.50})) (see the example of figure \ref{fig.11b}). The Gauss point local coordinates  $(\VectorVar{\Xi}_{k2}^{(GP)},\VectorVar{\Theta}_{k2}^{(GP)})$ are easy to find as a function of the triangulation coordinates. On the other hand, to know the value of $\MatrixVar{N}_{j}^{\Gamma_1}$ on the corresponding points of $\Gamma_{j1^*}$ for equation (\ref{eq.50})), the local coordinates  $(\VectorVar{\Xi}_{j1}^{(GP)},\VectorVar{\Theta}_{j1}^{(GP)})$  have to be determined. Puso suggested even for this projection to use the normal of element ($k2$) on the center of the element. To be completely rigorous one should evaluate the normal to the surface $\Gamma_{k2}$ in each Gauss point and then make an intersection of the line on which the normal lies and the surface of $\Gamma_{j1}$ to finally have the local coordinates $(\VectorVar{\Xi}_{j1}^{(GP)},\VectorVar{\Theta}_{j1}^{(GP)})$ . In other words we should find the roots of the nonlinear system of equations:
+A triangulation of this polygon is obtained connecting all the sides with the polygon center. Finally, 3 Gauss points per triangle have to be used for the numerical integration of equation \eqref{eq.49} and \eqref{eq.50}) (see the example of figure \ref{fig.11b}). The Gauss point local coordinates  $(\VectorVar{\Xi}_{k2}^{(GP)},\VectorVar{\Theta}_{k2}^{(GP)})$ are easy to find as a function of the triangulation coordinates. On the other hand, to know the value of $\MatrixVar{N}_{j}^{\Gamma_1}$ on the corresponding points of $\Gamma_{j1^*}$ for equation \eqref{eq.50}), the local coordinates  $(\VectorVar{\Xi}_{j1}^{(GP)},\VectorVar{\Theta}_{j1}^{(GP)})$  have to be determined. Puso suggested even for this projection to use the normal of element ($k2$) on the center of the element. To be completely rigorous one should evaluate the normal to the surface $\Gamma_{k2}$ in each Gauss point and then make an intersection of the line on which the normal lies and the surface of $\Gamma_{j1}$ to finally have the local coordinates $(\VectorVar{\Xi}_{j1}^{(GP)},\VectorVar{\Theta}_{j1}^{(GP)})$ . In other words we should find the roots of the nonlinear system of equations:
 \begin{multline}
 \label{eq.53}
 2\nabla\VectorVar{x}_{\Gamma_{k2}}\left(\VectorVar{\Xi}_{k2}^{(GP)},\VectorVar{\Theta}_{k2}^{(GP)}\right)\cdot \\ \cdot\left( \VectorVar{x}_{\Gamma_{k2}}\left(\VectorVar{\Xi}_{k2}^{(GP)},\VectorVar{\Theta}_{k2}^{(GP)}\right)-\VectorVar{x}_{\Gamma_{j1}}\left(\VectorVar{\Xi}_{j1}^{(GP)},\VectorVar{\Theta}_{j1}^{(GP)}\right)\right)= \VectorVar{0}
 \end{multline}
-Taking in consideration the fact that the sides of $\Gamma_{j1^*}$ are considered as straight segment between the projection on  $\Gamma_{k2}$ of the nodes of $(j1)$, even if this is not always the case, the use of equation (\ref{eq.53}) is not recommended. Some Gauss points when re-projected on $\Gamma_{j1}$ could lie outside the element $(j1)$. To avoid this situation a geometric isoparametric interpolation between the local coordinate $(\xi_{j1},\eta_{j1})$ and the projected one $(\xi_{k2},\eta_{k2})$ is considered here:
+Taking in consideration the fact that the sides of $\Gamma_{j1^*}$ are considered as straight segment between the projection on  $\Gamma_{k2}$ of the nodes of $(j1)$, even if this is not always the case, the use of equation \eqref{eq.53} is not recommended. Some Gauss points when re-projected on $\Gamma_{j1}$ could lie outside the element $(j1)$. To avoid this situation a geometric isoparametric interpolation between the local coordinate $(\xi_{j1},\eta_{j1})$ and the projected one $(\xi_{k2},\eta_{k2})$ is considered here:
 \begin{eqnarray}
 \label{eq.54}
 \begin{aligned}
@@ -732,18 +732,18 @@ N_1\left( \xi_{j1},\eta_{j1}\right)=\frac{1}{4}\left( 1-\xi_{j1}\right)\left( 1-
 N_3\left( \xi_{j1},\eta_{j1}\right)=\frac{1}{4}\left( 1+\xi_{j1}\right)\left( 1+\eta_{j1}\right) \\ N_4\left( \xi_{j1},\eta_{j1}\right)=\frac{1}{4}\left( 1+\xi_{j1}\right)\left( 1-\eta_{j1}\right)
 \end{array}
 \end{equation}
-Finally, equation (\ref{eq.54})-(\ref{eq.55}) can be used to find $(\VectorVar{\Xi}_{j1}^{(GP)},\VectorVar{\Theta}_{j1}^{(GP)})$ solving another nonlinear system of equations:
+Finally, equation \eqref{eq.54}-\eqref{eq.55} can be used to find $(\VectorVar{\Xi}_{j1}^{(GP)},\VectorVar{\Theta}_{j1}^{(GP)})$ solving another nonlinear system of equations:
 \begin{eqnarray}
 \label{eq.57}
 \VectorVar{\Xi}_{k2}^{(GP)}-\xi_{k2}\left( \VectorVar{\Xi}_{j1}^{(GP)},\VectorVar{\Theta}_{j1}^{(GP)}\right)=\VectorVar{0} \\
 \label{eq.58}
 \VectorVar{\Theta}_{k2}^{(GP)}-\eta_{k2}\left( \VectorVar{\Xi}_{j1}^{(GP)},\VectorVar{\Theta}_{j1}^{(GP)}\right)=\VectorVar{0} 
 \end{eqnarray}
-This system can be solved numerically (e.g. with a Newton-Raphson algorithm) giving the analytical expression of the Jacobian matrix. In figure \ref{fig.12} the Gauss points are projected from $\Gamma_{j1*k2}$ back on $\Gamma_{j1}$ using the iso-parametric projection of equations (\ref{eq.57})-(\ref{eq.58}).
+This system can be solved numerically (e.g. with a Newton-Raphson algorithm) giving the analytical expression of the Jacobian matrix. In figure \ref{fig.12} the Gauss points are projected from $\Gamma_{j1*k2}$ back on $\Gamma_{j1}$ using the iso-parametric projection of equations \eqref{eq.57}-\eqref{eq.58}.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=8cm]{images/Ch1/PGproj}
-\caption{Gauss point projection from $\Gamma_{j1*k2}$ back on $\Gamma_{j1}$ using the iso-parametric projection of equations (\ref{eq.57})-(\ref{eq.58}).}  
+\caption{Gauss point projection from $\Gamma_{j1*k2}$ back on $\Gamma_{j1}$ using the iso-parametric projection of equations \eqref{eq.57}-\eqref{eq.58}.}  
 \label{fig.12}
 \end{figure}
 \subsection{Variational based approaches}\label{ssec34}
@@ -767,7 +767,7 @@ E( \VectorVar{u}_1,\VectorVar{u}_{\Gamma_1},\VectorVar{u}_{\Gamma_2},\VectorVar{
     \end{array}\right\rbrace\right)
 \end{aligned}
 \end{equation}
-Note that in equation (\ref{eq.60}) the work at the interface of the residual is eliminated for energy conservation. The system of equations that comes from this formulation has a singular matrix, so that the solution of the static problem cannot be simply obtained by minimizing the total energy.
+Note that in equation \eqref{eq.60} the work at the interface of the residual is eliminated for energy conservation. The system of equations that comes from this formulation has a singular matrix, so that the solution of the static problem cannot be simply obtained by minimizing the total energy.
 \subsubsection{Mortar Element Method}\label{sssec341}
 The basic idea of the Mortar approach is to add a dislocation potential to the total energy, in order to impose the continuity of the displacement field at the interface:
 \begin{equation}
@@ -803,9 +803,9 @@ Then the Lagrangian functional is stationary  for:
     \end{array}\right\rbrace=\left\lbrace\begin{array}{c} \VectorVar{f}_1\\\VectorVar{f}_{\Gamma_1}\\\VectorVar{0}\\\VectorVar{f}_{\Gamma_2}\\\VectorVar{f}_2
     \end{array}\right\rbrace
 \end{equation}
-Even if the equations obtained from this approach seem to be different from the one of the WRM, eliminating the Lagrange eigenvalues from equation (\ref{eq.65}) we can recognize that they have the same solution (see Jeong et al. \cite{jeong2017element} for the proof). It can be noted that this method has the same difficulties of implementation and of evaluation cost encountered with the WRM method: The integral of the shape function over the intersection of the interface has to be evaluated in order to evaluate the mass matrices $\MatrixVar{M}_{21},\MatrixVar{M}_{2}$. The Mortar approach is shown to be as accurate as the WRM approach but with a noticeably longer effort due to the increased number of variables. For this reason in section \ref{sec4} only WRM has been implemented and compared with other methods.
+Even if the equations obtained from this approach seem to be different from the one of the WRM, eliminating the Lagrange eigenvalues from equation \eqref{eq.65} we can recognize that they have the same solution (see Jeong et al. \cite{jeong2017element} for the proof). It can be noted that this method has the same difficulties of implementation and of evaluation cost encountered with the WRM method: The integral of the shape function over the intersection of the interface has to be evaluated in order to evaluate the mass matrices $\MatrixVar{M}_{21},\MatrixVar{M}_{2}$. The Mortar approach is shown to be as accurate as the WRM approach but with a noticeably longer effort due to the increased number of variables. For this reason in section \ref{sec4} only WRM has been implemented and compared with other methods.
 \subsection{The Internodes Approach}\label{ssec35}
-Here we describe the internodes approach, introduced by Deparis et al in \cite{deparis2016internodes} and further analyzed by Gervasio et al. in \cite{gervasio2016analysis}. We derived its matrix formulation directly from equation (\ref{eq.15}). Like in the elimination approaches the continuity of the displacement field is guaranteed by equation (\ref{eq.28}). On the other hand the balance of energy and force sum are not imposed. The forces $\VectorVar{t}_{12}$ and $\VectorVar{t}_{21}$ are supposed to be interpolated with the same shape functions of displacement  on each subdomain interface:
+Here we describe the internodes approach, introduced by Deparis et al in \cite{deparis2016internodes} and further analyzed by Gervasio et al. in \cite{gervasio2016analysis}. We derived its matrix formulation directly from equation \eqref{eq.15}. Like in the elimination approaches the continuity of the displacement field is guaranteed by equation \eqref{eq.28}. On the other hand the balance of energy and force sum are not imposed. The forces $\VectorVar{t}_{12}$ and $\VectorVar{t}_{21}$ are supposed to be interpolated with the same shape functions of displacement  on each subdomain interface:
 \begin{eqnarray}
 \label{eq.66}
  \VectorVar{t}_{12}(\VectorVar{x}|_{\Gamma_2})=\MatrixVar{N}^{(h)}(\VectorVar{x}|_{\Gamma_2}) \VectorVar{p}_{2}\\
@@ -820,17 +820,17 @@ Conforming to these definitions the residual at the interface may be evaluated a
  \label{eq.69}
 \VectorVar{r}_{\Gamma_2}=\int_{\Gamma_2}\MatrixVar{N}^{(h)}(\VectorVar{x}|_{\Gamma_2})\cdot\MatrixVar{N}^{(h)}(\VectorVar{x}|_{\Gamma_2}) \VectorVar{p}_{2}d\Gamma_2=\MatrixVar{M}_2\VectorVar{p}_{2}
 \end{eqnarray}
-The balance of the internal forces per unit area is imposed in a similar fashion to the continuity of the displacements as in equation (\ref{eq.28}), but this time a second interpolation operator is used:
+The balance of the internal forces per unit area is imposed in a similar fashion to the continuity of the displacements as in equation \eqref{eq.28}, but this time a second interpolation operator is used:
 \begin{equation}
 \label{eq.70}
 \VectorVar{p}_{1}+\MatrixVar{\Pi}_{12}\VectorVar{p}_{2}=\VectorVar{0}
 \end{equation}
-Substituting equation (\ref{eq.68}) and (\ref{eq.69}) in (\ref{eq.70}) one gets:
+Substituting equation \eqref{eq.68} and \eqref{eq.69} in \eqref{eq.70} one gets:
 \begin{equation}
 \label{eq.71}
 \VectorVar{r}_{\Gamma_1}+\MatrixVar{M}_1\MatrixVar{\Pi}_{12}\MatrixVar{M}_2^{-1}\VectorVar{r}_{\Gamma_2}=\VectorVar{r}_{\Gamma_1}+\MatrixVar{Q}_{12}\VectorVar{r}_{\Gamma_2}=\VectorVar{0}
 \end{equation}
-Finally, using equations (\ref{eq.71}) and (\ref{eq.28}) in (\ref{eq.15}) one can get:
+Finally, using equations \eqref{eq.71} and \eqref{eq.28} in \eqref{eq.15} one can get:
 \begin{equation}
 \label{eq.72}
 \begin{aligned}
@@ -842,7 +842,7 @@ Finally, using equations (\ref{eq.71}) and (\ref{eq.28}) in (\ref{eq.15}) one ca
     \end{array}\right\rbrace
     \end{aligned}
 \end{equation}
-It can be observed that the system of equations of the internodes formulation is not symmetric and that equations (\ref{eq.31}) and (\ref{eq32}) are not imposed, so that internodes does not conserve \textit{apriori} neither work nor resultants of forces and moments. On the other hand the formulation and the implementation are straightforward if compared with the mortar and the WRM approaches: only the mass matrices $\MatrixVar{M}_2$, $\MatrixVar{M}_1$ and the interpolation operators $\MatrixVar{\Pi}_{12}$ and $\MatrixVar{\Pi}_{21}$ are needed. Good convergence properties have been showed in the work of Gervasio et al. \cite{gervasio2016analysis}.
+It can be observed that the system of equations of the internodes formulation is not symmetric and that equations \eqref{eq.31} and \eqref{eq32} are not imposed, so that internodes does not conserve \textit{apriori} neither work nor resultants of forces and moments. On the other hand the formulation and the implementation are straightforward if compared with the mortar and the WRM approaches: only the mass matrices $\MatrixVar{M}_2$, $\MatrixVar{M}_1$ and the interpolation operators $\MatrixVar{\Pi}_{12}$ and $\MatrixVar{\Pi}_{21}$ are needed. Good convergence properties have been showed in the work of Gervasio et al. \cite{gervasio2016analysis}.
 \subsection{Weighted Average Continuity Approach (WACA)}\label{sssec36}
 The collocation approaches even if simple are not accurate enough when the most refined mesh is chosen as master surface. On the other hand the segment to segment approaches are very accurate but are complex and need much more computational effort. The Internodes approach seeks to achieve such a trade-off between complexity and accuracy but, as it will be shown in section \ref{sec4}, the fact that it does not conserve the resultant force vector and total energy at the interface can deteriorate its accuracy. In \cite{coniglio2018weighted} we proposed a new approach that shares with Internodes its simplicity but achieves an improved accuracy.
 This one is based on another expression of the continuity of the displacement field at the interface. Before we introduce the new formulation let us highlight some equations that can be derived. Each line of the vector coming from the multiplication of the interface mass matrix and the interface displacement vector represents the integral over the interface of the displacement field times the shape function of the DOF corresponding to the selected line. We can define a weighted average displacement field using as weight the shape function:
@@ -868,12 +868,12 @@ In the approach we propose we seek to state the continuity of the weighted avera
 \label{eq.75}
 \VectorVar{\bar{u}}_{\Gamma_2}=\MatrixVar{\Pi}_{21}\VectorVar{\bar{u}}_{\Gamma_1}
 \end{equation}
-By substitution of equation (\ref{eq.74})  into equation  (\ref{eq.75}) one gets a new interpolation operator between the displacement fields:
+By substitution of equation \eqref{eq.74}  into equation  \eqref{eq.75} one gets a new interpolation operator between the displacement fields:
 \begin{equation}
 \label{eq.76}
 \VectorVar{u}_{\Gamma_2}=\MatrixVar{M}_{2}^{-1}\MatrixVar{S}_2\MatrixVar{\Pi}_{21}\MatrixVar{S}_1^{-1}\MatrixVar{M}_{1}\VectorVar{u}_{\Gamma_1}=\MatrixVar{\Pi}_{21}^{*}\VectorVar{u}_{\Gamma_1}
 \end{equation}
-If the interpolation operator $\MatrixVar{\Pi}_{21}$ satisfies the conservation conditions given by equation (\ref{eq32}), $\MatrixVar{\Pi}^{*}_{21}$ will also satisfy the same conditions:
+If the interpolation operator $\MatrixVar{\Pi}_{21}$ satisfies the conservation conditions given by equation \eqref{eq32}, $\MatrixVar{\Pi}^{*}_{21}$ will also satisfy the same conditions:
 \begin{equation}
 \label{eq.77}
 \begin{aligned}
@@ -886,7 +886,7 @@ where we used twice the fact that the mass coherent and lumped mass matrices con
 \label{eq.78}
 \MatrixVar{M}_{1}\MatrixVar{1}_{\Gamma_1}=\MatrixVar{S}_{1}\MatrixVar{1}_{\Gamma_1} \qquad \MatrixVar{M}_{2}\MatrixVar{1}_{\Gamma_2}=\MatrixVar{S}_{2}\MatrixVar{1}_{\Gamma_2} 
 \end{eqnarray}
-The condition of zero work at the interface (equation \ref{eq.29}) can be used as was done in the classic elimination methods so that the final matrix form of the WACA approach is:
+The condition of zero work at the interface (equation \eqref{eq.29}) can be used as was done in the classic elimination methods so that the final matrix form of the WACA approach is:
 \begin{equation}
 \label{eq.79}
 \begin{aligned}
@@ -907,7 +907,7 @@ First of all let’s write the balance of moments of the residual:
 \label{eq.80}
 \sum_{i=1}^{n_{\Gamma_1}}\VectorVar{OP}_{i\Gamma_1}\times \VectorVar{R}_{i\Gamma_1}+\sum_{j=1}^{n_{\Gamma_2}}\VectorVar{OP}_{j\Gamma_2}\times \VectorVar{R}_{j\Gamma_2}=\VectorVar{0}
 \end{equation}
-We defined here $\VectorVar{OP}_{i\Gamma_s}$ as the vector connecting the fixed point O to the positions of the $i^{th}$ nodes of the $\Gamma_s$ surface (s=1,2); $\VectorVar{R}_{i\Gamma_s}$ as the vector of the residual force at the same node. This equation must be satisfied for each possible combination of residuals. For the energy balance (\ref{eq.31}) the residuals are not independent so that all the combinations of residuals can be obtained as all the vectors in $\VectorVar{R}^{N_{\Gamma_2}}$ where $N_{\Gamma_2}=n_d n_{\Gamma_2}$ is the number of DOFs of the second interface. Satisfying equation (\ref{eq.80}) for all vectors of $\VectorVar{R}^{N_{\Gamma_2}}$ means that it has to be verified for each vector in a normal basis, for example the canonical one.
+We defined here $\VectorVar{OP}_{i\Gamma_s}$ as the vector connecting the fixed point O to the positions of the $i^{th}$ nodes of the $\Gamma_s$ surface (s=1,2); $\VectorVar{R}_{i\Gamma_s}$ as the vector of the residual force at the same node. This equation must be satisfied for each possible combination of residuals. For the energy balance \eqref{eq.31} the residuals are not independent so that all the combinations of residuals can be obtained as all the vectors in $\VectorVar{R}^{N_{\Gamma_2}}$ where $N_{\Gamma_2}=n_d n_{\Gamma_2}$ is the number of DOFs of the second interface. Satisfying equation \eqref{eq.80} for all vectors of $\VectorVar{R}^{N_{\Gamma_2}}$ means that it has to be verified for each vector in a normal basis, for example the canonical one.
 For each node $j$ and for each direction $n_d^{(j)}$ (for each $k_2$ DOF) we can then write 3 equations as follows: 
 \begin{eqnarray}
 \label{eq.80b}
@@ -915,7 +915,7 @@ For each node $j$ and for each direction $n_d^{(j)}$ (for each $k_2$ DOF) we can
 \sum_{i=1}^{n_{\Gamma_1}}\VectorVar{OP}_{i\Gamma_1}\times (\VectorVar{R}_{i\Gamma_1})_{n_d^{(i)}}+\VectorVar{OP}_{j\Gamma_2}\times (\VectorVar{R}_{j\Gamma_2})_{n_d^{(j)}}=\VectorVar{0} \quad \forall k_2\in \lbrace1,2,\dots,N_{\Gamma_2} \rbrace
 \end{aligned}
 \end{eqnarray}
-By the use of (\ref{eq.31}) on can replace $(\VectorVar{R}_{i\Gamma_1})_{n_d^{(i)}}$ by the $(k_2,\VectorVar{k_1})$ terms of $\MatrixVar{\Pi}_{21}$ , that we will denote here as $\left(\VectorVar{\Pi_{21}}\right)_{(k_2,\VectorVar{k_1})}$, where   $\VectorVar{k_1}$ are the indexes of the DOFs of the $i^{th}$ node of $\Gamma_1$. Choosing $O \equiv P_{j\Gamma_2} $ to write each moment equation, equation (\ref{eq.80b}) becomes:
+By the use of \eqref{eq.31} on can replace $(\VectorVar{R}_{i\Gamma_1})_{n_d^{(i)}}$ by the $(k_2,\VectorVar{k_1})$ terms of $\MatrixVar{\Pi}_{21}$ , that we will denote here as $\left(\VectorVar{\Pi_{21}}\right)_{(k_2,\VectorVar{k_1})}$, where   $\VectorVar{k_1}$ are the indexes of the DOFs of the $i^{th}$ node of $\Gamma_1$. Choosing $O \equiv P_{j\Gamma_2} $ to write each moment equation, equation \eqref{eq.80b} becomes:
 \begin{eqnarray}
 \label{eq.80c}
 \begin{aligned}
@@ -932,7 +932,7 @@ Where $\left(\VectorVar{\Pi_{21}}\right)_{k_2}$ is the $k_2^{th}$ line of $\Matr
 \label{eq.80e}
 (\MatrixVar{B}_{k2})_{(k_1,n_d)}=(\VectorVar{P_{j\Gamma_2}P_{i\Gamma_1}}\times\VectorVar{n_d}^{(k_1)})_{n_d}
 \end{eqnarray}
- $\VectorVar{n_d}^{(k_1)}$ is the $3\times1$ versor of the $k_1^{th}$ DOF direction and by $(\bullet)_{n_d}$ the extraction of the  ${n_d}$ component of a vector. Equation \ref{eq.80d} and equation \ref{eq32} form a system of 6 equations for each line of the projecting operator that can be compactly written as:
+ $\VectorVar{n_d}^{(k_1)}$ is the $3\times1$ versor of the $k_1^{th}$ DOF direction and by $(\bullet)_{n_d}$ the extraction of the  ${n_d}$ component of a vector. Equation \eqref{eq.80d} and equation \eqref{eq32} form a system of 6 equations for each line of the projecting operator that can be compactly written as:
  \begin{equation}
  \label{eq.80f}
  \left(\VectorVar{\Pi_{21}}\right)_{k_2}\cdot\MatrixVar{A}_{k_2}^T=\left(\VectorVar{\Pi_{21}}\right)_{k_2}\cdot\left[
@@ -946,7 +946,7 @@ Where $\left(\VectorVar{\Pi_{21}}\right)_{k_2}$ is the $k_2^{th}$ line of $\Matr
  \end{array}
  \right]=\VectorVar{b}^T
  \end{equation}
- We seek to correct the projection operator coming from an elimination approach (RBF, WRM, WACA) to respect equation (\ref{eq.80f}). Since we do not want to significantly modify the previous interpolations, we would like to have a new line  $ \left(\VectorVar{\Pi_{21}}\right)_{k_2}^{(c)}$ that is as close as possible to the original one  $ \left(\VectorVar{\Pi_{21}}\right)_{k_2}$ and that satisfies equation \ref{eq.80f}. In other terms we want to solve the optimization problem
+ We seek to correct the projection operator coming from an elimination approach (RBF, WRM, WACA) to respect equation \eqref{eq.80f}. Since we do not want to significantly modify the previous interpolations, we would like to have a new line  $ \left(\VectorVar{\Pi_{21}}\right)_{k_2}^{(c)}$ that is as close as possible to the original one  $ \left(\VectorVar{\Pi_{21}}\right)_{k_2}$ and that satisfies equation \eqref{eq.80f}. In other terms we want to solve the optimization problem
  \begin{equation}
  \label{eq.80g}
 \left\lbrace \begin{array}{c}
@@ -1120,7 +1120,7 @@ Where $\left(\VectorVar{\Pi_{21}}\right)_{k_2}$ is the $k_2^{th}$ line of $\Matr
  While on the majority of error metrics all methods appear to perform reasonably well, especially after balance of moments correction, one of the most discriminating error metrics is the discrepancy in the Von Mises stresses, where relatively large errors can still be encountered. In order to obtain a better overview of the actual discrepancy in terms of stresses we plot the stress maps corresponding to each approach before and after moment correction, for $n=4$ and when $\Gamma_1$ (resp. $\Gamma_2$) is chosen as master surface in Fig. \ref{fig.40} (resp. in Fig.\ref{fig.41} ). Artificial stress concentrations are generated by the mesh coupling at the interface especially for RL-RBF, Internodes and WACA (even after moment correction). Note however that the \textit{apriori} balance of moments correction sensibly improves the accuracy of the stress fields for all the methods, which performed very poorly without this correction. It is also important to note that outliers can have totally unacceptable accuracy in terms of stresses. Overall, in terms of accuracy of the stress field, we can note that the corrected WACA approach allows to achieve, on average, a low error on the stresses and a low dispersion from case to case, as well as less extreme outliers, making it a pertinent alternative to the WRM/Mortar approach, while involving a lower implementation complexity and computational cost. Several other additional conclusions can be drawn based on the detailed study of the dependence of the error measures with mesh density (see figures \ref{fig.21}-\ref{fig.25}). In configuration (1)(figure \ref{fig.21}) we can make following observations:
  \begin{itemize}
      \item n=10 is not represented for clarity, nevertheless we verified that all the error indicators were equal to 0 for n=10.
-     \item In Figure  \ref{fig.21a}, and \ref{fig.21c} one can check that RL-RBF,WACA and WRM/Mortar respecting equations (\ref{eq.31}) and (\ref{eq32}) consequently conserve force resultant and elastic energy at the interface. On the other hand Internodes, that does not respect these equations, shows a discrepancy in terms of reaction sum and residual work at the interface. This discrepancy is severe when the difference between element areas at the interface is important (n=4-7) and when the coarser mesh (always $\Gamma_2$ in our study) is the master. Moreover the discrepancy becomes more severe when the load case is combined (bending-traction load case).
+     \item In Figure  \ref{fig.21a}, and \ref{fig.21c} one can check that RL-RBF,WACA and WRM/Mortar respecting equations \eqref{eq.31} and \eqref{eq32} consequently conserve force resultant and elastic energy at the interface. On the other hand Internodes, that does not respect these equations, shows a discrepancy in terms of reaction sum and residual work at the interface. This discrepancy is severe when the difference between element areas at the interface is important (n=4-7) and when the coarser mesh (always $\Gamma_2$ in our study) is the master. Moreover the discrepancy becomes more severe when the load case is combined (bending-traction load case).
      \item None of the methods studied here conserve \textit{apriori} the interface total moment(c.f. figure \ref{fig.21b}). WACA and internodes do not conserve the moments for coarse meshes and in the combined load case. WRM/Mortar and RL-RBF perform better and seem to be reasonably accurate even for coarser mesh size. Of course for the pure traction case all the methods perform well in terms of zero moment conservation.
      \item In figure \ref{fig.21d} we find that RL-RBF generate openings in the deformed configuration when the interface with the finest mesh ($\Gamma_1$ in our case) is the master. This is a classic problem of node to segment approaches. WACA improves the continuity of the displacement field but is less accurate than internodes and WRM/Mortar especially in the combined load case. All these methods focus on the displacement field. 
      \item In figure \ref{fig.21e},\ref{fig.21f} and \ref{fig.21g} one can observe displacements and stress convergence at the upper domain\footnote{As mentioned before we considered the error average over interface ($\Gamma_1$) nodes for displacement and the average over all the upper domain Gauss points for stress} to the reference configuration (finest mesh tested with consistent mesh on the interface).We find that WRM/Mortar is quite accurate even for coarse meshes. The other methods are reasonably accurate for finer meshes.
@@ -1371,7 +1371,7 @@ The stiffness matrix of the design zone is assembled together with the engine su
  This gives significant flexibility in implementing various approaches developed for topology optimization.
 \subsection{Iterative solvers}
 \label{subsection1.4.2}
-Solving the balance equations \ref{eq.1.119} for the free DOFs vector is an expensive task especially for large 3D problem as the one we try to tackle in this work. The stiffness matrix is large, sparse and positive definite. For this reason one can either employ direct solvers \cite{davis2006direct} or
+Solving the balance equations \eqref{eq.1.119} for the free DOFs vector is an expensive task especially for large 3D problem as the one we try to tackle in this work. The stiffness matrix is large, sparse and positive definite. For this reason one can either employ direct solvers \cite{davis2006direct} or
 iterative solvers \cite{saad2003iterative}. When dealing with small 2D problems, direct solvers are preferable due to their computational efficiency and robustness. In these approaches, the stiffness matrix is decomposed in the product of a lower triangular and an upper triangular matrices (LU or Choleski decompositions). Then, the resolution two systems of linear equations is carried out as a back substitution operation. For large scale 3D problems, these approaches become too expensive and ineffective \cite{davis2006direct}. For these cases, the sparsity of the stiffness matrix results in an inexpensive matrix vector product operation which can be effectively utilized by iterative solution algorithms.
 \subsubsection{The Conjugate Gradient Algorithm}
  For symmetric positive definite matrices, a classic choice in terms of iterative solvers is the Conjugate Gradient (CG) algorithm \cite{hestenes1952methods}. Here we derive this algorithm following the procedure illustrated in \cite{saad2003iterative}. At each iteration $k$ of the Conjugate Gradient algorithm, the solution vector $\VectorVar{U}$ is updated as:
@@ -1416,7 +1416,7 @@ So that:
 \begin{equation}
 \beta_{(k)}=\frac{\VectorVar{r}_{(k+1)}^T\VectorVar{r}_{(k+1)}}{\alpha_{(k)}\VectorVar{p}_{(k)}^T\MatrixVar{\mathbf{K}}\VectorVar{p}_{(k)}}
 \end{equation}
-Using equations \ref{eq.1.128} and \ref{eq.1.129}:
+Using equations \eqref{eq.1.128} and \eqref{eq.1.129}:
 \begin{equation}
 \VectorVar{p}_{(k)}^T\MatrixVar{\mathbf{K}}\VectorVar{p}_{(k)}=\VectorVar{p}_{(k)}^T\MatrixVar{\mathbf{K}}\left(\VectorVar{r}_{(k)} +\beta_{(k-1)}\VectorVar{p}_{(k-1)}\right)=\VectorVar{p}_{(k)}^T\MatrixVar{\mathbf{K}}\VectorVar{r}_{(k)}
 \end{equation}
@@ -1454,7 +1454,7 @@ where the $\MatrixVar{\mathbf{K}}$-norm of a vector is defined as:
 \begin{equation}
 \|\VectorVar{x}\|_{\MatrixVar{\mathbf{K}}}=\sqrt{\VectorVar{x}\MatrixVar{\mathbf{K}}\VectorVar{x}}
 \end{equation}
-$k$ is the iteration where the CG algorithm was stopped and $\kappa$ is the condition number of the stiffness matrix $\MatrixVar{\mathbf{K}}$. Equation \ref{eq.1.135} shows that for $\kappa\gg 1$ the convergence of CG algorithm is very slow. In practice to accelerate and ensure convergence, preconditioning techniques are employed. The basic idea of these techniques is to replace the original system of equations by another one that has the same solution and is easier to be solved by iterative algorithms. An operator $\MatrixVar{\mathbf{M}}^{-1}$ has to be constructed so that $\kappa(\MatrixVar{\mathbf{M}}^{-1}\MatrixVar{\mathbf{K}}) \ll \kappa( \MatrixVar{\mathbf{K}})$.
+$k$ is the iteration where the CG algorithm was stopped and $\kappa$ is the condition number of the stiffness matrix $\MatrixVar{\mathbf{K}}$. Equation \eqref{eq.1.135} shows that for $\kappa\gg 1$ the convergence of CG algorithm is very slow. In practice to accelerate and ensure convergence, preconditioning techniques are employed. The basic idea of these techniques is to replace the original system of equations by another one that has the same solution and is easier to be solved by iterative algorithms. An operator $\MatrixVar{\mathbf{M}}^{-1}$ has to be constructed so that $\kappa(\MatrixVar{\mathbf{M}}^{-1}\MatrixVar{\mathbf{K}}) \ll \kappa( \MatrixVar{\mathbf{K}})$.
 By the use of such techniques the CG algorithm can be modified as in algorithm \ref{PCG}.
 \begin{algorithm}[ht!]
 \KwIn{$\MatrixVar{\mathbf{K}},\MatrixVar{\mathbf{M}}^{-1},\VectorVar{F},\varepsilon_{U}, N_{max}$}
@@ -1485,7 +1485,7 @@ One can observe that the application of the projection operator in \ref{PCG}, is
 \item Robust:  $\MatrixVar{\mathbf{M}}^{-1}$ efficiency should not be problem dependent.
 \item Simple:  complexity should be justified by the computational gain.
 \end{itemize}
-Among most common general purpose techniques we can find incomplete Cholesky Factorization \cite{kershaw1978incomplete}, the diagonal compensation \cite{jacobi1845ueber} and the Factorized Sparse Approximate Inverses (FSAI) \cite{buleev1960numerical,buleev1960numerical,meijerink1977iterative,il1992iterative,varga1960boundary}. All these techniques are well adapted when the matrix of coefficients is not linked with a particular physics. In the next subsection we describe multi-grid approaches that take advantage from the fact that the matrix of coefficients comes from a PDE problem discretization.
+Among most common general purpose techniques we can find incomplete Cholesky Factorization \cite{kershaw1978incomplete}, the diagonal compensation \cite{jacobi1845ueber} and the Factorized Sparse Approximate Inverses (FSAI) \cite{buleev1960numerical,buleev1960numerical2,meijerink1977iterative,il1992iterative,varga1960boundary}. All these techniques are well adapted when the matrix of coefficients is not linked with a particular physics. In the next subsection we describe multi-grid approaches that take advantage from the fact that the matrix of coefficients comes from a PDE problem discretization.
 \subsubsection{Multigrid Methods}
 \label{multigrid}
 The convergence of PCG for solving linear systems arising from PDE slows down with the size of the problem. Multigrid methods \cite{trottenberg2001multigrid} have been initially designed specifically to solve such problems. On the other hands these approaches' success is strongly dependent on the problem at hand and they need attention to get improved performances. They consist in the use of smoothers and coarse level corrections. 
@@ -1690,7 +1690,7 @@ Multi-parameter Jacobi principle can be extended to SOR approach. In this work w
         \subfloat[  \label{fig.1.32d}]{%
            \includegraphics[width=0.5\textwidth]{code_matlab/ARR_Damped_Jacobi.eps}
                 }
-        \caption{Damped Jacobi smoother performances as a function of $\omega$ and for different numbers of mesh levels $n_l$, different numbers of sweeping $\upsilon$. (a) Iterations at convergence.(b) CPU time [s]. (c) Convergence speed defined in equation [Hz] \ref{eq.cs}. (d) Average Residual Reduction per iteration defined in equation \ref{eq.arr}. }
+        \caption{Damped Jacobi smoother performances as a function of $\omega$ and for different numbers of mesh levels $n_l$, different numbers of sweeping $\upsilon$. (a) Iterations at convergence.(b) CPU time [s]. (c) Convergence speed defined in equation [Hz] \eqref{eq.cs}. (d) Average Residual Reduction per iteration defined in equation \eqref{eq.arr}. }
         \label{f.1.32}
       \end{figure} 
       In figure \ref{f.1.32} the performances of damped Jacobi smoother are computed for several values of $\omega$, mesh levels $n_l$ and different numbers of sweeping $\upsilon$. One can observe that the minimal CPU time $\approx33$ seconds is reached for $n_l=3$, $\upsilon=2$, $\omega\approx0.47$. 
@@ -1710,7 +1710,7 @@ Multi-parameter Jacobi principle can be extended to SOR approach. In this work w
               \subfloat[  \label{fig.1.33d}]{%
                  \includegraphics[width=0.5\textwidth]{code_matlab/ARR_SOR.eps}
                       }
-              \caption{SOR smoother performances as a function of $\omega$ and for different numbers of mesh levels $n_l$, different numbers of sweeping $\upsilon$. (a) Iterations at convergence.(b) CPU time [s]. (c) Convergence speed defined in equation [Hz] \ref{eq.cs}. (d) Average Residual Reduction per iteration defined in equation \ref{eq.arr}.}
+              \caption{SOR smoother performances as a function of $\omega$ and for different numbers of mesh levels $n_l$, different numbers of sweeping $\upsilon$. (a) Iterations at convergence.(b) CPU time [s]. (c) Convergence speed defined in equation [Hz] \eqref{eq.cs}. (d) Average Residual Reduction per iteration defined in equation \eqref{eq.arr}.}
               \label{f.1.33}
             \end{figure}
             SOR smoother performances were reported in figure \ref{f.1.33}. In figures \ref{fig.1.33a}  and \ref{fig.1.33b} one can observe a strong dependency of the convergence with the number of sweeping. In fact for $\upsilon=1$ and for $\omega\geq 1$ PCG didn't converged within 100 iterations. The best convergence is obtained for $\omega\approx1.13$, $\upsilon=2$ and $n_l=3$ with 7 iterations in 31 seconds. In figures \ref{fig.1.33c}  and \ref{fig.1.33d} one can also observe that for this point the convergence speed is of $C_S\approx0.4Hz$ and the $ARR\approx6$. This investigation seems to suggest that one could improve performances increasing the number of levels and increasing the number of sweeping. 
@@ -1728,7 +1728,7 @@ Multi-parameter Jacobi principle can be extended to SOR approach. In this work w
                           \subfloat[  \label{fig.1.34d}]{%
                              \includegraphics[width=0.5\textwidth]{code_matlab/ARR_Ichol.eps}
                                   }
-                          \caption{Ichol smoother performances as a function of $\omega$ and for different numbers of mesh levels $n_l$, different numbers of sweeping $\upsilon$. (a) Iterations at convergence.(b) CPU time [s]. (c) Convergence speed defined in equation [Hz] \ref{eq.cs}. (d) Average Residual Reduction per iteration defined in equation \ref{eq.arr}. }
+                          \caption{Ichol smoother performances as a function of $\omega$ and for different numbers of mesh levels $n_l$, different numbers of sweeping $\upsilon$. (a) Iterations at convergence.(b) CPU time [s]. (c) Convergence speed defined in equation [Hz] \eqref{eq.cs}. (d) Average Residual Reduction per iteration defined in equation \eqref{eq.arr}. }
                           \label{f.1.34}
                         \end{figure}  
                         Ichol smoother performances are described in figure \ref{f.1.34}.  For this method the CPU time include the computation of incomplete Cholesky decompositions for each level. One can observe that much less PCG iterations are needed up to convergence ($\leq 5$). The CPU time per iteration is on the other hand very high and reaches its minimum of 37 seconds for $\omega\approx1.12$ $n_l=3$ and $\upsilon=1$. The maximum convergence speed is reached for the same point $C_S\approx 0.64 Hz$ and is bigger than the value found for the other methods. This means that Ichol smoother has a fast convergence, but still the investment required for the construction of preconditioning is not justified for the accuracy of $10^{-5}$. That is why finally the SOR optimal point is still better than the Ichol point if we look at the total CPU time. If we consider the Line Search variants for Damped Jacobi and Ichol smoother (cf. table \ref{tab:1.1}) we can observe that the fastest combinations are for $\upsilon=1$ and $n_l=3$. The best approach found for this configuration was the LS variant of Ichol with $T_{tot}\approx 37$ seconds. Still this approach is less interesting then Ichol in terms of convergence speed. For a general conclusion based on this configuration, depending on the accuracy needed ichol and LS-ichol smoothers can be effective for applications where strict accuracy is demanded so that the investment on the initial evaluation of the incomplete Cholesky decomposition is repaid by the improved convergence speed. On the other hand SOR and damped Jacobi are very inexpensive and can be adopted in situations where the final accuracy is less critical. Another important criterion of selection that is out of the scope of this work is the scalability of the preconditioner.

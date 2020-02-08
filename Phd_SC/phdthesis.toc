@@ -1,0 +1,100 @@
+\babel@toc {english}{}
+\contentsline {starchapter}{Table des sigles et acronymes}{xxiii}{chapter*.5}% 
+\contentsline {starchapter}{Introduction}{1}{chapter*.6}% 
+\contentsline {chapter}{\numberline {1}Structural analysis by FEM }{13}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Finite elements method in structural analysis }{14}{section.1.1}% 
+\contentsline {subsection}{\numberline {1.1.1}Elastostatics equations - strong and weak form}{15}{subsection.1.1.1}% 
+\contentsline {subsection}{\numberline {1.1.2}Discretization using finite element}{17}{subsection.1.1.2}% 
+\contentsline {section}{\numberline {1.2}A generic engine FEM for fuel consumption variation computation}{22}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}Structural Model}{23}{subsection.1.2.1}% 
+\contentsline {subsection}{\numberline {1.2.2}Performance Model}{24}{subsection.1.2.2}% 
+\contentsline {section}{\numberline {1.3}Tying inconsistent meshes}{26}{section.1.3}% 
+\contentsline {subsection}{\numberline {1.3.1}State of the art}{27}{subsection.1.3.1}% 
+\contentsline {subsubsection}{\numberline {1.3.1.1}Strong and weak formulations}{28}{subsubsection.1.3.1.1}% 
+\contentsline {subsubsection}{\numberline {1.3.1.2}Alternative and improved approaches}{28}{subsubsection.1.3.1.2}% 
+\contentsline {subsection}{\numberline {1.3.2}Domain partition}{29}{subsection.1.3.2}% 
+\contentsline {subsection}{\numberline {1.3.3}Domain decomposition with consistent discretization}{30}{subsection.1.3.3}% 
+\contentsline {subsection}{\numberline {1.3.4}Domain decomposition with non-consistent discretization}{32}{subsection.1.3.4}% 
+\contentsline {subsubsection}{\numberline {1.3.4.1}Non conformity scenarios}{32}{subsubsection.1.3.4.1}% 
+\contentsline {subsection}{\numberline {1.3.5}Elimination methods - Master/Slave approaches}{34}{subsection.1.3.5}% 
+\contentsline {subsubsection}{\numberline {1.3.5.1}Radial Basis Function interpolation (RBF)}{35}{subsubsection.1.3.5.1}% 
+\contentsline {subsubsection}{\numberline {1.3.5.2}Element Shape Function interpolation (ESF)}{36}{subsubsection.1.3.5.2}% 
+\contentsline {subsubsection}{\numberline {1.3.5.3}Weighted Residual Methods (WRM)}{37}{subsubsection.1.3.5.3}% 
+\contentsline {subsection}{\numberline {1.3.6}Variational based approaches}{41}{subsection.1.3.6}% 
+\contentsline {subsubsection}{\numberline {1.3.6.1}Mortar Element Method}{42}{subsubsection.1.3.6.1}% 
+\contentsline {subsection}{\numberline {1.3.7}The Internodes Approach}{43}{subsection.1.3.7}% 
+\contentsline {subsection}{\numberline {1.3.8}Weighted Average Continuity Approach (WACA)}{44}{subsection.1.3.8}% 
+\contentsline {subsection}{\numberline {1.3.9}\textit {A priori} conservation of moments}{46}{subsection.1.3.9}% 
+\contentsline {subsection}{\numberline {1.3.10}Benchmarking on numerical test cases}{48}{subsection.1.3.10}% 
+\contentsline {subsubsection}{\numberline {1.3.10.1}Test cases definition and analysis for consistent meshes}{48}{subsubsection.1.3.10.1}% 
+\contentsline {subsection}{\numberline {1.3.11}Benchmark Results}{52}{subsection.1.3.11}% 
+\contentsline {section}{\numberline {1.4}Advanced solver for FEA}{61}{section.1.4}% 
+\contentsline {subsection}{\numberline {1.4.1}Superelement exploitation}{61}{subsection.1.4.1}% 
+\contentsline {subsection}{\numberline {1.4.2}Iterative solvers}{64}{subsection.1.4.2}% 
+\contentsline {subsubsection}{\numberline {1.4.2.1}The Conjugate Gradient Algorithm}{65}{subsubsection.1.4.2.1}% 
+\contentsline {subsubsection}{\numberline {1.4.2.2}The Preconditioned Conjugate Gradient (PCG) Algorithm}{67}{subsubsection.1.4.2.2}% 
+\contentsline {subsubsection}{\numberline {1.4.2.3}Multigrid Methods}{68}{subsubsection.1.4.2.3}% 
+\contentsline {subsubsection}{\numberline {1.4.2.4}Multigrid tuning and smoothers benchmark}{74}{subsubsection.1.4.2.4}% 
+\contentsline {section}{\numberline {1.5}Summary and conclusions}{78}{section.1.5}% 
+\contentsline {chapter}{\numberline {2}Eulerian Structural Topology optimization}{81}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Simulation driven design}{84}{section.2.1}% 
+\contentsline {subsection}{\numberline {2.1.1}Systems and Models representation}{84}{subsection.2.1.1}% 
+\contentsline {subsection}{\numberline {2.1.2}Analysis model}{85}{subsection.2.1.2}% 
+\contentsline {subsection}{\numberline {2.1.3}Optimization problem formulation}{87}{subsection.2.1.3}% 
+\contentsline {subsection}{\numberline {2.1.4}Optimum characterization}{87}{subsection.2.1.4}% 
+\contentsline {subsection}{\numberline {2.1.5}Optimization solvers}{91}{subsection.2.1.5}% 
+\contentsline {subsection}{\numberline {2.1.6}Sequential Convex Programming algorithms}{92}{subsection.2.1.6}% 
+\contentsline {subsubsection}{\numberline {2.1.6.1}The Method of Moving Asymptotes}{93}{subsubsection.2.1.6.1}% 
+\contentsline {subsection}{\numberline {2.1.7}Gradient adjoint evaluation}{97}{subsection.2.1.7}% 
+\contentsline {subsection}{\numberline {2.1.8}Design loop \& human interaction}{99}{subsection.2.1.8}% 
+\contentsline {section}{\numberline {2.2}Density based topology optimization}{100}{section.2.2}% 
+\contentsline {subsection}{\numberline {2.2.1}Problem formulation}{101}{subsection.2.2.1}% 
+\contentsline {subsection}{\numberline {2.2.2}Numerical difficulties \& density filter}{103}{subsection.2.2.2}% 
+\contentsline {subsection}{\numberline {2.2.3}2D topology optimization examples}{108}{subsection.2.2.3}% 
+\contentsline {subsubsection}{\numberline {2.2.3.1}L-shape optimization}{109}{subsubsection.2.2.3.1}% 
+\contentsline {section}{\numberline {2.3}Stress based topology optimization}{111}{section.2.3}% 
+\contentsline {subsection}{\numberline {2.3.1}A 2D stress based topology optimization example}{115}{subsection.2.3.1}% 
+\contentsline {subsection}{\numberline {2.3.2}Dealing with multiple load cases}{121}{subsection.2.3.2}% 
+\contentsline {section}{\numberline {2.4}SIMP application to the pylon and engine mount design}{123}{section.2.4}% 
+\contentsline {subsection}{\numberline {2.4.1}Sensitivity computation}{125}{subsection.2.4.1}% 
+\contentsline {subsection}{\numberline {2.4.2}Single load case analysis}{128}{subsection.2.4.2}% 
+\contentsline {subsection}{\numberline {2.4.3}Multiple load case analysis with symmetric solutions}{133}{subsection.2.4.3}% 
+\contentsline {section}{\numberline {2.5}Summary and conclusions}{140}{section.2.5}% 
+\contentsline {chapter}{\numberline {3}Lagrangian Structural Topology optimization}{143}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}2D demonstration framework}{148}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Moving Morphable Components (MMC) with ersatz material model}{151}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}Geometry Projection (GP)}{153}{section.3.3}% 
+\contentsline {section}{\numberline {3.4}Moving Node Approach (MNA)}{156}{section.3.4}% 
+\contentsline {section}{\numberline {3.5}Generalized Geometry Projection}{159}{section.3.5}% 
+\contentsline {section}{\numberline {3.6}Geometric assembly}{163}{section.3.6}% 
+\contentsline {section}{\numberline {3.7}Sensitivity analysis}{173}{section.3.7}% 
+\contentsline {section}{\numberline {3.8}Numerical investigations on 2D use cases}{177}{section.3.8}% 
+\contentsline {subsection}{\numberline {3.8.1}Parametric study of a cantilever beam}{177}{subsection.3.8.1}% 
+\contentsline {subsection}{\numberline {3.8.2}Topology Optimization of the short cantilever beam}{180}{subsection.3.8.2}% 
+\contentsline {subsection}{\numberline {3.8.3}Discussion}{183}{subsection.3.8.3}% 
+\contentsline {section}{\numberline {3.9}2D stress based topology optimization using a Lagrangian approach}{187}{section.3.9}% 
+\contentsline {section}{\numberline {3.10}MNA application to the pylon and engine mount design}{192}{section.3.10}% 
+\contentsline {subsection}{\numberline {3.10.1}3D geometric components}{192}{subsection.3.10.1}% 
+\contentsline {subsubsection}{\numberline {3.10.1.1}Rectangular parallelepiped components}{192}{subsubsection.3.10.1.1}% 
+\contentsline {subsubsection}{\numberline {3.10.1.2}Cylinder components}{194}{subsubsection.3.10.1.2}% 
+\contentsline {subsubsection}{\numberline {3.10.1.3}Polyhedral components}{195}{subsubsection.3.10.1.3}% 
+\contentsline {subsubsection}{\numberline {3.10.1.4}Activation function and geometric intersection}{197}{subsubsection.3.10.1.4}% 
+\contentsline {subsection}{\numberline {3.10.2}Convex hull constraint}{197}{subsection.3.10.2}% 
+\contentsline {subsection}{\numberline {3.10.3}Rectangular parallelepiped component topology optimization}{199}{subsection.3.10.3}% 
+\contentsline {subsection}{\numberline {3.10.4}Pylon box, engine and wing mounts design optimization}{205}{subsection.3.10.4}% 
+\contentsline {section}{\numberline {3.11}Summary and conclusions}{214}{section.3.11}% 
+\contentsline {chapter}{\numberline {4}Conclusions and perspectives}{217}{chapter.4}% 
+\contentsline {starchapter}{Conclusion}{217}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Perspectives}{218}{section.4.1}% 
+\contentsline {chapter}{\numberline {A}Appendix 1}{221}{appendix.A}% 
+\contentsline {chapter}{\numberline {B}Appendix 2}{227}{appendix.B}% 
+\contentsline {section}{\numberline {B.1}2D topology optimization examples}{227}{section.B.1}% 
+\contentsline {subsubsection}{\numberline {B.1.0.1}MBB optimization}{227}{subsubsection.B.1.0.1}% 
+\contentsline {subsubsection}{\numberline {B.1.0.2}Short cantilever beam optimization}{229}{subsubsection.B.1.0.2}% 
+\contentsline {section}{\numberline {B.2}KS function properties}{231}{section.B.2}% 
+\contentsline {section}{\numberline {B.3}TSFC constraint parametric study}{232}{section.B.3}% 
+\contentsline {chapter}{\numberline {C}Appendix 3}{237}{appendix.C}% 
+\contentsline {section}{\numberline {C.1}Characteristic function and local volume fraction sensitivity distribution}{237}{section.C.1}% 
+\contentsline {section}{\numberline {C.2}Parametric study results on the cantilever beam case}{237}{section.C.2}% 
+\contentsline {section}{\numberline {C.3}MMA set-up}{245}{section.C.3}% 
+\contentsline {chapter}{Bibliography}{247}{appendix*.184}% 

@@ -12,14 +12,6 @@ A level-1 auxiliary file: 3-appendices/3-2-second-appendix.aux
 A level-1 auxiliary file: 3-appendices/3-3-third-appendix.aux
 The style file: apalike.bst
 Database file #1: mybib.bib
-Repeated entry---line 1341 of file mybib.bib
- : @article{svanberg2004some
- :                          ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 2542 of file mybib.bib
- : @article{buleev1960numerical
- :                             ,
-I'm skipping whatever remains of this entry
 Name 1 in "National Academies of Sciences, Engineering, and Medicine and others" has a comma at the end for entry national2016commercial
 while executing---line 1023 of file apalike.bst
 Name 1 in "National Academies of Sciences, Engineering, and Medicine and others" has a comma at the end for entry national2016commercial
@@ -35,4 +27,4 @@ Name 1 in "National Academies of Sciences, Engineering, and Medicine and others"
 while executing---line 1098 of file apalike.bst
 Warning--empty journal in nitsche1971variationsprinzip
 Warning--empty school in rixen1997substructuring
-(There were 5 error messages)
+(There were 3 error messages)

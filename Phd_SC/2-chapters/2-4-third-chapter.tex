@@ -4,11 +4,11 @@
 \section*{Résumé}
 Dans ce chapitre nous passons en revue les approches d'optimisation topologique dites lagrangiennes ou bien explicites. Dans cette famille d'approches la solution est décrite par un ensemble de composantes de forme simple dont les dimensions, positions et orientations sont données comme variables de design. Entre les approches qu'on peut retrouver dans la littérature on considère:
  \begin{itemize}
- \item \textbf{MMC}: \textit{Methode of Moving Morphable Components} avec modèle matériau d'Esartz.
+ \item \textbf{MMC}: \textit{Methode of Moving Morphable Components} avec modèle matériau d'ersatz.
  \item \textbf{GP}: \textit{Geometry Projection}
  \item \textbf{MNA}: \textit{Moving Node Approach}
  \end{itemize}
- Une nouvelle techniques appelée \textit{Generalized Geometry Projection} (\textbf{GGP}) \cite{coniglio2019generalized} est proposée. Cet approche est en réalité une généralisation de l'approche de GP qui permet de représenter toutes les techniques mentionnées précédemment. En plus cette technique offre la possibilité d'éviter l'apparition de points d'inflexion dans les réponses obtenues utilisant la projection sur maillage éléments finis. Ensuite un étude bibliographique et comparative des approches les plus courantes pour l'assemblage géométrique de composantes est aussi proposée. Le calcul analytique des gradients est ensuite déduit.
+ Une nouvelle techniques appelée \textit{Generalized Geometry Projection} (\textbf{GGP}) \cite{coniglio2019generalized} est proposée. Cet approche est en réalité une généralisation de l'approche de GP qui permet de représenter toutes les techniques mentionnées précédemment. En plus cette technique offre la possibilité d'éviter l'apparition de points d'inflexion dans les réponses obtenues utilisant la projection sur maillage éléments finis. Ensuite une étude bibliographique et comparative des approches les plus courantes pour l'assemblage géométrique de composantes est aussi proposée. Le calcul analytique des gradients est ensuite déduit.
  Différents cas simplifiés démontrent l'efficacité de l'approche proposée pour éviter les points d'inflexion. 
  Ensuite les contraintes de stress sont aussi traitées par la formulation unifiée d'agrégation et relaxation de \cite{verbart2017unified}. Finalement l'application  de l'approche MNA au problème de design du mât et attaches moteur, déjà traité dans le chapitre \ref{chap:2} par la méthode SIMP, est considérée. D'abord des composantes rectangulaires ensuite des composantes  spécifiques au problème en étude sont traitées. 
 \end{mdframed}
@@ -33,15 +33,15 @@ An alternative family of approaches seeks to both use geometric primitives (i.e.
     \\ 
 \end{itemize}
 
-In this second family of methods, four approaches represent a solution as the union of geometric entities that can move, stretch and analytically modify their shapes: the moving morphable components (MMC) method (Guo et al.  \cite{guo2014doing,guo2016explicit}, Zhang et al. \cite{zhang2016new,zhang2017new}) ; the geometry projection (GP) method (Bell et al. \cite{bell2012geometry}, Norato et al. \cite{norato2015geometry}, Zhang et al. \cite{zhang2016geometry}); the Method of Moving Morphable Bars (MMB) Hoang et al. \cite{hoang2017topology} and the Moving Node Approach (MNA), introduced in the Master thesis of Overvelde \cite{overvelde2012moving}. We refer to these approaches as explicit topology optimization approaches, highlighting the fact that the material description is explicitly described, instead of implicitly as it is the case for direct density based approaches, where the layout is describe by a mapping of presence and absence of material. In \cite{guo2014doing}, an explicit level set function is used to determine the geometry of moving morphable components with uniform thickness. The XFEM approach was employed as an alternative for the displacement computation \cite{kreissl2012levelset,van2007stress,wei2010study}. The same framework is also presented in Zhang et al. \cite{zhang2016lagrangian} where MMC is identified as a way of extending techniques commonly employed in shape optimization, with the freedom inherited from topology optimization.  Moving components with variable thickness are used in \cite{zhang2016new}, and the Esartz material model is employed to enhance computational efficiency. In the work of Zhang et al. \cite{zhang2016minimum} length scale control is achieved by directly controlling the component's minimal thickness.
+In this second family of methods, four approaches represent a solution as the union of geometric entities that can move, stretch and analytically modify their shapes: the moving morphable components (MMC) method (Guo et al.  \cite{guo2014doing,guo2016explicit}, Zhang et al. \cite{zhang2016new,zhang2017new}) ; the geometry projection (GP) method (Bell et al. \cite{bell2012geometry}, Norato et al. \cite{norato2015geometry}, Zhang et al. \cite{zhang2016geometry}); the Method of Moving Morphable Bars (MMB) Hoang et al. \cite{hoang2017topology} and the Moving Node Approach (MNA), introduced in the Master thesis of Overvelde \cite{overvelde2012moving}. We refer to these approaches as explicit topology optimization approaches, highlighting the fact that the material description is explicitly described, instead of implicitly as it is the case for direct density based approaches, where the layout is describe by a mapping of presence and absence of material. In \cite{guo2014doing}, an explicit level set function is used to determine the geometry of moving morphable components with uniform thickness. The XFEM approach was employed as an alternative for the displacement computation \cite{kreissl2012levelset,van2007stress,wei2010study}. The same framework is also presented in Zhang et al. \cite{zhang2016lagrangian} where MMC is identified as a way of extending techniques commonly employed in shape optimization, with the freedom inherited from topology optimization.  Moving components with variable thickness are used in \cite{zhang2016new}, and the ersatz material model is employed to enhance computational efficiency. In the work of Zhang et al. \cite{zhang2016minimum} length scale control is achieved by directly controlling the component's minimal thickness.
 In Deng et al. \cite{deng2016design} the MMC approach is successfully implemented to solve various types of problems, like the design of compliant mechanisms and of low-frequency resonating micro devices.
 In the work of Zhang et al. \cite{zhang2017new}, the MMC framework is extended to 3D structures.
 The complexity of the solution is controlled in \cite{zhang2017structural} by controlling the maximum number of components in the final solutions.
 
-The Moving Morphable Voids approach \cite{zhang2017explicit} makes use of b-splined shaped holes, explicitly piloted in the topology optimization. The proposed framework, not only reduces the optimization burden due to variables reduction, but also impacts the cost of the evaluation of the displacement field, eliminating the element completely contained in the void region from the analysis. The same framework is applied to tackle stress based topology optimization in \cite{zhang2018moving}.
+The Moving Morphable Voids approach \cite{zhang2017explicit} makes use of B-splined shaped holes, explicitly piloted in the topology optimization. The proposed framework, not only reduces the optimization burden due to variables reduction, but also impacts the cost of the evaluation of the displacement field, eliminating the element completely contained in the void region from the analysis. The same framework is applied to tackle stress based topology optimization in \cite{zhang2018moving}.
 In Zhang et al. \cite{zhang2017structuralo} the control of the solution is achieved by varying explicitly the boundaries of Components or voids using B-spline curves.  
 In Takalloozadeh et al. \cite{takalloozadeh2017implementation} the topological derivative is implemented in the MMC approach.
- In the work of \cite{guo2017self} the ability of MMC to determined self-supported structures is studied and in Liu et al. \cite{liu2017additive} the MMCs/MMVs framework is employed to determine graded lattice structures achievable with additive layer manufacturing technologies. In Hou et al. \cite{hou2017explicit} the MMC framework is proposed based on Isogeoemtric Analysis (IGA) instead of finite element analysis (FEA). In Zhang et al. \cite{zhang2018topology}, the MMC approach is employed to design multi-material structures and in Zhang et al. \cite{zhang2018movings} it is employed to find the best layout of stiffening ribs including buckling constraints. Geometric non-linearities are considered in Zhu et al. \cite{zhu2018structural} for MMC and in Xue et al. \cite{xue2019explicit} for MMV.
+ In the work of \cite{guo2017self} the ability of MMC to determined self-supported structures is studied and in Liu et al. \cite{liu2017additive} the MMCs/MMVs framework is employed to determine graded lattice structures achievable with additive layer manufacturing technologies. In Hou et al. \cite{hou2017explicit} the MMC framework is proposed based on Isogeomtric Analysis (IGA) instead of finite element analysis (FEA). In Zhang et al. \cite{zhang2018topology}, the MMC approach is employed to design multi-material structures and in Zhang et al. \cite{zhang2018movings} it is employed to find the best layout of stiffening ribs including buckling constraints. Geometric non-linearities are considered in Zhu et al. \cite{zhu2018structural} for MMC and in Xue et al. \cite{xue2019explicit} for MMV.
   In Lei et al. \cite{lei2019machine} machine learning techniques like:  support vector regression (SVR) \cite{smola2004tutorial} and the K-nearest-neighbors (KNN) \cite{altman1992introduction}, were adopted in order to speed up the resolution of the optimization problem, under MMC framework. In Liu et al. \cite{liu2018efficient} an efficient strategy is proposed to decouple the finite element mesh discretization from the discretization employed to assemble the stiffness matrix on the basis of the geometric configuration.
   In Sun et al. \cite{sun2018topology} the topology optimization of a 3D multi-body systems considering large deformations and large overall motion is achieved using MMC.\\  
 With the Method of Moving Morphable Bars (MMB) Hoang et al. \cite{hoang2017topology} introduce round ended bars in the topology optimization framework that can overlap and change both shape and position. As main features of this work one can identify the control of both minimal and maximal thickness of the components, the use of sigmoid Heaviside function to project the components on the fixed finite element mesh, the use of SIMP material model to penalize intermediate density and the Boolean union of components realized making the product of Heaviside functions. MMB was also studied in Wang et al. \cite{wang2018explicit} for the layout of planar multi-component systems. \\
@@ -51,14 +51,14 @@ In the work of Norato \cite{norato2018topology} supershapes geometric features a
 In Kazemi et al. \cite{kazemi2018topology}, the Geometry Projection was applied to multi-material design of 2D and 3D structures.  
 In Zhang et al. \cite{zhang2018finding} a tunneling strategy is proposed to alleviate the initial point dependency in Geometry projection.
 
-We chose to focus in this chapter on the following three frameworks, which follow different approaches for achieving explicit topology optimization of 2D and 3D structures: the Moving Morphable Components (MMC) with Esartz material approach, the Geometry Projection (GP) approach and Moving Node Approach (MNA). In this chapter we also propose a new general framework that we call Generalized Geometry Projection (GGP), of which all three approaches can be seen as particular cases. A further contribution resides in the proposal of a specific saturation strategy that can be adopted to overcome the difficulties that can be encountered in the assembly of geometric features, required in all considered explicit topology optimization approaches. Finally, a root cause of optimization convergence difficulties is extensively analyzed and possible solutions to circumvent this issue are discussed.
+We chose to focus in this chapter on the following three frameworks, which follow different approaches for achieving explicit topology optimization of 2D and 3D structures: the Moving Morphable Components (MMC) with ersatz material approach, the Geometry Projection (GP) approach and Moving Node Approach (MNA). In this chapter we also propose a new general framework that we call Generalized Geometry Projection (GGP), of which all three approaches can be seen as particular cases. A further contribution resides in the proposal of a specific saturation strategy that can be adopted to overcome the difficulties that can be encountered in the assembly of geometric features, required in all considered explicit topology optimization approaches. Finally, a root cause of optimization convergence difficulties is extensively analyzed and possible solutions to circumvent this issue are discussed.
 
 The remainder of this chapter is organized as follows:
-Section \ref{Sec3.1} introduces a 2D demonstrator framework for all reviewed Lagrangian techniques. Section \ref{MMC},\ref{GP},\ref{MNA} review respectively Moving Morphable Components with Esartz material model, Geometry Projection and Moving Node Approach. In section \ref{GGP} our proposed strategy called Generalized Geometry Projection is introduced and reviewed strategies are shown to be particular subcases of this strategy. In section \ref{GA} the most common geometric assembly strategies employed in this kind of framework are reviewed. In section \ref{SA} the analytic evaluation of sensitivities is provided. A 2D investigation of the aforementioned strategies is proposed in section \ref{I}. Then an application to stress based topology optimization is conducted in section \ref{IS}. Finally MNA is applied to the 3D topology optimization of engine pylon and mounts in section \ref{MNA_application}.
+Section \ref{Sec3.1} introduces a 2D demonstrator framework for all reviewed Lagrangian techniques. Sections \ref{MMC}, \ref{GP} and \ref{MNA} review respectively Moving Morphable Components with ersatz material model, Geometry Projection and Moving Node Approach. In section \ref{GGP} our proposed strategy called Generalized Geometry Projection is introduced and reviewed strategies are shown to be particular subcases of this strategy. In section \ref{GA} the most common geometric assembly strategies employed in this kind of framework are reviewed. In section \ref{SA} the analytic evaluation of sensitivities is provided. A 2D investigation of the aforementioned strategies is proposed in section \ref{I}. Then an application to stress based topology optimization is conducted in section \ref{IS}. Finally MNA is applied to the 3D topology optimization of engine pylon and mounts in section \ref{MNA_application}.
 
 \section{2D demonstration framework}
 \label{Sec3.1}
-In this section we first describe three of the existing 2D explicit topology optimization approaches: Moving Morphable Components (MMC) with Esartz material model; Geometry Projection (GP); Moving Node Approach (MNA). Then we describe the proposed method: Generalized Geometry Projection (GGP), aimed at unifying into a single formulation these three existing approaches. 
+In this section we first describe three of the existing 2D explicit topology optimization approaches: Moving Morphable Components (MMC) with ersatz material model; Geometry Projection (GP); Moving Node Approach (MNA). Then we describe the proposed method: Generalized Geometry Projection (GGP), aimed at unifying into a single formulation these three existing approaches. 
 To simplify the equations we will consider the same geometric components proposed in Norato et al. \cite{norato2015geometry} for all reviewed approaches c.f. figure \ref{fig:sc}. This component is defined by five geometric parameters defining the position of the center of the component $\lbrace X,Y\rbrace$, the components' dimensions $\lbrace L,h \rbrace$  and the component's orientation $\lbrace \theta \rbrace$ . The final topology will then be described as a superposition of such basic components. 
 In this section we will refer to $\omega$ as the area occupied by a geometric component and to $\partial \omega$ as its boundary. If more than one component is used to describe the area occupied by material, then we will refer to $\omega_i$ and to $\partial \omega_i$ as the $i^{th}$ component's area and boundary respectively. We will refer to $\omega$ and to $\partial \omega$ as area and boundary of the union of all components $i$ ( $\omega=\cup_{i=1}^n{\omega_i}$). 
 \begin{figure}[!ht]
@@ -127,7 +127,7 @@ For this reason, the elementary stiffness matrices $[{K}^{el}]$ are all of the s
     [{K}^{el}]=E^{el}[{K}_0] \quad \quad  el=1,2,...,N
 \end{equation}
 where $E^{el}$ is the Young's modulus of the $el^{th}$ element, $[{K}_0]$ is the $8 \times 8$ stiffness matrix of a $dx\times dx$ 2D solid element in plane stress condition with thickness $t=1$ and $N$ is the total number of elements in the structural model.  
-Using classic finite element theory, one can assembly the global stiffness matrix $[{K}]$:
+Using classic finite element theory, one can assemble the global stiffness matrix $[{K}]$:
 \begin{equation}
     [{K}]=\bigoplus_{el=1}^{N} [{K}^{el}]
 \end{equation}
@@ -136,13 +136,13 @@ This is used to write the static balance equation in terms of the free degrees o
 \label{eq:10}
     [{K}]\lbrace{U}\rbrace=\lbrace{F}\rbrace
 \end{equation}
-where $\lbrace{F}\rbrace$ is the external loads vector. If the boundary conditions are at least isostatic and $ E^{el}\geq E_{min}>0$, then the system of equation  $[{K}]$ is non-singular and the system of equation (\ref{eq:10}) can be solved to find the displacement vector $\lbrace{U}\rbrace$.
+where $\lbrace{F}\rbrace$ is the external loads vector. If the boundary conditions are at least isostatic and $ E^{el}\geq E_{min}>0$, then the system of equation  $[{K}]$ is non-singular and the system of equation \eqref{eq:10} can be solved to find the displacement vector $\lbrace{U}\rbrace$.
 \begin{equation}
     \lbrace{U}\rbrace=[{K}]^{-1}\lbrace{F}\rbrace
 \end{equation}
 In many topology optimization formulations the mass of the structure is also of interest, which is usually considered in terms of the volume fraction $V$ associated to a given structural design layout (since $V$ is proportional to the mass of a solution for a homogeneous material). To compute this volume fraction $V$ the local density $\rho^{el}$ are determined based on the design vector $\lbrace {x}\rbrace$ as will be presented in details in the next subsections for each approach.
 
-As an example of a topology optimization formulation within this framework we provide in eq. (\ref{eq:12}) the classical formulation consisting in minimizing the compliance of the structure (i.e. maximizing its stiffness) subjected to a volume fraction constraint and design space constraints:
+As an example of a topology optimization formulation within this framework we provide in eq. \eqref{eq:12} the classical formulation consisting in minimizing the compliance of the structure (i.e. maximizing its stiffness) subjected to a volume fraction constraint and design space constraints:
 \begin{equation}
 \label{eq:12}
     \begin{cases}
@@ -153,7 +153,7 @@ As an example of a topology optimization formulation within this framework we pr
     \end{cases}
 \end{equation}
 Where $\lbrace{l_b}\rbrace$ and $\lbrace{u_b}\rbrace$ are respectively the vectors of lower bound and upper bound for the design variables and $V_0$ is the maximum allowed volume fraction in the final solution.
-\section{Moving Morphable Components (MMC) with Esartz material model}
+\section{Moving Morphable Components (MMC) with ersatz material model}
 \label{MMC}
 In this section we review the moving morphable components (MMC) method (Guo et al.  \cite{guo2014doing,guo2016explicit}).
  MMC inherits from the level set method \cite{allaire2004structural} a Topology Description Function (TDF), that is positive inside the area occupied by the union of all components $\omega$, equal to zero on the boundary $\partial \omega$ of the component and negative outside the component. The TDF values are then used either to apply the XFEM \cite{wei2010study} on the boundaries of the components either to compute the element stiffness matrix using ersatz material model \cite{zhang2016new}. In this paper will focus on the application of the latter. 
@@ -176,13 +176,13 @@ where D represents the total area of the design domain (full and voids). When mo
                \chi_i <0 & \text{if } \vecvar{X_g}\in D \backslash\omega_i.
           \end{cases}
 \end{equation}
-Since $\omega=\cup_{i=1}^n{\omega_i}$ one can verify that $\chi=\max_{i}{\chi_i}$ satisfies the conditions (\ref{eq:1}).
+Since $\omega=\cup_{i=1}^n{\omega_i}$ one can verify that $\chi=\max_{i}{\chi_i}$ satisfies the conditions \eqref{eq:1}.
 Given a component described by the geometric variables $\lbrace X_i,Y_i,L_i,h_i,\theta_i\rbrace$ we have several choices for defining the TDF $\chi_i(\vecvar{X_g})$. Here we consider the following relationship, which has the advantage of allowing simple derivations:
 \begin{equation}
 \label{eq:chi}
     \chi_i=1-\left(\frac{4\upsilon_i^2}{h_i^2}\right)^\alpha \text{ with } \alpha\geq 1 
 \end{equation}
-Figure \ref{fig:3} illustrates the contour plot of the TDF $\chi_i$ contour of the generic component of figure \ref{fig:sc}.
+Figure \ref{fig:3} illustrates the contour plot of the TDF $\chi_i$ contour of the generic component of figure \ref{fig:sc}. 
 \begin{figure}[!ht]
 \centering
 % Use the relevant command to insert your figure file.
@@ -211,7 +211,7 @@ The presence or absence of material in the design under consideration can be obt
     \beta & \text{otherwise}.
     \end{cases}
 \end{equation}
-Where $0<\epsilon<1$ is a parameter that controls the amplitude of the transition between the minimum value of $\beta$  ($0<\beta<<1$) and 1. The same generic component is used in figure \ref{fig:H} to plot $H_{\epsilon}(\chi(\vecvar{X_g}))$. One can observe that the smooth variation, from a value of 1 inside the component to a value of $\beta$  outside it, is localized in a small transition zone, denoted $D_g$, that can be determined using equations (\ref{eq:chi})-(\ref{eq:hepsi}):
+Where $0<\epsilon<1$ is a parameter that controls the amplitude of the transition between the minimum value of $\beta$  ($0<\beta<<1$) and 1. The same generic component is used in figure \ref{fig:H} to plot $H_{\epsilon}(\chi(\vecvar{X_g}))$. One can observe that the smooth variation, from a value of 1 inside the component to a value of $\beta$  outside it, is localized in a small transition zone, denoted $D_g$, that can be determined using equations \eqref{eq:chi}-\eqref{eq:hepsi}:
 \begin{equation}
 D_g^{MMC}=\left\lbrace \vecvar{X_g}\ \mid \  \frac{h}{2}\left(1-\epsilon\right)^{\frac{1}{2\alpha}}\leq \upsilon \leq  \frac{h}{2}\left(1+\epsilon\right)^{\frac{1}{2\alpha}}\right\rbrace    
 \end{equation}
@@ -235,16 +235,16 @@ According to \cite{guo2005new}, the value of the Young's modulus in the $el^{th}
     \subfloat[$ \rho^{el}$ \label{fig:v}  ]{{\includegraphics[width=0.45\textwidth]{images/Ch3/50x50v.eps} }}%
      \quad
         \subfloat[$ \rho^{el}$ zoom on the component boundary. \label{fig:vz}]{{\includegraphics[width=0.45\textwidth]{images/Ch3/zoomMMC.png} }}%
-    \caption{Distribution of$\frac{ E^{el}}{E}$ (a-b) and $ \rho^{el}$ (c-d)  for the generic component of figure \ref{fig:sc} and for a $50\times50$ FE mesh over the domain of $X_g$. The same parameters of figure \ref{fig:H} are also considered here with $q=2$. }%
+    \caption{Distribution of $\frac{ E^{el}}{E}$ (a-b) and $ \rho^{el}$ (c-d)  for the generic component of figure \ref{fig:sc} and for a $50\times50$ FE mesh over the domain of $X_g$. The same parameters of figure \ref{fig:H} are also considered here with $q=2$. }%
 \end{figure*}
-Where $\chi_i^{el}$,$i=1,...,4$ are the values of the TDF at the four nodes of the element $el$ and $q$ is a parameters that has the role of penalization, in order to render the variation of Young's modulus even faster at the boundary of the component. In figure \ref{fig:E}, the single component example of figure \ref{fig:sc} has been used to plot the distribution of Young's modulus according to equation (\ref{eq:EMMC}) over a $50\times50$ finite element mesh. In order to obtain the local density $\rho^{el}$, which was not explicitly considered in \cite{zhang2016new}, an equivalent expression that leads to the same value of volume fraction for the same configuration is proposed here:
+Where $\chi_i^{el}$,$i=1,...,4$ are the values of the TDF at the four nodes of the element $el$ and $q$ is a parameter that has the role of penalization, in order to render the variation of Young's modulus even faster at the boundary of the component. In figure \ref{fig:E}, the single component example of figure \ref{fig:sc} has been used to plot the distribution of Young's modulus according to equation \eqref{eq:EMMC} over a $50\times50$ finite element mesh. In order to obtain the local density $\rho^{el}$, which was not explicitly considered in \cite{zhang2016new}, an equivalent expression that leads to the same value of volume fraction for the same configuration is proposed here:
 \begin{equation}
     \rho^{el}=\frac{\sum_{j=1}^4(H_{\epsilon}(\chi_j^{el}))}{4}
 \end{equation}
 In figure \ref{fig:v} the corresponding distribution of $\rho^{el}$ is also represented. Figures \ref{fig:v} and \ref{fig:E} look  very similar except for the transition on element boundary that is faster for the Young's modulus plot due to the effect of the penalization parameter $q$.
 \section{Geometry Projection (GP)}
 \label{GP}
-In this section we review the approach proposed by Norato et al. \cite{norato2015geometry}. Geometric projection first computes the signed distance between each element central point and each component surface. The element local volume fraction is then computed by the mean of a spherical sampling window centered in the element centroid. Density and Young's modulus in the element are computed as function of the volume fraction of the sampling window that is occupied by material. The density coming from each component is unified using the maximum function or its smooth approximation \cite{kreisselmeier1980systematic}. The solution is described by the union of geometric primitives such as the one in figure \ref{fig:sc}. To update model densities the geometry projection method is employed \cite{norato2004geometry}. A circular sampling window  $\mathbf{B}_P^r$ of radius $r$ is considered around the $el^{th}$-element center $ \vecvar{X_g^{el}}$ c.f. figure \ref{fig:gp}.
+In this section we review the approach proposed by Norato et al. \cite{norato2015geometry}. Geometry projection first computes the signed distance between each element central point and each component surface. The element local volume fraction is then computed by the mean of a spherical sampling window centered in the element centroid. Density and Young's modulus in the element are computed as function of the volume fraction of the sampling window that is occupied by material. The density coming from each component is unified using the maximum function or its smooth approximation \cite{kreisselmeier1980systematic}. The solution is described by the union of geometric primitives such as the one in figure \ref{fig:sc}. To update model densities the geometry projection method is employed \cite{norato2004geometry}. A circular sampling window  $\mathbf{B}_P^r$ of radius $r$ is considered around the $el^{th}$-element center $ \vecvar{X_g^{el}}$ c.f. figure \ref{fig:gp}.
 The local volume fraction  $\delta^{el}$ is simply given by the fraction of the window that is filled with material:
 \begin{equation}
 \label{gpdef}
@@ -308,7 +308,7 @@ As a consequence this time the thickness of the transition zone is:
 \begin{equation}
     w_g^{GP}=2r
 \end{equation}
-This thickness does not depend on the component size $h$. In order to achieve regular density distributions, $h$ will need to be greater or equal than $2r$. To delete inactive components, variable $m$  can still be used within the optimization algorithm.
+This thickness does not depend on the component size $h$. In order to achieve differentiable density distributions, $h$ will need to be greater or equal than $2r$. To delete inactive components, variable $m$  can still be used within the optimization algorithm.
 \section{Moving Node Approach (MNA)}
 \label{MNA}
 Overvelde \cite{overvelde2012moving}, proposed in his master's thesis an alternative flow-inspired topology optimization approach, the Moving Node Approach (MNA). For this approach, the building blocks of a solution are defined as mass nodes. Each element's center position is recomputed with respect to a local coordinate system in each component center . Then weighting functions are directly applied to the local variable to compute the component local density contribution. In order to compute the union between the components, this time, the densities are summed. Since the sum can be greater than one, to keep the resulting density bounded from 1 an adapted procedure was proposed in \cite{overvelde2012moving} called asymptotic density. Another peculiarity of Overvelde's work was the fact of using either Finite Element Analysis or meshless method (cf. \cite{nguyen2008meshless}) for the displacement evaluation. The idea was to reduce both design variable and degrees of freedom number, using the mass nodes for both the geometric description and the solution displacement. Unfortunately in \cite{overvelde2012moving} the gain in DOFs number was compensated  by the stiffness matrix cost (both in memory and elapsed time) and by its ill conditioning where the mass nodes reached each other. The update of the finite element model is done by operating through weighting functions $w$ that are driven by the geometry of each component. In this work we considered a modified weighting function with respect to \cite{overvelde2012moving} in order to consider round ended bar components. For the mass node of figure \ref{fig:sc} one can write:
@@ -333,7 +333,7 @@ The local density can then be computed as:
      \delta^{el}_i=m_i^\gamma w(\upsilon^{el}_i,h_i,\varepsilon_i)=m_i^\gamma w_i^{el}
 \end{equation}
 Where we call  $\upsilon^{el}_i$ the distance from the $el^{th}$ element centroid $\vecvar{X_g^{el}}$ to the $i^{th}$ component middle axis computed using equation (\ref{upsilon}).
-To make the union of all mass nodes a smooth approximation of the maximum function is again typically employed:
+To make the union of all mass nodes an asymptotic density was employed. Here we generalized this approach using a general notation for the union:
 \begin{equation}
     \rho^{el}=\Pi(\vecvar{\delta}_v^{el},\kappa)
 \end{equation}
@@ -372,7 +372,7 @@ Let us first formalize the general procedure that is common to all existing expl
 % For example, with the graphicx package use
   \includegraphics[width=0.25\textwidth]{images/Ch3/geometry_projection_scheme.png}
 % figure caption is below the figure
-\caption{General procedure employed by explicit approaches. In step 1) Geometric primitives are chosen, so that their layout, shape and sizes can be explicitly driven by the optimization procedure. In step 2) According to the geometry description characteristic functions has to be defined for each feature and for all material properties. These will be computed in each sampling window gauss points. In step 3) Generalized Geometry Projection is used to compute the value of local volume fraction for all material properties. Finally in step 4) the Finite element model is updated according to the value of each local volume fraction in each element centroid. }
+\caption{General procedure employed by explicit approaches. In step 1) Geometric primitives are chosen, so that their layout, shape and sizes can be explicitly driven by the optimization procedure. In step 2) According to the geometry description characteristic functions has to be defined for each feature and for all material properties. These will be computed in each sampling window Gauss points. In step 3) Generalized Geometry Projection is used to compute the value of local volume fraction for all material properties. Finally in step 4) the Finite element model is updated according to the value of each local volume fraction in each element centroid. }
 \label{fig:1}       % Give a unique label
 \end{figure}
 The first step consists in choosing the geometric primitives, i.e. the building blocks that are going to be used to build the solution through Boolean operations. As for all reviewed approaches, round ended bar components (cf. fig. \ref{fig:sc}) in a 2D design space will be considered here as geometric primitive. Then, characteristic functions $\Upsilon$ have to be defined for each geometric primitive $i$. A characteristic function can be defined for the set of points inside the geometric primitive $\omega_i$ as:
@@ -397,16 +397,16 @@ The first step consists in choosing the geometric primitives, i.e. the building 
  \begin{equation}
      \vecvar{\frac{\partial W_i(\vecvar{X_g},\vecvar{X_i},\vecvar{r})}{\partial X_g}}^T \vecvar{n^\star}  \leq 0
  \end{equation}
- This condition avoids useless difficulties in optimization due to component border non-monotonicity.\\
+ This condition avoids useless difficulties in optimization due to oscillations in the Heaviside function of each component.\\
  As aforementioned, a great virtue of all reviewed approaches consists in using a unique finite element model to simulate each configuration, thus avoiding re-meshing. In the proposed approach we also propose a procedure to update a given finite element model based on the configuration of the various components. In order to do so, the third step of Fig. \ref{fig:1} consists in using a procedure that transforms the continuous distribution of material represented by $W_i(\vecvar{X_g},\vecvar{X_i},\vecvar{r})$ into a piece-wise uniform distribution of Young's modulus and density inside each element of the FE mesh. The geometry projection proposed by Norato et al. \cite{norato2004geometry} is here generalized to consider several sampling window shapes.\footnote{Here we consider only $dx\times dx$ uniform meshes, but the presented framework is also valid for non-uniform and irregular meshes. Moreover, note that the sampling window shape can eventually be shaped as the finite element mesh considering a slightly different formula in the sampling window definition that we won't detail here for conciseness.}
  
  For this purpose we consider the following definition of the sampling window:
  \begin{equation}
  \begin{array}{ccc}
-     \mathbf{D}(\vecvar{X_g},p,R)=\lbrace \vecvar{X}\in \mathbb{R}^{d_g} & | & \|\vecvar{X}-\vecvar{X_g}\|_{2p} \leq R  \rbrace
+     \mathbf{D}(\vecvar{X_g},p,R)=\lbrace \vecvar{X}\in \mathbb{R}^{d_g} & | & \|\vecvar{X}-\vecvar{X_g}\|_{p} \leq R  \rbrace
      \end{array}
  \end{equation}
- Next, we introduce a formulation for the local density in each element of the FE mesh that we propose in the generalized geometric projection method: 
+ Next, we introduce a formulation for the local density in each element of the FE mesh that we propose in the generalized geometry projection method: 
  \begin{equation}
  \label{eq. ro}
      \delta_i^{el}(W_i,p,R)=\frac{\int_{\mathbf{D}(\vecvar{X_g^{el}},p,R)}{W_i(\vecvar{X},\vecvar{X_i},\vecvar{r})d\Omega}}{\int_{\mathbf{D}(\vecvar{X^{el}_g},p,R)}{d\Omega}}
@@ -418,7 +418,7 @@ The first step consists in choosing the geometric primitives, i.e. the building 
  \begin{equation}
     \delta_i^{el} \approx \frac{\sum_{k=1}^{N_{gp}}{\psi_kW_{ik}}}{\sum_{k=1}^{N_{gp}}{\psi_k}}
  \end{equation}
- where $W_{ik}$ are the values of characteristic functions in Gauss point locations and $\psi_k$ are the integration weights.
+ where $W_{ik}$ are the values of characteristic functions in Gauss point locations and $\psi_k$ are the integration weights. \footnote{In \cite{Wein2018} a  numerical integration of a smooth Heaviside function over the finite element was proposed. This work considering general shaped sampling window and also general radius can also be considered as a natural extension of his work.}
  One must note that the characteristic function has not to be the same for Young's Modulus and density models. We refer to $\lbrace\delta^{el}\rbrace_v$ as the vector of local volume fractions computed in the $el^{th}$ element centroids for each component in the optimization using a density characteristic function denoted as $W^v$. In the same way we refer to   $\lbrace\delta^{el}\rbrace_c$ as the vector of local volume fraction computed in the $el^{th}$ element centroid for each component in the optimization using density characteristic function denoted as $W^c$.
  Finally the last step in the general procedure of figure \ref{fig:1} consists in updating the fixed mesh of the FE model using:
  \begin{equation}
@@ -431,8 +431,8 @@ The first step consists in choosing the geometric primitives, i.e. the building 
  In this case the vectors of local volume fraction reduces to scalars computed that are unchanged by geometric assembly.}
  We will now show that all three reviewed approaches can be recovered as a particular case by the Generalized Geometry Projection approach.
  
- Let's consider the example of MMC with Esartz material model\footnote{This demonstration only applies to the case of $dx \times dx$ uniform meshes. The same demonstration can be easily extended to $dx \times dy$ uniform meshes simply changing sampling window definition. For the general situation of non-uniform irregular meshes, to recover the MMC formulation one should define local sampling window shapes and a more elastic numerical integration scheme based on triangulation.}.
- Let's consider $W^v=H(\chi)$,$W^c=(H(\chi))^q$, $p\to\infty$ and $R=\frac{\sqrt{3}}{2}dx$ . Let's consider Gauss-Legendre numerical integration in the sampling window, that for $p\to \infty$, is $D \equiv [-R,R]\times [-R,R]$.  We considering  $2 \times 2$ Gauss points for the numerical evaluation of the integral of equation (\ref{eq. ro}). For the function providing the element's Young's modulus we consider:
+ Let's consider the example of MMC with ersatz material model\footnote{This demonstration only applies to the case of $dx \times dx$ uniform meshes. The same demonstration can be easily extended to $dx \times dy$ uniform meshes simply changing sampling window definition. For the general situation of non-uniform irregular meshes, to recover the MMC formulation one should define local sampling window shapes and a more elastic numerical integration scheme based on triangulation.}.
+ Let's consider $W^v=H(\chi)$,$W^c=(H(\chi))^q$, $p\to\infty$ and $R=\frac{\sqrt{3}}{2}dx$ . Let's consider Gauss-Legendre numerical integration in the sampling window, that for $p\to \infty$, is $D \equiv [-R,R]\times [-R,R]$.  We considering  $2 \times 2$ Gauss points for the numerical evaluation of the integral of equation \eqref{eq. ro}. For the function providing the element's Young's modulus we consider:
  \begin{equation}
    \mathbb{M}(\delta^{el},E,E_{min})=\lim_{p\to \infty}\delta^{el}(W^c,p,R)E_0 
  \end{equation}
@@ -440,7 +440,7 @@ The first step consists in choosing the geometric primitives, i.e. the building 
  \begin{equation}
     \lim_{p\to \infty} \int_{\mathbf{D}(\vecvar{X_g},p,\frac{\sqrt{3}}{2}dx)}{d\Omega}=\sum_{j=1}^4 \left(\frac{\sqrt{3}}{2}dx\right)^2=3 dx^2
  \end{equation}
- Furthermore, given the choice of 4 Gauss points, the integration involved in the calculation of the local volume fraction of eq. \ref{eq. ro} becomes:
+ Furthermore, given the choice of 4 Gauss points, the integration involved in the calculation of the local volume fraction of eq. \eqref{eq. ro} becomes:
  \begin{equation}
      \lim_{p\to \infty}\delta^{el}(W^c,p,R)Ñ
     \approx \frac{\frac{3}{4}dx^2\sum_{j=1}^4W^c(\mathbf{x}_j)}{3dx^2}=\frac{\sum_{j=1}^4(H(\chi(\mathbf{x}_j)))^q}{4}
@@ -449,9 +449,9 @@ The first step consists in choosing the geometric primitives, i.e. the building 
  \begin{equation}
      \rho^{el}=\mathbb{V}(\delta^{el}(W^v,p,R),\kappa)=\lim_{p\to \infty}\delta^{el}(W^v,p,R)\approx\frac{\sum_{j=1}^4H(\chi(\mathbf{x}_j))}{4}
  \end{equation}
- These expressions for the Young's Modulus and density are the same as those employed by the MMC method with Esartz material, meaning that the Generalized Geometric Projection approach could effectively recover it. 
+ These expressions for the Young's Modulus and density are the same as those employed by the MMC method with ersatz material, meaning that the Generalized Geometry Projection approach could effectively recover it. 
  
- To recover the Geometric Projection formulation, one can consider $p=1$ and a generic $R=r$. For these values the sampling window becomes a circular sampling window, i.e. $\mathbf{D}\equiv\mathbf{B_p}^r$. Moreover selecting $W_i=\Upsilon_i$ by the use of equation (\ref{eq. ro}) with the same assumption, i.e. the restriction of $\partial \omega_i$ to be considered as straight (Bell et al. \cite{bell2012geometry}; Norato et al. \cite{norato2015geometry}; Zhang et al. \cite{zhang2016geometry}) one can find the expression of the local volume fraction $\vecvar{\delta^{el}}$ .\footnote{The reader can note that the same result can also be obtained selecting $p\to \infty$, 1 Gauss point, $R=\frac{1}{2}dx$ and $W_i^{el}={\delta}_i^{el}$ of equation (\ref{eq:dN}). } In order to compute local densities we set:
+ To recover the Geometry Projection formulation, one can consider $p=2$ and a generic $R=r$. For these values the sampling window becomes a circular sampling window, i.e. $\mathbf{D}\equiv\mathbf{B_p}^r$. Moreover selecting $W_i=\Upsilon_i$ by the use of equation \eqref{eq. ro} with the same assumption, i.e. the restriction of $\partial \omega_i$ to be considered as straight (Bell et al. \cite{bell2012geometry}; Norato et al. \cite{norato2015geometry}; Zhang et al. \cite{zhang2016geometry}) one can find the expression of the local volume fraction $\vecvar{\delta^{el}}$ .\footnote{The reader can note that the same result can also be obtained selecting $p\to \infty$, 1 Gauss point, $R=\frac{1}{2}dx$ and $W_i^{el}={\delta}_i^{el}$ of equation \eqref{eq:dN}. } In order to compute local densities we set:
   \begin{equation}
      \rho^{el}=\mathbb{V}(\vecvar{\delta}^{el},\kappa)=\Pi(\lbrace\mathbf{\hat{\delta}}^{el}( r,\gamma_v )\rbrace,\kappa) 
  \end{equation}
@@ -459,9 +459,9 @@ The first step consists in choosing the geometric primitives, i.e. the building 
   \begin{equation}
  E^{el}=\mathbb{M}(\vecvar{\delta}^{el},E,E_{min},\kappa)=\Pi(\lbrace{\hat{\delta}}^{el}(r,\gamma_c )\rbrace,\kappa) E
   \end{equation}
-  Where equation (\ref{eq:25}) is used to compute $\vecvar{\hat{\delta}^{el}}$.
+  Where equation \eqref{eq:25} is used to compute $\vecvar{\hat{\delta}^{el}}$.
  
- Finally, the proposed unified approach can also recover MNA. In fact setting $W_i=m_i w(\upsilon_i,h_i,\varepsilon_i)$, $p\to\infty$ and $R=\frac{1}{2}$ and using numerical integration for the integrals in equation (\ref{eq. ro}) with just a single Gauss point one gets:
+ Finally, the proposed unified approach can also recover MNA. In fact setting $W_i=m_i w(\upsilon_i,h_i,\varepsilon_i)$, $p\to\infty$ and $R=\frac{1}{2}$ and using numerical integration for the integrals in equation \eqref{eq. ro} with just a single Gauss point one gets:
  \begin{equation}
      \delta_i^{el}\approx W_i=m_i^\gamma w_i^{el}
  \end{equation}
@@ -473,10 +473,10 @@ The first step consists in choosing the geometric primitives, i.e. the building 
   \begin{equation}
     \mathbb{M}(\vecvar{\delta^{el}},\kappa)=E_{min}+(E-E_{min})\Pi\left(\lbrace\mathbf{{\delta}}^{el}\rbrace_c,\kappa\right)^{p_b}
  \end{equation}
-  A summary of the parameters to be used in the proposed Generalized Geometric Projection approach to recover all of the three reviewed methods is provided in table \ref{tab:1}.\\
+  A summary of the parameters to be used in the proposed Generalized Geometry Projection approach to recover all of the three reviewed methods is provided in table \ref{tab:1}.\\
 \begin{table*}[!h]
 % table caption is above the table
-\caption{Choice to be made to recover all other approaches using Generalized Geometric Projection }
+\caption{Choice to be made to recover all other approaches using Generalized Geometry Projection }
 \label{tab:1}       % Give a unique label
 \centering
 % For LaTeX tables use
@@ -530,7 +530,7 @@ Firstly one can observe that depending on the considered approach, the assembly 
  \Pi_{max}(\vecvar{z})=\max_i{z_i}
  \end{eqnarray}
 For a logical entry vector  $\lbrace{z}\rbrace\in \{0,1\}^n$, $\Pi_a(\vecvar{z})=\Pi_b(\vecvar{z})=  \Pi_{max}(\vecvar{z})$. On the other hand when $\lbrace \mathbf{z}\rbrace \in ]0,1[^n$ then
-$\Pi_a(\vecvar{z})\neq\Pi_b(\vecvar{z}) \neq  \Pi_{max}(\vecvar{z})$. The asymptotic density operator $\Pi_a(\vecvar{z})$ first makes an overlap of the component's density and then saturate the result to 1. This approach was employed in the master thesis of Overvelde \cite{overvelde2012moving}. The minimum between 1 and the value of the sum can be realized by a regular saturation function that is detailed later in this paragraph. The Boolean operator $\Pi_b(\vecvar{z})$ can be recognized as the one employed by the MMB \cite{hoang2017topology} approach in order to make the union of bar components. For the third approach, since the maximum is an irregular function, in the literature it is often replaced with its regular approximations. In the context of topology optimization we can cite the p-norm and the p-mean \cite{duysinx1998new}, the Kreisselmeier–Steinhauser (KS) functional \cite{kreisselmeier1980systematic} and the more recent induced approaches \cite{kennedy2015improved}.Often these approximations are employed in structural optimization with stress constraints in order to reduce the number of constraints in the optimization problem.
+$\Pi_a(\vecvar{z})\neq\Pi_b(\vecvar{z}) \neq  \Pi_{max}(\vecvar{z})$. The asymptotic density operator $\Pi_a(\vecvar{z})$ first makes an overlap of the component's density and then saturate the result to 1. This approach was employed in the master thesis of Overvelde \cite{overvelde2012moving}. The minimum between 1 and the value of the sum can be realized by a differentiable saturation function that is detailed later in this paragraph. The Boolean operator $\Pi_b(\vecvar{z})$ can be recognized as the one employed by the MMB \cite{hoang2017topology} approach in order to make the union of bar components. For the third approach, since the maximum is an irregular function, in the literature it is often replaced with its regular approximations. In the context of topology optimization we can cite the p-norm and the p-mean \cite{duysinx1998new}, the Kreisselmeier–Steinhauser (KS) functional \cite{kreisselmeier1980systematic} and the more recent induced approaches \cite{kennedy2015improved}.Often these approximations are employed in structural optimization with stress constraints in order to reduce the number of constraints in the optimization problem.
 Here we review these methods and some important properties relative to the maximum operator. Given an input vector $\lbrace \mathbf{z}\rbrace \in \mathbb{R}^n$, and the constant of aggregation $\kappa\in\mathbb{R}^+ $, the smooth approximation $\Pi$ of the maximum operator is defined as:
 $\Pi: \left(\mathbb{R}^n,\mathbb{R}^{+} \right) \rightarrow \mathbb{R}\  | \  (\lbrace \mathbf{z}\rbrace,\kappa) \rightarrow \Pi(\lbrace \mathbf{z}\rbrace,\kappa)$  and
 \begin{equation}
@@ -563,7 +563,7 @@ In figure \ref{fig:pbb},\ref{fig:pb}, \ref{fig:kb} and \ref{fig:ib} all reviewed
 % For example, with the graphicx package use
   \includegraphics[width=0.5\textwidth]{images/Ch3/pbbench.eps}
 % figure caption is below the figure
-\caption{Application of asymptotic density operator $\Pi_{a}$ and of  Boolean operator $\Pi_{b}$ to the vector $\mathbf{z}$ of 3 variables,$z_1(x)=x,z_2(x)=10xe^{1-10x},z_3(x)=4x(1-x)$. The minimum function necessary to carry out the evaluation of $\Pi_{a}$ is replaced by the regular approximation of the saturation function of equation (\ref{eq:st}). }
+\caption{Application of asymptotic density operator $\Pi_{a}$ and of  Boolean operator $\Pi_{b}$ to the vector $\mathbf{z}$ of 3 variables,$z_1(x)=x,z_2(x)=10xe^{1-10x},z_3(x)=4x(1-x)$. The minimum function necessary to carry out the evaluation of $\Pi_{a}$ is replaced by the regular approximation of the saturation function of equation \eqref{eq:st}. }
 \label{fig:pbb}       % Give a unique label
 \end{figure}
 \begin{figure}[!ht]
@@ -598,7 +598,7 @@ In figure \ref{fig:pbb},\ref{fig:pb}, \ref{fig:kb} and \ref{fig:ib} all reviewed
     \Pi_{pm}(\lbrace \mathbf{z}\rbrace,\kappa)=\Pi_{KS}^l(\lbrace \mathbf{z}\rbrace,\kappa)=\Pi_{IE}(\lbrace \mathbf{z}\rbrace,\kappa)=z_{max} \Leftrightarrow z_1=z_2=...=z_n=z_{max} 
 \end{equation}
 On the other hand Boolean, asymptotic density, p-norm and KS functions are always strictly greater than the maximum function.
-A second remark is that most reviewed approaches ( with the exceptions of the asymptotic density and the Boolean operator ) produce regular approximations of the maximum function and that by increasing the value of the aggregation constant $\kappa$, all approaches tend to recover the maximum function as requested in equation (\ref{eq:lp}). At the same time high values of $\kappa$ reduces the smoothness of the approximated function. A third important remark is that the absolute value of the discrepancy between  $z_{max}$ and the approximation are maximized in the following way depending on the aggregation approach employed:
+A second remark is that most reviewed approaches ( with the exceptions of the asymptotic density and the Boolean operator ) produce differentiable approximations of the maximum function and that by increasing the value of the aggregation constant $\kappa$, all approaches tend to recover the maximum function as requested in equation \eqref{eq:lp}. At the same time high values of $\kappa$ reduces the smoothness of the approximated function. A third important remark is that the absolute value of the discrepancy between  $z_{max}$ and the approximation are maximized in the following way depending on the aggregation approach employed:
 \begin{itemize}
     \item For p-norm and KS function the worst accuracy corresponds to a uniform entry vector $\mathbf{z}$.
     \item For p-mean and lower bound KS function the worst accuracy corresponds to a vector $\mathbf{z}$ so that: $z_i=u_b \Leftrightarrow i=i_{max}$ and $z_i=l_b \forall i\neq i_{max}$. Where $u_b$ and $l_b$ are respectively the lower and the upper bound of entry vector components.
@@ -611,12 +611,12 @@ Coming back to the application of these functions to the component assembly, one
 \item When considering TDF applications, one is free to use both KS functions and the induced exponential operator without particular numerical difficulties.
 \item On the other hand when one wants to apply these functions directly to local volume fractions, some difficulties arise. As the final local density must be lower than 1, the KS function and the p-norm cannot be used since their output can possibly be greater than 1. On the other hand  p-mean, lower bound KS function and induced exponential can be used, but in the case of completely non overlapped components the resulting maximal projected density can be inferior to 1. This affects the projected Finite Element Model stiffness and depending on the number of components that describe the solution, can produce inaccurate values of the final compliance. Nevertheless one can control this gap increasing the value of $\kappa$. On the other hand as aforementioned this plays a role on the projection smoothness, which can increase or prevent optimization convergence.
 \end{itemize}
- To overcome these issues, we propose here to apply a regular approximation of the saturation function to the aggregation operator. This function is defined as:
+ To overcome these issues, we propose here to apply a differentiable approximation of the saturation function to the aggregation operator. This function is defined as:
  \begin{equation}
      \label{eq:satf}
      S_t(x)=\min{\left( 1, \max{\left( \frac{x}{\Tilde{x}},0\right)}\right)}
  \end{equation}
- As it is non regular, we further propose to replace it with the KS approximation:
+ As it is non differentiable, we further propose to replace it with the KS approximation:
  \begin{equation}
     s_b(x,\kappa_s)= -\frac{1}{\kappa_s}\log{\left(\exp(-\kappa_s)+\frac{1}{1+\exp{\left(\kappa_s\frac{x}{\Tilde{x}}\right)}})\right)}
  \end{equation}
@@ -716,7 +716,7 @@ Finally the saturated operator will be defined as:
 \clearpage
 \section{Sensitivity analysis}
 \label{SA}
-In this subsection we derive and analyze the gradient of the responses (compliance $C$ and volume fraction $V$) involved in solving the topology optimization problem considered in equation (\ref{eq:12}). The aim of this sensitivity analysis is to provide recommendations with respect to good parameter choices in the proposed Generalized Geometric Projection method. 
+In this subsection we derive and analyze the gradient of the responses (compliance $C$ and volume fraction $V$) involved in solving the topology optimization problem considered in equation \eqref{eq:12}. The aim of this sensitivity analysis is to provide recommendations with respect to good parameter choices in the proposed Generalized Geometry Projection method. 
 
 For compliance $C$ and volume fraction $V$ we compute by chain rule:
 \begin{eqnarray}
@@ -730,7 +730,7 @@ where $N_{el}$ is the number of finite element in the mesh. This can compactly b
 \left\lbrace\frac{\partial V}{\partial x}\right\rbrace=\left[\frac{\partial \rho}{\partial x}\right]\left\lbrace\frac{\partial V}{\partial\rho}\right\rbrace
 \label{eq:sensV}
 \end{eqnarray}
-In equations (\ref{eq:sensC},\ref{eq:sensV}), the right hand side vectors (of size $N_{el}\times 1$) are not different from the one computed for density based topology optimization. On the other hand the matrices $\left[\frac{\partial E}{\partial x}\right],\left[\frac{\partial \rho}{\partial x}\right]$ ( of size $N_v\times N_{el}$) are specific to the Generalized Geometry Projection method.  Let's derive their analytic expression:
+In equations \eqref{eq:sensC},\eqref{eq:sensV}, the right hand side vectors (of size $N_{el}\times 1$) are not different from the one computed for density based topology optimization. On the other hand the matrices $\left[\frac{\partial E}{\partial x}\right],\left[\frac{\partial \rho}{\partial x}\right]$ ( of size $N_v\times N_{el}$) are specific to the Generalized Geometry Projection method.  Let's derive their analytic expression:
 \begin{equation}
     \left[\frac{\partial E}{\partial x}\right]=\left[\frac{\partial \mathbb{M}}{\partial x}\right]=\sum_{i=1}^n{\left[\frac{\partial \delta_i}{\partial x}\right]\left[\frac{\partial \mathbb{M}}{\partial \delta_i}\right]}
 \end{equation}
@@ -755,7 +755,7 @@ For the saturation function one can get:
 \begin{equation}
     \frac{\partial P_s}{\partial \Pi}=\frac{\exp\left(\mathrm{\kappa_s}{\frac{\mathrm{\Pi}}{\Tilde{\Pi}}}\right)\,{\left(\exp{\left(\mathrm{\kappa_s}\frac{\mathrm{\Pi}}{\Tilde{\Pi}}\right)}+1\right)}^{-2}}{\Tilde{\Pi}\,\left(\exp{\left(-\mathrm{\kappa_s}\right)}+\frac{1}{\exp{\left(\mathrm{\kappa_s}\frac{\mathrm{\Pi}}{\Tilde{\Pi}}\right)}+1}\right)}\frac{1}{1-s_b(0,\kappa_s)}
 \end{equation}
-Where $\Tilde{\Pi}$ has to be computed according to equations (\ref{eq:tilde}-\ref{eq:tilde_end}).
+Where $\Tilde{\Pi}$ has to be computed according to equations \eqref{eq:tilde}-\eqref{eq:tilde_end}.
 For the computation of $\frac{\partial \Pi}{\partial\delta_i^{el}}$ the interested reader can find the computation for $KS_l$, $KS$ and induced exponential in \cite{kennedy2015improved}. For p-norm and p-mean we detail their computations as follows:
 \begin{equation}
     \frac{\partial \Pi_{pm}^p}{\partial\delta_i^{el}}=\frac{1}{n}\left(\delta_i^{el}+z_p\right)^{\kappa-1}\left(\frac{1}{n}\sum_{j=1}^n{\left(\delta_j^{el}+z_p\right)^{\kappa}}\right)^{\frac{1}{\kappa}-1}
@@ -833,9 +833,9 @@ That can be evaluated by the use of:
 \end{eqnarray}
 Let us note that based on these definitions some sensitivities could be either not defined or not continuous. However note that by respecting the condition $h>\varepsilon$ these issues are avoided. In figures \ref{fig:sens_text},\ref{fig:sensY},\ref{fig:sensL},\ref{fig:sensh} and \ref{fig:sensT} the Generalized Geometry Projection is employed to study the distribution of gradients of both $W$ and $\delta$. The effect of both sampling window size and number of Gauss points is investigated. We can then make some observations and recommendations:
 \begin{itemize}
-    \item All represented gradient components even if defined piece-wisely are regular.
+    \item All represented gradient components even if defined piece-wisely are differentiable.
     \item All gradient components of $W$ take values different from zero only in the component's transition zone. 
-    \item After applying the Generalized Geometry Projection gradient components of $\delta$ are averaged on the sampling windows and as a consequence are much smaller. Increasing the number of Gauss points, derivatives of $\delta$ become smoother, which is benefic for the optimization. Increasing the sampling window size increases the thickness of the transition zone as well as the gradients of $\delta$, which also has benefic effects as will be further illustrated in the next section.
+    \item After applying the Generalized Geometry Projection gradient components of $\delta$ are averaged on the sampling windows and as a consequence are much smaller. Increasing the number of Gauss points, derivatives of $\delta$ become smoother, which is beneficial for the optimization. Increasing the sampling window size increases the thickness of the transition zone as well as the gradients of $\delta$, which also has beneficial effects as will be further illustrated in the next section.
 \end{itemize}
 \section{Numerical investigations on 2D use cases}
 \label{I}
@@ -923,7 +923,7 @@ These observation are of course relative to our particular choice of settings fo
  Finally we want to point out the fact that these conclusions are consistent with the observation made in the work of Zhou et al. \cite{zhou2016feature} for geometric feature based topology optimization using level set topology optimization.
 \subsection{Topology Optimization of the short cantilever beam}
 \label{SCB}
-In this subsection we consider the topology optimization of a short cantilever beam, starting from an initial components configuration shown in figure \ref{fig:scb}. We will  investigate on this test case the effects of the number of Gauss points in each sampling window $N_{GP}$ on the optimization convergence, when using the adapted methods based on the proposed GGP framework: AMMC, AGP and AMNA.
+In this subsection we consider the topology optimization of a short cantilever beam, starting from an initial component configuration shown in figure \ref{fig:scb}. We will  investigate on this test case the effects of the number of Gauss points in each sampling window $N_{GP}$ on the optimization convergence, when using the adapted methods based on the proposed GGP framework: AMMC, AGP and AMNA.
  \begin{figure}[!ht]
  \centering
 % Use the relevant command to insert your figure file.
@@ -933,7 +933,7 @@ In this subsection we consider the topology optimization of a short cantilever b
 \caption{Initial configuration for the short cantilever topology optimization problem. Components are colored according to the value of $m$. Blue triangles represents clamped degrees of freedoms. The red arrow represents the applied load. 18 round ended bars are considered for the optimization, i.e. $6\times 18=108$ design variables for both AGP and AMNA and $5\times 18=90$ design variables for AMMC.}
 \label{fig:scb}       % Give a unique label
 \end{figure}
-We employed the well know Method of Moving Asymptotes \cite{svanberg1987method}, in the Matlab version distributed by the author \cite{svanberg2004some}. A special rescaling was also adopted to avoid MMA numerical instabilities as explained in appendix \ref{A1}. A saturated KSl aggregation operator was employed to make the geometric union of component for all adapted methods.
+We employed the well known Method of Moving Asymptotes \cite{svanberg1987method}, in the Matlab version distributed by the author \cite{svanberg2004some}. A special rescaling was also adopted to avoid MMA numerical instabilities as explained in appendix \ref{A1}. A saturated KSl aggregation operator was employed to make the geometric union of component for all adapted methods.
 The design variables are initiated according to figure \ref{fig:scb}. The stopping criteria employed was on the infinite norm of the configuration variation. The numerical values chosen for all the parameters of both projection and optimization solver are detailed in table \ref{tab:3}. 
 \begin{table*}[h!]
 % table caption is above the table
@@ -1017,7 +1017,7 @@ Maximal component density & $m_{max}$ & 1\\
 \quad
 \subfloat[Convergence plot $N_{GP}=64$, $R=\frac{1}{2}$]{{\includegraphics[width=0.3\textwidth]{images/Ch3/24l.png} }}%
  \\
-\caption{Short Cantilever Beam Topology optimization using the AMMC method for variable number of Gauss points $N_{GP}$. }%
+\caption{Short Cantilever Beam Topology optimization using the AMMC method for variable number of Gauss points $N_{GP}$. It must be noted that for AMMC the design is not affected by $m$. }%
 \label{fig:scbMMC}%
 \end{figure*}
 \begin{figure*}
@@ -1084,7 +1084,7 @@ Maximal component density & $m_{max}$ & 1\\
 \label{D}
 The previous results allowed us to investigate the effect of various parameters of the Generalized Geometry Projection (GGP) approach on both simulation and optimization. One of the main points these results highlight is that, depending on the geometric characteristic functions employed (transition region width), and on the number of Gauss points in the sampling window, several mesh induced phenomena can detrimentally impact the model responses. One can use several strategies that aim at reducing these phenomena:
 \begin{itemize}
-\item \textbf{Increase the component transition region width} to a size large enough to ensure that at least one Gauss point falls inside it. This strategy is possible for all reviewed approaches, is quite simple, and does not represent any significant numerical expense in terms of neither simulation nor optimization. The main drawback of this strategy is that one needs to consider bigger components for a given mesh size. In fact considering component with a thickness $h$ smaller than the transition width, does not ensure sensitivity regularity (For AGP and AMNA). For AMMC the transition width is directly proportional to the component size so that for too small values of $h$ there is not a value of $\epsilon$ and $\alpha$ that can be chosen to give sufficiently high values of the transition width.
+\item \textbf{Increase the component transition region width} to a size large enough to ensure that at least one Gauss point falls inside it. This strategy is possible for all reviewed approaches, is quite simple, and does not represent any significant numerical expense in terms of neither simulation nor optimization. The main drawback of this strategy is that one needs to consider bigger components for a given mesh size. In fact considering component with a thickness $h$ smaller than the transition width, does not ensure sensitivity smoothness (For AGP and AMNA). For AMMC the transition width is directly proportional to the component size so that for too small values of $h$ there is not a value of $\epsilon$ and $\alpha$ that can be chosen to give sufficiently high values of the transition width.
 \item \textbf{Refine the mesh} keeping the same value of the transition thickness and of the minimal component size. This is an alternative to the previous recommendation which can be seen as strictly equivalent. In this way, obviously one increases the chance of having a sampling window Gauss point inside transition region, but this comes at a higher computational cost in terms of both memory and CPU time.
 \item \textbf{Use a multi-resolution approach \cite{liu2018efficient}}. These approaches have also the virtue of filling the transition region with Gauss points. This time the difference with GGP is that the assembly of the stiffness matrix is realized using the contribution given by the point inside each element. This means that from a computational burden point of view this method shares the same cost for the simulation as the original problem but still requires more memory than GGP. In fact, in order to build the stiffness matrix one needs in 2D 64 terms coming from each Gauss point to be computed vs the unique value in GGP needed for the assembly. Still as for our approach the shear-locking problem can have an impact on the response coming from an ill refined solution.
 \item \textbf{Use Generalized Geometry Projection} increasing $N_{GP}$. That is a very inexpensive way to attenuate mesh induced inflection points for the responses. In this way one can also consider thinner components in the optimization, with a very small additional memory and computational burden coming from the projection. It must be noted that using a clever choice of $R$ and of $N_{GP}$ the computational burden of adapted techniques may be controlled. In fact as is the case in the MMC approach with $N_{GP}=4$, $R=\frac{\sqrt{3}}{2}dx$, since the sampling window Gauss points coincide with the finite element mesh nodes, one has to compute only $(n_{elx}+1)(n_{ely}+1)$ local volume fractions, instead of $4n_{elx}n_{ely}$ required in the case of non-coincidence with other element sampling window Gauss points.
@@ -1204,8 +1204,8 @@ The design domain is $100\times100$ and we considered both $100\times100$ and $2
     \label{fig:3.29}%
 \end{figure}
 For the stress aggregation constant we set $P=16$ for the $100\times100$ mesh and $P=16$ for the $200\times200$ mesh.
-For the continuation strategy, the value of $p_b$ was initially set to 2 and then increased to 3 after 300 iterations or when convergence was reached. $\varepsilon$ was initially set to 6 and then decreased by 1 each 300 iterations or when convergence was reached.  The continuation of $\varepsilon$ was stopped when $\varepsilon=3$. The value of $h_{min}$ was also updated following the same history of $\varepsilon$. Finally for the $\sigma_{lim}$ update, this was started at the value of 1 and then changed every 20 iterations according to equation \ref{eq.3.115}. The stress limit update frequency was selected as a trade between the iterations required for MMA to be sufficiently converged while reducing the overall convergence history. The update was stopped when equation \ref{eq.3.116} was satisfied. Topology optimization results are reported in figure \ref{fig:3.28} and \ref{fig:3.29} for both the $100\times100$ and the $200\times200$ meshes. The maximum macroscopic stress is enforced to be equal to the allowable value of 1 in both results (c.f. figures \ref{fig:3.28d}, \ref{fig:3.29d}). Continuation and limit stress update influence in both cases the convergence history (c.f. figures \ref{fig:3.28a}, \ref{fig:3.29a}).  Comparing these results with the ones of SIMP approach obtained changing the value of $\sigma_{lim}$ c.f. figures \ref{fig.2.19d}, \ref{fig.2.19e}, \ref{fig.2.19f} one can observe that the final mass is slightly improved.  
- On top of that the iterations needed to converge to nearly black and white designs  (c.f. figures \ref{fig:3.28c}, \ref{fig:3.29c}) are reduced compared to the one needed by SIMP with continuation. Finally the explicit geometric description of solutions is available (c.f. figures \ref{fig:3.28b}, \ref{fig:3.29b}) and this is an advantage for the next step in the design validation process. Being the geometric database available one can in fact re-mesh the solution and make further checks on the solution.
+For the continuation strategy, the value of $p_b$ was initially set to 2 and then increased to 3 after 300 iterations or when convergence was reached. $\varepsilon$ was initially set to 6 and then decreased by 1 each 300 iterations or when convergence was reached.  The continuation of $\varepsilon$ was stopped when $\varepsilon=3$. The value of $h_{min}$ was also updated following the same history of $\varepsilon$. Finally for the $\sigma_{lim}$ update, this was started at the value of 1 and then changed every 20 iterations according to equation \eqref{eq.3.115}. The stress limit update frequency was selected as a trade between the iterations required for MMA to be sufficiently converged while reducing the overall convergence history. The update was stopped when equation \eqref{eq.3.116} was satisfied. Topology optimization results are reported in figure \ref{fig:3.28} and \ref{fig:3.29} for both the $100\times100$ and the $200\times200$ meshes. The maximum macroscopic stress is enforced to be equal to the allowable value of 1 in both results (c.f. figures \ref{fig:3.28d}, \ref{fig:3.29d}). Continuation and limit stress update influence in both cases the convergence history (c.f. figures \ref{fig:3.28a}, \ref{fig:3.29a}).  Comparing these results with the ones of SIMP approach obtained changing the value of $\sigma_{lim}$ c.f. figures \ref{fig.2.19d}, \ref{fig.2.19e}, \ref{fig.2.19f} one can observe that the final mass is slightly improved.  
+ On top of that the iterations needed to converge to nearly black and white designs  (c.f. figures \ref{fig:3.28c}, \ref{fig:3.29c}) are reduced compared to the one needed by SIMP with continuation. Finally the explicit geometric description of solutions is available (c.f. figures \ref{fig:3.28b}, \ref{fig:3.29b}) and this is an advantage for the next step in the design validation process. Being the geometric description available one can in fact re-mesh the solution and make further checks on the solution.
  On the other hand both solutions do not eliminate the stress concentration at the inner corner. These solutions could further be improved to achieve singular optima that eliminate the stress singularity at the inner corner. These could be achieved changing optimization parameters such as starting guess or MMA moving limit. 
  \section{MNA application to the pylon and engine mount design}
  \label{MNA_application}
@@ -1240,7 +1240,7 @@ The configuration of such design can be fully described by the 9 design variable
         \upsilon_5=-\frac{L_\zeta}{2}-\zeta\leq 0\\
         \upsilon_6=-\frac{L_\zeta}{2}+\zeta\leq 0
   \end{eqnarray}
-  where $\upsilon_i$ can be identified as the signed distance from each parallelepiped face. In this way equation \ref{eq.3.117} can be written more compactly as:
+  where $\upsilon_i$ can be identified as the signed distance from each parallelepiped face. In this way equation \eqref{eq.3.117} can be written more compactly as:
   \begin{equation}
     \label{eq.3.124}
     \mathscr{P}\equiv\VectorVar{\VectorVar{X_g}=\VectorVar{x,y,z}^T\ :| \bigcap_{i=1}^6{\upsilon_i\leq 0}}
@@ -1267,14 +1267,14 @@ The configuration of such design can be fully described by the 9 design variable
         \upsilon_2=-\frac{L_\zeta}{2}-\zeta\leq 0\\
         \upsilon_3=-\frac{L_\zeta}{2}+\zeta\leq 0
     \end{eqnarray}
-    So that equation \ref{eq.3.125} can be compactly written as:
+    So that equation \eqref{eq.3.125} can be compactly written as:
     \begin{equation}
         \label{eq.3.129}
         \mathscr{C}\equiv\VectorVar{\VectorVar{X_g}=\VectorVar{x,y,z}^T\ :| \bigcap_{i=1}^3{\upsilon_i\leq 0}}
         \end{equation}
   \subsubsection{Polyhedral components}
   \label{ss_poly}
-  It is natural to extend the mathematical description of a rectangular parallelepiped component to a general polyhedral component. On the other hand definition such as equations \ref{eq.3.125} and \ref{eq.3.129} cannot be extended to general polyhedral component. Concave polyhedrons cannot in fact be written as the intersection of inequalities but may require also union subspaces. For convex polyhedral ( c.f. figure \ref{fig:3.32})
+  It is natural to extend the mathematical description of a rectangular parallelepiped component to a general polyhedral component. On the other hand definition such as equations \eqref{eq.3.125} and \eqref{eq.3.129} cannot be extended to general polyhedral component. Concave polyhedrons cannot in fact be written as the intersection of inequalities but may require also union subspaces. For convex polyhedral ( c.f. figure \ref{fig:3.32})
    on the other hand one can always build signed distance from each facet as: 
    \begin{equation}
    \upsilon_i=\VectorVar{XgP_i}^T\VectorVar{n_i} \quad \forall i=1,2,...,N_F
@@ -1316,7 +1316,7 @@ Concave shapes have at least a couple of sides that belong to the positive half 
            \label{eq.3.134}
            \mathscr{Q^*} \equiv\VectorVar{\VectorVar{X_g}=\VectorVar{x,y,z}^T\ :| (\upsilon_l\leq 0\bigcup\upsilon_k\leq 0)\bigcap(\bigcap_{i\neq l,k}{\upsilon_i\leq 0})}
     \end{equation}
-    In other words, for general polygons and polyhedrons, when there are groups of facets that satisfy for each couple of facets in the group both equations \ref{eq.3.132} and \ref{eq.3.133}, then in equation \ref{eq.3.131} each corresponding inequality should be replaced by the union of the conditions of facets belonging to the same group. More formally given the groups :
+    In other words, for general polygons and polyhedrons, when there are groups of facets that satisfy for each couple of facets in the group both equations \eqref{eq.3.132} and \eqref{eq.3.133}, then in equation \eqref{eq.3.131} each corresponding inequality should be replaced by the union of the conditions of facets belonging to the same group. More formally given the groups :
      \begin{equation}
                \label{eq.3.135}
                \mathscr{G}_j \equiv\VectorVar{s\in \mathbb{N}\ :|\quad  1\leq s\leq N_F \ , \ \forall k\neq l\in \mathscr{G}_j \quad (\VectorVar{P_lP_k}^T\VectorVar{n_k})(\VectorVar{P_kP_l}^T\VectorVar{n_l})>0 }
@@ -1349,7 +1349,7 @@ W(\upsilon,g_t)=\begin{cases}
 0 \quad \textit{otherwise.} 
 \end{cases}
 \end{equation}
-This function is equal to 1 only for negative input and smoothly passes to 0 values for positive input in the transition region between for $-g_t<\upsilon< g_t$.  The only difference with respect to function in \ref{eq.MNA.W} $\in C^1(\left]-\infty,\infty\right[)$ is that the function in \ref{eq.MNA2} $\in C^2(\left]-\infty,\infty\right[)$ with respect to the input $\upsilon$ and that the transition region is centered in 0.  One can observe that the activation function of the intersection of several conditions can be obtained, again treating the $W$ as logical value. One could at this point use approaches analogous to the one introduced in subsection \ref{GA}. For brevity here we will only consider Boolean assembly i.e:
+This function is equal to 1 only for negative input and smoothly passes to 0 values for positive input in the transition region between for $-g_t<\upsilon< g_t$.  The only difference with respect to function in \eqref{eq.MNA.W} $\in C^1(\left]-\infty,\infty\right[)$ is that the function in \eqref{eq.MNA2} $\in C^2(\left]-\infty,\infty\right[)$ with respect to the input $\upsilon$ and that the transition region is centered in 0.  One can observe that the activation function of the intersection of several conditions can be obtained, again treating the $W$ as logical value. One could at this point use approaches analogous to the one introduced in subsection \ref{GA}. For brevity here we will only consider Boolean assembly i.e:
 \begin{eqnarray}
 W_{\mathscr{P}}=\prod_{i=1}^6{W(\upsilon_i,g_t)}\\
 W_{\mathscr{C}}=\prod_{i=1}^3{W(\upsilon_i,g_t)}\\
@@ -1387,8 +1387,8 @@ Where $N_p$ is the total number of control points and $N_T$ is the total number 
   As for the stress aggregation when using the lower bound aggregation, the actual constraints could be violated. This is, by the way, acceptable especially near regions where the boundary conditions are applied. In this way the actual density at boundary conditions can be 1. 
  \subsection{Rectangular parallelepiped component topology optimization}
   \label{ss3.10.3}
-  In this section we illustrated the application of the MNA approach with 3D rectangular parallelepiped components, symmetric and with 3 load cases. 
-  To enforce symmetrical solutions each component was always projected together with its symmetrical with respect to the xz plane. The formulation of the optimization problem is almost identical to the one of equation \ref{topoeq3}, the design variables are this time the explicit design variables of the rectangular parallelepiped components. Moreover the convex hull constraint was considered in the optimization \ref{eq.CHconstr}:\\
+  In this section we illustrate the application of the MNA approach with 3D rectangular parallelepiped components, symmetric and with 3 load cases. 
+  To enforce symmetrical solutions each component was always projected together with its symmetrical with respect to the xz plane. The formulation of the optimization problem is almost identical to the one of equation \ref{topoeq3}, the design variables are this time the explicit design variables of the rectangular parallelepiped components. Moreover the convex hull constraint was considered in the optimization \eqref{eq.CHconstr}:\\
    \begin{equation}
    \label{topoeq4}
    \begin{cases}
@@ -1419,7 +1419,7 @@ Where $N_p$ is the total number of control points and $N_T$ is the total number 
     		$\kappa$ & IE geometric assembly aggregation constant & 10\\
     		$P$ & Aggregation constant for the stress constraint & 4\\  
     		$P_l$ & Aggregation constant for load case& 10\\ 
-    		$\sigma_{lim}$ & Allowable stress to be used in \ref{eq.2.30} & 10 MPa\\
+    		$\sigma_{lim}$ & Allowable stress to be used in \eqref{eq.2.30} & 10 MPa\\
     		$\sigma_{alw}$ & Maximum local allowable stress & 49 MPa\\
     		$T_0$ & Allowable consumption variation & 0.17 \% \\
     		$\lbrace\rho f \rbrace$ & Inertial load & $\lbrace 0 \rbrace$ \\
@@ -1437,7 +1437,7 @@ Where $N_p$ is the total number of control points and $N_T$ is the total number 
     		$(L_\eta)_{max}$ & maximum of length in $\eta$ direction & $2(y_{max}-y_{min})$\\
     		$(L_\zeta)_{max}$ & maximum of length in $\zeta$ direction & $2(z_{max}-z_{min})$\\
     		$(\theta)_{max}$ & maximum of Rotation angles in each direction & $\pi$\\
-    		 & Stopping condition on the Karush-Kunt Tucker residual norm & $KKTn\leq10^{-3}$\\ 
+    		 & Stopping condition on the Karush-Kuhn Tucker residual norm & $KKTn\leq10^{-3}$\\ 
     		& Stopping condition on the iteration number & $iter \geq 300$ \\
     		& MMA external move limit for first 2 iterations & 0.4 \\
     		& MMA maximum asymptote distance from the current point & 0.1 \\
@@ -1450,7 +1450,7 @@ Where $N_p$ is the total number of control points and $N_T$ is the total number 
       \caption{Initial guess component plot}
       \label{fig.3.35}
       \end{figure}
-      Convergence history is shown in figure \ref{fig.3.36} for Volume fraction for the aggregation function for stress, for the aggregated performance and for $G_{ch}$ (c.f. equation \ref{eq.CHconstr}). The final design respects all constraints and is shown in figure \ref{fig.3.37}. As expected part of the components lay outside the convex hull represented in gray in the same figure. Still it is possible to understand the solution features as in a truss pylon. In figure \ref{fig.3.38} the density field corresponding to the solution is represented for a threshold of 0.45. Finally displacements and stress are represented for the 3 load cases in figure \ref{fig.3.39}. In the same figure one can also understand  which load case is responsible for the stress limit activation on each component. The frontal connection between engine core and front wing mounts bear lateral load mainly, the rear part on the other hand bears both the vertical and axial loads on the engine. The V structure that connects the frontal to the rear engine casing can reduce the stresses at the interface with the engine casing and redistribute the load on a larger area. This engine stiffening structure is also added probably to increase the engine bending stiffness and reduce casing out of roundness deformations. The solution can be interpreted as an assembly of beam components with rectangular profile with the exception of the component that stiffens the engine (this time more complex as they intercept the design region boundaries). The manufacturing process for such solution and the modifications needed to attain a solution ready for production  are smaller if compared to the solution of figure \ref{fig.2.27}. In fact straight bars can be manufactured and then assembled together with fastener connection for example. In the next subsection we will show that this process of solution simplification can also be extended to primitives that are more similar to existent products and that are therefore prone to include other explicit constraint on the final product geometry, still keeping the great versatility of topology optimization for making components disappear.
+      Convergence history is shown in figure \ref{fig.3.36} for Volume fraction for the aggregation function for stress, for the aggregated performance and for $G_{ch}$ (c.f. equation \eqref{eq.CHconstr}). The final design respects all constraints and is shown in figure \ref{fig.3.37}. As expected part of the components lay outside the convex hull represented in gray in the same figure. Still it is possible to understand the solution features as in a truss pylon. In figure \ref{fig.3.38} the density field corresponding to the solution is represented for a threshold of 0.45. Finally displacements and stress are represented for the 3 load cases in figure \ref{fig.3.39}. In the same figure one can also understand  which load case is responsible for the stress limit activation on each component. The frontal connection between engine core and front wing mounts bear lateral load mainly, the rear part on the other hand bears both the vertical and axial loads on the engine. The V structure that connects the frontal to the rear engine casing can reduce the stresses at the interface with the engine casing and redistribute the load on a larger area. This engine stiffening structure is also added probably to increase the engine bending stiffness and reduce casing out of roundness deformations. The solution can be interpreted as an assembly of beam components with rectangular profile with the exception of the component that stiffens the engine (this time more complex as they intercept the design region boundaries). The manufacturing process for such solution and the modifications needed to attain a solution ready for production  are smaller if compared to the solution of figure \ref{fig.2.27}. In fact straight bars can be manufactured and then assembled together with fastener connection for example. In the next subsection we will show that this process of solution simplification can also be extended to primitives that are more similar to existent products and that are therefore prone to include other explicit constraint on the final product geometry, still keeping the great versatility of topology optimization for making components disappear.
   \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{images/Ch3/MNA3D_convergence_300}
@@ -1519,7 +1519,7 @@ Where $N_p$ is the total number of control points and $N_T$ is the total number 
       \caption{Box component example. The external and the internal hexahedra have only planar facets. The internal hexahedron vertices are obtained translating the external hexahedron vertices using box thicknesses.}
       \label{fig:3.40}       % Give a unique label
  \end{figure}
-This component could be represented with the strategy explained in subsection \ref{ss_poly} that employs the angles of the outward vector and a distance from a constant point in the same direction of each facet of the polyhedron. This strategy is non compatible with classic pylon sizing and description. For a pylon box we will refer to more explicit sizes that can be bounded in order to have reasonable designs. For this purpose it is worthy to introduce the following notations. We refer to lateral panels as the facets that are opposite along y direction. We refer to lower and upper spar as the panels that are opposite in z direction and whose normal point downward and upward respectively and we refer here to ribs as the panels  that are opposite in x direction. In a pylon box one can adopt the rib center position, rib orientation angle and sizes as design variables of the optimization (c.f. figure \ref{fig:3.41}). As only symmetric design with respect to the $xz$ plane should be considered some parameters like the ribs center $Ys$ and rotation angles around x and z ($\theta_x$ and $\theta_z$ ) have to be 0. The remaining parameters that can vary for each section are represented in figure \ref{fig:3.41} and can be stored in the design variable vector $\VectorVar{x_s}=\VectorVar{X_s,Z_s,\theta_y,h_s,b_l,b_u}$. There will be one of these vectors for each rib of the pylon boxes. As each pylon box shares ribs with its neighborhoods, one can say that for $n_b$ boxes, one will  have $n_b+1$ ribs to be parametrized, that means $6\times(n_b+1)$ design variables. Actually this parametrization allows for the description of non-planar lateral panels. This is not desirable for manufacturing complexity. To avoid such situation the design variable $b_u$ are free to vary only on one rib (for example the most forward one). For the remaining it can be determined explicitly in order to keep the lateral panel planar. For this reason the count of design variables becomes of $5n_b+6$. The thickness of each panel should then be varied independently. Again for the symmetry with respect to the $xz$ plane lateral panels are constrained to have the same thickness, which means that one can vary 5 thicknesses per box (i.e. $\VectorVar{x_b}=\VectorVar{t_1,t_2,t_3,t_4,t_5}$). The total number of design variables per box is then $10n_b+6$. 
+This component could be represented with the strategy explained in subsection \ref{ss_poly} that employs the angles of the outward vector and a distance from a constant point in the same direction of each facet of the polyhedron. This strategy is non compatible with classic pylon sizing and description. For a pylon box we will refer to more explicit sizes that can be bounded in order to have reasonable designs. For this purpose it is worth to introduce the following notations. We refer to lateral panels as the facets that are opposite along y direction. We refer to lower and upper spar as the panels that are opposite in z direction and whose normal point downward and upward respectively and we refer here to ribs as the panels  that are opposite in x direction. In a pylon box one can adopt the rib center position, rib orientation angle and sizes as design variables of the optimization (c.f. figure \ref{fig:3.41}). As only symmetric design with respect to the $xz$ plane should be considered some parameters like the ribs center $Ys$ and rotation angles around x and z ($\theta_x$ and $\theta_z$ ) have to be 0. The remaining parameters that can vary for each section are represented in figure \ref{fig:3.41} and can be stored in the design variable vector $\VectorVar{x_s}=\VectorVar{X_s,Z_s,\theta_y,h_s,b_l,b_u}$. There will be one of these vectors for each rib of the pylon boxes. As each pylon box shares ribs with its neighborhoods, one can say that for $n_b$ boxes, one will  have $n_b+1$ ribs to be parametrized, that means $6\times(n_b+1)$ design variables. Actually this parametrization allows for the description of non-planar lateral panels. This is not desirable for manufacturing complexity. To avoid such situation the design variable $b_u$ are free to vary only on one rib (for example the most forward one). For the remaining it can be determined explicitly in order to keep the lateral panel planar. For this reason the count of design variables becomes of $5n_b+6$. The thickness of each panel should then be varied independently. Again for the symmetry with respect to the $xz$ plane lateral panels are constrained to have the same thickness, which means that one can vary 5 thicknesses per box (i.e. $\VectorVar{x_b}=\VectorVar{t_1,t_2,t_3,t_4,t_5}$). The total number of design variables per box is then $10n_b+6$. 
   \begin{figure}[!ht]
         \centering
        % Use the relevant command to insert your figure file.
@@ -1577,11 +1577,11 @@ This component could be represented with the strategy explained in subsection \r
           		$\kappa$ & IE geometric assembly aggregation constant & 10\\
           		$P$ & Aggregation constant for the stress constraint & 4\\  
           		$P_l$ & Aggregation constant for load case& 10\\ 
-          		$\sigma_{lim}$ & Allowable stress to be used in \ref{eq.2.30} & 10 MPa\\
+          		$\sigma_{lim}$ & Allowable stress to be used in \eqref{eq.2.30} & 10 MPa\\
           		$\sigma_{alw}$ & Maximum local allowable stress & 49 MPa\\
           		$T_0$ & Allowable consumption variation & 0.17 \% \\
           		$\lbrace\rho f \rbrace$ & Inertial load & $\lbrace 0 \rbrace$ \\
-          		 & Stopping condition on the Karush-Kunt Tucker residual norm & $KKTn\leq10^{-3}$\\ 
+          		 & Stopping condition on the Karush-Kuhn Tucker residual norm & $KKTn\leq10^{-3}$\\ 
           		& Stopping condition on the iteration number & $iter \geq 300$ \\
           		& MMA external move limit for first 2 iterations & 0.4 \\
           		& MMA maximum asymptote distance from the current point & 0.1 \\
@@ -1646,9 +1646,9 @@ This component could be represented with the strategy explained in subsection \r
                       \end{figure}
                       \clearpage 
 \section{Summary and conclusions}
-In this chapter the Lagrangian approaches to topology optimization were considered. In the proposed framework this family of approaches was needed for exploration and benchmarking. Therefore a literature review is proposed to cover Moving Morphable Components, Geometry Projection and Moving Node Approach. A novel theoretical framework called Generalized Geometry Projection (GGP), is then proposed to cover all the reviewed techniques. Not only does this technique provides a unique implementation work-flow for the reviewed strategies but also provides an efficient way to remove saddle points from model responses in the optimization formulation. This was proven in a 2D cantilever use case that was analyzed for different methods and number of gauss points in each sampling window of GGP. To use efficient gradient based solvers the adjoint evaluation of sensitivities is provided. Stress based constraints are implemented in 2D with unified aggregation and relaxation approach and an update strategy of allowable was considered to control the actual maximum von Mises stress in the solution. Finally the MNA approach was extended to solve the design of pylon and engine mount with stress and consumption constraints under multiple load case. To this end 3D components specific to the pylon, engine and wing mounts design were proposed and tested. To summarize, in this chapter we covered the following topics:
+In this chapter the Lagrangian approaches to topology optimization were considered. In the proposed framework this family of approaches was needed for exploration and benchmarking. Therefore a literature review is proposed to cover Moving Morphable Components, Geometry Projection and Moving Node Approach. A novel theoretical framework called Generalized Geometry Projection (GGP), is then proposed to cover all the reviewed techniques. Not only does this technique provides a unique implementation workflow for the reviewed strategies but also provides an efficient way to remove saddle points from model responses in the optimization formulation. This was proven in a 2D cantilever use case that was analyzed for different methods and number of Gauss points in each sampling window of GGP. To use efficient gradient based solvers the adjoint evaluation of sensitivities is provided. Stress based constraints are implemented in 2D with unified aggregation and relaxation approach and an update strategy of allowable was considered to control the actual maximum von Mises stress in the solution. Finally the MNA approach was extended to solve the design of pylon and engine mount with stress and consumption constraints under multiple load case. To this end 3D components specific to the pylon, engine and wing mounts design were proposed and tested. To summarize, in this chapter we covered the following topics:
 \begin{itemize}
-\item Topology optimization using Moving Morphable Components with Esartz material model.
+\item Topology optimization using Moving Morphable Components with ersatz material model.
 \item Topology optimization using Geometry Projection
 \item Topology optimization using Moving Node Approach.
 \item The geometric assembly
@@ -1670,12 +1670,12 @@ Our novel contributions consist in:
 As conclusions here we can list that:
 \begin{itemize}
 \item It is possible to define a unified approach that can represent existing techniques in a unique mathematical framework. Such an approach also overcomes some difficulties linked with all Lagrangian approaches. Some practical recommendations were given to avoid saddle points in the optimization problem. 
-\item Making the union of components is a common task of an explicit framework that can introduce some unwanted effects in the FEM used to evaluate a geometric configuration. Using the proposed saturation can avoid intermediate densities void regions and in regions where only one component is activated.
-\item Enforcing black and white solutions within an explicit framework is possible, adopting a continuation strategy on the transition zone width. The maximum stress can be controlled thanks to the proposed adaptive strategy. On the other hand, the solutions found could include stress singularity that are not captured by the finite element model.
+\item Making the union of components is a common task of an explicit framework that can introduce some unwanted effects in the FEM used to evaluate a geometric configuration. The proposed saturation strategy can avoid intermediate densities in regions where only one component is activated.
+\item Enforcing black and white solutions within an explicit framework is possible, adopting a continuation strategy on the transition zone width. The maximum stress can be controlled thanks to the proposed adaptive strategy. On the other hand, the solutions found could include stress singularity that are not well represented by the finite element model. This is also due to the fact that is due to the fact that using relaxation one can find singular optima, but this doesn't remove the other local optima from the feasible design domain.
 \item The migration from SIMP to MNA framework is straightforward. This kind of framework allows an improved mechanical understanding of the solution, a faster post processing and the introduction of manufacturing considerations. Enforcing that a solution is only composed by boxes and cylinders is for example useful to ensure that the solution is actually manufacturable. Since not all solutions representable with SIMP approach can be represented with Lagrangian approaches, sometimes MNA solutions are suboptimal with respect to SIMP solutions. This problem still is in large part dependent on the number of components considered in the optimization problem and on their shapes. 
 \item The solutions obtained with the 3D framework are consistent with results found in Chapter \ref{chap:2}. The load path is always basically the same found for all 3 formulations. The differences lie in some structural details that may or not be described by each formulation. Reducing the space of possible solutions the performances are impacted.  
 \end{itemize}
-Still some shortcomings need to be addressed and were not studied in this thesis. The GGP proposed strategy could actually be improved by sensitivity modifications as it was explained in subsection \ref{D}. Moreover the same limitations studied in chapter \ref{chap:2} concerning the model are also valid for this chapter and should be considered as research axes to improve the presented framework. The projection approaches also opens new perspectives for both the implementation of advanced manufacturing considerations and for the simplification of the optimization problem. These should be investigated further in future works. Optimization algorithms employed in this thesis were local. In this context it would be possible to consider global versions as in \cite{zhang2018finding}.
+Still some shortcomings need to be addressed and were not studied in this thesis. The GGP proposed strategy could actually be improved by sensitivity modifications as it was explained in subsection \ref{D}. Moreover the same limitations studied in chapter \ref{chap:2} concerning the model are also valid for this chapter and should be considered as research axes to improve the presented framework. The projection approaches also opens new perspectives for both the implementation of advanced manufacturing considerations and for the simplification of the optimization problem. These should be investigated further in future works. Optimization algorithms employed in this thesis were local. In this context it would be possible to consider a progressive improvement of local minima as in \cite{zhang2018finding}.
 
 
 %%% Local Variables: 

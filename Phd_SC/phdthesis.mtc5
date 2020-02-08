@@ -1,22 +1,22 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.1}2D demonstration framework}{\reset@font\mtcSfont 146}{section.3.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.2}Moving Morphable Components (MMC) with Esartz material model}{\reset@font\mtcSfont 149}{section.3.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.3}Geometry Projection (GP)}{\reset@font\mtcSfont 151}{section.3.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.4}Moving Node Approach (MNA)}{\reset@font\mtcSfont 154}{section.3.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.5}Generalized Geometry Projection}{\reset@font\mtcSfont 157}{section.3.5}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.6}Geometric assembly}{\reset@font\mtcSfont 161}{section.3.6}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.7}Sensitivity analysis}{\reset@font\mtcSfont 171}{section.3.7}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.8}Numerical investigations on 2D use cases}{\reset@font\mtcSfont 175}{section.3.8}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.8.1}Parametric study of a cantilever beam}{\reset@font\mtcSSfont 175}{subsection.3.8.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.8.2}Topology Optimization of the short cantilever beam}{\reset@font\mtcSSfont 178}{subsection.3.8.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.8.3}Discussion}{\reset@font\mtcSSfont 181}{subsection.3.8.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.9}2D stress based topology optimization using a Lagrangian approach}{\reset@font\mtcSfont 185}{section.3.9}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.10}MNA application to the pylon and engine mount design}{\reset@font\mtcSfont 190}{section.3.10}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.10.1}3D geometric components}{\reset@font\mtcSSfont 190}{subsection.3.10.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.10.1.1}Rectangular parallelepiped components}{\reset@font\mtcSSSfont 190}{subsubsection.3.10.1.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.10.1.2}Cylinder components}{\reset@font\mtcSSSfont 192}{subsubsection.3.10.1.2}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.10.1.3}Polyhedral components}{\reset@font\mtcSSSfont 193}{subsubsection.3.10.1.3}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.10.1.4}Activation function and geometric intersection}{\reset@font\mtcSSSfont 195}{subsubsection.3.10.1.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.10.2}Convex hull constraint}{\reset@font\mtcSSfont 195}{subsection.3.10.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.10.3}Rectangular parallelepiped component topology optimization}{\reset@font\mtcSSfont 197}{subsection.3.10.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.10.4}Pylon box, engine and wing mounts design optimization}{\reset@font\mtcSSfont 203}{subsection.3.10.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.11}Summary and conclusions}{\reset@font\mtcSfont 212}{section.3.11}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.1}2D demonstration framework}{\reset@font\mtcSfont 148}{section.3.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.2}Moving Morphable Components (MMC) with ersatz material model}{\reset@font\mtcSfont 151}{section.3.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.3}Geometry Projection (GP)}{\reset@font\mtcSfont 153}{section.3.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.4}Moving Node Approach (MNA)}{\reset@font\mtcSfont 156}{section.3.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.5}Generalized Geometry Projection}{\reset@font\mtcSfont 159}{section.3.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.6}Geometric assembly}{\reset@font\mtcSfont 163}{section.3.6}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.7}Sensitivity analysis}{\reset@font\mtcSfont 173}{section.3.7}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.8}Numerical investigations on 2D use cases}{\reset@font\mtcSfont 177}{section.3.8}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.8.1}Parametric study of a cantilever beam}{\reset@font\mtcSSfont 177}{subsection.3.8.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.8.2}Topology Optimization of the short cantilever beam}{\reset@font\mtcSSfont 180}{subsection.3.8.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.8.3}Discussion}{\reset@font\mtcSSfont 183}{subsection.3.8.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.9}2D stress based topology optimization using a Lagrangian approach}{\reset@font\mtcSfont 187}{section.3.9}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.10}MNA application to the pylon and engine mount design}{\reset@font\mtcSfont 192}{section.3.10}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.10.1}3D geometric components}{\reset@font\mtcSSfont 192}{subsection.3.10.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.10.1.1}Rectangular parallelepiped components}{\reset@font\mtcSSSfont 192}{subsubsection.3.10.1.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.10.1.2}Cylinder components}{\reset@font\mtcSSSfont 194}{subsubsection.3.10.1.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.10.1.3}Polyhedral components}{\reset@font\mtcSSSfont 195}{subsubsection.3.10.1.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.10.1.4}Activation function and geometric intersection}{\reset@font\mtcSSSfont 197}{subsubsection.3.10.1.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.10.2}Convex hull constraint}{\reset@font\mtcSSfont 197}{subsection.3.10.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.10.3}Rectangular parallelepiped component topology optimization}{\reset@font\mtcSSfont 199}{subsection.3.10.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.10.4}Pylon box, engine and wing mounts design optimization}{\reset@font\mtcSSfont 205}{subsection.3.10.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.11}Summary and conclusions}{\reset@font\mtcSfont 214}{section.3.11}}

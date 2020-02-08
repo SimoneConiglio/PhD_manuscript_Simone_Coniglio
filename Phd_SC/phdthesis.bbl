@@ -241,11 +241,16 @@ Buhmann, M.~D. (2003).
 \newblock {\em Radial basis functions: theory and implementations}, volume~12.
 \newblock Cambridge university press.
 
-\bibitem[Buleev, 1960]{buleev1960numerical}
-Buleev, N. (1960).
+\bibitem[Buleev, 1960a]{buleev1960numerical}
+Buleev, N. (1960a).
 \newblock Numerical method for solving two-and three-dimensional diffusion
   equations.
 \newblock {\em Matematicheskii Sbornik}, 93(2):227--238.
+
+\bibitem[Buleev, 1960b]{buleev1960numerical2}
+Buleev, N. (1960b).
+\newblock A numerical method for solving two-dimensional diffusion equations.
+\newblock {\em Atomic Energy}, 6(3):222--224.
 
 \bibitem[Cafiero et~al., 2016]{cafiero2016domain}
 Cafiero, M., Lloberas-Valls, O., Cante, J., and Oliver, J. (2016).
@@ -629,6 +634,13 @@ Guedes, J. and Taylor, J. (1997).
   continuum structures.
 \newblock {\em Structural optimization}, 14(2-3):193--199.
 
+\bibitem[Guest et~al., 2004]{guest2004achieving}
+Guest, J.~K., Pr{\'e}vost, J.~H., and Belytschko, T. (2004).
+\newblock Achieving minimum length scale in topology optimization using nodal
+  design variables and projection functions.
+\newblock {\em International journal for numerical methods in engineering},
+  61(2):238--254.
+
 \bibitem[Guo et~al., 2005]{guo2005new}
 Guo, H., Zhao, K., and Wang, M.~Y. (2005).
 \newblock A new approach for simultaneous shape and topology optimization based
@@ -763,6 +775,11 @@ Kim, H.-G. (2003).
   of interfaces between partitioned domains.
 \newblock {\em Computer methods in applied mechanics and engineering},
   192(15):1841--1858.
+
+\bibitem[Kirsch, 1990]{kirsch1990singular}
+Kirsch, U. (1990).
+\newblock On singular topologies in optimum structural design.
+\newblock {\em Structural optimization}, 2(3):133--142.
 
 \bibitem[Kobayashi, 2010]{kobayashi2010biologically}
 Kobayashi, M.~H. (2010).
@@ -1319,6 +1336,13 @@ Wei, P., Wang, M.~Y., and Xing, X. (2010).
 \newblock A study on x-fem in continuum structural optimization using a level
   set model.
 \newblock {\em Computer-Aided Design}, 42(8):708--719.
+
+\bibitem[Wein and Stingl, 2018]{Wein2018}
+Wein, F. and Stingl, M. (2018).
+\newblock A combined parametric shape optimization and ersatz material
+  approach.
+\newblock {\em Structural and Multidisciplinary Optimization},
+  57(3):1297--1315.
 
 \bibitem[Wendland, 1995]{wendland1995piecewise}
 Wendland, H. (1995).

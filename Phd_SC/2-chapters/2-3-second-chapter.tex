@@ -10,7 +10,7 @@ Dans ce chapitre le design des structures conduites par simulation est passé en
 \item L'algorithme d'optimisation
 \end{itemize} 
 Ces composantes sont représentées par des diagrammes par blocs, pour décrire leur interaction dans la boucle de design. La méthode adjointe de calcul des gradients et les algorithmes d'approximation séquentielle convexe sont aussi passés en revue.
-La méthode du Matériau Solide avec Pénalité (SIMP), représentant des approches Eulériennes d'optimisation topologique, est aussi décrite en détails. Pour cette méthode la solution est représentée par un champ de densité constant par élément de maillage. Les variables d'optimisation sont donc les pseudo-densités dans chaque élément fini dans la zone de design, qui peuvent prendre de valeurs entre 0 et 1. Ce qui corresponde aux propriétés du vide et du solide respectivement. Pour éliminer les densités intermédiaires dans la solution, une pénalité est appliquée à la loi d'interpolation du module de Young entre le solide et le vide. Cette formulation souffre de plusieurs problèmes numériques. Cependant ceux-ci peuvent être traités par des techniques de restrictions. Une approche multi-maillage pour un calcul efficace de la matrice de filtrage a été proposée pour réduire le cout d'évaluation de la matrice de filtrage. En suite pour traiter des contraintes de stress dans l'optimisation topologique l'approche unifiée d'agrégation relaxation \cite{verbart2017unified} est passé en revue et implémentée. Dans le dernière section de ce chapitre nous montrons l'application de l'approche SIMP au problème de design du mât et des attaches moteur. Des contraintes de symétrie de la solution et plusieurs cas de chargement sont également considérés.
+La méthode du Matériau Solide avec Pénalité (SIMP), représentant des approches Eulériennes d'optimisation topologique, est aussi décrite en détails. Pour cette méthode la solution est représentée par un champ de densité constant par élément de maillage. Les variables d'optimisation sont donc les pseudo-densités dans chaque élément fini dans la zone de design, qui peuvent prendre de valeurs entre 0 et 1. Ce qui corresponde aux propriétés du vide et du solide respectivement. Pour éliminer les densités intermédiaires dans la solution, une pénalité est appliquée à la loi d'interpolation du module de Young entre le solide et le vide. Cette formulation souffre de plusieurs problèmes numériques. Cependant ceux-ci peuvent être traités par des techniques de restriction. Une approche multi-maillage pour un calcul efficace de la matrice de filtrage a été proposée pour réduire le cout d'évaluation de la matrice de filtrage. Ensuite pour traiter des contraintes de stress dans l'optimisation topologique l'approche unifiée d'agrégation relaxation \cite{verbart2017unified} est passé en revue et implémentée. Dans la dernière section de ce chapitre nous montrons l'application de l'approche SIMP au problème de design du mât et des attaches moteur. Des contraintes de symétrie de la solution et plusieurs cas de chargement sont également considérés.
 \end{mdframed}
 Design activity is a complex human activity that relies on both quantitative and qualitative judgment. A product will be the consequence of several decisions that are made to respect legal, environmental, safety and economic requirements. Moreover generally speaking a product will be the "best" or at least satisfying with respect to its performances among some configurations.
 So the first requirement for the design process is being able to generate and describe design configurations or candidates. The second requirement is being able to evaluate the performance of a given candidate. Then the ranking of all configurations is made using one or several criteria.
@@ -41,7 +41,7 @@ Any product or design can be represented as a system, that can be defined as an 
 \label{fig.2.1}
 \end{figure}
 For very complex products like aircrafts or gas turbine such a representation can help in understanding the flow of inputs and outputs between each component. On the other hand system block diagrams are subjective and they depend on the particular phenomenon of interest. Moreover the system representation also depends on the level of complexity at which a product needs to be represented. To predict the behavior of such a system, models have to be built. A rigorous definition of a model according to \cite{papalambros2000principles}:\\
-\textit{A model is an abstract description of the real world giving an approximate representation of more complex functions of physical systems .}\\
+\textit{A model is an abstract description of the real world giving an approximate representation of more complex functions of physical systems.}\\
 In the same way one can distinguish between \textit{physical} models as the prototype that can emulate the real system's behavior with respect to some input and \textit{symbolic} models that can emulate the system's behavior through simulation. In this thesis we only refer to \textit{symbolic} models and in particular to \textit{mathematical} models:\\
 \textit{A mathematical model represents a system by mathematical relations\cite{papalambros2000principles}}\\
 Often this mathematical relation is explicitly available, or can be the result of a numerical computation.
@@ -70,9 +70,9 @@ Moreover a FEA block hides several operations:
 \begin{itemize}
 \item The stiffness matrix assembly.
 \item The right hand side vectors assembly.
-\item The linear system resolution per each right hand side vector.
+\item The linear system solution per each right hand side vector.
 \end{itemize}
-This functional analysis allows to a more detailed description of the FEA subsystem's block description c.f. figure \ref{fig.2.3}:\\
+This functional analysis allows a more detailed description of the FEA subsystem's block description c.f. figure \ref{fig.2.3}:\\
 \begin{figure}[ht]
 \centering
 \includegraphics[width=8cm]{images/Ch2/Block_diagram_FEA_det}
@@ -104,8 +104,8 @@ g_i(\VectorVar{x})\leq 0 & \forall i=1,2,...,m\\
 h_j(\VectorVar{x})=0 & \forall j=1,2,...,l
 \end{cases}
 \end{equation}
-where $D$ is a subset of $\mathbb{R}^{n}$ , $n$ is the number of design variables, $m$ and $l$ are respectively the number of inequality and equality constraints. Depending on the nature of $D$ one can make a first distinction between continuous and integer programming optimization problems. In the first case each design variable belongs to a closed interval in $\mathbb{R}$ which means that $D\equiv\lbrace \VectorVar{x} | \VectorVar{l_b}\leq\VectorVar{x}\leq \VectorVar{u_b}\rbrace$. where $\VectorVar{l_b}$ and $\VectorVar{u_b}$ are respectively design variable lower and upper bound vectors. For the second family of problems, the design variable belongs to a list of values.\footnote{Depending on the fact that one can sort or not design variable, one can also have the distinction between categorical or integer design variable} Most real life design problems include a combination of continuous and integer design variables. 
-In this thesis we mainly focused on continuous optimization problems. A second distinction between optimization problems can be introduced for the number of criteria considered as simultaneous goals. One can consider either single or multi-objective design problems. As aforementioned the case where a list of goals needs to be considered can be solved by the resolution of a group of single objective problems. Another hypothesis we will consider for our responses is that they will be regular at least up to the first derivative with respect to the design variables. This hypothesis allows the use of efficient gradient based techniques for the optimization problem resolution. 
+where $D$ is a subset of $\mathbb{R}^{n}$ , $n$ is the number of design variables, $m$ and $l$ are respectively the number of inequality and equality constraints. Depending on the nature of $D$ one can make a first distinction between continuous and integer programming optimization problems. In the first case each design variable belongs to a closed interval in $\mathbb{R}$ which means that $D\equiv\lbrace \VectorVar{x} | \VectorVar{l_b}\leq\VectorVar{x}\leq \VectorVar{u_b}\rbrace$, where $\VectorVar{l_b}$ and $\VectorVar{u_b}$ are respectively design variable lower and upper bound vectors. For the second family of problems, the design variable belongs to a list of values.\footnote{Depending on the fact that one can sort or not design variable, one can also have the distinction between categorical or integer design variable} Most real life design problems include a combination of continuous and integer design variables. 
+In this thesis we mainly focused on continuous optimization problems. A second distinction between optimization problems can be introduced for the number of criteria considered as simultaneous goals. One can consider either single or multi-objective design problems. As aforementioned the case where a list of goals needs to be considered can be carried out by the solution of a group of single objective problems. Another hypothesis we will consider for our responses is that they will be regular at least up to the first derivative with respect to the design variables. This hypothesis allows the use of efficient gradient based techniques for the optimization problem solution. 
  
 \subsection {Optimum characterization}
 A first important question about an optimization problem is about the existence of an optimal solution. In fact the feasible space, i.e. the space of solutions that simultaneously satisfy all constraints in the problem, can degenerate to a void space. Let's consider a 2D example where the design vector $\VectorVar{x}\equiv\VectorVar{x_1,x_2}^T$ has to solve the following optimization problem:
@@ -132,7 +132,7 @@ where $a,b,c$ are parameters. For some choice of these parameters the feasible s
      \end{figure}
 In such cases the solution to the optimization problem will not exist. This situation often arises when dealing with antagonistic responses for constraints (for instance mass and maximum stress in a design). When this happens the only way of determining if a combination of requirements gives a void feasible design is by trials.\\
 Another important property of an optimization problem is convexity.
-A convex optimization problem is one whose objective and constraints are convex. As a consequence it can be shown that the optimization problem has only one solution and this solution is the global optimum of the optimization problem. For a non-convex problem we need to introduce the concept of local and global optimality. In fact a local optimum is a design configuration that is the best design for the goal function and that respects constraints, inside a small enough neighborhood of the solution. On the other hand a global optimum is the best design that satisfies the constraints over the whole design space and hence is the solution of the optimization problem.
+A convex optimization problem is one whose objective and constraints are convex. It can be shown that the strictly convex optimization problem has only one solution and this solution is the global optimum of the optimization problem. For a non-convex problem we need to introduce the concept of local and global optimality. In fact a local optimum is a design configuration that is the best design for the goal function and that respects constraints, inside a small enough neighborhood of the solution. On the other hand a global optimum is the best design that satisfies the constraints over the whole design space and hence is the solution of the optimization problem.
 We show this issue with a simple 1D example. 
 Given the optimization problem:
 \begin{equation}
@@ -151,8 +151,8 @@ The objective function is shown in figure \ref{fig.2.4b}.
 \label{fig.2.4b}
 \end{figure}
 We can observe that the point $x=1$ is a local minimum because it is possible to define a small interval around this point in which $o(x)$ is minimum. On the other hand $x=-\frac{3}{2}$ is the global minimum.
- Typically a non-convex problem (such as the one of equation \ref{example_problem}) will possess several local optima but only one global optimum. In general, finding the global optimum can be considered as an insurmountable challenge for most optimization problems. For this reason, often one can only conclude that a design is an improvement of an existing one, but is not the best design ever achievable. 
-With respect to constraints, an optimum can be either on the inside (interior optimum) or on the boundary (boundary optimum) of the design domain. The first situation arises when constraints are inactivated. This also implies that the unconstrained optimization problem (obtained ignoring all constraints) has the same solution as the constrained optimization problem. When this is not the case, the optimum will lay on the feasible design boundary. This implies that at least one constraints will be activated so that $g_i=0$ for at least one $i\in\lbrace1,2,...,m\rbrace$. 
+ Typically a non-convex problem (such as the one of equation \eqref{example_problem}) will possess several local optima but only one global optimum. In general, finding the global optimum can be considered as an insurmountable challenge for most optimization problems. For this reason, often one can only conclude that a design is an improvement of an existing one, but is not the best design ever achievable. 
+With respect to constraints, an optimum can be either on the inside (interior optimum) or on the boundary (boundary optimum) of the design domain. The first situation arises when constraints are inactivated. This also implies that the unconstrained optimization problem (obtained ignoring all constraints) has the same solution as the constrained optimization problem. When this is not the case, the optimum will lie on the feasible design boundary. This implies that at least one constraint will be active so that $g_i=0$ for at least one $i\in\lbrace1,2,...,m\rbrace$. 
 Here we can review necessary and sufficient conditions to determine if a point is a local minimum in a constrained problem \footnote{For the proof the interested reader can find it in \cite{papalambros2000principles}.}.
 Given an optimization problem in the form of \footnote{Bound constraints on design variables can be considered as part of $\VectorVar{g(\VectorVar{x})}\leq \VectorVar{0}$}
 \begin{equation}
@@ -167,47 +167,47 @@ Given the Lagrangian of the problem:
 \begin{equation}
 \mathscr{L}(\VectorVar{x}):= o(\VectorVar{x})+\VectorVar{\lambda}^T h(\VectorVar{x})+\VectorVar{\mu}^T g(\VectorVar{x}) 
 \end{equation}
-where $\VectorVar{\lambda}$ and $\VectorVar{\mu}$ are Lagrangian multipliers
+where $\VectorVar{\lambda}\in \Real^l$ and $\VectorVar{\mu} \in \Real^m$ are Lagrangian multipliers
 The necessary optimality conditions also known as \textit{Karush-Khun-Tucker (KKT) conditions} are:
 \begin{equation}
 \begin{cases}
 \VectorVar{h(\VectorVar{x})}=\VectorVar{0}\\
 \VectorVar{g(\VectorVar{x})}\leq \VectorVar{0}\\
 \nabla o + \VectorVar{\lambda}^T\nabla h+\VectorVar{\mu}^T\nabla g=\VectorVar{0}\\
-\VectorVar{\mu}\geq \VectorVar{0}
+\VectorVar{\mu}\geq \VectorVar{0}\\
+\VectorVar{\mu}^T\VectorVar{g(\VectorVar{x})}=0
 \end{cases}
 \end{equation}
 when a point satisfies these conditions is said to be a KKT point and may not be a minimum since the conditions are not sufficient. Second order information is necessary to verify the nature of a KKT point:\\
 \textit{ If a KKT point $\VectorVar{x_*}$ exists, such that the Hessian of the Lagrangian on the subspace tangent to the active constraints (equalities and inequalities) is positive-definite at $\VectorVar{x_*}$, then $\VectorVar{x_*}$ is a local constrained minimum.}\\
-It must be noted that the activation of a constraint is reflected by a corresponding Lagrange multiplier that is different from 0.
-Coming back to our simple 1D example \ref{example_problem} it is possible to show that $x_1=-\frac{3}{2}$,$x_2=-1$, $x_3=0$ and $x_4=1$ are KKT points. In fact being $\frac{do}{dx}=0$ for $x_2=-1$, $x_3=0$ and $x_4=1$ in all these points Lagrange multipliers associated with the bound constraints $x+\frac{3}{2}\leq 0$ and $-x+\frac{3}{2}\leq 0$, respectively $\mu_1$ and $\mu_2$ are both equal to 0.
+Coming back to our simple 1D example \eqref{example_problem} it is possible to show that $x_1=-\frac{3}{2}$,$x_2=-1$, $x_3=0$ and $x_4=1$ are KKT points. In fact being $\frac{do}{dx}=0$ for $x_2=-1$, $x_3=0$ and $x_4=1$ in all these points Lagrange multipliers associated with the bound constraints $x+\frac{3}{2}\leq 0$ and $-x+\frac{3}{2}\leq 0$, respectively $\mu_1$ and $\mu_2$ are both equal to 0.
 Making the analysis of the Hessian of the Lagrangian (in this case $\frac{d^2 o}{dx^2}=30x^3-15x$ being all constraints inactivated) one can observe that: 
 \begin{itemize}
 \item $\frac{d^2 o}{dx^2}(-1)=-15$, so that $x=-1$ is a local maximum
 \item $\frac{d^2 o}{dx^2}(1)=15$, so that $x=1$ is a local minimum
 \item $\frac{d^2 o}{dx^2}(0)=0$, so that nothing can be stated on the point in $x=0$. Making an analysis of the third order derivative one can actually conclude that this KKT point is actually a saddle point.
 \end{itemize}
-For the point in $x=-\frac{3}{2}$ the second constraint is inactive so that $\mu_2=0$. On the other hand being $g_1=0$, $\mu_1$ can be different then 0. Using the KKT conditions one can obtain $\mu_1=\frac{do}{dx}(-\frac{3}{2})=\frac{675}{32}>0$. Being the number of variables equal to the number of active constraints the plane tangent to the active constraint is degenerated to $\delta x=0$. In this case it is simpler to consider the fact that $o(x)$ is strictly monotone in the neighbor of $x=-\frac{3}{2}$. Moving from this point in the feasible space, the objective function will be increased.  This means that $x_1= -\frac{3}{2}$ is a local minimum. Moreover being $o(x_1)=-\frac{189}{64}< o(x_4)=-1$ one can conclude that $x_1$ is a global minimum. This kind of analysis makes the optimization problem solvable because both objective and constraint functions are analytic and inexpensive. Responses computed from the results of simulations can take much more time. That is why optimization algorithms need to be considered.
+For the point in $x=-\frac{3}{2}$ the second constraint is inactive so that $\mu_2=0$. On the other hand being $g_1=0$, $\mu_1$ can be different then zero (or not). Using the KKT conditions one can obtain $\mu_1=\frac{do}{dx}(-\frac{3}{2})=\frac{675}{32}>0$. Being the number of variables equal to the number of active constraints the plane tangent to the active constraint is degenerated to $\delta x=0$. In this case it is simpler to consider the fact that $o(x)$ is strictly monotone in the neighbor of $x=-\frac{3}{2}$. Moving from this point in the feasible space, the objective function will be increased.  This means that $x_1= -\frac{3}{2}$ is a local minimum. Moreover being $o(x_1)=-\frac{189}{64}< o(x_4)=-1$ one can conclude that $x_1$ is a global minimum. This kind of analysis makes the optimization problem solvable because both objective and constraint functions are analytic and inexpensive. Responses computed from the results of simulations can take much more time. That is why optimization algorithms need to be considered.
 \subsection {Optimization solvers}
 An optimization solver is a numerical strategy that can be adopted to generate a succession of designs that converge to at least a local optimum. Several approaches exist in the literature and can be chosen to treat a given numerical problem. Some important families of approaches can be determined depending on:
 \begin{itemize}
 \item The information about the derivatives of design responses needed by the optimizer to provide an improved design. One can say that an optimizer is of order $p$ if it uses up to the $p^{th}$ derivatives information to generate a new optimal candidates. A solver that uses only the function values is a 0 order method. On the other hand methods that use both the information of the function and the one of the gradients are considered first order methods and so on.
 \item The priority given to design exploration with respect to the local optima refinement. A local optimization solver, aims at improving an initial design without any claiming about the global optimality. On the other hand global optimization solvers also explore the design space and often are proven to converge to the global optimum if the optimization iteration goes to infinity. 
 \item The fact of adopting or not random processes inside the optimization loop. A deterministic solver starting from the same initial point will always fall in the same local minimum, when repeating the optimization process. In semi-stochastic solvers like evolutionary algorithms \cite{simon2013evolutionary} initializing the algorithm with the same starting individual (or population) the results can be different when repeating the optimization process. 
-\item The fact of using the information coming from one individual or several individuals simultaneously. Surrogate assisted optimization \cite{forrester2008engineering} are an example of approaches that use multi-design information. In these approaches approximations of the real objective and constraint functions are built on the basis of an initial design of experiments. Then the surrogates can be used to find new optimal candidates. Genetic Algorithms and other evolutionary algorithms also combine information coming from a population of individuals.
+\item The fact of using the information coming from one individual or several individuals simultaneously. Surrogate assisted optimizations \cite{forrester2008engineering} are an example of approaches that use multi-design information. In these approaches approximations of the real objective and constraint functions are built on the basis of an initial design of experiments. Then the surrogates can be used to find new optimal candidates. Genetic Algorithms and other evolutionary algorithms also combine information coming from a population of individuals.
 \end{itemize}
-In this thesis we focus mainly on first order optimization solvers. In particular we considered Sequential Convex Programming algorithms such as the Method of Moving Asymptotes \cite{svanberg1987method,svanberg2002class}. From a block diagram point of view such optimizer can be seen as a system that takes as input the design variable vector, goal and constraint responses and their sensitivity at a given point and read in output an improved design configuration (cf. figure \ref{fig.2.5}).
+In this thesis we focus mainly on first order optimization solvers. In particular we considered Sequential Convex Programming algorithms such as the Method of Moving Asymptotes \cite{svanberg1987method,svanberg2002class}. From a block diagram point of view such optimizer can be seen as a system that takes as input the design variable vector, goal and constraint responses and their sensitivity at a given point and reads in output an improved design configuration (cf. figure \ref{fig.2.5}).
 \begin{figure}[ht]
 \centering
 \includegraphics[width=8cm]{images/Ch2/Optimizer_block}
 \caption{MMA optimizer block diagram representation}
 \label{fig.2.5}
 \end{figure}
-In this representation we considered only inequality constraints inside the optimization problem. The reader can observe that such assumption is not restrictive as the equality constraints can always be regarded as  a couple of inequality constraints.
+In this representation we considered only inequality constraints inside the optimization problem. 
 \subsection{Sequential Convex Programming algorithms}
 In this subsection we describe in more details Sequential Convex Programming (SCP) \cite{fleury1993mathematical,zillober2004very,duysinx2009solution} general idea. In this family of approaches we can find convex linearization (CONLIN) algorithm \cite{fleury1986structural}, the Method of Moving Asymptotes (MMA) \cite{svanberg1987method,svanberg2002class}, and their variants like \cite{borrvall2001large,bruyneel2002family} and \cite{zillober2004very}.
 Recently \cite{etman2012first} provided a review of SCP methods and discussed the fact that approximated approximation approach \cite{groenwold2010approximated} can be interpreted as diagonal quadratic subproblem in the spirit of the well-known SQP algorithms \cite{nocedal2006sequential}.
-SCP algorithms are all based on reciprocal or reciprocal-like approximations of the original non-linear programming problem (c.f. equation \ref{nlp}). They generate in this way  a series of convex non-linear programming subproblems. To generate such subproblems the following steps are followed:
+SCP algorithms are all based on reciprocal or reciprocal-like approximations of the original non-linear programming problem (c.f. equation \eqref{nlp}). They generate in this way  a series of convex non-linear programming subproblems. To generate such subproblems the following steps are followed:
 \begin{enumerate}
 \item Reciprocal intervening variables are replaced into first order Taylor series expansions of both objective and constraint responses 
 \item The problem is made more convex that as aforementioned ensure the uniqueness of subproblems solution.
@@ -237,13 +237,15 @@ In the conservatism framework, the convexity of both cost and constraint approxi
  \end{equation}
 MMA makes the use of the following intervening variables:
 \begin{equation}
+\label{eq.211}
 y_i=
 \begin{cases}
-\frac{1}{x_i-L_i} \quad \textit{if } \frac{\partial o^{[k]}}{\partial x_i}<0\\
-\frac{1}{U_i-x_i} \quad \textit{if } \frac{\partial o^{[k]}}{\partial x_i}>0\\
+\frac{1}{x_i-l_i^{[k]}} \quad \textit{if } \frac{\partial o^{[k]}}{\partial x_i}<0\\
+\frac{1}{u_i^{[k]}-x_i} \quad \textit{if } \frac{\partial o^{[k]}}{\partial x_i}>0\\
 \end{cases}
 \end{equation}
-which substituted in \ref{taylor_exp} gives:
+where $l_i^{[k]}$ and $u_j^{[k]}$ are the lower and upper asymptotes. 
+Equation \eqref{eq.211} substituted in \eqref{taylor_exp} gives:
 \begin{equation}
 \tilde{o}(\VectorVar{x})=\sum_{j=1}^N\left(\frac{p_j^{[k]}}{u_j^{[k]}-x_j}+\frac{q_j^{[k]}}{x_j-l_j^{[k]}}\right)+r^{[k]}
 \end{equation}
@@ -286,7 +288,7 @@ The effect of the variation of $\Delta_a$ on the MMA approximation $\tilde{g}(x,
 \end{figure}
 We can observe that smaller values of $\Delta_a$ reduce the size of the approximated feasible design space (i.e. $\tilde{g}(x,y)\leq 0$). In such way MMA solver can produce conservative subproblem optima that are more prone to satisfy true constraints (i.e. $g(x,y)\leq 0$). Understanding this principle is essential to correctly tune the solver parameters as it is described in appendix \ref{A1}.
 It can be observed that the presented version of MMA actually fails encountering cost function or objective saddle points.
-For this reason in the version of \cite{svanberg2007mma} equations \ref{eq.2.13}-\ref{eq.2.14} are modified as follows:
+For this reason in the version of \cite{svanberg2007mma} equations \eqref{eq.2.13}-\eqref{eq.2.14} are modified as follows:
 \begin{eqnarray}
 p_j^{[k]}=\left(u_j^{[k]}-x_j^{[k]}\right)^2\left(1.001\left(\frac{\partial o^{[k]}}{\partial x_j}\right)^++0.001\left(\frac{\partial o^{[k]}}{\partial x_j}\right)^-+\frac{\rho_j}{u_{bj}-l_{bj}}\right)\\
 q_j^{[k]}=\left(u_j^{[k]}-x_j^{[k]}\right)^2\left(0.001\left(\frac{\partial o^{[k]}}{\partial x_j}\right)^++1.001\left(\frac{\partial o^{[k]}}{\partial x_j}\right)^-+\frac{\rho_j}{u_{bj}-l_{bj}}\right)
@@ -331,7 +333,7 @@ be effective and efficient in many structural optimization applications \cite{gr
   \label{eq.2.43}
   \left\lbrace\frac{d O }{dx}\right\rbrace=\left\lbrace\frac{ \partial O }{ \partial x}\right\rbrace+\sum_{j=1}^{N_l}{\left[\frac{d U_j }{ d x}\right]\left\lbrace\frac{ \partial O }{ \partial U_j}\right\rbrace}
   \end{equation}
-  By taking the derivatives of equations \ref{eq2.1} (for the $j^{th}$-load case) one gets:
+  By taking the derivatives of equations \eqref{eq2.1} (for the $j^{th}$-load case) one gets:
    \begin{equation}
    \label{eq.2.41}
    \frac{d\left[K(\lbrace x\rbrace)\right]}{dx_i}\lbrace U_j (\lbrace x\rbrace) \rbrace+\left[K(\lbrace x\rbrace)\right]\frac{d \lbrace U_j (\lbrace x\rbrace) \rbrace}{dx_i} = \frac{d\lbrace F_j(\lbrace x\rbrace) \rbrace}{dx_i} 
@@ -345,12 +347,12 @@ be effective and efficient in many structural optimization applications \cite{gr
    \label{eq.2.46}
    \lbrace\beta_j  \rbrace=\left[K\right]^{-1}\left\lbrace\frac{ \partial O }{ \partial U_j}\right\rbrace
    \end{equation}
-   One can finally rewrite equation \ref{eq.2.43}:
+   One can finally rewrite equation \eqref{eq.2.43}:
    \begin{equation}
    \label{eq.2.47}
    \left\lbrace\frac{d O }{dx}\right\rbrace=\left\lbrace\frac{ \partial O }{ \partial x}\right\rbrace+\sum_{j=1}^{N_l}{\left(-\left[\frac{dK}{dx}U_j\right]^T +\left[\frac{dF_j}{dx}\right]^T\right)\lbrace\beta_j \rbrace}
    \end{equation}
-   Such evaluation requires the inversion of the stiffness matrix once per each load case and per each response. 
+   Such evaluation requires the a solution of static balance equations once per each load case and per each response. 
    This still represents an improvement for topology optimization problems where the number of design variables is much larger than the number responses times the number of load cases.
    \begin{figure}[ht]
    \centering
@@ -359,17 +361,17 @@ be effective and efficient in many structural optimization applications \cite{gr
    \label{fig.2.6}
    \end{figure}
     We can think of the adjoint evaluation of sensitivity as a model itself. This model takes as input the design variable's vector and the displacement vectors and reads in output the response sensitivity (cf. figure \ref{fig.2.6}).
-    It must be noticed that some special responses, may not require any supplementary inversion for the sensitivity evaluation. This is the case of compliance response. The compliance or the strain energy is commonly adopted as optimization objective in topology optimization. It is defined with respect to the j-th load case as:
+    It must be noticed that some special responses, may not require any supplementary solution of static balance equations for the sensitivity evaluation. This is the case of compliance response. The compliance or the strain energy is commonly adopted as optimization objective in topology optimization. It is defined with respect to the j-th load case as:
     \begin{equation}
     c_j(\VectorVar{x})=\VectorVar{ U_j (\VectorVar{x})}^T \MatrixVar{K(\VectorVar{x})}\VectorVar{ U_j (\VectorVar{x})}=\VectorVar{ U_j (\VectorVar{x})}^T\VectorVar{ F_j (\VectorVar{x})}
     \end{equation}
    For such response one can easily compute:
    \begin{eqnarray}
-   \VectorVar{\frac{\partial c_j}{\partial x}}=\MatrixVar{ \frac{\partial F_j}{\partial x}}^T\VectorVar{ U_j (\VectorVar{x})}\\
+   \VectorVar{\frac{\partial c_j}{\partial x}}=\MatrixVar{ \frac{\partial F_j}{\partial x}}^T\VectorVar{ U_j (\VectorVar{x})}-\MatrixVar{\frac{\partial K}{\partial x}U_j}^T\VectorVar{ U_j (\VectorVar{x})}\\
     \VectorVar{\frac{\partial c_j}{\partial U_j}}=\VectorVar{ F_j (\VectorVar{x})}\\
     \VectorVar{\beta_j}=\VectorVar{ U_j (\VectorVar{x})}
    \end{eqnarray}
-   As aforementioned the adjoint vector being equal to the displacement vector, does not require any additional system resolution for its evaluation. This results in a large computational economy for such design responses.
+   As aforementioned the adjoint vector being equal to the displacement vector, does not require any additional system solution for its evaluation. This results in a large computational economy for such design responses.
 \subsection{Design loop \& human interaction} 
 In the previous subsections we defined each block inputs and outputs, in this section we are going to show how these are connected into the design loop, and how the automated design loop is related with the human intervention.
 \begin{figure}[ht]
@@ -378,12 +380,12 @@ In the previous subsections we defined each block inputs and outputs, in this se
 \caption{Optimization loop block diagram representation.}
 \label{fig.2.7}
 \end{figure}
-In figure \ref{fig.2.7} a complete structural optimization loop is illustrated. In the first phase the design loop has to be initialized with a starting guess design. This guess can be randomly selected. Anyway it is a good practice to provide a starting guess that respects all constraints. This avoids useless optimization iterations required to reach the feasible domain. Another reasonable choice would consist in selecting as starting guess an existing configuration, so that the design could be improved. In this way an improvement should be guaranteed unless the initial design already is a local optimum. Other strategies require much more computational effort but try to deal with initial guess dependent problems. It is the case of multi-start strategies \cite{dixon1975towards}. The design loop can start once the initial guest choice is made. This design is tested within FEA block so that displacement vectors can be computed. Afterward Post-Processing and Adjoint sensitivity are applied to compute the optimization problem responses and sensitivities. Finally the optimization solver provides a new design candidate. At this point convergence has to be tested. Actually in some variants, convergence may be tested before MMA Optimizer gives a new candidate. Optimization convergence criteria can be based on the objective function's variation over several optimization iterations, can be based on the variation of the design variable's vector between consecutive iterations, on the number of iterations or on the verification of first order optimality conditions (KKT conditions).
+In figure \ref{fig.2.7} a complete structural optimization loop is illustrated. In the first phase the design loop has to be initialized with a starting guess design. This guess can be randomly selected. Anyway it is a good practice, when it is possible, to provide a starting guess that respects all constraints. This avoids useless optimization iterations required to reach the feasible domain. Another reasonable choice would consist in selecting as starting guess an existing configuration, so that the design could be improved. In this way an improvement should be guaranteed unless the initial design already is a local optimum. Other strategies require much more computational effort but try to deal with initial guess dependent problems. It is the case of multi-start strategies \cite{dixon1975towards}. The design loop can start once the initial guess choice is made. This design is tested within FEA block so that displacement vectors can be computed. Afterward Post-Processing and Adjoint sensitivity are applied to compute the optimization problem responses and sensitivities. Finally the optimization solver provides a new design candidate. At this point convergence has to be tested. Actually in some variants, convergence may be tested before MMA Optimizer gives a new candidate. Optimization convergence criteria can be based on the objective function's variation over several optimization iterations, can be based on the variation of the design variable's vector between consecutive iterations, on the number of iterations or on the verification of first order optimality conditions (KKT conditions).
 If a solution is not attained, the iteration counter is increased and the new design candidate is sent to the FEA block.
 If convergence is attained the optimization loop is stopped and the design can be considered as a candidate solution. Here we insist on the fact that automated optimization loop cannot provide optimal design without human intervention. 
 Often the designer needs to make some decision about:
 \begin{itemize}
-\item The fact that a design candidate is an actual local minimum. In fact often a maximum iteration stopping criteria is reached, without reaching the other criteria (change of objective or change in the design vector less than a given tolerance). In this case either one accepts the design even if it is not an optimum, either the iteration convergence criteria has to be increased. In other more delicate situations the final design is not feasible even after a long convergence history. This can be due to the fact that the optimization problem is said to be over-constrained (there are no feasible solutions), or can be due to a bad choice of the initial guess. In more rare cases the optimizer was not correctly tuned to deal with the problem in hand or a scaling has to be introduced in the problem formulation. MMA optimizer needs special care for the choice of some hyper parameters that make the difference on the final outcome.
+\item The fact that a design candidate is an actual local minimum. In fact often a maximum iteration stopping criterion is reached, without reaching the other criteria (change of objective or change in the design vector less than a given tolerance). In this case either one accepts the design even if it is not an optimum, either the iteration convergence criterion has to be increased. In other more delicate situations the final design is not feasible even after a long convergence history. This can be due to the fact that the optimization problem is said to be over-constrained (there are no feasible solutions), or can be due to a bad choice of the initial guess. In more rare cases the optimizer was not correctly tuned to deal with the problem in hand or a scaling has to be introduced in the problem formulation. MMA optimizer needs special care for the choice of some parameters that make the difference on the final outcome.
 \item The fact that a design candidate was correctly simulated. In other words if the design falls inside the model's validity domain. If this is the case one can either change the model's assumptions (for instance including nonlinearity in the model, changing the finite element order etc...) , either keep the same model but enforce the design to avoid such solutions changing both formulation and model. 
 \item The fact that a design candidate is acceptable, i.e. is a manufacturable solution and is compliant with all requirements that can be identified on a quantifiable and qualitative level. This is a much more complex requirement for a design. Sometimes these manufacturing constraints may be considered during the optimization loop. It must be noticed that for this phase complex and expensive multidisciplinary simulations could be necessary to validate a design. 
 \end{itemize}
@@ -394,7 +396,7 @@ The complete design loop described above is shown in figure \ref{fig.2.8}. One c
 \caption{Design loop block diagram representation}
 \label{fig.2.8}
 \end{figure}
-Practically it can happen that some responses are still too expensive to be considered inside the design loop. In this case surrogate base optimization can represent a valid solution \cite{forrester2008engineering}.
+Practically it can happen that some responses are still too expensive to be considered inside the design loop. In this case surrogate based optimization can represent a valid solution \cite{forrester2008engineering}.
 \section{Density based topology optimization}
 \label{sec:2.2}
 In topology optimization, one seeks to achieve the design solution load path only knowing its design domain volume and its operating conditions. Since the pioneering work of Bendsoe and Kikuchi (1988) \cite{bendsoe1988generating}, topology optimization was developed and applied in several fields and physical problems. Here we focus on SIMP (Solid Isotropic Material with Penalization) \cite{bendsoe1989optimal}. This topology optimization approach is the most adopted in literature \cite{deaton2014survey} probably due to its simplicity and its robustness. Many other approaches could be considered as Level Set approach \cite{wang2003level}, Evolutionary Structural Optimization (ESO) \cite{xie1993simple} or biologically-inspired layout and topology optimization method \cite{kobayashi2010biologically}. The interested reader can find a review in \cite{deaton2014survey}. All these approaches show some advantages and shortcomings with respect to SIMP approach. For this reason, as a first attempt, we focused on SIMP. Future research could actually benefit from the investigation of other Eulerian approaches but are out of the scope of this dissertation.  
@@ -408,12 +410,12 @@ E(x)=E_{min}+(E-E_{min})x^p
 \end{equation}
 Where the penalty value $p>1$, penalizes the stiffness of intermediate densities.
 The value of $p$ is usually set to 3 in order to get nearly black and white solutions. 
-The Finite Element stiffness matrix assembly procedure will then use the local value of the Young's Modulus in order to compute the Stiffness matrix. In our framework we considered the Young's modulus as constant in each finite element so that the elementary stiffness matrix can be computed using the value of $x$ in the element centroid $x_{el}$ and the unit modulus elementary stiffness matrix $\left[K_{el}^{(1)}\right]$:
+The Finite Element stiffness matrix assembly procedure will then use the local value of the Young's Modulus in order to compute the stiffness matrix. In our framework we considered the Young's modulus as constant in each finite element so that the element stiffness matrix can be computed using the value of $x$ in the element centroid $x_{el}$ and the unit modulus element stiffness matrix $\left[K_{el}^{(1)}\right]$:
 \begin{equation}
 \label{eq.7}
 \left[K_{el}(x_{el})\right]=E(x_{el})\left[K_{el}^{(1)}\right]
 \end{equation}
-The design zone stiffness matrix is assembled summing the contribution of each elementary matrix in a classic FE style:
+The design zone stiffness matrix is assembled summing the contribution of each element matrix in a classic FE style:
 \begin{equation}
 \label{eq.8}
 \left[K_{DZ}(\lbrace x\rbrace)\right]=\overset{N_{el}}{\underset{el=1}{\bigoplus}}\left[K_{el}(x_{el})\right]
@@ -429,7 +431,7 @@ Formally we want to solve the following problem\footnote{Here we considered only
 \frac{\VectorVar{|\Omega_{el}|}^T\VectorVar{x}}{\VectorVar{|\Omega_{el}|}^T\VectorVar{1}}-v_f\leq 0
 \end{cases}
 \end{equation}
-Where $\VectorVar{|\Omega_{el}|}$ is the element area vector, $\VectorVar{1}$ and $\VectorVar{0}$ are vector with the same size of $\VectorVar{x}$ whose values are all 1 and 0 respectively and $v_f$ is the value of allowable volume fraction. Optimization algorithms like the Optimality Criteria \cite{bendsoe1995optimization} or the aforementioned SCP algorithms \cite{svanberg1987method} are often adopted for the resolution of this nonlinear programming problem. Once a design is determined, topology optimization solutions need to be re-interpreted and transformed in a realistic design. At this phase some model assumptions could be considered and further analysis and optimization could be performed until a final design is reached. For this second phase it is important to understand a solution's mechanical behavior and its global load path. Such considerations could come into account and the final solution could therefore be sensibly different from the original design determined in the topology optimization phase.
+Where $\VectorVar{|\Omega_{el}|}$ is the element area vector, $\VectorVar{1}$ and $\VectorVar{0}$ are vector with the same size of $\VectorVar{x}$ whose values are all 1 and 0 respectively and $v_f$ is the value of allowable volume fraction. Optimization algorithms like the Optimality Criteria \cite{bendsoe1995optimization} or the aforementioned SCP algorithms \cite{svanberg1987method} are often adopted for the solution of this nonlinear programming problem. Once a design is determined, topology optimization solutions need to be re-interpreted and transformed in a realistic design. At this phase some model assumptions could be considered and further analysis and optimization could be performed until a final design is reached. For this second phase it is important to understand a solution's mechanical behavior and its global load path. Such considerations could come into account and the final solution could therefore be sensibly different from the original design determined in the topology optimization phase.
 \clearpage
 \subsection{Numerical difficulties \& density filter}
 The optimization problem \ref{compl_formulation} suffers of several numerical difficulties \cite{sigmund1998numerical}:
@@ -440,7 +442,7 @@ The optimization problem \ref{compl_formulation} suffers of several numerical di
 \label{fig.2.8b}
 \end{figure}
 \begin{itemize}
-\item \textit{Mesh dependence}: The solution of the optimization problem depends on the discretization adopted for the FEM. Mesh dependence is linked to the fact that the problem originating discretized  topology optimization (i.e. the continuum topology optimization problem with 0-1 density) doesn't have a solution (this problem is also known as nonexistence \cite{sigmund1998numerical}). Moreover the second issue related to this problem is the non-uniqueness of the solution. To deal with these difficulties several restriction techniques can be found in the literature. Here we report the perimeter control method \cite{ambrosio1993optimal}, the global gradient constraint \cite{bendsoe1995optimization}, the local gradient constraints \cite{niordson1983optimal} and the mesh independent filtering \cite{sigmund1994design,sigmund1997design} (for a larger review the reader can refer to \cite{sigmund2007morphology}).
+\item \textit{Mesh dependence}: The solution of the optimization problem depends on the discretization adopted for the FEM. Mesh dependence is linked to the fact that the problem originating discretized  topology optimization (i.e. the continuum topology optimization problem with 0-1 density) doesn't have a solution (this problem is also known as nonexistence \cite{sigmund1998numerical}). Moreover the second issue related to this problem is the non-uniqueness of the solution. To deal with these difficulties several restriction techniques can be found in the literature. Here we report the perimeter control method \cite{ambrosio1993optimal,haber1996new}, the global gradient constraint \cite{bendsoe1995optimization}, the local gradient constraints \cite{niordson1983optimal} and the mesh independent filtering \cite{sigmund1994design,sigmund1997design} (for a larger review the reader can refer to \cite{sigmund2007morphology}).
 \item \textit{Checkerboards}: The solution of \ref{compl_formulation} shows zones of alternated full and void materials in a checkerboard like fashion. It was shown by \cite{jog1996stability}  that this is due to FEM non convergence when representing such structures.
 Several solutions have been proposed to avoid such problems, for instance:
 Higher-order finite elements \cite{diaz1995checkerboard,jog1996stability}, the Patches \cite{bendsoe1993topology} and filtering \cite{sigmund1994design}. 
@@ -479,7 +481,7 @@ x_{Phys}\left(\VectorVar{X_g}\right)=\int_{\Omega}{\kappa\left(\VectorVar{X_g},\
  \begin{equation}
  \VectorVar{x_{Phys}}=\MatrixVar{H}\VectorVar{x}
  \end{equation}
- Where the integral of equations \ref{eq2.16}, \ref{eq2.18} where replaced by Gauss numerical integrations using finite elements as support. 
+ Where the integral of equations \eqref{eq2.16}, \eqref{eq2.18} where replaced by Gauss numerical integrations using finite elements as support. 
  These techniques can be easily implemented for uniform structured meshes as is the case in \cite{andreassen2011efficient} and the majority of SIMP based topology optimization studies. 
  The fact of having 1x1 square element can be used to have a straightforward relationship between the element indexing and their neighbors center-to-center distances.  This is not the case for non-uniform unstructured meshes, as the ones considered here. In Talischi et al. \cite{talischi2012polytop} the difficulties induced by those cases are treated for 2D analysis with unstructured polygonal meshes. In particular it is shown that, to be more efficient, stiffness element matrices and  filter matrix can be assembled once for all before the optimization loop. In this study, 8-node 3D finite elements with tri-linear shape functions were employed and 8 Gauss points per element were considered for stiffness matrix assembly. On the other hand only one Gauss point was used in order to evaluate the filtering convolution integral. As a consequence, following the same implementation of \cite{talischi2012polytop} the filter matrix $\left[H\right]$ needs the evaluation of all distances $d_{ij}$ between each couple of element's centroid:
  \begin{equation}
@@ -487,7 +489,7 @@ x_{Phys}\left(\VectorVar{X_g}\right)=\int_{\Omega}{\kappa\left(\VectorVar{X_g},\
  H_{i,j} = \frac{max(0,| \Omega_j| (1-\frac{d_{ij}}{r})}{\sum_{j=1}^{N_{el}}max(0,| \Omega_j| (1-\frac{d_{ij}}{r})}
  \end{equation}
  Where $N_{el}$ is the element number in the design zone, $r$ is filter radius and $| \Omega_j|$ is the volume of $j^{th}$ element.
-  The cost for this evaluation in terms of memory and CPUs time grows with $\frac{N_{el}^2-N_{el}}{2}$ . In \cite{talischi2012polytop} it is argued that this operation even if  expensive should be done once for all before the optimization loop and should not be a bottleneck for overall analysis. Nevertheless, when increasing the number of elements, this simple operation can encounter memory limits faster than stiffness matrix inversion. These limitations were also studied and tackled in the PDE filter proposed by Lazarov et al \cite{lazarov2011filters}, where instead of explicitly computing the filter matrix [H], the filtered field is found as the solution of a PDE problem. Such a solution involves a small memory cost, even if it requires the resolution of a system of equations with the size the number of nodes, twice per iteration. These resolutions are not very expensive for small problems. In fact they require a small effort compared to displacements evaluation. In this work we propose an alternative way of directly computing $\left[ H \right]$ that reduces the time needed for the computation of the filtering matrix, but still requires enough memory for the storage of $\left[ H \right]$. Note that for reasonably small values of the filtering radius, and for unstructured refined meshes, this proposed procedure appears advantageous. On the other hand for large values of the filtering radius and for the same kind of meshes the approach based on the PDE filter by Lazarov et al. \cite{lazarov2011filters} is to be preferred to reduce memory requirements. 
+  The cost for this evaluation in terms of memory and CPUs time grows with $\frac{N_{el}^2-N_{el}}{2}$ . In \cite{talischi2012polytop} it is argued that this operation even if  expensive should be done once for all before the optimization loop and should not be a bottleneck for overall analysis. Nevertheless, when increasing the number of elements, this simple operation can encounter memory limits faster than stiffness matrix inversion. These limitations were also studied and tackled in the PDE filter proposed by Lazarov et al \cite{lazarov2011filters}, where instead of explicitly computing the filter matrix [H], the filtered field is found as the solution of a PDE problem. Such a solution involves a small memory cost, even if it requires the solution of a system of equations with the size the number of nodes, twice per iteration. These solutions are not very expensive for small problems. In fact they require a small effort compared to displacements evaluation. In this work we propose an alternative way of directly computing $\left[ H \right]$ that reduces the time needed for the computation of the filtering matrix, but still requires enough memory for the storage of $\left[ H \right]$. Note that for reasonably small values of the filtering radius, and for unstructured refined meshes, this proposed procedure appears advantageous. On the other hand for large values of the filtering radius and for the same kind of meshes the approach based on the PDE filter by Lazarov et al. \cite{lazarov2011filters} is to be preferred to reduce memory requirements. 
   It must be noted that $H_{i,j}$ is sparse since all distances superior to $r$ do not contribute to $H_{i,j}$ . We supposed to have a first mesh like the one in figure \ref{fig.7aa} on which we are able to evaluate all the distances between each element $d_{ij}$ and compare them to $r$. We also suppose that a refinement of this mesh can be obtained cutting each element into 8 as shown in figure \ref{f.7a}.
   \begin{figure}[hbt!]
   \centering
@@ -497,7 +499,7 @@ x_{Phys}\left(\VectorVar{X_g}\right)=\int_{\Omega}{\kappa\left(\VectorVar{X_g},\
        \subfloat[  \label{fig.7b}]{%
          \includegraphics[width=0.5\textwidth]{images/Ch2/mesh_ref1.eps}
        }
-       \caption{Mesh refinement procedure needed for multi-grid approach for the evaluation of $\left[H\right]$, the engine reduced element set are colored in yellow. Each node of these elements is kept in the engine super element.(a) Original design zone mesh, generated in Abaqus and imported in matlab by input file parsing. The mesh counts 7600 8-node linear 3D solid finite elements and 9126 nodes. (b) Design zone mesh after refinement. Each element of the original element is cut in 8 new elements, that give a total of 7600$\times$8=60800 8-node linear 3D solid finite elements and  66759 nodes. }
+       \caption{Mesh refinement procedure needed for multi-grid approach for the evaluation of $\left[H\right]$, the engine reduced element set are colored in yellow. Each node of these elements is kept in the engine super element.(a) Original design zone mesh, generated in Abaqus and imported in Matlab by input file parsing. The mesh counts 7600 8-node linear 3D solid finite elements and 9126 nodes. (b) Design zone mesh after refinement. Each element of the original element is cut in 8 new elements, that give a total of 7600$\times$8=60800 8-node linear 3D solid finite elements and  66759 nodes. }
        \label{f.7}
      \end{figure}
  Let's consider two coarser mesh elements and their partition as considered in figure \ref{f.8} whose centroid distance is known $\|\vec{AC}\|$. The minimal distance between centroids of the corresponding finer mesh elements ,$\|\vec{BD}\|$ can be related to $\|\vec{AC}\|$ as :
@@ -540,10 +542,10 @@ In this section we present the implementation of 2D structural topology optimiza
 \begin{itemize}
 \item The plots have been changed to include load and boundary condition application as the convergence history of compliance and volume fraction. 
 \item The test cases considered are the MBB beam, the Short cantilever beam and the L-shape design. The next section will only consider L-shape topology optimization, the other case are in appendix \ref{examples_to2D}.
-\item Heaviside filter \cite{lazarov2011filters}, penalty \cite{allaire1993numerical,allaire1993topology}, and filter radius \cite{sigmund1997design,sigmund1997designb} continuation were implemented to enforce the solution toward improved global optima with smaller gray regions.
+\item Heaviside filter \cite{guest2004achieving,lazarov2011filters}, penalty \cite{allaire1993numerical,allaire1993topology}, and filter radius \cite{sigmund1997design,sigmund1997designb} continuation were implemented to enforce the solution toward improved local optima with smaller gray regions.
 In particular SIMP penalty was increased from 1 to 6, increasing the value of the penalty of 1 each 75 iterations or when the convergence is attained.
 Similarly the $\beta$ parameter of the Heaviside filter was increased from 1 to 10.  Finally the value of the filter radius was decreased from a starting value to a minimum value of 2 decreasing its value of 1 every 75 iterations or when convergence is attained.
-\item the Optimality Criteria solver was replaced by MMA solver.
+\item The Optimality Criteria solver was replaced by MMA solver.
 \end{itemize}
 \begin{table}[h!]
                         % table caption is above the table
@@ -570,7 +572,7 @@ Similarly the $\beta$ parameter of the Heaviside filter was increased from 1 to 
                         \noalign{\smallskip}\hline
                         \end{tabular}
                         \end{table} 
-The parameters selected for the following analysis are presented in table \ref{tab:2.1} \footnote{the value chosen for the young modulus are equal to the one considered by default in top88 matlab code \cite{andreassen2011efficient}.}. The filter type is equal to 3 and this means that Heaviside filter is adopted.
+The parameters selected for the following analysis are presented in table \ref{tab:2.1} \footnote{the value chosen for the Young's modulus are equal to the one considered by default in top88 Matlab code \cite{andreassen2011efficient}.}. The filter type is equal to 3 and this means that Heaviside filter is adopted.
 \newpage
 \subsubsection{L-shape optimization}
 An interesting 2D use-case is the L-shape optimization c.f. figure \ref{fig.2.15}. 
@@ -580,8 +582,8 @@ An interesting 2D use-case is the L-shape optimization c.f. figure \ref{fig.2.15
 \caption{Geometry, Load and boundary conditions of the L-shape topology optimization problem. Blue triangles are oriented as the fixed DOFs. The red arrows represent the applied loads.}
 \label{fig.2.15}
 \end{figure}
-From an implementation point of view this can be treated with the same top88 framework simply including passive elements. Another important reason that makes this use-case particularly interesting is the fact that the geometry includes at the inner corner a point of stress singularity  in linear elasticity. For this reason it will be worthy to mention this use-case again when speaking about stress based topology optimization. Here we proposed to study 2 discretizations: a $50\times50$ and a $100\times100$ mesh.
-The initial value of the filter radius was set for the first mesh equal to 4 and for the second mesh equal to 8. The results are shown in figure \ref{fig.2.16}. A first important observation is that results are not similar. In fact in the design obtained for the coarser mesh we can identify 13 thin members against 11 for the solution found by the refined mesh. This is due to the fact that even using continuation and density filters, the optimization problem still is far from being convex. For this reason finding different local minima is always possible. On the other hand both designs are nearly black and white, both are converged within the maximum iteration number. Finally one cannot directly compare the solution obtained because based on two different models. Selecting the design with the smallest number of members for ease of realization one can still be prone to refuse such design. In fact it is clear that both these designs will have very high stresses in the inner corner and will not be able to bear the load applied to the structure without encountering at least local plasticity, or even failure. In this case we can say that the model is no longer valid for the solution proposed, and that the formulation cannot be considered as acceptable for such a problem. 
+From an implementation point of view this can be treated with the same top88 framework simply including passive elements. Another important reason that makes this use-case particularly interesting is the fact that the geometry includes at the inner corner a point of stress singularity  in linear elasticity. For this reason it will be worth to mention this use-case again when speaking about stress based topology optimization. Here we proposed to study 2 discretizations: a $50\times50$ and a $100\times100$ mesh.
+The initial value of the filter radius was set for the first mesh equal to 4 and for the second mesh equal to 8 (here we recall that the element side length is always 1 in this case). The results are shown in figure \ref{fig.2.16}. A first important observation is that results are not similar. In fact in the design obtained for the coarser mesh we can identify 13 thin members against 11 for the solution found by the refined mesh. This is due to the fact that even using continuation and density filters, the optimization problem still is far from being convex. For this reason finding different local minima is always possible. On the other hand both designs are nearly black and white, both are converged within the maximum iteration number. Selecting the design with the smallest number of members for ease of realization one can still be prone to refuse such design. In fact it is clear that both these designs will have very high stresses in the inner corner and will not be able to bear the load applied to the structure without encountering at least local plasticity, or even failure. In this case we can say that the model is no longer valid for the solution proposed, and that the formulation cannot be considered as acceptable for such a problem. 
 \begin{figure}[hbt!]
   \centering
        \subfloat[ \label{fig.2.16a}]{%
@@ -607,7 +609,7 @@ Topology optimization is often related to the minimum compliance problem as it w
 \begin{equation}
 \sigma_{VM}=\sqrt{\sigma_{xx}^2+\sigma_{yy}^2-\sigma_{xx}\sigma_{yy}+3\tau_{xy}^2}
 \end{equation}
-where $\sigma_{xx}$, $\sigma_{yy}$, $\tau_{xy}$ are the corresponding components of the stress tensor. In the FEA they can be computed from the nodal displacements as in equation \ref{eq.1.40}. In bilinear finite elements like the ones adopted in top88 code, the stresses are not constant over each finite element. If we consider a single query point in the middle of the element matrices $\MatrixVar{D}$ and $\MatrixVar{B}$ of equation \ref{eq.1.40} becomes:
+where $\sigma_{xx}$, $\sigma_{yy}$, $\tau_{xy}$ are the corresponding components of the stress tensor. In the FEA they can be computed from the nodal displacements as in equation \eqref{eq.1.40}. In bilinear finite elements like the ones adopted in top88 code, the stresses are not constant over each finite element. If we consider a single query point in the middle of the element matrices $\MatrixVar{D}$ and $\MatrixVar{B}$ of equation \eqref{eq.1.40} becomes:
 \begin{eqnarray}
 \MatrixVar{B}=\frac{1}{4a}\MatrixVar{\begin{array}{cccccccc}
 -1 & 0 & 1 & 0 & 1 & 0 & -1 & 0\\
@@ -625,7 +627,7 @@ In figure \ref{fig.2.17} the von Mises stress was shown in each finite element o
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.9\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_8_volfrac_40_ft_3VM_stress}
-\caption{Von Mises stress map for the solution of the L-shape optimization for the $100\times100$ mesh.}
+\caption{von Mises stress map for the solution of the L-shape optimization for the $100\times100$ mesh.}
 \label{fig.2.17}
 \end{figure}
 As aforementioned 2 stress singularities can be found in both the load application region and in the L-shape inner corner. 
@@ -642,11 +644,11 @@ Including stress constraints directly inside the design loop is therefore useful
 \end{equation}
 On the other hand several difficulties arise when including such responses in the optimization formulation. 
 In this section we discuss stress based topology optimization and the challenges that need to be addressed due to the nature of stress constraints.
-Two major challenges arise in the implementation of stress constraints: the fact that the optimization problem presents singular optima \cite{rozvany2001design}, and the large number of stress constraints to be considered.
+Two major challenges arise in the implementation of stress constraints: the fact that the optimization problem presents singular optima \cite{kirsch1990singular,cheng1997varepsilon,rozvany2001design}, and the large number of stress constraints to be considered.
 The first issue consists in the fact that local optima belong to degenerate subspaces of the feasible domain that are not reachable using standard gradient-based optimizations.  The second issue consists in the fact that stress constraints are local, i.e. the stress should be controlled in every point of the structure. Theoretically an infinity of constraints should therefore be considered in the optimization formulation. Instead the stress is limited only in each finite element Gauss point (where the stress recovered by finite element method is the most accurate \cite{zlamal1978superconvergence,zhang2006natural}). Still the number of constraints to be considered is very high and most optimizers available have very hard time dealing with so many local constraints.
 One way of dealing with singular optima consists in relaxing stress constraints (for instance using $\epsilon$-relaxation \cite{cheng1997varepsilon}, or the q-p approach \cite{bruggi2008alternative}). To avoid the consideration of many local constraints to the optimization formulation a global constraint can be considered instead, using the maximum function.  To avoid derivation difficulties, regular approximation of the maximum function (for instance the Kreisselmeier-Steinhauser
 function \cite{kreisselmeier1980systematic,yang1996stress} or the p-norm \cite{duysinx1998new} ) can be considered. Aggregation techniques have the main drawbacks of not having a precise control on the final design maximum stress. To control the exact value of maximum stress in the final solution Le et al. \cite{le2010stress} proposed an adaptive approach that helps obtaining designs with the desired maximum stress.  In this work we adopted the formulation presented in \cite{verbart2017unified}.
-In this approach each finite element is considered as a composite containing both full material and voids. The collapse in the structure is considered attained when the stress inside the full material reach the allowable. For this reason one has to describe the microscopic stress inside a finite element as:
+In this approach each finite element is considered as a composite containing both full material and voids. The collapse in the structure is considered attained when the stress inside the full material reaches the allowable. For this reason one has to describe the microscopic stress inside a finite element as:
 \begin{equation}
 \hat{\sigma}_{VM}=\frac{E_0\sigma_{VM}}{E}
 \end{equation}
@@ -656,19 +658,20 @@ In this way the stress computed in element that have densities approaching zero,
 \bar{g_i}=(x_{Phys})_i\left(\frac{(\hat{\sigma}_{VM})_i}{\sigma_{lim}}-1\right) \quad \forall i=1,2,...,N_{GP}
 \end{equation}
 where $(x_{Phys})_i$ is the physical density corresponding to the element including the $i^{th}$ Gauss point.
-These violations are positive when the microscopic stresses are greater than the allowable but are equal to 0 when an element has a small density. In this way it is proven that singular optima can be attained by gradient based solver.
+These violations are positive when the microscopic stresses are greater than the allowable but are equal to 0 when an element has zero density. In this way it is proven that singular optima can be attained by gradient based solver.
 The aggregated stress is finally evaluated by the use of the lower bound Kreisselmeier-Steinhauser
 function \cite{kreisselmeier1980systematic} that approximates the local relaxed stress constraint violation maximum:
 \begin{equation}
 \label{e.KSl}
 G^{l}_{KS}=\frac{1}{P}\ln\left(\frac{1}{N_G}\sum_{i=1}^{N_G}e^{P\bar{g}_i}\right)
 \end{equation}
-To avoid numerical issues, the formulation of equation \ref{e.KSl} is rewritten as:
+where $N_G$  is the total number of Gauss point and $P>1$ is the aggregation constant. When evaluating equation \eqref{e.KSl} on design that violating the stress constraint, very large numbers are summed together with smaller numbers. This can lead to have a numerical infinity to be attained by the KS function due to the machine representation limitation.
+To avoid such numerical issues, the formulation of equation \eqref{e.KSl} can be rewritten as:
 \begin{equation}
 \label{eq.2.32}
 G^{l}_{KS}=\bar{g}_{max}+\frac{1}{P}\ln\left(\sum_{i=1}^{N_G}e^{P\left(\bar{g}_i-\bar{g}_{max}\right)}\right)-\frac{\ln\left(N_G\right)}{P}
 \end{equation}
-Where $\bar{g}_{max}=\max_i\bar{g}_i$. We provide in Appendix \ref{Appendix1} some useful properties of the $G_{KS}^l$ function.
+Where $\bar{g}_{max}=\max_i\bar{g}_i$. We provide in Appendix \ref{Appendix1} some useful properties of the $G_{KS}^l$ function and that equation \eqref{eq.2.32} and \eqref{e.KSl} are equivalent. The reader can observe that equation \eqref{eq.2.32} is differentiable and its derivatives is given by differentiation of equation \eqref{e.KSl} that is provided later in this section. 
 The satisfaction of stress constraints is thus imposed in problem (\ref{formulation_stress}) as:
 \begin{equation}
 \begin{cases}
@@ -681,12 +684,13 @@ G^{l}_{KS}\leq 0
 The reader can observe that this is only one of the possible ways of aggregating constraints available in literature.  One can also use P-mean \cite{duysinx1998new} or Induced Exponential \cite{kennedy2015improved} approximation of maximum. In chapter 3 we will see these approaches in much deeper details.
 A second important observation about formulation \ref{Verbart_formulation} is that $G^{l}_{KS}$ need adjoint evaluation of sensitivities. Here we propose a short computation chain for the partial derivatives $\VectorVar{\frac{\partial G_{KS}^l}{\partial x_{Phys}}}$ and  $\VectorVar{\frac{\partial G_{KS}^l}{\partial U}}$:
 \begin{eqnarray}
-\VectorVar{\frac{\partial G_{KS}^l}{\partial x}}^T=\VectorVar{\frac{\partial G_{KS}^l}{\partial \bar{g}}}^T\MatrixVar{\frac{\partial  \bar{g}}{\partial x_{Phys}}}\\
+\VectorVar{\frac{\partial G_{KS}^l}{\partial x_{Phys}}}^T=\VectorVar{\frac{\partial G_{KS}^l}{\partial \bar{g}}}^T\MatrixVar{\frac{\partial  \bar{g}}{\partial x_{Phys}}}\\
 \VectorVar{\frac{\partial G_{KS}^l}{\partial U}}^T=\VectorVar{\frac{\partial G_{KS}^l}{\partial \bar{g}}}^T\MatrixVar{\frac{\partial  \bar{g}}{\partial U}}
 \end{eqnarray}
 where:
 \begin{eqnarray}
-\frac{\partial G_{KS}^l}{\partial \bar{g}_i}=\frac{e^{P\bar{g}_i}}{\sum_{j=1}^{N_G}e^{P\bar{g}_j}}\\
+\label{eq.2.64}
+\frac{\partial G_{KS}^l}{\partial \bar{g}_i}=\frac{e^{P\bar{g}_i}}{\sum_{j=1}^{N_G}e^{P\bar{g}_j}} \\
 \frac{\partial  \bar{g}_i}{\partial x_j}=\delta_{ij} \left(\frac{(\hat{\sigma}_{VM})_i}{\sigma_{lim}}-1\right)\\
 \frac{\partial  \bar{g}_i}{\partial U_j}=\frac{(x_{Phys})_i}{\sigma_{lim}}\frac{\partial (\hat{\sigma}_{VM})_i} {\partial U_j}\\
 \delta_{ij}=\begin{cases}
@@ -694,7 +698,11 @@ where:
 0 & \textit{otherwise.}
 \end{cases}
 \end{eqnarray} 
-Where $GP_j$ is the ensemble of j-th element Gauss Point indexes. For the computation of $\frac{\partial (\hat{\sigma}_{VM})_i} {\partial U_j}$ it is worthy to introduce some simplifications in the expression of $(\hat{\sigma}_{VM})_i$:
+Where $GP_j$ is the ensemble of j-th element Gauss Point indexes. Numerical issues similar to the one described for the evaluation of equation \eqref{e.KSl} are encountered in the evaluation of equation \eqref{eq.2.64}. Since the numerator and the denominator can be described as an infinite value by the machine a Not a Number (NaN) can be produced from this expression. This is why the following expression (equivalent to \eqref{eq.2.64}) should be employed:
+\begin{equation}
+\frac{\partial G_{KS}^l}{\partial \bar{g}_i}=\frac{e^{P\left(\bar{g}_i-\bar{g}_{max}\right)}}{\sum_{j=1}^{N_G}e^{P\left(\bar{g}_j-\bar{g}_{max}\right)}} \\
+\end{equation}
+ For the computation of $\frac{\partial (\hat{\sigma}_{VM})_i} {\partial U_j}$ it is worthy to introduce some simplifications in the expression of $(\hat{\sigma}_{VM})_i$:
 \begin{eqnarray}
 (\hat{\sigma}_{VM})_i=\sqrt{\VectorVar{\hat{\sigma}_i}^T \MatrixVar{\begin{array}{ccc}
 1 & -0.5 & 0\\
@@ -724,7 +732,7 @@ With all these simplification considered:
 \end{equation}
 where $\VectorVar{\frac{\partial \VectorVar{U_i}}{\partial U_j}}$ contains either 1 or 0 if the index j correspond to one of the component of vector $ \VectorVar{U_i}$. 
 \subsection{A 2D stress based topology optimization example}
-In this section we tested the stress based formulation of eq. \ref{Verbart_formulation} on the L-shape topology optimization problem. The stress based formulation is much more dependent on optimization tuning than the compliance one. To avoid MMA divergence, the optimizer step length (i.e. the distance between a design and the one at the previous iteration) need to be controlled. Several strategies can be adopted for this purpose directly using the MMA matlab code \cite{svanberg1987method}. One can use the move limit defined by the variable move. This variable controls the lower and upper bound defined in the approximated optimization problem, so that the optimization step length is directly controlled. There is a second way of reducing the optimizer step in a more indirect way. This consists in reducing the maximum distance of asymptotes from the current point. In this way the local approximation adopted for constraints will be violated faster. This implicitly reduces the optimizer step length when the sub-solver iterations converge to a minimum of the local approximation. As suggested by \cite{verbart2017unified} we adopted this second strategy. The domain of interest is $100\times100$. Both the effect of discretization and aggregation was considered.
+In this section we tested the stress based formulation of eq. \ref{Verbart_formulation} on the L-shape topology optimization problem. The stress based formulation is much more dependent on optimization tuning than the compliance one. To avoid MMA divergence, the optimizer step length (i.e. the distance between a design and the one at the previous iteration) need to be controlled. Several strategies can be adopted for this purpose directly using the MMA Matlab code \cite{svanberg1987method}. One can use the move limit defined by the variable move. This variable controls the lower and upper bound defined in the approximated optimization problem, so that the optimization step length is directly controlled. There is a second way of reducing the optimizer step in a more indirect way. This consists in reducing the maximum distance of asymptotes from the current point. In this way the local approximation adopted for constraints will be violated faster. This implicitly reduces the optimizer step length when the sub-solver iterations converge to a minimum of the local approximation. As suggested by \cite{verbart2017unified} we adopted this second strategy. The domain of interest is $100\times100$. Both the effect of discretization and aggregation was considered.
 Continuation strategy was adapted as for the compliance formulation. On the other hand, this time the filter radius was kept constant to the value of 2 mesh size and the beta parameter was increased only up to 6. The increment of $\beta$ and the SIMP penalty were applied every time that convergence was attained or every 300 iterations. The convergence criterion was also on the infinity norm of the variation of design vector. This time a value of 0.001 was selected as convergence tolerance. The maximum of iterations was set to 10000. To avoid modeling issues on the stress the nodal force applied as in figure \ref{fig.2.17} was replaced by a linear force distribution over a length of 5. In table \ref{tab:2.2}\footnote{The values adopted in this study are similar to the one considered in \cite{verbart2017unified}.} the optimization set-up is summarized.
 \begin{table}[h!]
                         % table caption is above the table
@@ -753,20 +761,20 @@ Continuation strategy was adapted as for the compliance formulation. On the othe
                         \noalign{\smallskip}\hline
                         \end{tabular}
                         \end{table} 
-The effect of $P$ on the topology optimization is shown in figure \ref{fig.2.18}. A first important remark is that $G_{KS}^l$ is always lower than the actual $\bar{g}_{max}$. As a consequence the maximal von Mises stress is always greater the actual allowable of 1. Increasing the value of P the final stress is decreased, and this is a consequence of equation \ref{ee20}. On the other hand MMA struggles to converge for increasing value of P as it can be seen on the constraint violation convergence history. Moreover even adopting a continuation strategy it can be observed that the solution presents some region of intermediate densities. Finally for $P=16$ and $P=28$ the sharped inner corner is replaced by a fillet. This a very well established design technique to avoid stress concentration which is also found by the optimization algorithm. To improve the accuracy of the maximum stress control one can increase $P$ but this comes at the cost of a higher stress response non linearity.
+The effect of $P$ on the topology optimization is shown in figure \ref{fig.2.18}. A first important remark is that $G_{KS}^l$ is always lower than the actual $\bar{g}_{max}$. As a consequence the maximal von Mises stress is always greater than the actual allowable of 1. Increasing the value of P the final stress is decreased, and this is a consequence of equation \ref{ee20}. On the other hand MMA struggles to converge for increasing value of P as it can be seen on the constraint violation convergence history. Moreover even adopting a continuation strategy it can be observed that the solution presents some region of intermediate densities. Finally for $P=16$ and $P=28$ the sharp inner corner is replaced by a fillet. This a very well established design technique to avoid stress concentration which is also found by the optimization algorithm. To improve the accuracy of the maximum stress control one can increase $P$ but this comes at the cost of a higher stress response non-linearity.
 \begin{figure*}[h!]
 \centering
 \subfloat[Density plot $P=4$\label{fig.2.18a}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_4_ft_3_Sl_1_KSldensity} }}%
 \quad
-\subfloat[Von Mises plot $P=4$\label{fig.2.18b}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_4_ft_3_Sl_1_KSlVM_stress} }}%
+\subfloat[von Mises plot $P=4$\label{fig.2.18b}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_4_ft_3_Sl_1_KSlVM_stress} }}%
  \\
  \subfloat[Density plot $P=16$\label{fig.2.18d}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_16_ft_3_Sl_1_KSldensity} }}%
  \quad
- \subfloat[Von Mises plot $P=16$\label{fig.2.18e}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_16_ft_3_Sl_1_KSlVM_stress} }}%
+ \subfloat[von Mises plot $P=16$\label{fig.2.18e}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_16_ft_3_Sl_1_KSlVM_stress} }}%
   \\
    \subfloat[Density plot $P=28$\label{fig.2.18g}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_28_ft_3_Sl_1_KSldensity} }}%
    \quad
-   \subfloat[Von Mises plot $P=28$\label{fig.2.18h}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_28_ft_3_Sl_1_KSlVM_stress} }}%     
+   \subfloat[von Mises plot $P=28$\label{fig.2.18h}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_28_ft_3_Sl_1_KSlVM_stress} }}%     
     \\ 
 \caption{L-shape $100\times 100$ mesh resolution, stress based topology optimization results. Density distribution, von Mises stress distribution for $P=4,16,28$ and for $\sigma_{lim}=1$. }%
 \label{fig.2.18}%
@@ -786,11 +794,11 @@ In figure \ref{fig.2.19} the effect of $\sigma_{lim}$ is shown for the same mesh
 \centering
 \subfloat[Density plot $\sigma_{lim}=0.9$\label{fig.2.19a}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_28_ft_3_Sl_0_9_KSldensity} }}%
 \quad
-\subfloat[Von Mises plot $\sigma_{lim}=0.9$\label{fig.2.19b}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_28_ft_3_Sl_0_9_KSlVM_stress} }}%
+\subfloat[von Mises plot $\sigma_{lim}=0.9$\label{fig.2.19b}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_28_ft_3_Sl_0_9_KSlVM_stress} }}%
  \\
  \subfloat[Density plot $\sigma_{lim}=0.8$\label{fig.2.19d}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_28_ft_3_Sl_0_8_KSldensity} }}%
  \quad
- \subfloat[Von Mises plot $\sigma_{lim}=0.8$\label{fig.2.19e}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_28_ft_3_Sl_0_8_KSlVM_stress} }}%
+ \subfloat[von Mises plot $\sigma_{lim}=0.8$\label{fig.2.19e}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_28_ft_3_Sl_0_8_KSlVM_stress} }}%
  \\
  \subfloat[Convergence plot $\sigma_{lim}=0.9$\label{fig.2.19c}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_100nely_100_R_2_P_28_ft_3_Sl_0_9_KSlconvergence} }}%
      \quad
@@ -803,11 +811,11 @@ In figure \ref{fig.2.19} the effect of $\sigma_{lim}$ is shown for the same mesh
 \centering
 \subfloat[Density plot $50 \times 50$\label{fig.2.20a}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_50nely_50_R_2_P_28_ft_3_Sl_1_KSldensity} }}%
 \quad
-\subfloat[Von Mises plot $50 \times 50$\label{fig.2.20b}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_50nely_50_R_2_P_28_ft_3_Sl_1_KSlVM_stress} }}%
+\subfloat[von Mises plot $50 \times 50$\label{fig.2.20b}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_50nely_50_R_2_P_28_ft_3_Sl_1_KSlVM_stress} }}%
  \\
  \subfloat[Density plot $200 \times 200$\label{fig.2.20d}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_200nely_200_R_2_P_28_ft_3_Sl_1_KSldensity} }}%
  \quad
- \subfloat[Von Mises plot $200 \times 200$\label{fig.2.20e}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_200nely_200_R_2_P_28_ft_3_Sl_1_KSlVM_stress} }}%
+ \subfloat[von Mises plot $200 \times 200$\label{fig.2.20e}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_200nely_200_R_2_P_28_ft_3_Sl_1_KSlVM_stress} }}%
  \\
  \subfloat[Convergence plot $50 \times 50$\label{fig.2.20c}]{{\includegraphics[width=0.45\textwidth]{images/Ch2/L-shapenelx_50nely_50_R_2_P_28_ft_3_Sl_1_KSlconvergence} }}%
      \quad
@@ -837,7 +845,7 @@ where $N_l$ is the number of operating conditions considered for the designed pr
 \caption{Multiple load cases applied to the L-shape, a) horizontal distributed load, b) vertical distributed load}%
 \label{fig.2.21}%
 \end{figure}
-Under this hypothesis the FEA model will only have several right hand side vectors, each one corresponding to a physical loading situation. To enhance the numerical efficiency it is possible to consider again a smooth approximation of maximum function applied to all load cases that reduce the number of constraints to be considered in the optimization formulation:
+Under this hypothesis the FEA model will only have several right hand side vectors, each one corresponding to a physical loading situation. To enhance the numerical efficiency it is possible to consider again a smooth approximation of maximum function (a similar approach was proposed in \cite{le2010stress}) applied to all load cases that reduce the number of constraints to be considered in the optimization formulation:
 \begin{equation}
 \begin{cases}
 \min_{\VectorVar{0}\leq\VectorVar{x}\leq\VectorVar{1}} {\VectorVar{|\Omega_{el}|}^T\VectorVar{x}} \\
@@ -858,9 +866,9 @@ Under this hypothesis the FEA model will only have several right hand side vecto
 \caption{Results for the multiple load case study of an L-shape for a $100\times100$ mesh. a) density plot, b) convergence plot, c)-d) von Mises stress plot for the first and the second load case respectively. }%
 \label{fig.2.22}%
 \end{figure*}
-One can observe that with this formulation one includes a double error approximating the maximum, therefore the choice of $P_l$ and $P$ should be a good compromise between response non linearity and maximum stress approximation accuracy.
+One can observe that with this formulation one includes a double error approximating the maximum, therefore the choice of $P_l$ and $P$ should be a good compromise between response non-linearity and maximum stress approximation accuracy.
 To show an application of this approach we considered an L-shape design problem under 2 load cases c.f. figure \ref{fig.2.21}.
-For this study we chose $P=10$ and $P_l=4$. And the same settings of table \ref{tab:2.2}. The study was conducted for a $100\times100$ mesh and the results are reported in figure \ref{fig.2.22}. The continuation strategy successfully enforces a black and white design in the solution c.f. figure \ref{fig.2.22a}. On the other hand the convergence history was quite longer than the one experienced for the single load case stress based topology optimization and this is probably due to the additional non linearity induced by load case aggregation. The nested use of KS aggregation reduces the number of design constraint responses but cumulate the effect of nonlinearity of both stress and load case aggregation. In figures \ref{fig.2.22c}  and \ref{fig.2.22d} one can observe von Mises stress distribution of the solution under each load case. It can be observed that the first load case adds some load paths that activate only in the first load case alleviating the maximal stress.
+For this study we chose $P=10$ and $P_l=4$. And the same settings of table \ref{tab:2.2}. The study was conducted for a $100\times100$ mesh and the results are reported in figure \ref{fig.2.22}. The continuation strategy successfully enforces a black and white design in the solution c.f. figure \ref{fig.2.22a}. On the other hand the convergence history was quite longer than the one experienced for the single load case stress based topology optimization and this is probably due to the additional non-linearity induced by load case aggregation. The nested use of KS aggregation reduces the number of design constraint responses but cumulate the effect of nonlinearity of both stress and load case aggregation. In figures \ref{fig.2.22c}  and \ref{fig.2.22d} one can observe von Mises stress distribution of the solution under each load case. It can be observed that the first load case adds some load paths that activate only in the first load case alleviating the maximal stress.
 The second load case is the most constraining with the final constraint violation of 0.51 in the second load case and of 0.3 in the first one. This is due to the consecutive KS aggregations that sum their approximation error. A continuation strategy to deal with such scenarios is proposed in section \ref{IS}.
 
 
@@ -871,7 +879,7 @@ For example the variation of the radial clearances at the blade tip of each stag
 In this work we consider the optimization of the PPS structure under a fixed engine architecture.
  The engine pylon topology optimization was also treated in \cite{remouchamps2011application} considering both structural compliance under several load cases and aerodynamic drag.
  In Xue et al. \cite{xue2012structural} an Ant Colony Algorithm is deployed to optimize the front pylon mounts on the base of average stress under multiple load cases.
- In this work we don't focus on pylon aerodynamic performance, as it was done in \cite{remouchamps2011application}, since we fixed the design space shape. On the other hand we include the pylon to engine interface inside the design zone. This gives the solution more freedom that is also necessary to have an impact on both engine deformations and PPS primary structure mass. The design zone is much larger than the one considered in \cite{xue2012structural} and we didn't employed Ant Colony Algorithm to tackle the Optimization problem.
+ In this work we don't focus on pylon aerodynamic performance, as it was done in \cite{remouchamps2011application}, since we fixed the design space shape. On the other hand we include the pylon to engine interface inside the design zone. This gives the solution more freedom that is also necessary to have an impact on both engine deformations and PPS primary structure mass. The design zone is much larger than the one considered in \cite{xue2012structural} and we didn't employ Ant Colony Algorithm to tackle the optimization problem.
  The optimization formulation adopted for this work is a mass minimization with both stress and engine performance constraints. The fact of including these constraints is beneficial for the total lead time in the design process. In this way, the solution provided by the topology optimization phase will need minor modifications in order to achieve a feasible design that should satisfy both stress and performance requirements. This comes however at increased computational cost as the gradients of these two new constraints have to be computed.\\
  The engine and the design zone (c.f. figure \ref{f.1}) are connected using an elimination approach that we developed in subsection \ref{sssec332}. The final stiffness matrix of the entire model can then be directly assembled as:
  \begin{equation}
@@ -922,7 +930,7 @@ In this work we consider the optimization of the PPS structure under a fixed eng
   \label{e.20}
   \sigma_{VM}=\sqrt{\sigma_{xx}(\sigma_{xx}-\sigma_{yy})+\sigma_{yy}(\sigma_{yy}-\sigma_{zz})+\sigma_{zz}(\sigma_{zz}-\sigma_{xx})+3(\tau_{xy}^2+\tau_{yz}^2+\tau_{zx}^2)}
   \end{equation}
-Using the same step adopted for the 2D use case (c.f. equations \ref{eq.2.30}, \ref{eq.2.32})
+Using the same step adopted for the 2D use case (c.f. equations \eqref{eq.2.30}, \eqref{eq.2.32})
 , the satisfaction of stress constraints is thus imposed in problem (\ref{topoeq}) as:
 \begin{equation}
 \label{topoeq2}
@@ -937,7 +945,7 @@ G^{l}_{KS}(\lbrace x\rbrace,\lbrace U\left(\lbrace x\rbrace\right)\rbrace)\leq 0
  \subsection{Sensitivity computation}
  \label{subsec2.4}
  In this subsection we detail the computation of responses sensitivities in problem (\ref{topoeq2}). The reader can observe that a major complexity with respect to the 2D use-case comes from the fact that the mesh is non uniform.
-  It is straightforward to use equations \ref{eq.2.46} and \ref{eq.2.47} to compute $\left\lbrace\frac{d G_T}{dx}\right\rbrace$, $\left\lbrace\frac{d V}{dx}\right\rbrace$ and $\left\lbrace\frac{d G_{KS}^l}{dx}\right\rbrace$. Let's start by the evaluation of the TSFC variation constraint $G_T$. Since $ \Delta TSFC \%$ has no direct dependency on the $\lbrace x_{Phys}\rbrace$ we have:
+  It is straightforward to use equations \eqref{eq.2.46} and \eqref{eq.2.47} to compute $\left\lbrace\frac{d G_T}{dx}\right\rbrace$, $\left\lbrace\frac{d V}{dx}\right\rbrace$ and $\left\lbrace\frac{d G_{KS}^l}{dx}\right\rbrace$. Let's start by the evaluation of the TSFC variation constraint $G_T$. Since $ \Delta TSFC \%$ has no direct dependency on the $\lbrace x_{Phys}\rbrace$ we have:
     \begin{equation}
    \left \lbrace\frac{\partial G_T}{\partial x_{Phys}}\right \rbrace=\lbrace 0\rbrace 
     \end{equation}
@@ -949,7 +957,7 @@ G^{l}_{KS}(\lbrace x\rbrace,\lbrace U\left(\lbrace x\rbrace\right)\rbrace)\leq 0
  \begin{equation}
            \left\lbrace\frac{\partial V}{\partial U}\right\rbrace=\lbrace 0\rbrace 
  \end{equation}
- By the use of equation \ref{eq.12}:
+ By the use of equation \eqref{eq.12}:
     \begin{equation}
                      \left\lbrace\frac{\partial V}{\partial x_{Phys}}\right\rbrace=\frac{\lbrace|\Omega|\rbrace}{\lbrace|\Omega|\rbrace^T\lbrace \mathbf{1}\rbrace}
      \end{equation}
@@ -1006,7 +1014,7 @@ G^{l}_{KS}(\lbrace x\rbrace,\lbrace U\left(\lbrace x\rbrace\right)\rbrace)\leq 0
    \end{equation}
    The results of the sensitivity computations are summarized in table \ref{tab:table1}.
    \begin{table}[h]
-      \caption{\label{tab:table1} Summary table of sensitivities terms needed for equations \ref{eq.46} and \ref{eq.47} to compute $\left\lbrace\frac{dO}{dx_{Phys}}\right\rbrace$}
+      \caption{\label{tab:table1} Summary table of sensitivities terms needed for equations \eqref{eq.46} and \eqref{eq.47} to compute $\left\lbrace\frac{dO}{dx_{Phys}}\right\rbrace$}
        \centering
        \begin{tabular}{lccc}
        \hline
@@ -1019,15 +1027,15 @@ G^{l}_{KS}(\lbrace x\rbrace,\lbrace U\left(\lbrace x\rbrace\right)\rbrace)\leq 0
        \end{tabular}
        \end{table}
         \\
-     %To use equation \ref{eq.41} the link between the notation used for equations \ref{topoeq2} and \ref{eq.32} should be specified.
-    %We made a partition of vector  $\left\lbrace U \right\rbrace $ into o, design zone DOFs not lying on the interface and d, design zone DOFs introduced with equation \ref{eq.32}:
+     %To use equation \eqref{eq.41} the link between the notation used for equations \ref{topoeq2} and \eqref{eq.32} should be specified.
+    %We made a partition of vector  $\left\lbrace U \right\rbrace $ into o, design zone DOFs not lying on the interface and d, design zone DOFs introduced with equation \eqref{eq.32}:
     %\begin{equation}
     %\left\lbrace U \right\rbrace= \left\lbrace \begin{array}{c}
      %\lbrace u_o \rbrace\\
      %\lbrace u_d \rbrace\\
      %\end{array}\right\rbrace 
     %\end{equation} 
-  %According to equation \ref{eq.32},\ref{eq.9},\ref{eq.10} and\ref{sbeq}:
+  %According to equation \eqref{eq.32},\eqref{eq.9},\eqref{eq.10} and\ref{sbeq}:
      %\begin{equation}
      %\left[K\right]=  \left[ \begin{array}{cc}
       %\left[ K_{oo} \right] & \left[ K_{od} \right]\\
@@ -1047,11 +1055,11 @@ G^{l}_{KS}(\lbrace x\rbrace,\lbrace U\left(\lbrace x\rbrace\right)\rbrace)\leq 0
          % \lbrace \left[ \Pi_{cd} \right]^T\lbrace \tilde{F}_c\rbrace \rbrace\\
           %\end{array}\right\rbrace =\lbrace F_{DZ} \rbrace + \lbrace F_{E} \rbrace
      %\end{equation}
-  By the use of equations \ref{eq.6},\ref{eq.7} and \ref{eq.8}:
+  By the use of equations \eqref{eq.6},\eqref{eq.7} and \eqref{eq.8}:
   \begin{equation}
   \frac{d\left[K\right]}{d(x_{Phys})_i}=\frac{d\left[K_{DZ}\right]}{d(x_{Phys})_i}=\underset{el=i}{\bigoplus}{p(E_{max}-E_{min})(x_{Phys})_i^{p-1}\left[K_{el}^{(1)}\right]}
   \end{equation}
- In the present work we only consider constant load, so that $\left[\frac{dF}{dx_{Phys}}\right]=0$.
+ In the present work we only consider constant load, so that $\left[\frac{dF}{dx_{Phys}}\right]=0$.\footnote{This hypothesis could be justified by the fact that the inertial loads for the pylon itself is only a small part of the total load applied to the pylon structure.}
  For a general uniform acceleration (e.g. inertial loads) the sensitivities of the load vector could be computed using:
  \begin{equation}
  \lbrace F_{DZ} \rbrace_i = \int \rho  f_i  \Phi_i dV=\frac{1}{8}\sum\limits_{j=1}^{m_i}(x_{Phys})_jf_i\Omega_j\rho
@@ -1064,10 +1072,10 @@ G^{l}_{KS}(\lbrace x\rbrace,\lbrace U\left(\lbrace x\rbrace\right)\rbrace)\leq 0
  \begin{equation}
  \left[\frac{dF}{dx_{Phys}}\right]=\left[\frac{dF_{DZ}}{dx_{Phys}}\right]=\frac{1}{8}\left[\rho f \Omega\right]
  \end{equation}
-   The adjoint evaluation of sensitivities presented in this subsection, needs the use of equation \ref{eq.2.43} twice, once for the evaluation of $\left\lbrace\frac{d G_T}{dx_{Phys}}\right\rbrace$ and once for $\left\lbrace\frac{d G_{KS}^l}{dx_{Phys}}\right\rbrace$.
+   The adjoint evaluation of sensitivities presented in this subsection, needs the use of equation \eqref{eq.2.43} twice, once for the evaluation of $\left\lbrace\frac{d G_T}{dx_{Phys}}\right\rbrace$ and once for $\left\lbrace\frac{d G_{KS}^l}{dx_{Phys}}\right\rbrace$.
    Therefore the stiffness matrix has to be inverted for 3 different right hand side vectors per each optimization loop iteration. Taking the formulation described here in matrix notation also facilitates implementation in the presented Matlab framework, taking advantage from vectorization.
  \subsection{Single load case analysis}
-   The optimization framework developed was applied on a problem involving the engine model described in section \ref{ssec1.2.1} and on the design mesh represented in figure \ref{f.11}.  In table \ref{tab:table2} one can find the optimization set-up details.\footnote{MMA maximum asymptote distance from the current point value has not a particular name in the mmasub matlab function provided by Svanberg \cite{svanberg2004some}. It can be found in the lines where lowmin and uppmax variables are computed as the coefficient that multiplies the variable range. Reducing this value the algorithm behaves more conservatively when approximating the real functions overestimating their convexity.}
+   The optimization framework developed was applied on a problem involving the engine model described in section \ref{ssec1.2.1} and on the design mesh represented in figure \ref{f.11} and for the axial load case showed in figure \ref{fig.2.23}.  In table \ref{tab:table2} one can find the optimization set-up details.\footnote{MMA maximum asymptote distance from the current point value has not a particular name in the mmasub Matlab function provided by Svanberg \cite{svanberg2004some}. It can be found in the lines where lowmin and uppmax variables are computed as the coefficient that multiplies the variable range. Reducing this value the algorithm behaves more conservatively when approximating the real functions overestimating their convexity.}
     \begin{table}[h]
          \caption{\label{tab:table2} Optimization problem set up. The hypothesis made to get numerical results are listed here}
           \centering
@@ -1082,11 +1090,11 @@ G^{l}_{KS}(\lbrace x\rbrace,\lbrace U\left(\lbrace x\rbrace\right)\rbrace)\leq 0
  		$r$ & filtering radius & $2 \times$ mesh average size  \\
  		$p$ & SIMP penalty & 3\\
  		$P$ & Aggregation constant & 4\\  
- 		$\sigma_{lim}$ & Allowable stress to be used in eq. \ref{eq.2.30} & 10 MPa\\
+ 		$\sigma_{lim}$ & Allowable stress to be used in eq. \eqref{eq.2.30} & 10 MPa\\
  		$\sigma_{alw}$ & Maximum local allowable stress & 47.9 MPa\\
  		$T_0$ & Allowable consumption variation & 0.15 \% \\
  		$\lbrace\rho f \rbrace$ & Inertial load & $\lbrace 0 \rbrace$ \\
- 		 & Stopping condition on the Karush-Kunt Tucker residual norm & $KKTn\leq10^{-3}$\\ 
+ 		 & Stopping condition on the Karush-Kuhn Tucker residual norm & $KKTn\leq10^{-3}$\\ 
  		& Stopping condition on the iteration number & $iter \geq 300$ \\
  		& MMA external move limit for first 2 iterations & 0.4 \\
  		& MMA maximum asymptote distance from the current point & 0.1 \\
@@ -1136,10 +1144,10 @@ G^{l}_{KS}(\lbrace x\rbrace,\lbrace U\left(\lbrace x\rbrace\right)\rbrace)\leq 0
           \end{table} 
  The thresholded solution still respects von Mises stress constraint, on the other hand the allowable fuel consumption constraint is violated by $1.47\%$ and the final volume fraction is increased by $34\%$. Even after this increase, the final volume fraction can still be considered satisfactory for the sake of this study. 
  
- Von Mises stress color maps, based on the average over Gauss points are presented in figure \ref{f.15}.
+ von Mises stress color maps, based on the average over Gauss points are presented in figure \ref{f.15}.
   As expected the final design has a final maximum stress that is greater than the 10 MPa imposed through the $G_{KS}^l$ function, but lower than 47.9 MPa as a consequence of the choice of $P$.
-  The solution displacement field \ref{f.16} is consistent with boundary conditions and to the load applied to the structure. The final von Mises stress is obviously not homogeneous within the solution. It reaches its maximum in the regions adjacent to the wing and at the interface with the engine model. Note that the high stresses at the attachment with the wing are induced by the geometry and loading. On the other hand the high stresses at the interface with the engine model are numerical artefacts of the kinematic tying approach of the design zone and the engine superelements. These latter could potentially be reduced by a more complex kinematic tying approach such as the ones reviewed in chapter \ref{chap:1}.
-  The structure found by the optimization algorithm is nearly planar and contained in the x-z plane. This is due to the load considered here (axial load) and to the symmetry of the engine model. This solution can therefore be further improved considering multiple load cases that will load the structure in different directions. Changing mesh tying approaches used to deal with the mesh inconsistency at the interface with the engine could also potentially improve the solution. The results found are not of direct practical interest due to several simplifying assumptions considered in the models being used (especially the simplified engine model).  Nevertheless the solution is consistent with the model hypothesis and shows that it is possible to deal with both engine deformation and stress criteria in the same 3D topology optimization framework.
+  The solution displacement field \ref{f.16} is consistent with boundary conditions and to the load applied to the structure. The final von Mises stress is obviously not homogeneous within the solution. It reaches its maximum in the regions adjacent to the wing and at the interface with the engine model. Note that the high stresses at the attachment with the wing are induced by the geometry and loading. On the other hand the high stresses at the interface with the engine model are numerical artefacts of the kinematic tying approach of the design zone and the engine superelements. In fact RL-RBF were employed in this example. More complex kinematic tying approaches such as the ones reviewed in chapter \ref{chap:1} could be implemented to alleviate this issue.
+  The structure found by the optimization algorithm is nearly planar and contained in the x-z plane. This is due to the load considered here (axial load) and to the symmetry of the engine model. This solution can therefore be further improved considering multiple load cases that will load the structure in different directions. Changing mesh tying approaches used to deal with the mesh inconsistency at the interface with the engine could also potentially improve the solution. The results found are not of direct practical interest due to several simplifying assumptions considered in the models being used (especially the simplified engine model). Moreover due to the formulation adopted, the solution can use the stiffness of the engine casing, possibly compromising the engine sizing. Nevertheless the solution is consistent with the model hypothesis and shows that it is possible to deal with both engine deformation and stress criteria in the same 3D topology optimization framework.
   \begin{figure}[hbt!]
              \centering
                   \subfloat[ \label{f.13}]{%
@@ -1156,7 +1164,7 @@ G^{l}_{KS}(\lbrace x\rbrace,\lbrace U\left(\lbrace x\rbrace\right)\rbrace)\leq 0
 \subfloat[ \label{f.15}]{%
   \includegraphics[width=0.75\textwidth]{images/Ch2/VonMises_300.eps}}
       \\                                        \subfloat[\label{f.16} ]{ \includegraphics[width=0.75\textwidth]{images/Ch2/Displacements_300.eps}                             }              
-                                  \caption{Topology optimization results. (a)  Von Mises Stress color map, (b) Displacement magnitude color map. \label{fig2.10b}} 
+                                  \caption{Topology optimization results. (a)  von Mises Stress color map, (b) Displacement magnitude color map. \label{fig2.10b}} 
                                 \end{figure}
                 \clearpage
  \subsection{Multiple load case analysis with symmetric solutions}
@@ -1167,7 +1175,7 @@ G^{l}_{KS}(\lbrace x\rbrace,\lbrace U\left(\lbrace x\rbrace\right)\rbrace)\leq 0
   \caption{Load considered for the Pylon and engine mounts topology optimization. The $F_y$ and $F_z$ forces are distributed on the Fan casing. $F_x$ is the same load case considered for the single load case analysis.}
   \label{fig.2.23}
   \end{figure}
-  Moreover, solutions will be enforced to be symmetric with respect to the $xz$ plane.  To deal with the multiple loads considered a KS approximation of both maximum of stress constraint violation and maximum of TSFC variation under each load case:
+  Moreover, solutions will be enforced to be symmetric with respect to the $xz$ plane.\footnote{This requirement is consistent with the fact that left and right wing pylons primary should be identical (to reduce the manufacturing costs) and that only half of the operating load conditions are applied to the structure to make its sizing.}  To deal with the multiple loads considered a KS approximation of both maximum of stress constraint violation and maximum of TSFC variation under each load case:
  \begin{equation}
  \label{topoeq3}
  \begin{cases}
@@ -1188,7 +1196,7 @@ G^{l}_{KS}(\lbrace x\rbrace,\lbrace U\left(\lbrace x\rbrace\right)\rbrace)\leq 0
    \MatrixVar{\mathbf{S}}
    \end{array}}\VectorVar{x_l}
  \end{equation}
- Where $\MatrixVar{\mathbf{S}}$ is the symmetrical mapping whose elements are only 0 and 1 and $\VectorVar{x_l}$ and $\VectorVar{x_r}$ represent the left and the right design variable vectors, corresponding to the left and the right part of the design space respectively.  The optimization variables become the only $\VectorVar{x_l}$ vector so that the number of design variables are reduced to 243200. For the load case aggregation a value of $P_l=10$ was selected.  When aggregating over the load cases a supplementary error of $\frac{\log(N_l)}{P_l}$ is added to the previously introduced for the Gauss point aggregation. For this reason the value of the $\sigma_{alw}$ was increased to 49 MPa. The initial guess is again a uniform distribution of full material. The allowable TSFC variation was this time $0.16 \%$, that is still an improvement  $11 \%$ with respect to the baseline design.  In table \ref{tab:table4} one can find the optimization set up details. The interested reader can find several solutions obtained for different values of the TSFC variation constraint in section \ref{TSFCpareto}. Actually due to the aggregation over load cases by the KS function approximation, the final maximum variation of consumption is equivalent to the one of the first design ($0.17 \%$).
+ Where $\MatrixVar{\mathbf{S}}$ is the symmetrical mapping whose elements are only 0 and 1 and $\VectorVar{x_l}$ and $\VectorVar{x_r}$ represent the left and the right design variable vectors, corresponding to the left and the right part of the design space respectively.\footnote{The reader can observe that such procedure can only be applied to symmetric design zone meshes. Extension to non symmetric meshes would require a further interpolation of one half mesh with the other.}  The optimization variables become the only $\VectorVar{x_l}$ vector so that the number of design variables are reduced to 243200. For the load case aggregation a value of $P_l=10$ was selected.  When aggregating over the load cases a supplementary error of $\frac{\log(N_l)}{P_l}$ is added to the previously introduced for the Gauss point aggregation.\footnote{In appendix \ref{Appendix1} it is shown that for $N_G$ entries $\bar{g}_{max}-G_{KS}^l<\frac{\ln{N_G}}{P}$. In the situation of multiple load case we want to approximate $\bar{g}_{max}=\max_{l=1,2,...,N_l}(\max_{i=1,2,...,N_G}(\bar{g}_{il}))$. In the proposed approach first we approximate the first maximum function with a KS function per load case. This introduce a first error lower than $\frac{\ln{N_G}}{P}$ to each KS approximation of the maximum over the number of Gauss point. When approximating the maximum of the previously computed KS function over the load cases this approximation introduce a second error this time lower than $\frac{\ln{N_l}}{P_l}$.}  For this reason the value of the $\sigma_{alw}$ was increased to 49 MPa. The initial guess is again a uniform distribution of full material. The allowable TSFC variation was this time $0.16 \%$, that is still an improvement  $11 \%$ with respect to the baseline design.  In table \ref{tab:table4} one can find the optimization set up details. The interested reader can find several solutions obtained for different values of the TSFC variation constraint in section \ref{TSFCpareto}. Actually due to the aggregation over load cases by the KS function approximation, the final maximum variation of consumption is equivalent to the one of the first design ($0.17 \%$).
   
   \begin{table}[h]
           \caption{\label{tab:table4} Optimization problem set up. The hypothesis made to get numerical results on the multiple load cases are listed here}
@@ -1206,11 +1214,11 @@ G^{l}_{KS}(\lbrace x\rbrace,\lbrace U\left(\lbrace x\rbrace\right)\rbrace)\leq 0
   		$p$ & SIMP penalty & 3\\
   		$P$ & Aggregation constant & 4\\  
   		$P_l$ & Aggregation constant for load case& 10\\ 
-  		$\sigma_{lim}$ & Allowable stress to be used in eq. \ref{eq.2.30} & 10 MPa\\
+  		$\sigma_{lim}$ & Allowable stress to be used in eq. \eqref{eq.2.30} & 10 MPa\\
   		$\sigma_{alw}$ & Maximum local allowable stress & 49 MPa\\
   		$T_0$ & Allowable consumption variation & 0.16 \% \\
   		$\lbrace\rho f \rbrace$ & Inertial load & $\lbrace 0 \rbrace$ \\
-  		 & Stopping condition on the Karush-Kunt Tucker residual norm & $KKTn\leq10^{-3}$\\ 
+  		 & Stopping condition on the Karush-Kuhn Tucker residual norm & $KKTn\leq10^{-3}$\\ 
   		& Stopping condition on the iteration number & $iter \geq 300$ \\
   		& MMA external move limit for first 2 iterations & 0.4 \\
   		& MMA maximum asymptote distance from the current point & 0.1 \\
@@ -1275,12 +1283,12 @@ For the thresholded solution we selected a value of $t_{sh}=0.45$.
                                                      } 
                                                    
      \caption{Topology optimization results.  Displacement magnitude color map (a) for $F_x$,(c) for $F_y$,(e) for $F_z$ respectively.
-     Von Mises stress color map (b) for $F_x$,(d) for $F_y$,(f) for $F_z$ respectively. \label{fig.2.28}} 
+     von Mises stress color map (b) for $F_x$,(d) for $F_y$,(f) for $F_z$ respectively. \label{fig.2.28}} 
  \end{figure}
  \clearpage
  \section{Summary and conclusions}
 In this chapter the simulation driven design and density based topology optimization were reviewed. The optimization framework proposed in this thesis uses a simulation model recursively inside an optimization loop to achieve improved design with respect to fuel consumption variation and stress constraints. The Solid Isotropic Material with Penalization (SIMP) approach to topology optimization was reviewed to be included in the proposed framework. To solve this problem efficiently in the context of industrial applications, Sequential Convex Programming (SCP) algorithms and in particular the Method of Moving Asymptotes (MMA) were reviewed. Analytical sensitivities derivation was proposed by the adjoint approach to provide MMA solver with responses' derivatives. The unified aggregation relaxation approach was implemented to achieve singular optima and to deal with a large number of stress constraints in the topology optimization problem. A novel strategy for the evaluation of the filter matrix was proposed. This helps in reducing the computational burden required by filter matrix evaluation. Finally a formulation based on the mass minimization with constraints on the allowable von Mises stress and the fuel consumption variation was proposed to design the engine integration of a representative usecase.
-This Chapter contributes to the main goals of the PhD providing the theoretical bases for the development of Eulerian approaches to topology optimization and their efficient resolution.
+This Chapter contributes to the main goals of the PhD providing the theoretical bases for the development of Eulerian approaches to topology optimization and their efficient solution.
 To summarize the review covered the following topics:
 \begin{itemize}
 \item Structural optimization design loop
@@ -1290,10 +1298,10 @@ To summarize the review covered the following topics:
 \item The density filter
 \item Stress based topology optimization by the Unified Aggregation Relaxation approach.
 \end{itemize}
-The reviewed strategies were implemented on a 2D use case problem in a framework developed from the 88 lines matlab code of \cite{andreassen2011efficient}. Results of stress based topology optimization problems are consistent with the findings of \cite{verbart2017unified} and were also extended to multiple load cases problems.
+The reviewed strategies were implemented on a 2D use case problem in a framework developed from the 88 lines Matlab code of \cite{andreassen2011efficient}. Results of stress based topology optimization problems are consistent with the findings of \cite{verbart2017unified} and were also extended to multiple load cases problems.
 The main contributions in this chapter consist in:
 \begin{itemize}
-\item Proposing a multigrid strategy for the evaluation of filter matrix for the sensitivity filer. 
+\item Proposing a multigrid strategy for the evaluation of filter matrix for the sensitivity filter. 
 \item The adaptation of this approach to multiple load cases
 \item The implementation of TSFC variation in the optimization formulation.
 \item The analytical derivation of derivatives using the adjoint method.
@@ -1302,8 +1310,10 @@ The main contributions in this chapter consist in:
 Some challenges that further need to be addressed concern:
 \begin{itemize}
 \item The enforcement of manufacturing constraints. This is a very well documented problem in topology optimization and recently solutions for several kinds of technology are proposed in the literature \cite{liu_current_2018}.
+\item The consideration of other failure modes in the optimization, as buckling and resonant frequencies.
+\item the consideration of stress constraints also in the engine model. Or equivalently control the load introduced on the engine structure.
 \item The reduction of solution interpretation time. Advanced tools for the post processing are available in industrial software as Inspire by Altair. Still, this requires human interventions and design simplifications, impacting the final solution's performance.  
-\item The reduction of the total computational burden. The total CPU time is principally affected by the resolution of state equations. In this work we addressed this problem by the use of iterative approaches and efficient preconditioners. The use of distributed memory architecture \cite{aage2017giga} and GPU accelerators \cite{wadbro2009megapixel} would also benefit this framework.
+\item The reduction of the total computational burden. The total CPU time is principally affected by the solution of state equations. In this work we addressed this problem by the use of iterative approaches and efficient preconditioners. The use of distributed memory architecture \cite{aage2017giga} and GPU accelerators \cite{wadbro2009megapixel} would also benefit this framework.
 \item Solution dependence on the initial guess. This is quite an open problem in structural optimization of non-convex problems. The use of global approaches \cite{simon2013evolutionary} is a possibility but the cost and the number of design variables are limits to their application to topology optimization problems.
 %\item Solution dependence on the engine interfaces chosen for tying and engine model reduction. This problem is more linked with our problem in fact the framework proposed here make use superelements that are built on small engine region. This is because otherwise the superelement stiffness matrix would be too large and their use would be inefficient. On the other hand such choice drives the topology solutions not ensuring global optimality.  
 %\item Thermal induced problems at the interface. The engine change of temperature in a wide range during its life. For this reason a fully tied interface is dangerous because it can induce high stresses. Statically determined interface are therefore preferred. Kinematic hypothesis can still be made at the interface before the optimization. This of course driving again topology optimization solution.
