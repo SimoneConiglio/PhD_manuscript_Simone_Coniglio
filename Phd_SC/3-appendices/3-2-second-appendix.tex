@@ -9,7 +9,7 @@ The MBB beam optimization problem is a very common test case in topology optimiz
 \caption{Geometry, Load and boundary conditions of the MBB topology optimization problem. Blue triangles are oriented as the fixed DOFs. The red arrow represents the applied load and point through the position of node were the load is applied.}
 \label{fig.2.11}
 \end{figure}
-We adopted 2 meshes to solve this problem one of $150\times50$ and the other of $300\times100$. To have a mesh independent solution the initial radius was set in the first case to 6 and in the second to 12. The results and the convergence history of each optimization is shown in figure \ref{fig.2.12}. 
+Two meshes were adopted to solve this problem one of $150\times50$ and the other of $300\times100$. To have a mesh independent solution the initial radius was set in the first case to 6 and in the second to 12. The results and the convergence history of each optimization is shown in figure \ref{fig.2.12}. 
 \begin{figure}[hbt!]
   \centering
        \subfloat[ \label{fig.2.12c}]{%
@@ -29,7 +29,7 @@ We adopted 2 meshes to solve this problem one of $150\times50$ and the other of 
        \label{fig.2.12}
      \end{figure}
      One can observe from figure \ref{fig.2.12a} and \ref{fig.2.12c} that the solution found is independent from the mesh found. The choice of both filer radius and continuation strategy helps in the determination of this design. Moreover the solution have small transitions region on the boundary of the solid. This is thanks to the Heaviside filter and the continuation strategy adopted for $\beta$. Thanks to that, exploiting this results is easier. In fact using a threshold it is possible to convert these solutions to a black and white (0-1) design that will be close enough to the actual optimization solution.  On figures \ref{fig.2.12b} and \ref{fig.2.12d} one can observe a quite long converge history for both meshes. This is due to the continuation strategy adopted here. Moving forward, this design is an actual local minimum that respect all constraints as it can be observed from both figures \ref{fig.2.12b} and \ref{fig.2.12d}. In fact even if the convergence criterion on design vector change was not reached, in the final iterations the variations of both objective function and volume constraint are very small. The FEM is still valid on the optimum even if $150\times50$ is slightly softer. This can be an effect of differences in the solutions.
-      The small displacement hypothesis cannot be verified here since all measures considered for this test case are dimensionless. Finally being the final application and the technology adopted for the manufacturing not specified, we cannot make any conclusions about the acceptability of this design candidate or of the model validity.
+      The small displacement hypothesis cannot be verified here since all measures considered for this test case are dimensionless. Finally being the final application and the technology adopted for the manufacturing not specified, it is not possible to make any conclusions about the acceptability of this design candidate or of the model validity.
      \clearpage
 \subsubsection{Short cantilever beam optimization}
 This second use-case is also very well known and studied in the literature. A domain design is clamped on the left side and excited on the right side c.f. figure \ref{fig.2.13}.
@@ -39,7 +39,7 @@ This second use-case is also very well known and studied in the literature. A do
 \caption{Geometry, Load and boundary conditions of the short cantilever topology optimization problem. Blue triangles are oriented as the fixed DOFs. The red arrow represents the applied load and point through the position of node were the load is applied.}
 \label{fig.2.13}
 \end{figure}
-We adopted 2 meshes to solve this problem one of $100\times50$ and the other of $200\times100$. To have a mesh independent solution the initial radius was set in the first case to 6 and in the second to 8. The results and the convergence history of each optimization is shown in figure \ref{fig.2.14}. 
+Two meshes were adopted to solve this problem one of $100\times50$ and the other of $200\times100$. To have a mesh independent solution the initial radius was set in the first case to 6 and in the second to 8. The results and the convergence history of each optimization is shown in figure \ref{fig.2.14}. 
 \begin{figure}[hbt!]
   \centering
        \subfloat[ \label{fig.2.14a}]{%
@@ -62,13 +62,13 @@ We adopted 2 meshes to solve this problem one of $100\times50$ and the other of 
      \clearpage
 \section{KS function properties}
 \label{Appendix1}
-In the following subsection we review essential properties of the Kreisselmeier-Steinhauser (KS) functions used for the stress constraints.
+The following subsection reviews essential properties of the Kreisselmeier-Steinhauser (KS) functions used for the stress constraints.
 Given that $P\left(\bar{g}_i-\bar{g}_{max}\right)\leq 0$, $\forall i$ , $e^{P\left(\bar{g}_i-\bar{g}_{max}\right)}\leq 1$, $\forall i$ and $\frac{1}{P}\ln\left(\sum_{i=1}^{N_G}e^{P\left(\bar{g}_i-\bar{g}_{max}\right)}\right)-\frac{\ln\left(N_G\right)}{P}\leq 0$ so that one can conclude $G^{l}_{KS}\leq \bar{g}_{max}$ and knowing that  $\sum_{i=1}^{N_G}e^{P\left(\bar{g}_i-\bar{g}_{max}\right)}>1$ implies $\frac{1}{P}\ln\left(\sum_{i=1}^{N_G}e^{P\left(\bar{g}_i-\bar{g}_{max}\right)}\right)>0$ so that:
 \begin{equation}
 \label{eq.NGP}
 \bar{g}_{max}-G^{l}_{KS}=\frac{\ln\left(N_G\right)}{P}-\frac{1}{P}\ln\left(\sum_{i=1}^{N_G}e^{P\left(\bar{g}_i-\bar{g}_{max}\right)}\right)< \frac{\ln\left(N_G\right)}{P}
 \end{equation}
-As a remarkable results we have:
+As a remarkable results:
  \begin{equation}
  G^{l}_{KS}\leq\bar{g}_{max}<G^{l}_{KS}+\frac{\ln\left(N_G\right)}{P}=G_{KS}
  \end{equation}
@@ -94,7 +94,7 @@ According to eq. \eqref{eq.NGP} one can chose a value of P of
 One must also keep in mind that for greater value of $P$, the $G_{KS}^l$ can have very non-linear behavior. This has some negative consequences on gradient based optimization solver. An opposite strategy to deal with stress non linearity was explored in Lian et al. \cite{lian2017combined}. In this paper they proposed to increase the number of Gauss Points $N_G$. According to equation \eqref{eq.NGP} this strategy increase the distance from the true maximum function hence reducing the stress aggregation function non linearities. When using lower bound KS function and p-mean this difference is inconvenient because the final maximum stress will be greater than the one  corresponding to KS aggregation, needing compensation on the stress limit (as suggested in this paper). On the other hand using KS function or p-norm the design is always slightly oversized, so that increasing the aggregation constant could still be beneficial to the final mass of the solution. A less elegant, but still effective way of accounting for this gap is to change allowable stress during iterations in the way proposed in Le et al. \cite{le2010stress}.   
 \section{TSFC constraint parametric study}
 \label{TSFCpareto}
-In this section we propose to study the impact of the TSFC variation constraint on the solution of problem in Eq. \ref{topoeq3}. This is interesting to extract some conclusions on:
+This section proposes to study the impact of the TSFC variation constraint on the solution of problem in Eq. \ref{topoeq3}. This is interesting to extract some conclusions on:
 \begin{itemize}
 \item The quantification of the possible impact of pylon and engine mount design on the TSFC variation.
 \item The quantification of the mass investments required to achieve a given tip clearance control improvement.
