@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.26)  14 FEB 2020 01:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.26)  15 FEB 2020 11:47
 entering extended mode
 **./phdthesis.tex
 (phdthesis.tex
@@ -4280,7 +4280,7 @@ Package epstopdf Info: Source file: <images/Ch2/configuration_300.eps>
 (epstopdf)                    size: 85365 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/Ch2/configuration_30
 0-eps-converted-to.pdf images/Ch2/configuration_300.eps>
-(epstopdf)             \includegraphics on input line 1155.
+(epstopdf)             \includegraphics on input line 1156.
 Package epstopdf Info: Output file is already uptodate.
 <images/Ch2/configuration_300-eps-converted-to.pdf, id=3556, 579.16376pt x 362.
 35374pt>
@@ -4288,7 +4288,7 @@ File: images/Ch2/configuration_300-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/Ch2/configuration_300-eps-converted-to.pdf>
 Package pdftex.def Info: images/Ch2/configuration_300-eps-converted-to.pdf  use
-d on input line 1155.
+d on input line 1156.
 (pdftex.def)             Requested size: 331.99031pt x 207.7104pt.
 Package epstopdf Info: Source file: <images/Ch2/Physical_Density300.eps>
 (epstopdf)                    date: 2019-08-20 19:21:22
@@ -4299,7 +4299,7 @@ ed-to.pdf>
 (epstopdf)                    size: 66515 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/Ch2/Physical_Density
 300-eps-converted-to.pdf images/Ch2/Physical_Density300.eps>
-(epstopdf)             \includegraphics on input line 1159.
+(epstopdf)             \includegraphics on input line 1160.
 Package epstopdf Info: Output file is already uptodate.
 <images/Ch2/Physical_Density300-eps-converted-to.pdf, id=3557, 711.65875pt x 36
 2.35374pt>
@@ -4307,7 +4307,7 @@ File: images/Ch2/Physical_Density300-eps-converted-to.pdf Graphic file (type pd
 f)
 <use images/Ch2/Physical_Density300-eps-converted-to.pdf>
 Package pdftex.def Info: images/Ch2/Physical_Density300-eps-converted-to.pdf  u
-sed on input line 1159.
+sed on input line 1160.
 (pdftex.def)             Requested size: 331.99031pt x 169.03459pt.
 Package epstopdf Info: Source file: <images/Ch2/VonMises_300.eps>
 (epstopdf)                    date: 2019-08-20 19:21:22
@@ -4318,14 +4318,14 @@ df>
 (epstopdf)                    size: 59765 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/Ch2/VonMises_300-eps
 -converted-to.pdf images/Ch2/VonMises_300.eps>
-(epstopdf)             \includegraphics on input line 1165.
+(epstopdf)             \includegraphics on input line 1166.
 Package epstopdf Info: Output file is already uptodate.
 <images/Ch2/VonMises_300-eps-converted-to.pdf, id=3558, 711.65875pt x 362.35374
 pt>
 File: images/Ch2/VonMises_300-eps-converted-to.pdf Graphic file (type pdf)
 <use images/Ch2/VonMises_300-eps-converted-to.pdf>
 Package pdftex.def Info: images/Ch2/VonMises_300-eps-converted-to.pdf  used on 
-input line 1165.
+input line 1166.
 (pdftex.def)             Requested size: 331.99031pt x 169.03459pt.
 Package epstopdf Info: Source file: <images/Ch2/Displacements_300.eps>
 (epstopdf)                    date: 2019-08-20 19:21:22
@@ -4336,7 +4336,7 @@ Package epstopdf Info: Source file: <images/Ch2/Displacements_300.eps>
 (epstopdf)                    size: 60614 bytes
 (epstopdf)             Command: <epstopdf --outfile=images/Ch2/Displacements_30
 0-eps-converted-to.pdf images/Ch2/Displacements_300.eps>
-(epstopdf)             \includegraphics on input line 1166.
+(epstopdf)             \includegraphics on input line 1167.
 Package epstopdf Info: Output file is already uptodate.
 <images/Ch2/Displacements_300-eps-converted-to.pdf, id=3559, 711.65875pt x 362.
 35374pt>
@@ -4344,7 +4344,7 @@ File: images/Ch2/Displacements_300-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/Ch2/Displacements_300-eps-converted-to.pdf>
 Package pdftex.def Info: images/Ch2/Displacements_300-eps-converted-to.pdf  use
-d on input line 1166.
+d on input line 1167.
 (pdftex.def)             Requested size: 331.99031pt x 169.03459pt.
  [128] [129 <./images/Ch2/configuration_300-eps-converted-to.pdf> <./images/Ch2
 /Physical_Density300-eps-converted-to.pdf>]
@@ -4354,7 +4354,7 @@ ts_300-eps-converted-to.pdf>]
 File: images/Ch2/Design_problem_multi_load.png Graphic file (type png)
 <use images/Ch2/Design_problem_multi_load.png>
 Package pdftex.def Info: images/Ch2/Design_problem_multi_load.png  used on inpu
-t line 1174.
+t line 1175.
 (pdftex.def)             Requested size: 177.05879pt x 110.97716pt.
 
 Underfull \vbox (badness 2073) has occurred while \output is active []
@@ -4362,7 +4362,7 @@ Underfull \vbox (badness 2073) has occurred while \output is active []
  [131
 
  <./images/Ch2/Design_problem_multi_load.png>]
-Overfull \hbox (41.91544pt too wide) in paragraph at lines 1204--1227
+Overfull \hbox (41.91544pt too wide) in paragraph at lines 1205--1228
  [][] 
  []
 
@@ -4370,34 +4370,34 @@ Overfull \hbox (41.91544pt too wide) in paragraph at lines 1204--1227
 File: images/Ch2/convergence_300_mlcs.png Graphic file (type png)
 <use images/Ch2/convergence_300_mlcs.png>
 Package pdftex.def Info: images/Ch2/convergence_300_mlcs.png  used on input lin
-e 1247.
+e 1249.
 (pdftex.def)             Requested size: 442.65375pt x 248.99211pt.
 <images/Ch2/MLCS_solution.png, id=3623, 319.79475pt x 304.13625pt>
 File: images/Ch2/MLCS_solution.png Graphic file (type png)
 <use images/Ch2/MLCS_solution.png>
-Package pdftex.def Info: images/Ch2/MLCS_solution.png  used on input line 1253.
+Package pdftex.def Info: images/Ch2/MLCS_solution.png  used on input line 1255.
 
 (pdftex.def)             Requested size: 442.65375pt x 420.99394pt.
 <images/Ch2/Density_plot_000.png, id=3624, 578.16pt x 361.35pt>
 File: images/Ch2/Density_plot_000.png Graphic file (type png)
 <use images/Ch2/Density_plot_000.png>
 Package pdftex.def Info: images/Ch2/Density_plot_000.png  used on input line 12
-59.
+61.
 (pdftex.def)             Requested size: 442.65375pt x 276.65791pt.
 <images/Ch2/Displacement_000_LC001.png, id=3625, 578.16pt x 361.35pt>
 File: images/Ch2/Displacement_000_LC001.png Graphic file (type png)
 <use images/Ch2/Displacement_000_LC001.png>
 Package pdftex.def Info: images/Ch2/Displacement_000_LC001.png  used on input l
-ine 1267.
+ine 1269.
 (pdftex.def)             Requested size: 221.32687pt x 138.32895pt.
 <images/Ch2/VMstress_000_LC001.png, id=3626, 578.16pt x 361.35pt>
 File: images/Ch2/VMstress_000_LC001.png Graphic file (type png)
 <use images/Ch2/VMstress_000_LC001.png>
 Package pdftex.def Info: images/Ch2/VMstress_000_LC001.png  used on input line 
-1270.
+1272.
 (pdftex.def)             Requested size: 221.32687pt x 138.32895pt.
 
-Overfull \hbox (7.29999pt too wide) in paragraph at lines 1267--1271
+Overfull \hbox (7.29999pt too wide) in paragraph at lines 1269--1273
  [][][][] 
  []
 
@@ -4405,16 +4405,16 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 1267--1271
 File: images/Ch2/Displacement_000_LC003.png Graphic file (type png)
 <use images/Ch2/Displacement_000_LC003.png>
 Package pdftex.def Info: images/Ch2/Displacement_000_LC003.png  used on input l
-ine 1274.
+ine 1276.
 (pdftex.def)             Requested size: 221.32687pt x 138.32895pt.
 <images/Ch2/VMstress_000_LC003.png, id=3628, 578.16pt x 361.35pt>
 File: images/Ch2/VMstress_000_LC003.png Graphic file (type png)
 <use images/Ch2/VMstress_000_LC003.png>
 Package pdftex.def Info: images/Ch2/VMstress_000_LC003.png  used on input line 
-1276.
+1278.
 (pdftex.def)             Requested size: 221.32687pt x 138.32895pt.
 
-Overfull \hbox (3.65pt too wide) in paragraph at lines 1274--1277
+Overfull \hbox (3.65pt too wide) in paragraph at lines 1276--1279
  [][][][] 
  []
 
@@ -4422,16 +4422,16 @@ Overfull \hbox (3.65pt too wide) in paragraph at lines 1274--1277
 File: images/Ch2/Displacement_000_LC002.png Graphic file (type png)
 <use images/Ch2/Displacement_000_LC002.png>
 Package pdftex.def Info: images/Ch2/Displacement_000_LC002.png  used on input l
-ine 1280.
+ine 1282.
 (pdftex.def)             Requested size: 221.32687pt x 138.32895pt.
 <images/Ch2/VMstress_000_LC002.png, id=3630, 578.16pt x 361.35pt>
 File: images/Ch2/VMstress_000_LC002.png Graphic file (type png)
 <use images/Ch2/VMstress_000_LC002.png>
 Package pdftex.def Info: images/Ch2/VMstress_000_LC002.png  used on input line 
-1283.
+1285.
 (pdftex.def)             Requested size: 221.32687pt x 138.32895pt.
 
-Overfull \hbox (7.29999pt too wide) in paragraph at lines 1280--1284
+Overfull \hbox (7.29999pt too wide) in paragraph at lines 1282--1286
  [][][][] 
  []
 
@@ -5777,16 +5777,16 @@ ine 1605.
 File: images/Ch3/pylon_Displacement_900_LC001.png Graphic file (type png)
 <use images/Ch3/pylon_Displacement_900_LC001.png>
 Package pdftex.def Info: images/Ch3/pylon_Displacement_900_LC001.png  used on i
-nput line 1626.
+nput line 1627.
 (pdftex.def)             Requested size: 221.32687pt x 138.32895pt.
 <images/Ch3/pylon_VMstress_900_LC001.png, id=4874, 578.16pt x 361.35pt>
 File: images/Ch3/pylon_VMstress_900_LC001.png Graphic file (type png)
 <use images/Ch3/pylon_VMstress_900_LC001.png>
 Package pdftex.def Info: images/Ch3/pylon_VMstress_900_LC001.png  used on input
- line 1629.
+ line 1630.
 (pdftex.def)             Requested size: 221.32687pt x 138.32895pt.
 
-Overfull \hbox (7.29999pt too wide) in paragraph at lines 1626--1630
+Overfull \hbox (7.29999pt too wide) in paragraph at lines 1627--1631
  [][][][] 
  []
 
@@ -5794,16 +5794,16 @@ Overfull \hbox (7.29999pt too wide) in paragraph at lines 1626--1630
 File: images/Ch3/pylon_Displacement_900_LC003.png Graphic file (type png)
 <use images/Ch3/pylon_Displacement_900_LC003.png>
 Package pdftex.def Info: images/Ch3/pylon_Displacement_900_LC003.png  used on i
-nput line 1633.
+nput line 1634.
 (pdftex.def)             Requested size: 221.32687pt x 138.32895pt.
 <images/Ch3/pylon_VMstress_900_LC003.png, id=4876, 578.16pt x 361.35pt>
 File: images/Ch3/pylon_VMstress_900_LC003.png Graphic file (type png)
 <use images/Ch3/pylon_VMstress_900_LC003.png>
 Package pdftex.def Info: images/Ch3/pylon_VMstress_900_LC003.png  used on input
- line 1635.
+ line 1636.
 (pdftex.def)             Requested size: 221.32687pt x 138.32895pt.
 
-Overfull \hbox (3.65pt too wide) in paragraph at lines 1633--1636
+Overfull \hbox (3.65pt too wide) in paragraph at lines 1634--1637
  [][][][] 
  []
 
@@ -5811,15 +5811,15 @@ Overfull \hbox (3.65pt too wide) in paragraph at lines 1633--1636
 File: images/Ch3/pylon_Displacement_900_LC002.png Graphic file (type png)
 <use images/Ch3/pylon_Displacement_900_LC002.png>
 Package pdftex.def Info: images/Ch3/pylon_Displacement_900_LC002.png  used on i
-nput line 1639.
+nput line 1640.
 (pdftex.def)             Requested size: 221.32687pt x 138.32895pt.
 File: images/Ch3/pylon_VMstress_900_LC003.png Graphic file (type png)
 <use images/Ch3/pylon_VMstress_900_LC003.png>
 Package pdftex.def Info: images/Ch3/pylon_VMstress_900_LC003.png  used on input
- line 1642.
+ line 1643.
 (pdftex.def)             Requested size: 221.32687pt x 138.32895pt.
 
-Overfull \hbox (7.29999pt too wide) in paragraph at lines 1639--1643
+Overfull \hbox (7.29999pt too wide) in paragraph at lines 1640--1644
  [][][][] 
  []
 
@@ -5829,7 +5829,7 @@ _143.png (PNG copy)>] [211 <./images/Ch3/pylon_Displacement_900_LC001.png (PNG
 copy)> <./images/Ch3/pylon_VMstress_900_LC001.png (PNG copy)> <./images/Ch3/pyl
 on_Displacement_900_LC003.png (PNG copy)> <./images/Ch3/pylon_VMstress_900_LC00
 3.png (PNG copy)> <./images/Ch3/pylon_Displacement_900_LC002.png (PNG copy)>]
-Overfull \hbox (3.52695pt too wide) in paragraph at lines 1651--1652
+Overfull \hbox (3.52695pt too wide) in paragraph at lines 1652--1653
 []\T1/lmr/m/n/10.95 Topology op-ti-miza-tion us-ing Mov-ing Mor-phable Com-po-n
 ents with er-satz ma-te-rial model. 
  []
@@ -7056,7 +7056,7 @@ Package rerunfilecheck Info: File `phdthesis.out' has not changed.
 Here is how much of TeX's memory you used:
  53376 strings out of 492895
  1193037 string characters out of 3123735
- 1485034 words of memory out of 3000000
+ 1486030 words of memory out of 3000000
  54159 multiletter control sequences out of 15000+200000
  652553 words of font info for 97 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -7094,7 +7094,7 @@ sy6.pfb><C:/Users/simon/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm
 /lm/lmsy9.pfb><C:/Users/simon/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/symbols/msbm10.pfb><C:/Users/simon/AppData/Local/Programs/MiKTeX 2
 .9/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on phdthesis.pdf (291 pages, 18763432 bytes).
+Output written on phdthesis.pdf (291 pages, 18763972 bytes).
 PDF statistics:
  6138 PDF objects out of 6186 (max. 8388607)
  1619 named destinations out of 1728 (max. 500000)
