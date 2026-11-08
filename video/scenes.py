@@ -6,7 +6,7 @@ and stress criteria" -- Simone Coniglio.
 Built with Manim Community (the community edition of 3Blue1Brown's library).
 
 Render everything with:   ./render.sh          (see README.md)
-Optimization histories: topopt_data.py (SIMP) and run_ggp_repo.py (GGP-Python, thesis settings).
+Optimization histories: topopt_data.py (SIMP) and run_ggp_repo.py (GGP framework, thesis settings).
 """
 from manim import *
 import numpy as np
@@ -530,8 +530,8 @@ class S6_GGP(Scene):
         self.wait(3)
         clear(self)
 
-        # live run: official GGP-Python code, thesis settings (Ch.3, Fig. 26e: AMNA, N_GP=4, R=1/2)
-        d = np.load(os.path.join(DATA, "ggp_repo_MNA.npz"))
+        # live run: generalized_geometry_projection framework, thesis settings (Ch.3, Fig. 25: AGP, N_GP=4, R=1/2)
+        d = np.load(os.path.join(DATA, "ggp_repo_GP.npz"))
         dens, comps, comp, vol = d["dens"], d["comps"], d["comp"], d["vol"]
         N = len(dens) - 1
         W = 6.4
@@ -581,14 +581,14 @@ class S6_GGP(Scene):
         counter = always_redraw(lambda: Text(
             f"iteration {int(it.get_value()):3d}   C = {comp[int(it.get_value())]:.4g}   V = {100 * vol[int(it.get_value())]:.1f}%",
             font_size=22).next_to(frame, UP).align_to(frame, LEFT))
-        hdr = Text("AMNA · 18 round-ended bars · 108 design variables", font_size=28).to_edge(UP)
+        hdr = Text("AGP · 18 round-ended bars · 108 design variables", font_size=28).to_edge(UP)
         self.play(Create(ax), FadeIn(axl), FadeIn(counter), Write(hdr))
         self.add(graph)
-        cap = caption("GGP-Python code, thesis settings (Ch. 3): bars move, rotate, resize and fade out.")
+        cap = caption("GGP framework, thesis settings (Ch. 3): bars move, rotate, resize and fade out.")
         self.add(cap)
         self.play(it.animate.set_value(N), run_time=14, rate_func=lambda t: t ** 1.3)
         self.remove(cap)
-        res = Text(f"C = {comp[-1]:.2f}  (thesis: 84.16)   ·   V = {100 * vol[-1]:.1f}%  (thesis: 40.00%)",
+        res = Text(f"C = {comp[-1]:.2f}  (thesis: 74.94)   ·   V = {100 * vol[-1]:.1f}%  (thesis: 40.00%)",
                    font_size=26, color=ACCENT).to_edge(DOWN, buff=0.4)
         self.play(FadeIn(res))
         self.wait(3.5)
