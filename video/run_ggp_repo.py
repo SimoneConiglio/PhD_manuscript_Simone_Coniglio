@@ -19,6 +19,15 @@ sys.path.insert(0, repo)
 os.chdir(repo)
 
 from dataclasses import replace
+
+# The preset documents that the MMA subproblem must be solved with up to 2000 inner
+# iterations (the GGP-Matlab reference solves it fully; under-solving breaks the
+# symmetry of the solution). gemseo-mma 4.0.0 hard-codes a cap of 200 in subsolv, so we
+# raise it at run time (in memory only) to follow the preset's stated settings.
+import gemseo_mma.opt.core.mma as _mma
+_src = open(_mma.__file__).read()
+assert _src.count("ittt < 200") == 1
+exec(compile(_src.replace("ittt < 200", "ittt < 2000"), _mma.__file__, "exec"), _mma.__dict__)
 from ggp.problem.loader import load_problem  # noqa: E402
 import ggp.optimization.pipeline as pl  # noqa: E402
 
