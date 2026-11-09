@@ -127,7 +127,7 @@ class S01Hook(Narrated):
                   axis_config={"color": GREY_B, "include_tip": False, "font_size": 22},
                   x_axis_config={"numbers_to_include": [3.6, 4.0, 4.4, 4.8], "decimal_number_config": {"num_decimal_places": 1}},
                   y_axis_config={"numbers_to_include": [0.16, 0.17, 0.18], "decimal_number_config": {"num_decimal_places": 2}}
-                  ).shift(0.9 * DOWN)
+                  ).shift(0.55 * DOWN)
         xl = text("volume of material (%)", 22, GREY_A).next_to(ax.x_axis, DOWN, buff=0.45)
         yl = text("extra fuel in manoeuvres (%)", 22, GREY_A).rotate(PI / 2).next_to(ax.y_axis, LEFT, buff=0.55)
         pd = Dot(ax.c2p(vd, td), color=BAD, radius=0.1)
@@ -136,7 +136,7 @@ class S01Hook(Narrated):
         self.play(Create(ax), FadeIn(xl), FadeIn(yl))
         self.play(FadeIn(pd, scale=2), FadeIn(pa, scale=2))
         self.play(Create(DashedLine(pd.get_center(), pa.get_center(), color=GREY_B)))
-        q = text("Where should it go?  And how would you find out?", 34, ACCENT).to_edge(DOWN, buff=0.3)
+        q = text("Where should it go?  And how would you find out?", 34, ACCENT).to_edge(DOWN, buff=0.15)
         self.narrate("So where should it go? And how would you even find out? That's what this thesis builds.")
         self.play(Write(q), run_time=2)
         self.clear_all()
@@ -151,7 +151,7 @@ class S02Clearance(Narrated):
 
         def casing():
             s = t.get_value()
-            return ParametricFunction(lambda a: c + np.array([(R + 0.10 * s) * np.cos(a), (R - 0.10 * s) * np.sin(a) - 0.22 * s, 0]),
+            return ParametricFunction(lambda a: c + np.array([(R + 0.08 * s) * np.cos(a), (R - 0.04 * s) * np.sin(a) - 0.30 * s, 0]),
                                       t_range=[0, TAU], color=GREY_A, stroke_width=7)
 
         cas = always_redraw(casing)
@@ -176,14 +176,13 @@ class S02Clearance(Narrated):
                      "amounts, so the gap opens here and closes there.")
         self.play(GrowArrow(load), FadeIn(ll))
         self.play(t.animate.set_value(1), rotor.animate.shift(0.07 * DOWN), run_time=2.5)
-        top = Dot(c + UP * (R - 0.32), color=ACCENT)
-        bot = Dot(c + DOWN * (R + 0.05), color=BAD, radius=0.12)
-        lt = text("opens: air leaks", 26, ACCENT).move_to(1.6 * RIGHT + 2.2 * UP)
-        lb = text("closes: blades rub", 26, BAD).move_to(1.6 * RIGHT + 2.6 * DOWN)
+        top = Dot(c + UP * (r - 0.07), color=BAD, radius=0.12)
+        bot = Dot(c + DOWN * (R + 0.15), color=ACCENT)
+        lt = text("closes: blades rub", 26, BAD).move_to(1.6 * RIGHT + 2.2 * UP)
+        lb = text("opens: air leaks", 26, ACCENT).move_to(1.6 * RIGHT + 2.6 * DOWN)
         self.narrate("Where it closes, the blades rub and wear the casing; where it opens, air leaks past the blade tips.")
-        self.play(FadeIn(bot, scale=2), Flash(bot, color=BAD), FadeIn(lb))
-        self.play(FadeIn(top), FadeIn(lt), Create(Arrow(lt.get_left(), top.get_center(), buff=0.15, color=ACCENT)),
-                  Create(Arrow(lb.get_left(), bot.get_center(), buff=0.15, color=BAD)))
+        self.play(FadeIn(top, scale=2), Flash(top, color=BAD), FadeIn(lt), Create(Arrow(lt.get_left(), top.get_center(), buff=0.15, color=BAD)))
+        self.play(FadeIn(bot), FadeIn(lb), Create(Arrow(lb.get_left(), bot.get_center(), buff=0.15, color=ACCENT)))
         res = VGroup(text("the stage works less well", 30), text("more fuel for the same thrust", 32, ACCENT)).arrange(DOWN, aligned_edge=LEFT).move_to(3.2 * RIGHT + 0.2 * DOWN)
         self.narrate("Either way, the stage works less well, and the engine burns more fuel for the same thrust.")
         self.play(FadeIn(res[0], shift=RIGHT * 0.2))
@@ -258,7 +257,7 @@ class S03Number(Narrated):
                      "worst manoeuvre that matters: with several load cases, we keep the largest.")
         self.play(Create(bx), FadeIn(names), LaggedStart(*[GrowFromEdge(cl, DOWN) for cl in cols], lag_ratio=0.3))
         self.play(cols[1].animate.set_color(ACCENT), Indicate(cols[1], color=ACCENT))
-        sm = text("every step: linear or smooth in the displacements", 26, GOOD).to_edge(DOWN, buff=0.3)
+        sm = text("every step: linear or smooth in the displacements", 26, GOOD).next_to(note, DOWN, buff=0.35)
         self.narrate("Notice that every step is linear or smooth in the displacements. That will matter.")
         self.play(FadeIn(sm, shift=UP * 0.2))
         self.clear_all()
@@ -346,7 +345,8 @@ class S05Usual(Narrated):
         self.play(Create(region), FadeIn(ants), FadeIn(refs[2]))
         for _ in range(3):
             self.play(*[a.animate.move_to(region.get_center() + np.array([rng.uniform(-1.2, 1.2), rng.uniform(-0.7, 0.7), 0])) for a in ants], run_time=0.6)
-        gap = text("The gap: topology optimization, industrial scale, fuel burn and stress in the loop", 28, ACCENT).to_edge(DOWN, buff=0.3)
+        gap = text("The gap: topology optimization, industrial scale, fuel burn and stress in the loop", 28, ACCENT)
+        gap.scale_to_fit_width(min(gap.width, 12.8)).to_edge(DOWN, buff=0.3)
         self.narrate("The gap: topology optimization, at industrial scale, with fuel consumption and stress inside the loop.")
         self.play(FadeOut(refs), Write(gap), run_time=2)
         self.clear_all()
@@ -535,7 +535,7 @@ class S09Tying(Narrated):
         meth = VGroup(text("Mortar", 30), text("Internodes", 30), text("Radial basis functions (RL-RBF)", 30),
                       text("New: weighted average continuity approach", 30, ACCENT),
                       text("+ a correction restoring the balance of moments", 28, GOOD)).arrange(DOWN, aligned_edge=LEFT, buff=0.3)
-        meth.move_to(2.9 * RIGHT + 0.3 * DOWN)
+        meth.scale_to_fit_width(min(meth.width, 6.6)).to_edge(RIGHT, buff=0.4).shift(0.3 * DOWN)
         ok = text("tied: forces and moments balanced", 24, GOOD).move_to([x0, -2.4, 0])
         self.narrate("The thesis implements and benchmarks four ways of tying them: Mortar, Internodes, radial basis "
                      "functions, and a new one, the weighted average continuity approach, together with a correction "
@@ -611,7 +611,7 @@ def two_bars():
     plate = Rectangle(width=4.8, height=0.25, fill_color=GREY_C, fill_opacity=1, stroke_width=0).move_to(3.6 * LEFT + 0.6 * DOWN)
     b1 = Line(5.5 * LEFT + 1.6 * UP, 5.5 * LEFT + 0.48 * DOWN, color=BAD, stroke_width=10)
     b2 = Line(2.7 * LEFT + 2.6 * UP, 2.7 * LEFT + 0.48 * DOWN, color=SOLVED, stroke_width=10)
-    l1 = text("short, weak", 22, BAD).next_to(b1, LEFT, buff=0.15)
+    l1 = text("short, weak", 22, BAD).next_to(ceil1, UP, buff=0.15)
     l2 = text("long, strong", 22, SOLVED).next_to(b2, RIGHT, buff=0.15)
     load = Arrow(plate.get_bottom(), plate.get_bottom() + 1.1 * DOWN, color=WHITE, buff=0)
     return VGroup(ceil1, ceil2, plate, b1, b2, l1, l2, load)
@@ -685,22 +685,24 @@ class S11Relax(Narrated):
         t1 = VMobject(color=BAD, stroke_width=3).set_points_as_corners([ax.c2p(*p) for p in p1])
         t2 = VMobject(color=GOOD, stroke_width=4).set_points_as_corners([ax.c2p(*p) for p in p2])
         w2 = Dot(ax.c2p(*p2[0]), color=GOOD, radius=0.09)
-        res = text(f"same start: volume {p1[-1][0] + 2 * p1[-1][1]:.2f}  vs  {p2[-1][0] + 2 * p2[-1][1]:.2f}", 24, GOOD).next_to(ax, DOWN, buff=0.35)
+        res = text(f"same start: volume {p1[-1][0] + 2 * p1[-1][1]:.2f} (red)  vs  {p2[-1][0] + 2 * p2[-1][1]:.2f} (green)", 24, GOOD).move_to(3.6 * LEFT + 0.3 * DOWN)
         self.narrate("That small slack gives the spike a width: a corridor the optimizer can walk down, to the lighter design.")
         self.play(FadeIn(reg2), run_time=1.5)
-        self.play(Create(t1), run_time=1)
+        self.play(Create(t1), FadeOut(one), run_time=1)
         self.play(Create(t2), MoveAlongPath(w2, t2.copy()), run_time=3)
         self.play(FadeIn(res))
         p3 = run_slsqp([0.5, 1.5], relaxed=True)
         t3 = VMobject(color=ACCENT, stroke_width=3).set_points_as_corners([ax.c2p(*p) for p in p3])
-        caveat = text(f"another start: volume {p3[-1][0] + 2 * p3[-1][1]:.2f}. Reachable, not guaranteed.", 22, ACCENT).next_to(res, DOWN, buff=0.15)
+        caveat = text(f"another start (orange): volume {p3[-1][0] + 2 * p3[-1][1]:.2f}", 22, ACCENT).next_to(res, DOWN, buff=0.2)
+        caveat2 = text("reachable, not guaranteed", 24, ACCENT).next_to(caveat, DOWN, buff=0.15)
         self.narrate("It is a local method, though: started elsewhere, it can still settle for the heavy design. The "
                      "light optimum becomes reachable, not guaranteed.")
         self.play(Create(t3), FadeIn(caveat), run_time=2)
-        uar = text("unified aggregation and relaxation", 30, ACCENT).move_to(3.6 * LEFT + 0.5 * UP)
+        self.play(FadeIn(caveat2))
+        uar = text("unified aggregation and relaxation", 30, ACCENT).move_to(3.6 * LEFT + 0.6 * UP)
         self.narrate("One constraint instead of four million, and singular optima become reachable. The thesis calls "
                      "this unified aggregation and relaxation.")
-        self.play(FadeOut(one), Write(uar))
+        self.play(Write(uar))
         self.clear_all()
 
 
@@ -780,9 +782,9 @@ class S13Ggp(Narrated):
         self.add(fills, outline)
         self.play(Create(win), FadeIn(gps), Write(f))
         self.play(th.animate.set_value(-0.5), cx.animate.set_value(2.0), run_time=2.5)
-        meth = VGroup(text("Moving Morphable Components", 28), text("Geometry Projection", 28), text("Moving Node Approach", 28)).arrange(DOWN, aligned_edge=LEFT).move_to(2.2 * RIGHT + 1.2 * DOWN)
+        meth = VGroup(text("Moving Morphable Components", 28), text("Geometry Projection", 28), text("Moving Node Approach", 28)).arrange(DOWN, aligned_edge=LEFT).move_to(0.6 * RIGHT + 1.2 * DOWN)
         br = Brace(meth, RIGHT, color=ACCENT)
-        gg = text("special cases of\nGGP", 28, ACCENT).next_to(br, RIGHT)
+        gg = text("special cases of\nGGP", 26, ACCENT).next_to(br, RIGHT)
         self.narrate("Three known methods, moving morphable components, geometry projection and the moving node "
                      "approach, look different. The thesis shows they are the same procedure with different choices: "
                      "the generalized geometry projection.")
@@ -887,9 +889,12 @@ class S15Cantilever(Narrated):
         res = text(f"compliance {comp[-1]:.2f}    thesis: 74.94", 28, GOOD).to_edge(DOWN, buff=1.0)
         self.narrate("Compliance seventy-four point two; the thesis reports seventy-four point nine.")
         self.play(FadeIn(res))
+        self.hush()
+        self.remove(bs)
         self.clear_all()
-        hd2 = heading("Same benchmark, three methods (thesis, 4 points per window)")
-        vals = (("Moving Morphable Components", 84.50, 153), ("Geometry Projection", 74.94, 122), ("Moving Node Approach", 84.16, 150))
+        hd2 = heading("Same benchmark, three methods")
+        sub = text("thesis results, 4 sample points per window", 22, GREY_B).next_to(hd2, DOWN, buff=0.1)
+        vals = (("Moving Morphable\nComponents", 84.50, 153), ("Geometry\nProjection", 74.94, 122), ("Moving Node\nApproach", 84.16, 150))
         bx = Axes(x_range=[0, 3, 1], y_range=[0, 100, 20], x_length=7, y_length=4.2,
                   axis_config={"color": GREY_B, "include_tip": False}, y_axis_config={"include_numbers": True, "font_size": 20}).shift(0.4 * DOWN)
         cols = VGroup(*[Rectangle(width=1.4, height=bx.c2p(0, v)[1] - bx.c2p(0, 0)[1], fill_color=GOOD if v < 80 else SOLVED,
@@ -899,7 +904,7 @@ class S15Cantilever(Narrated):
         yl = text("compliance (lower is better)", 22, GREY_A).next_to(bx, LEFT).rotate(PI / 2).shift(0.4 * RIGHT)
         self.narrate("On this benchmark, geometry projection did best; moving morphable components and the moving node "
                      "approach both stopped near eighty-four.")
-        self.play(Write(hd2), Create(bx), FadeIn(names), FadeIn(yl))
+        self.play(Write(hd2), FadeIn(sub), Create(bx), FadeIn(names), FadeIn(yl))
         self.play(LaggedStart(*[GrowFromEdge(c, DOWN) for c in cols], lag_ratio=0.3), FadeIn(nums))
         self.clear_all()
 
@@ -938,7 +943,7 @@ class S17Recap(Narrated):
                   axis_config={"color": GREY_B, "include_tip": False, "font_size": 22},
                   x_axis_config={"numbers_to_include": [3.6, 4.0, 4.4, 4.8], "decimal_number_config": {"num_decimal_places": 1}},
                   y_axis_config={"numbers_to_include": [0.16, 0.17, 0.18], "decimal_number_config": {"num_decimal_places": 2}}
-                  ).move_to(3.2 * LEFT + 0.6 * DOWN)
+                  ).move_to(2.8 * LEFT + 0.6 * DOWN)
         xl = text("volume (%)", 22, GREY_A).next_to(ax.x_axis, DOWN, buff=0.45)
         yl = text("extra fuel (%)", 22, GREY_A).rotate(PI / 2).next_to(ax.y_axis, LEFT, buff=0.55)
         order = ["D", "C", "B", "A"]
@@ -951,8 +956,8 @@ class S17Recap(Narrated):
         self.play(Write(hd), Create(ax), FadeIn(xl), FadeIn(yl))
         self.play(LaggedStart(*[FadeIn(p, scale=2) for p in pts], lag_ratio=0.4), FadeIn(labs), Create(line), run_time=2.5)
         eng = card("engine_labels", height=3.3).move_to(3.6 * RIGHT + 0.8 * UP)
-        spot = Circle(0.35, color=ACCENT, stroke_width=6).move_to(eng.get_corner(UL) + np.array([0.446 * eng.width, -0.41 * eng.height, 0]))
-        key = text("core casing  ↔  OGV base: stiffened as the target tightens", 22, ACCENT).next_to(eng, DOWN)
+        spot = Circle(0.35, color=ACCENT, stroke_width=6).move_to(eng.get_corner(UL) + np.array([0.516 * eng.width, -0.41 * eng.height, 0]))
+        key = VGroup(text("core casing  ↔  outlet guide vane base", 22, ACCENT), text("stiffened as the target tightens", 22, ACCENT)).arrange(DOWN).next_to(eng, DOWN)
         self.narrate("As the target tightens, the front stiffens, in particular the link between the core casing and the "
                      "base of the outlet guide vanes: a key connection for controlling how the engine deforms.")
         self.play(FadeIn(eng))
