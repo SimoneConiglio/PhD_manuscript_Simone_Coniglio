@@ -31,7 +31,13 @@ _text, _MathTex = text, MathTex
 
 
 def text(s, *a, **k):
-    return _text(tr(s), *a, **k)
+    m = _text(tr(s), *a, **k)
+    return m.scale_to_fit_width(13.4) if m.width > 13.4 else m
+
+
+def fit(m, width):
+    """Shrink a label that is wider than its slot (French runs longer); never enlarge."""
+    return m.scale_to_fit_width(width) if m.width > width else m
 
 
 def MathTex(*parts, **k):
@@ -212,7 +218,8 @@ class S02Clearance(Narrated):
         self.narrate("Where it closes, the blades rub and wear the casing; where it opens, air leaks past the blade tips.")
         self.play(FadeIn(top, scale=2), Flash(top, color=BAD), FadeIn(lt), Create(Arrow(lt.get_left(), top.get_center(), buff=0.15, color=BAD)))
         self.play(FadeIn(bot), FadeIn(lb), Create(Arrow(lb.get_left(), bot.get_center(), buff=0.15, color=ACCENT)))
-        res = VGroup(text("the stage works less well", 30), text("more fuel for the same thrust", 32, ACCENT)).arrange(DOWN, aligned_edge=LEFT).move_to(3.2 * RIGHT + 0.2 * DOWN)
+        res = VGroup(text("the stage works less well", 30), text("more fuel for the same thrust", 32, ACCENT)).arrange(DOWN, aligned_edge=LEFT)
+        fit(res, 6.2).move_to(3.6 * RIGHT + 0.2 * DOWN)
         self.narrate("Either way, the stage works less well, and the engine burns more fuel for the same thrust.")
         self.play(FadeIn(res[0], shift=RIGHT * 0.2))
         self.play(FadeIn(res[1], shift=RIGHT * 0.2))
@@ -286,7 +293,7 @@ class S03Number(Narrated):
                      "worst manoeuvre that matters: with several load cases, we keep the largest.")
         self.play(Create(bx), FadeIn(names), LaggedStart(*[GrowFromEdge(cl, DOWN) for cl in cols], lag_ratio=0.3))
         self.play(cols[1].animate.set_color(ACCENT), Indicate(cols[1], color=ACCENT))
-        sm = text("every step: linear or smooth in the displacements", 26, GOOD).next_to(note, DOWN, buff=0.35)
+        sm = fit(text("every step: linear or smooth in the displacements", 26, GOOD), 6.0).next_to(note, DOWN, buff=0.35)
         self.narrate("Notice that every step is linear or smooth in the displacements. That will matter.")
         self.play(FadeIn(sm, shift=UP * 0.2))
         self.clear_all()
@@ -350,7 +357,7 @@ class S05Usual(Narrated):
         self.play(Create(outline), Create(panels), FadeIn(refs[0]))
         self.play(panels[0].animate.set_stroke(width=12), panels[2].animate.set_stroke(width=2), run_time=1.2)
         self.play(panels[1].animate.set_stroke(width=9), panels[0].animate.set_stroke(width=6), run_time=1.2)
-        no = text("can't invent a new load path", 22, BAD).move_to(b0.get_bottom() + 0.5 * UP)
+        no = fit(text("can't invent a new load path", 22, BAD), 3.8).move_to(b0.get_bottom() + 0.5 * UP)
         self.narrate("But sizing can't invent a new load path.")
         self.play(FadeIn(no))
         # (b) compliance topology optimization: replay the SIMP run, small
@@ -361,7 +368,7 @@ class S05Usual(Narrated):
                      "but to make them stiff, not to protect the engine's clearances.")
         self.add(img)
         self.play(it.animate.set_value(len(d) - 1), FadeIn(refs[1]), run_time=3)
-        no2 = text("stiff pylon  ≠  engine-friendly", 22, BAD).move_to(boxes[1].get_bottom() + 0.5 * UP)
+        no2 = fit(text("stiff pylon  ≠  engine-friendly", 22, BAD), 3.8).move_to(boxes[1].get_bottom() + 0.5 * UP)
         self.narrate("And a stiffer pylon is not automatically a better engine neighbour: what matters is how the engine "
                      "deforms, not how much the pylon does.")
         self.play(FadeIn(no2))
@@ -714,7 +721,8 @@ class S11Relax(Narrated):
         t1 = VMobject(color=BAD, stroke_width=3).set_points_as_corners([ax.c2p(*p) for p in p1])
         t2 = VMobject(color=GOOD, stroke_width=4).set_points_as_corners([ax.c2p(*p) for p in p2])
         w2 = Dot(ax.c2p(*p2[0]), color=GOOD, radius=0.09)
-        res = text(f"same start: volume {p1[-1][0] + 2 * p1[-1][1]:.2f} (red)  vs  {p2[-1][0] + 2 * p2[-1][1]:.2f} (green)", 24, GOOD).move_to(3.6 * LEFT + 0.3 * DOWN)
+        res = text(f"same start: volume {p1[-1][0] + 2 * p1[-1][1]:.2f} (red)  vs  {p2[-1][0] + 2 * p2[-1][1]:.2f} (green)", 24, GOOD)
+        fit(res, 6.4).move_to(3.6 * LEFT + 0.3 * DOWN)
         self.narrate("That small slack gives the spike a width: a corridor the optimizer can walk down, to the lighter design.")
         self.play(FadeIn(reg2), run_time=1.5)
         self.play(Create(t1), FadeOut(one), run_time=1)
@@ -722,7 +730,8 @@ class S11Relax(Narrated):
         self.play(FadeIn(res))
         p3 = run_slsqp([0.5, 1.5], relaxed=True)
         t3 = VMobject(color=ACCENT, stroke_width=3).set_points_as_corners([ax.c2p(*p) for p in p3])
-        caveat = text(f"another start (orange): volume {p3[-1][0] + 2 * p3[-1][1]:.2f}", 22, ACCENT).next_to(res, DOWN, buff=0.2)
+        caveat = text(f"another start (orange): volume {p3[-1][0] + 2 * p3[-1][1]:.2f}", 22, ACCENT)
+        fit(caveat, 6.4).next_to(res, DOWN, buff=0.2)
         caveat2 = text("reachable, not guaranteed", 24, ACCENT).next_to(caveat, DOWN, buff=0.15)
         self.narrate("It is a local method, though: started elsewhere, it can still settle for the heavy design. The "
                      "light optimum becomes reachable, not guaranteed.")
@@ -945,7 +954,7 @@ class S16Pylon(Narrated):
         a = card("simp_pylon", height=3.4).move_to(3.5 * LEFT + 0.9 * UP)
         b = card("mna_pylon", height=3.4).move_to(3.3 * RIGHT + 0.9 * UP)
         la = text("densities (SIMP)", 26, SOLVED).next_to(a, DOWN, buff=0.15)
-        lb = text("parts: pylon boxes + cylinder mounts (MNA)", 26, ACCENT).next_to(b, DOWN, buff=0.15)
+        lb = fit(text("parts: pylon boxes + cylinder mounts (MNA)", 26, ACCENT), 6.4).next_to(b, DOWN, buff=0.15)
         ta = VGroup(text("volume 4.97 %", 26), text("delta TSFC 0.159 %   (target 0.16)", 26), text("max stress 30.1 MPa", 26)).arrange(DOWN, aligned_edge=LEFT).next_to(la, DOWN)
         tb = VGroup(text("volume 9.79 %", 26), text("delta TSFC 0.170 %   (target 0.17)", 26), text("max stress 30.1 MPa", 26)).arrange(DOWN, aligned_edge=LEFT).next_to(lb, DOWN)
         self.narrate("On the pylon, the density method found a well-connected structure using five percent of the volume, "
