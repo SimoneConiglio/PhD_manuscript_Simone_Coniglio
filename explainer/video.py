@@ -23,6 +23,23 @@ sys.path.insert(0, str(HERE))
 import numpy as np
 from explainer import ACCENT, BAD, EXTRA_SPOKEN, GOOD, SOLVED, Narrated, text
 from manim import *  # noqa: F401,F403
+import explainer
+from i18n import FR, fmt_int, narr, tr, tr_tex
+
+# Language switch (VIDEO_LANG=fr-fr): on-screen text, LaTeX and narration go through i18n.
+_text, _MathTex = text, MathTex
+
+
+def text(s, *a, **k):
+    return _text(tr(s), *a, **k)
+
+
+def MathTex(*parts, **k):
+    return _MathTex(*[tr_tex(p) for p in parts], **k)
+
+
+_narrate = explainer.Narrated.narrate
+explainer.Narrated.narrate = lambda self, m: _narrate(self, narr(m))
 
 DATA = HERE / "data"
 ASSETS = HERE / "assets"
@@ -77,9 +94,21 @@ def heading(s, size=40):
     return text(s, size).to_edge(UP, buff=0.4)
 
 
-def number(v, decimals=0, size=40, color=WHITE):
-    return DecimalNumber(v, num_decimal_places=decimals, group_with_commas=True,
-                         font_size=size, color=color)
+def number(v, size=40, color=WHITE):
+    """An integer shown with the language's thousands separator; animate with count()."""
+    m = _text(fmt_int(v), size, color)
+    m.value, m.nsize, m.ncolor = v, size, color
+    return m
+
+
+def count(m, v, run_time=3):
+    v0 = m.value
+
+    def step(mob, a):
+        left = mob.get_left()
+        mob.become(_text(fmt_int(v0 + (v - v0) * a), mob.nsize, mob.ncolor)).move_to(left, aligned_edge=LEFT)
+
+    return UpdateFromAlphaFunc(m, step, run_time=run_time)
 
 
 PARETO = None
@@ -288,7 +317,7 @@ class S04Problem(Narrated):
         self.narrate("It is cut into four hundred eighty-six thousand brick elements: one and a half million unknowns, "
                      "almost four million points where stress must be checked.")
         self.play(FadeIn(rows))
-        self.play(*[ChangeDecimalToValue(r[1], v) for r, v in zip(rows, (486400, 1529847, 3891200))], run_time=3)
+        self.play(*[count(r[1], v) for r, v in zip(rows, (486400, 1529847, 3891200))])
         lc = card("load_cases", height=1.5).move_to(3.3 * RIGHT + 2.5 * DOWN)
         self.narrate("Three loads: thrust along the axis, a lateral load, a vertical load.")
         self.play(FadeIn(lc, shift=UP * 0.2))
@@ -718,7 +747,7 @@ class S12Adjoint(Narrated):
         fd = VGroup(text("nudge one by one: extra solves per iteration", 26), fd_n).arrange(RIGHT, buff=0.4).shift(0.5 * UP)
         self.narrate("Nudging them one by one would cost one finite-element solve each, per iteration.")
         self.play(FadeIn(fd))
-        self.play(ChangeDecimalToValue(fd_n, 243200), run_time=3)
+        self.play(count(fd_n, 243200))
         ad = VGroup(text("adjoint: extra solves per iteration", 26), MathTex(r"1\ \text{per response}", font_size=44, color=GOOD)).arrange(RIGHT, buff=0.4).shift(0.7 * DOWN)
         eq = MathTex(r"K\lambda=\frac{\partial O}{\partial U},\qquad \frac{dO}{dx_e}=\frac{\partial O}{\partial x_e}-\lambda^T\frac{\partial K}{\partial x_e}U",
                      font_size=38).shift(2.2 * DOWN)
