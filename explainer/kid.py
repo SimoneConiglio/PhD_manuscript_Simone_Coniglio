@@ -239,7 +239,7 @@ class K05JustRight(Narrated):
         check = VGroup(Star(5, outer_radius=0.5, inner_radius=0.22, fill_color=YELLOW_K, fill_opacity=1, stroke_color=INK).move_to([xs[2], 2.3, 0]))
         self.narrate(say("right"))
         self.play(FadeIn(truss, scale=0.5))
-        self.play(FadeIn(check, scale=2), Indicate(truss, scale_factor=1.1))
+        self.play(FadeIn(check, scale=2), truss.animate.scale(1.12), rate_func=there_and_back)
         self.clear_all()
 
 
